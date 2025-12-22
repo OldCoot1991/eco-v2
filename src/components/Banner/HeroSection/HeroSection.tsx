@@ -1,12 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-// import { useAppSelector } from "@/lib/hooks"; // Removed: Theme handled by CSS
-import Button from "@/components/ui/Button";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-// Import CSS Module
+import { FaArrowRight } from "react-icons/fa";
+
+// UI Components (CSS Modules)
+import { HeroBadge } from "../../ui/Banner/HeroBadge/HeroBadge";
+import { HeroTitle, HeroDescription } from "../../ui/Banner/HeroTypography/HeroTypography";
+import { HeroButton } from "../../ui/Banner/HeroButton/HeroButton";
+import { HeroBackground, HeroBottomFade } from "../../ui/Banner/HeroBackground/HeroBackground";
+import { SliderArrow } from "../../ui/SliderControls/SliderArrow/SliderArrow";
+import { SliderDot } from "../../ui/SliderControls/SliderDot/SliderDot";
+
 import styles from "./HeroSection.module.css";
 
+// Data
 const slides = [
     {
         id: 1,
@@ -19,8 +26,8 @@ const slides = [
         darkGradient: "linear-gradient(135deg, #0c0a09 0%, rgba(2, 44, 34, 0.2) 50%, #000000 100%)",
         accentColor: "#10b981",
         buttons: [
-            { text: "Оставить заявку", href: "/contact", variant: "primary" },
-            { text: "О компании", href: "/about", variant: "outline" }
+            { text: "Оставить заявку", href: "/contact", variant: "primary" as const },
+            { text: "О компании", href: "/about", variant: "outline" as const }
         ]
     },
     {
@@ -34,8 +41,8 @@ const slides = [
         darkGradient: "linear-gradient(135deg, #020617 0%, rgba(23, 37, 84, 0.2) 50%, #000000 100%)",
         accentColor: "#3b82f6",
         buttons: [
-            { text: "Узнать тарифы", href: "/services", variant: "primary" },
-            { text: "Тарифы", href: "/tariffs", variant: "outline" }
+            { text: "Узнать тарифы", href: "/services", variant: "primary" as const },
+            { text: "Тарифы", href: "/tariffs", variant: "outline" as const }
         ]
     },
     {
@@ -49,8 +56,8 @@ const slides = [
         darkGradient: "linear-gradient(135deg, #020617 0%, rgba(19, 78, 74, 0.2) 50%, #000000 100%)",
         accentColor: "#14b8a6",
         buttons: [
-            { text: "Подробнее", href: "/about", variant: "primary" },
-            { text: "Скачать приложение", href: "/app", variant: "outline" }
+            { text: "Подробнее", href: "/about", variant: "primary" as const },
+            { text: "Скачать приложение", href: "/app", variant: "outline" as const }
         ]
     }
 ];
@@ -59,7 +66,7 @@ export default function HeroSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
 
-    // Auto-advance slides
+    // Auto-advance
     useEffect(() => {
         const timer = setInterval(() => {
             handleNext();
@@ -71,7 +78,7 @@ export default function HeroSection() {
         if (isAnimating) return;
         setIsAnimating(true);
         setCurrentSlide((prev) => (prev + 1) % slides.length);
-        setTimeout(() => setIsAnimating(false), 500); // Faster lock
+        setTimeout(() => setIsAnimating(false), 500);
     };
 
     const handlePrev = () => {
@@ -89,23 +96,15 @@ export default function HeroSection() {
     };
 
     return (
-        <section className={styles.heroContainer}>
+        <section className={styles.heroContainer} aria-label="Hero Banner">
             {/* Background Layers */}
             {slides.map((slide, index) => (
-                <div
+                <HeroBackground
                     key={slide.id}
-                    className={`${styles.slideLayer} ${index === currentSlide ? styles.active : ''}`}
-                >
-                    <div
-                        className={styles.gradientOverlay}
-                        style={{
-                            '--slide-gradient-light': slide.gradient,
-                            '--slide-gradient-dark': slide.darkGradient
-                        } as React.CSSProperties}
-                    />
-                    {/* Subtle Pattern Overlay */}
-                    <div className={styles.noiseOverlay} />
-                </div>
+                    isActive={index === currentSlide}
+                    gradient={slide.gradient}
+                    darkGradient={slide.darkGradient}
+                />
             ))}
 
             {/* Content */}
@@ -114,76 +113,53 @@ export default function HeroSection() {
                     if (index !== currentSlide) return null;
                     return (
                         <div key={slide.id} className={styles.textContent}>
-                            {/* Badge */}
-                            <div className={styles.badge}>
-                                <span
-                                    className={styles.badgeDot}
-                                    style={{ backgroundColor: slide.accentColor }}
-                                />
-                                <span className={styles.badgeText}>
-                                    {slide.subtitle}
-                                </span>
-                            </div>
+                            <HeroBadge text={slide.subtitle} dotColor={slide.accentColor} />
 
-                            {/* Title */}
-                            <h1 className={styles.title}>
-                                {slide.title}
-                            </h1>
+                            <HeroTitle>{slide.title}</HeroTitle>
 
-                            {/* Description */}
-                            <p className={styles.description}>
-                                {slide.desc}
-                            </p>
+                            <HeroDescription>{slide.desc}</HeroDescription>
 
-                            {/* Buttons */}
                             <div className={styles.buttonGroup}>
-                                <Button href={slide.link} size="lg" className={styles.heroButton}>
-                                    {slide.cta}
-                                    <FaArrowRight className="ml-2" />
-                                </Button>
-                                <Button href="/about" variant="secondary" size="lg" className={styles.heroButton}>
-                                    О компании
-                                </Button>
+                                <HeroButton
+                                    href={slide.buttons[0].href}
+                                    variant={slide.buttons[0].variant}
+                                    icon={<FaArrowRight />}
+                                >
+                                    {slide.buttons[0].text}
+                                </HeroButton>
+                                <HeroButton
+                                    href={slide.buttons[1].href}
+                                    variant={slide.buttons[1].variant}
+                                >
+                                    {slide.buttons[1].text}
+                                </HeroButton>
                             </div>
                         </div>
                     );
                 })}
             </div>
 
-            {/* Navigation Controls (Side Arrows) */}
+            {/* Navigation Controls */}
             <div className={styles.sideArrows}>
-                <button
-                    onClick={handlePrev}
-                    className={styles.arrowBtn}
-                    aria-label="Previous Slide"
-                >
-                    <FaArrowLeft className={styles.arrowIcon} />
-                </button>
-                <button
-                    onClick={handleNext}
-                    className={styles.arrowBtn}
-                    aria-label="Next Slide"
-                >
-                    <FaArrowRight className={styles.arrowIcon} />
-                </button>
+                <SliderArrow direction="left" onClick={handlePrev} ariaLabel="Previous Slide" />
+                <SliderArrow direction="right" onClick={handleNext} ariaLabel="Next Slide" />
             </div>
 
-            {/* Pagination (Dots) */}
+            {/* Pagination */}
             <div className={styles.controls}>
                 <div className={styles.dots}>
                     {slides.map((_, index) => (
-                        <button
+                        <SliderDot
                             key={index}
                             onClick={() => handleDotClick(index)}
-                            className={`${styles.dot} ${index === currentSlide ? styles.active : ''}`}
-                            aria-label={`Go to slide ${index + 1}`}
+                            isActive={index === currentSlide}
+                            ariaLabel={`Go to slide ${index + 1}`}
                         />
                     ))}
                 </div>
             </div>
 
-            {/* Decorative Elements */}
-            <div className={styles.bottomFade} />
+            <HeroBottomFade />
         </section>
     );
 }

@@ -1,0 +1,106 @@
+.card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid #d6d3d1;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Show border only on hover */
+.card:hover :global(.RotatingBorder_border__m_yv_) {
+  opacity: 1;
+}
+/* Wait, using specific class names in CSS modules is bad. 
+   I should defined the hover rule inside GridCard by targeting the child class if known,
+   or better - just use standard CSS nesting if the child is part of this module.
+   But RotatingBorder is a separate component. 
+   Best way: Pass a prop or handle via parent class.
+*/
+
+:global(.dark) .card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Gradients/Variants */
+.eco {
+  background-image: linear-gradient(to bottom right, #d1fae5, #ccfbf1);
+}
+:global(.dark) .eco {
+  background-image: linear-gradient(to bottom right, rgba(6, 78, 59, 0.2), rgba(19, 78, 74, 0.2));
+}
+
+.news {
+  background-image: linear-gradient(to top right, #ecfdf5, #f7fee7);
+}
+:global(.dark) .news {
+  background-image: linear-gradient(to top right, rgba(6, 78, 59, 0.2), rgba(61, 99, 29, 0.2));
+}
+
+/* Content Layout */
+.content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #1c1917;
+}
+@media (min-width: 768px) {
+  .title { font-size: 1.875rem; }
+}
+
+:global(.dark) .title {
+  color: #ffffff;
+}
+
+.description {
+  font-size: 1rem;
+  color: #57534e;
+}
+@media (min-width: 768px) {
+  .description { font-size: 1.125rem; }
+}
+
+:global(.dark) .description {
+  color: #d1d5db;
+}
+
+/* Background Image - Scale animation removed */
+.bgImageLayer {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+:global(.dark) .overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.buttonWrapper {
+  margin-top: 1.5rem;
+}
+

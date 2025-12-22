@@ -1,0 +1,88 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none; /* For link variants */
+  min-width: 260px; /* From previous HeroButton style */
+}
+
+/* Sizes */
+.lg {
+  padding: 1.25rem 2.5rem; /* px-10 py-5 */
+  font-size: 1.25rem; /* text-xl */
+}
+
+/* Variants */
+.primary {
+  background: linear-gradient(90deg, #9BC329, #009445);
+  color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.primary:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  filter: brightness(1.05);
+}
+
+:global(.dark) .primary {
+  box-shadow: none;
+}
+
+.outline {
+  background-color: transparent;
+  color: #065f46; /* emerald-800 */
+  border: 2px solid #047857; /* emerald-700 */
+}
+
+.outline:hover {
+  background-color: #ecfdf5; /* emerald-50 */
+  color: #064e3b; /* emerald-900 */
+}
+
+:global(.dark) .outline {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+:global(.dark) .outline:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.secondary {
+  background-color: #e7e5e4; /* stone-200 */
+  color: #1c1917; /* stone-900 */
+  border: 1px solid #d6d3d1; /* stone-300 */
+}
+
+.secondary:hover {
+  background-color: #d6d3d1; /* stone-300 */
+}
+
+:global(.dark) .secondary {
+  background-color: #1f2937; /* gray-800 */
+  color: #ffffff;
+  border-color: #374151; /* gray-700 */
+}
+
+:global(.dark) .secondary:hover {
+  background-color: #374151; /* gray-700 */
+}
+
+/* Icons */
+.icon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.button:hover .icon {
+  transform: translateX(4px);
+}
