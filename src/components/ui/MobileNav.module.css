@@ -1,0 +1,32 @@
+.container {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: none;
+  }
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftSection {
+  flex: 0 0 auto;
+}
+
+.centerSection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.rightSection {
+  flex: 0 0 auto;
+}

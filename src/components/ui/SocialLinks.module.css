@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.link {
+  transition: all 0.2s ease;
+  padding: 0.25rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.link:hover {
+  transform: scale(1.1);
+}
+
+.link.vk:hover {
+  color: #0077FF;
+}
+
+.link.telegram:hover {
+  color: #24A1DE;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
