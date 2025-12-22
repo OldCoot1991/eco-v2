@@ -45,8 +45,8 @@ export default function FloatingNav() {
 
     return (
         <>
-            {/* Burger Button with Line - LEFT SIDE */}
-            <div className="fixed left-0 top-1/2 -translate-y-1/2 z-[60] flex items-center gap-0">
+            {/* Burger Button with Line - LEFT SIDE - Hidden on Mobile */}
+            <div className="hidden md:fixed left-0 top-1/2 -translate-y-1/2 z-[60] md:flex items-center gap-0">
                 {/* Thin Line */}
                 <div className={`w-[2px] h-20 ${theme === "dark" ? "bg-white/30" : "bg-black/30"
                     }`}></div>

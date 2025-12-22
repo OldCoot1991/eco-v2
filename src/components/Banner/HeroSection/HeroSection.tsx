@@ -134,31 +134,26 @@ export default function HeroSection() {
                                     {slide.buttons[1].text}
                                 </HeroButton>
                             </div>
+                            <div className={styles.controls}>
+                                <SliderArrow direction="left" onClick={handlePrev} ariaLabel="Previous Slide" />
+
+                                <div className={styles.dots}>
+                                    {slides.map((_, index) => (
+                                        <SliderDot
+                                            key={index}
+                                            onClick={() => handleDotClick(index)}
+                                            isActive={index === currentSlide}
+                                            ariaLabel={`Go to slide ${index + 1}`}
+                                        />
+                                    ))}
+                                </div>
+
+                                <SliderArrow direction="right" onClick={handleNext} ariaLabel="Next Slide" />
+                            </div>
                         </div>
                     );
                 })}
             </div>
-
-            {/* Navigation Controls */}
-            <div className={styles.sideArrows}>
-                <SliderArrow direction="left" onClick={handlePrev} ariaLabel="Previous Slide" />
-                <SliderArrow direction="right" onClick={handleNext} ariaLabel="Next Slide" />
-            </div>
-
-            {/* Pagination */}
-            <div className={styles.controls}>
-                <div className={styles.dots}>
-                    {slides.map((_, index) => (
-                        <SliderDot
-                            key={index}
-                            onClick={() => handleDotClick(index)}
-                            isActive={index === currentSlide}
-                            ariaLabel={`Go to slide ${index + 1}`}
-                        />
-                    ))}
-                </div>
-            </div>
-
             <HeroBottomFade />
         </section>
     );

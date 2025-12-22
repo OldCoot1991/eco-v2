@@ -10,13 +10,37 @@
   border-radius: 4px;
   cursor: pointer;
   text-decoration: none; /* For link variants */
-  min-width: 260px; /* From previous HeroButton style */
+  flex: 1;
+  min-width: 0;
+  max-width: 180px;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .button {
+    flex: 0 0 auto;
+    min-width: 200px;
+    max-width: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .button {
+    min-width: 260px;
+  }
 }
 
 /* Sizes */
 .lg {
-  padding: 1.25rem 2.5rem; /* px-10 py-5 */
-  font-size: 1.25rem; /* text-xl */
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .lg {
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
 }
 
 /* Variants */

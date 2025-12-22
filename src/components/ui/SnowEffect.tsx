@@ -294,7 +294,7 @@ const SnowEffect = () => {
                     {"С Новым Годом!".split("").map((char, index) => (
                         <span
                             key={index}
-                            className="text-6xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-100 via-yellow-300 to-yellow-500 drop-shadow-[0_0_25px_rgba(255,215,0,0.6)] animate-letterIn font-elegant"
+                            className="text-3xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-100 via-yellow-300 to-yellow-500 drop-shadow-[0_0_25px_rgba(255,215,0,0.6)] animate-letterIn font-elegant"
                             style={{ animationDelay: `${index * 0.15 + 0.5}s` }} // Slow appearance
                         >
                             {char === " " ? "\u00A0" : char}
@@ -304,7 +304,7 @@ const SnowEffect = () => {
 
                 {/* Sub Greeting: Fades in after main text */}
                 <h2
-                    className="mt-8 text-2xl md:text-4xl text-white/90 font-light tracking-widest drop-shadow-md animate-subTextIn font-elegant"
+                    className="mt-8 text-xl md:text-4xl text-white/90 font-light tracking-widest drop-shadow-md animate-subTextIn font-elegant"
                     style={{ animationDelay: "3.5s" }}
                 >
                     Пусть сбудутся все мечты!
