@@ -137,11 +137,11 @@ export default function HeroSection() {
 
                             {/* Buttons */}
                             <div className={styles.buttonGroup}>
-                                <Button href={slide.link} size="lg">
+                                <Button href={slide.link} size="lg" className={styles.heroButton}>
                                     {slide.cta}
                                     <FaArrowRight className="ml-2" />
                                 </Button>
-                                <Button href="/about" variant="secondary" size="lg">
+                                <Button href="/about" variant="secondary" size="lg" className={styles.heroButton}>
                                     О компании
                                 </Button>
                             </div>

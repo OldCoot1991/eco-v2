@@ -173,6 +173,11 @@
   }
 }
 
+.heroButton {
+  min-width: 260px; /* Enforce equal width */
+  justify-content: center;
+}
+
 /* Navigation */
 .controls {
   position: absolute;
