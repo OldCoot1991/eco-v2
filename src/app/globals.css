@@ -67,5 +67,3 @@ body {
 .animate-spin-slow {
   animation: rotate 4s linear infinite;
 }
-
-/* Swiper styles removed - Replacing with Custom */
