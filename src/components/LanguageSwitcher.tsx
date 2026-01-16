@@ -12,7 +12,7 @@ export default function LanguageSwitcher() {
     return (
         <button
             onClick={() => dispatch(toggleLanguage())}
-            className={`relative group flex items-center gap-1.5 px-3 h-8 rounded-lg 
+            className={`relative group flex items-center gap-1.5 px-3 h-8 rounded 
         ${theme === "dark"
                     ? "border-white/30 border bg-white/10 hover:bg-white/20 hover:border-white/40 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-white"
                     : "border-black/20 border bg-transparent hover:bg-black/5 hover:border-black/50 hover:shadow-[0_0_10px_rgba(0,0,0,0.1)] text-gray-900"
