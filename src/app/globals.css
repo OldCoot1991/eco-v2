@@ -8,12 +8,25 @@
 }
 
 :root {
-  --background: #f8f9fa;
-  --foreground: #1a1a1a;
-  --primary: #3b82f6;
-  --primary-hover: #2563eb;
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --border: rgba(0, 0, 0, 0.1);
+  --background: #FAFAF9;
+  --foreground: #1F2937;
+  --primary: #059669;
+  --primary-hover: #047857;
+  --secondary: #0EA5E9;
+  --secondary-hover: #0284C7;
+  --accent-orange: #F59E0B;
+  --accent-purple: #8B5CF6;
+  --accent-pink: #EC4899;
+  --card-bg: #FFFFFF;
+  --border: rgba(0, 0, 0, 0.06);
+  
+  /* Soft shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Gradients for icons */
+  --gradient-accent: linear-gradient(135deg, #059669 0%, #0EA5E9 100%);
 }
 
 .dark {
@@ -25,15 +38,34 @@
   --border: rgba(255, 255, 255, 0.1);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Responsive container max-widths */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
 }
 
 /* Animations */
@@ -66,4 +98,12 @@ body {
 
 .animate-spin-slow {
   animation: rotate 4s linear infinite;
+}
+
+/* Touch-friendly tap targets for mobile */
+@media (max-width: 768px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/components/StoreProvider";
+import ThemeSync from "@/components/ThemeSync";
 import Header from "@/components/Header";
 import { Footer } from "@/components/footer/Footer";
 
@@ -94,6 +95,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <StoreProvider>
+          <ThemeSync />
           <Header />
           {children}
           <Footer />
