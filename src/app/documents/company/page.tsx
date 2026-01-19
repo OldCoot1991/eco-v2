@@ -1,10 +1,11 @@
-import styles from "../../page.module.css";
+import { Metadata } from "next";
+import CompanyDocs from "@/components/Documents/CompanyDocs";
 
-export default function DocumentsCompanyPage() {
-    return (
-        <div className={styles.pageContainer}>
-            <h1 className={styles.pageTitle}>Документы компании</h1>
-            <p className={styles.pageText}>Корпоративные документы</p>
-        </div>
-    );
+export const metadata: Metadata = {
+  title: "Документы ООО «Экологистика» | Экологистика",
+  description: "Устав, лицензии и корпоративные документы ООО «Экологистика»",
+};
+
+export default function CompanyDocumentsPage() {
+  return <CompanyDocs />;
 }

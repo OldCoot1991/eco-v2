@@ -1,10 +1,11 @@
-import styles from "../../page.module.css";
+import { Metadata } from "next";
+import ContractDocs from "@/components/Documents/ContractDocs";
 
-export default function DocumentsContractPage() {
-    return (
-        <div className={styles.pageContainer}>
-            <h1 className={styles.pageTitle}>Договоры</h1>
-            <p className={styles.pageText}>Договорная документация</p>
-        </div>
-    );
+export const metadata: Metadata = {
+  title: "Заключение договора | Экологистика",
+  description: "Типовые договоры и заявки на заключение договора на оказание услуг по обращению с ТКО",
+};
+
+export default function ContractPage() {
+  return <ContractDocs />;
 }

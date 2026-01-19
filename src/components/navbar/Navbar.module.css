@@ -5,9 +5,19 @@
   position: relative;
   z-index: 50;
   width: 100%;
-  background: var(--card-bg);
+  /* background: var(--card-bg); */
+  background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid #10b981;
+  border-bottom: 2px solid #10b981;
+}
+:global(.dark) .header {
+  background: var(--card-bg);
+}
+
+@media (max-width: 768px) {
+  .header {
+    border-bottom: none;
+  }
 }
 
 .headerContainer {
@@ -18,6 +28,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .headerContainer {
+    display: none;
+  }
 }
 
 @media (min-width: 640px) {
@@ -172,11 +188,11 @@
   border-bottom: 1px solid rgba(var(--foreground-rgb), 0.1);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .megaMenuOpen {
-  max-height: 60vh;
+  max-height: 85vh;
   opacity: 1;
 }
 
@@ -200,7 +216,7 @@
 
 @media (min-width: 1024px) {
   .megaMenuContainer {
-    padding: 4rem 2.5rem;
+    padding: 3rem 1.5rem;
   }
 }
 
@@ -233,14 +249,21 @@
 @media (min-width: 1024px) {
   .megaMenuItems {
     grid-column: span 8;
-    column-gap: 3rem;
-    row-gap: 2.5rem;
+    column-gap: 2rem;
+    row-gap: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .megaMenuItems {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.5rem;
   }
 }
 
 .megaMenuItem {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   text-align: left;
   padding: 1rem 1.25rem;
@@ -250,6 +273,7 @@
   background: transparent;
   cursor: pointer;
   animation: slideInFromBottom 0.5s ease-out;
+  height: 100%;
 }
 
 @keyframes slideInFromBottom {
@@ -265,8 +289,8 @@
 
 @media (min-width: 640px) {
   .megaMenuItem {
-    gap: 1.5rem;
-    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+    padding: 1rem 1rem;
   }
 }
 
@@ -280,8 +304,8 @@
 }
 
 .megaMenuIcon {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 0.25rem;
   display: flex;
   align-items: center;
@@ -289,12 +313,13 @@
   flex-shrink: 0;
   transition: all 0.5s;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  margin-top: 5px;
 }
 
 @media (min-width: 640px) {
   .megaMenuIcon {
-    width: 3rem;
-    height: 3rem;
+    width: 2.25rem;
+    height: 2.25rem;
   }
 }
 
@@ -317,19 +342,22 @@
 }
 
 .megaMenuItemTitle {
-  font-size: 0.75rem;
-  font-weight: 900;
+  font-size: 0.65rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   color: #059669;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.1rem;
   transition: color 0.3s;
+  min-height: 1.6em;
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 640px) {
   .megaMenuItemTitle {
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.15rem;
   }
 }
 
@@ -383,7 +411,7 @@
 
 @media (min-width: 1280px) {
   .megaMenuSidebar {
-    padding-left: 4rem;
+    padding-left: 2rem;
   }
 }
 

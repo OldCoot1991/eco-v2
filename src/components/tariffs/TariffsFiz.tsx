@@ -41,7 +41,7 @@ const TariffsFiz = () => {
     // Simplified logic for Zone 3
     zone3: { 
         label: isEn ? "Zone #3" : "Зона 3", 
-        description: isEn ? "Western group of districts" : "Западная группа районов", 
+        description: "", 
         iconClass: styles.zoneIcon3 
     } 
   };

@@ -1,0 +1,198 @@
+/* NormativeActs.module.css */
+
+.wrapper {
+  width: 100%;
+  padding: 4rem 0; /* aligned with other pages */
+}
+
+.pageHeader {
+  margin-bottom: 3rem; /* Aligned with jobs.module.css */
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.pageText {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+:global(.dark) .pageText {
+  color: #9ca3af;
+}
+
+@media (min-width: 768px) {
+  .pageTitle {
+    font-size: 3.5rem; /* Aligned with jobs.module.css */
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    gap: 1.5rem;
+  }
+}
+
+.card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1), 0 4px 6px -2px rgba(16, 185, 129, 0.05);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+:global(.dark) .card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+:global(.dark) .card:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #10b981, #059669);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardContent {
+  margin-bottom: 1.5rem;
+}
+
+.indexNumber {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #1f2937;
+}
+
+:global(.dark) .cardTitle {
+  color: #f3f4f6;
+}
+
+.cardActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.button {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* View Button (Secondary) */
+.viewButton {
+  background: rgba(0, 0, 0, 0.05);
+  color: #374151;
+  border: 1px solid transparent;
+}
+
+.viewButton:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #111827;
+}
+
+:global(.dark) .viewButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e5e7eb;
+}
+
+:global(.dark) .viewButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Download Button (Primary) */
+.downloadButton {
+  background: #10b981;
+  color: white;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.downloadButton:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+}
+
+.icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}

@@ -1,10 +1,11 @@
-import styles from "../../page.module.css";
+import { Metadata } from "next";
+import NormativeActs from "@/components/Documents/NormativeActs";
 
-export default function DocumentsLegalPage() {
-    return (
-        <div className={styles.pageContainer}>
-            <h1 className={styles.pageTitle}>Юридические документы</h1>
-            <p className={styles.pageText}>Правовая документация</p>
-        </div>
-    );
+export const metadata: Metadata = {
+  title: "Нормативные правовые акты | Экологистика",
+  description: "Официальные документы и законодательная база в сфере обращения с ТКО",
+};
+
+export default function LegalDocumentsPage() {
+  return <NormativeActs />;
 }
