@@ -1,8 +1,11 @@
+"use client";
+
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAppSelector } from "@/lib/hooks";
 import { navConfig } from './NavConfig';
 import styles from './Navbar.module.css';
+import { useTranslation } from '@/lib/hooks/useTranslation';
 
 interface NavbarProps {
   currentPath: string;
@@ -15,9 +18,77 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
   const router = useRouter();
   const theme = useAppSelector((state) => state.theme.mode);
   const isDark = theme === 'dark';
+  const { t } = useTranslation();
 
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState<string[]>([]);
+
+  // Helper to get translated nav title/desc
+  const getNavTitle = (key: string) => {
+    const map: Record<string, string> = {
+        'Физ. лицам': t.nav.fiz,
+        'Бизнесу': t.nav.business,
+        'Новости': t.nav.news,
+        'О компании': t.nav.company,
+        'Документы': t.nav.documents,
+        'Закупки': t.nav.purchases,
+        'Экострой': t.nav.ecostroy,
+        // Subitems
+        'Главная': t.nav.items.main,
+        'Тарифы': t.nav.items.tariffs,
+        'Вопросы-ответы': t.nav.items.faq,
+        'Обратная связь': t.nav.items.feedback,
+        'Контракт': t.nav.items.contract,
+        'Нормативы': t.nav.items.norms,
+        'Наша компания': t.nav.items.about,
+        'Руководство': t.nav.items.management,
+        'Наши клиенты': t.nav.items.clients,
+        'Автопарк': t.nav.items.fleet,
+        'Контейнеры': t.nav.items.containers,
+        'Вакансии': t.nav.items.jobs,
+        'Как сдавать отходы': t.nav.items.howto,
+        'РСО для детей': t.nav.items.kids,
+        'Контакты': t.nav.items.contacts,
+        'ООО «Экологистика»': t.nav.items.companyDocs,
+        'Нормативные правовые акты': t.nav.items.legal,
+        'Заключение договора': t.nav.items.contract,
+        'Строительно-монтажные работы': t.nav.items.construction,
+        'Продажа/поставка стройматериалов': t.nav.items.materials,
+    };
+    return map[key] || key;
+  };
+  
+  const getNavDesc = (key: undefined | string) => {
+      if (!key) return '';
+      // Map based on partial content or specific keys if possible
+      // Since desc in NavConfig are specific sentences, we map them by known russian strings
+      // Ideally we would put IDs in NavConfig.
+      const map: Record<string, string> = {
+          'Главная страница для физических лиц': t.nav.desc.fizMain,
+          'Утвержденные цены на услуги': t.nav.desc.tariffs,
+          'Часто задаваемые вопросы': t.nav.desc.faq,
+          'Свяжитесь с нами': t.nav.desc.feedback,
+          'Главная страница для бизнеса': t.nav.desc.bizMain,
+          'Заключение договора': t.nav.desc.contract,
+          'Цены для юридических лиц': t.nav.desc.tariffs,
+          'Нормативная база': t.nav.desc.norms,
+          'Информация о компании': t.nav.desc.about,
+          'Руководящий состав': t.nav.desc.management,
+          'Партнеры и клиенты': t.nav.desc.clients,
+          'Наша техника': t.nav.desc.fleet,
+          'Типы контейнеров': t.nav.desc.containers,
+          'Работа в компании': t.nav.desc.jobs,
+          'Инструкция по сдаче отходов': t.nav.desc.howto,
+          'Образовательная программа': t.nav.desc.kids,
+          'Контактная информация': t.nav.desc.contacts,
+          'Документы организации': t.nav.desc.companyDocs,
+          'Законодательная база': t.nav.desc.legal,
+          'Порядок заключения договора': t.nav.desc.contractOrder,
+          'Строительные услуги': t.nav.desc.construction,
+          'Строительные материалы': t.nav.desc.materials,
+      };
+      return map[key] || key;
+  };
 
   const handleLinkClick = (path: string) => {
     onNavigate(path);
@@ -60,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
                 <div className={styles.cornerTR}></div>
                 <div className={styles.cornerBL}></div>
                 <div className={styles.cornerBR}></div>
-                {item.title}
+                {getNavTitle(item.title)}
               </button>
             </div>
           ))}
@@ -87,10 +158,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
                   </div>
                   <div>
                     <div className={styles.megaMenuItemTitle}>
-                      {sub.title}
+                      {getNavTitle(sub.title)}
                     </div>
                     <div className={styles.megaMenuItemDesc}>
-                      {sub.desc}
+                      {getNavDesc(sub.desc)}
                     </div>
                   </div>
                 </button>
@@ -100,8 +171,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
               <div className={styles.supportCard}>
                 <div>
                   <span className={styles.supportBadge}>Support</span>
-                  <h4 className={styles.supportTitle}>Нужна помощь?</h4>
-                  <p className={styles.supportDesc}>Ответим на любой вопрос за 5 минут.</p>
+                  <h4 className={styles.supportTitle}>{t.header.support}</h4>
+                  <p className={styles.supportDesc}>{t.header.supportDesc}</p>
                 </div>
                 <a href="tel:88005553322" className={styles.supportPhone}>
                   <div className={styles.supportPhoneIcon}>
@@ -119,7 +190,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
       <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : styles.mobileMenuClosed} ${isDark ? styles.mobileMenuDark : styles.mobileMenuLight}`}>
         <div className={styles.mobileMenuContent}>
           <div className={`${styles.mobileMenuHeader} ${isDark ? styles.mobileMenuHeaderDark : styles.mobileMenuHeaderLight}`}>
-            <h2 className={`${styles.mobileMenuTitle} ${isDark ? styles.mobileMenuTitleDark : styles.mobileMenuTitleLight}`}>Навигация</h2>
+            <h2 className={`${styles.mobileMenuTitle} ${isDark ? styles.mobileMenuTitleDark : styles.mobileMenuTitleLight}`}>
+                Main Menu
+            </h2>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               className={`${styles.mobileMenuCloseButton} ${isDark ? styles.mobileMenuCloseButtonDark : styles.mobileMenuCloseButtonLight}`}
@@ -136,7 +209,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
                     onClick={() => item.subItems ? toggleMobileSubmenu(item.title) : handleLinkClick(item.path)}
                     className={`${styles.mobileMenuItemButton} ${isDark ? styles.mobileMenuItemButtonDark : styles.mobileMenuItemButtonLight} ${currentPath === item.path ? styles.mobileMenuItemButtonActive : ''}`}
                   >
-                    {item.title}
+                    {getNavTitle(item.title)}
                     {item.subItems && (
                       <svg
                         className={`${styles.mobileMenuChevron} ${isExpanded ? styles.mobileMenuChevronExpanded : ''}`}
@@ -161,7 +234,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d={sub.icon} />
                             </svg>
                           </div>
-                          <div className={`${styles.mobileMenuSubItemTitle} ${isDark ? styles.mobileMenuSubItemTitleDark : styles.mobileMenuSubItemTitleLight}`}>{sub.title}</div>
+                          <div className={`${styles.mobileMenuSubItemTitle} ${isDark ? styles.mobileMenuSubItemTitleDark : styles.mobileMenuSubItemTitleLight}`}>
+                            {getNavTitle(sub.title)}
+                          </div>
                         </button>
                       ))}
                     </div>

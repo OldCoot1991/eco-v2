@@ -1,10 +1,7 @@
-import styles from "../page.module.css";
+import EcostroyContent from "./EcostroyContent";
 
 export default function EcostroyPage() {
     return (
-        <div className={styles.pageContainer}>
-            <h1 className={styles.pageTitle}>Экострой</h1>
-            <p className={styles.pageText}>Строительные услуги</p>
-        </div>
+        <EcostroyContent />
     );
 }

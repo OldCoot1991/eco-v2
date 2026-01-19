@@ -1,5 +1,5 @@
 import styles from "./jobs.module.css";
-import Vacancies from "../../../components/Vacancies/Vacancies";
+import JobsContent from "./JobsContent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -74,13 +74,7 @@ export default function CompanyJobsPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <div className={styles.pageContainer}>
-                <div className={styles.pageHeader}>
-                    <h1 className={styles.pageTitle}>Вакансии</h1>
-                    <p className={styles.pageText}>Присоединяйтесь к нашей команде!</p>
-                </div>
-                <Vacancies />
-            </div>
+            <JobsContent />
         </>
     );
 }

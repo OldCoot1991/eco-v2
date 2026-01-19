@@ -2,37 +2,17 @@
 
 import React, { useState } from "react";
 import styles from "./Vacancies.module.css";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
-interface Vacancy {
-  text: string;
-  paragraph: string;
-  tel: string;
-}
-
-const VAKANSII_DATA: Vacancy[] = [
-  {
-    text: "Водители мусоровозов",
-    paragraph: "заработная плата: от 70 000 руб.",
-    tel: "+7 (988) 921-99-00",
-  },
-  {
-    text: "Помощники водителя мусоровоза (грузчики)",
-    paragraph: "заработная плата: от 60 000 руб.",
-    tel: "+7 (988) 921-99-00",
-  },
-  {
-    text: "Кассир-операционист",
-    paragraph: "заработная плата: от 33 000 руб.",
-    tel: "+7 (938) 075-43-93",
-  },
-  {
-    text: "Дворник",
-    paragraph: "заработная плата: от 40 000 руб.",
-    tel: "+7 (938) 079-12-19",
-  },
+const PHONES = [
+  "+7 (988) 921-99-00",
+  "+7 (988) 921-99-00",
+  "+7 (938) 075-43-93",
+  "+7 (938) 079-12-19"
 ];
 
 const Vacancies = () => {
+  const { t } = useTranslation();
   const [openedKeys, setOpenedKeys] = useState<Set<number>>(new Set());
 
   const toggleVacancy = (index: number) => {
@@ -45,11 +25,17 @@ const Vacancies = () => {
     setOpenedKeys(newKeys);
   };
 
+  const vacanciesList = t.jobs.list.map((job, i) => ({
+    text: job.title,
+    paragraph: `${t.jobs.salary} ${job.salary} ${t.jobs.rub}`,
+    tel: PHONES[i] || PHONES[0]
+  }));
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.grid}>
-          {VAKANSII_DATA.map((job, i) => {
+          {vacanciesList.map((job, i) => {
             const isOpen = openedKeys.has(i);
             return (
               <div key={i} className={styles.card}>
@@ -64,7 +50,7 @@ const Vacancies = () => {
                   }`}
                   onClick={() => toggleVacancy(i)}
                 >
-                  <span>Подробнее по телефону</span>
+                  <span>{t.jobs.contacts}</span>
                   <span>{isOpen ? "▲" : "▼"}</span>
                 </div>
 
@@ -73,7 +59,7 @@ const Vacancies = () => {
                     isOpen ? styles.detailsContentActive : ""
                   }`}
                 >
-                  <p className={styles.contactLabel}>Обращаться по телефону:</p>
+                  <p className={styles.contactLabel}>{t.jobs.contacts}:</p>
                   <div className={styles.contactInfo}>
                     <a href={`tel:${job.tel}`} className={styles.contactPhone}>
                       {job.tel}
@@ -86,7 +72,7 @@ const Vacancies = () => {
         </div>
 
         <div className={styles.infoSection}>
-          <p className={styles.infoTitle}>Справки по телефонам:</p>
+          <p className={styles.infoTitle}>{t.jobs.contacts}:</p>
           <div className={styles.infoContent}>
             <a href="tel:+79287072972" className={styles.infoPhone}>
               8 (928) 707-29-72

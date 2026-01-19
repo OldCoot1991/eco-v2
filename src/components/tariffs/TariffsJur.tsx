@@ -1,4 +1,8 @@
+"use client";
+
 import styles from "./TariffsJur.module.css";
+import { useTranslation } from "@/lib/hooks/useTranslation";
+
 
 
 interface TimelineItem {
@@ -77,6 +81,69 @@ const tariffZones: TariffZone[] = [
 ];
 
 const TariffsJur = () => {
+    const { t } = useTranslation();
+    const isEn = t.common.download === "Download";
+
+    const tariffZones: TariffZone[] = [
+        {
+            id: 1,
+            title: isEn ? "Zone #1" : "Зона №1",
+            iconClass: styles.zoneIcon1,
+            timeline: [
+                {
+                    label: t.tariffs.current,
+                    date: isEn ? "until 30.09.2026" : "до 30.09.2026",
+                    price: "356,73 ₽",
+                    isActive: true
+                },
+                {
+                    label: t.tariffs.future,
+                    date: isEn ? "from 01.10.2026" : "с 01.10.2026",
+                    price: "378,33 ₽",
+                    isActive: false
+                }
+            ]
+        },
+        {
+            id: 2,
+            title: isEn ? "Zone #2" : "Зона №2",
+            iconClass: styles.zoneIcon2,
+            timeline: [
+                {
+                    label: t.tariffs.current,
+                    date: isEn ? "until 30.09.2026" : "до 30.09.2026",
+                    price: "388,15 ₽",
+                    isActive: true
+                },
+                {
+                    label: t.tariffs.future,
+                    date: isEn ? "from 01.10.2026" : "с 01.10.2026",
+                    price: "410,32 ₽",
+                    isActive: false
+                }
+            ]
+        },
+        {
+            id: 3,
+            title: isEn ? "Zone #3" : "Зона №3",
+            iconClass: styles.zoneIcon3,
+            timeline: [
+                {
+                    label: t.tariffs.current,
+                    date: isEn ? "until 30.09.2026" : "до 30.09.2026",
+                    price: "358,43 ₽",
+                    isActive: true
+                },
+                {
+                    label: t.tariffs.future,
+                    date: isEn ? "from 01.10.2026" : "с 01.10.2026",
+                    price: "383,21 ₽",
+                    isActive: false
+                }
+            ]
+        }
+    ];
+
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
@@ -90,12 +157,12 @@ const TariffsJur = () => {
                         </div>
                         <div className={styles.documentContent}>
                             <div className={styles.documentMeta}>
-                                <span className={styles.documentBadge}>Приказ</span>
-                                <span className={styles.documentDate}>19.12.2025</span>
+                                <span className={styles.documentBadge}>{t.tariffs.order}</span>
+                                <span className={styles.documentDate}>{t.tariffs.date}</span>
                             </div>
-                            <h3 className={styles.documentTitle}>Приказ №214</h3>
+                            <h3 className={styles.documentTitle}>{t.tariffs.orderFullTitle}</h3>
                             <p className={styles.documentSubtitle}>
-                                Об установлении единого предельного тарифа на услугу регионального оператора по обращению с ТКО на 2026 год
+                                {t.tariffs.orderSubtitle}
                             </p>
                         </div>
                         <a
@@ -107,14 +174,14 @@ const TariffsJur = () => {
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>
-                            Скачать
+                            {t.tariffs.download}
                         </a>
                     </div>
                 </div>
 
                 <div className={styles.sectionHeader}>
-                    <h2 className={styles.sectionTitle}>Тарифные зоны</h2>
-                    <p className={styles.sectionSubtitle}>Стоимость услуг по зонам деятельности</p>
+                    <h2 className={styles.sectionTitle}>{t.tariffs.zonesTitle}</h2>
+                    <p className={styles.sectionSubtitle}>{t.tariffs.zonesSubtitle}</p>
                 </div>
 
                 <div className={styles.zoneGrid}>

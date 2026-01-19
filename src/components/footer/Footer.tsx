@@ -1,10 +1,51 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import Logo from '@/components/ui/Logo';
 import { navConfig } from '../navbar/NavConfig';
 import styles from './Footer.module.css';
+import { useTranslation } from '@/lib/hooks/useTranslation';
 
 export const Footer: React.FC = () => {
+  const { t } = useTranslation();
+
+  // Helper to get translated nav title
+  const getNavTitle = (key: string) => {
+    // Map known Russian titles to translation keys
+    const map: Record<string, string> = {
+        'Физ. лицам': t.nav.fiz,
+        'Бизнесу': t.nav.business,
+        'Новости': t.nav.news,
+        'О компании': t.nav.company,
+        'Документы': t.nav.documents,
+        'Закупки': t.nav.purchases,
+        'Экострой': t.nav.ecostroy,
+        // Subitems
+        'Главная': t.nav.items.main,
+        'Тарифы': t.nav.items.tariffs,
+        'Вопросы-ответы': t.nav.items.faq,
+        'Обратная связь': t.nav.items.feedback,
+        'Контракт': t.nav.items.contract,
+        'Нормативы': t.nav.items.norms,
+        'Наша компания': t.nav.items.about,
+        'Руководство': t.nav.items.management,
+        'Наши клиенты': t.nav.items.clients,
+        'Автопарк': t.nav.items.fleet,
+        'Контейнеры': t.nav.items.containers,
+        'Вакансии': t.nav.items.jobs,
+        'Как сдавать отходы': t.nav.items.howto,
+        'РСО для детей': t.nav.items.kids,
+        'Контакты': t.nav.items.contacts,
+        'ООО «Экологистика»': t.nav.items.companyDocs,
+        'Нормативные правовые акты': t.nav.items.legal,
+        'Заключение договора': t.nav.items.contract,
+        'Строительно-монтажные работы': t.nav.items.construction,
+        'Продажа/поставка стройматериалов': t.nav.items.materials,
+    };
+    return map[key] || key;
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -19,7 +60,7 @@ export const Footer: React.FC = () => {
             </h3>
           </div>
           <p className={styles.tagline}>
-            Интеллектуальные решения для устойчивого развития.
+            {t.footer.tagline}
           </p>
         </div>
 
@@ -32,7 +73,7 @@ export const Footer: React.FC = () => {
                   href={`/${nav.path}`}
                   className={styles.navTitleLink}
                 >
-                  {nav.title}
+                  {getNavTitle(nav.title)}
                 </Link>
               </h4>
               {nav.subItems && (
@@ -43,7 +84,7 @@ export const Footer: React.FC = () => {
                         href={`/${sub.path}`}
                         className={styles.navLink}
                       >
-                        {sub.title}
+                        {getNavTitle(sub.title)}
                       </Link>
                     </li>
                   ))}
@@ -56,21 +97,20 @@ export const Footer: React.FC = () => {
         {/* Contact Info */}
         <div className={styles.contactGrid}>
           <div className={styles.contactSection}>
-            <h5 className={styles.contactTitle}>Адрес</h5>
+            <h5 className={styles.contactTitle}>{t.footer.addressTitle}</h5>
             <p className={styles.contactContent}>
-              360051, КБР, г. Нальчик,<br />
-              ул. Пушкина, д. 33а/72
+              {t.footer.address.split('\\n').map((line, i) => <React.Fragment key={i}>{line}<br/></React.Fragment>)}
             </p>
           </div>
           <div className={styles.contactSection}>
-            <h5 className={styles.contactTitle}>Горячая линия</h5>
+            <h5 className={styles.contactTitle}>{t.footer.hotlineTitle}</h5>
             <p className={styles.contactContent}>
-              Абонентская служба: <a href="tel:+78662229110" className={styles.contactLink}>8 (8662) 22-91-10</a><br />
-              Противодействие коррупции: <a href="tel:+79094881686" className={styles.contactLink}>8 (909) 488-16-86</a>
+              {t.footer.subscriberService}: <a href="tel:+78662229110" className={styles.contactLink}>8 (8662) 22-91-10</a><br />
+              {t.footer.corruption}: <a href="tel:+79094881686" className={styles.contactLink}>8 (909) 488-16-86</a>
             </p>
           </div>
           <div className={styles.contactSection}>
-            <h5 className={styles.contactTitle}>Email</h5>
+            <h5 className={styles.contactTitle}>{t.footer.emailTitle}</h5>
             <p className={styles.contactContent}>
               <a href="mailto:info@eco07.ru" className={styles.contactLink}>info@eco07.ru</a>
             </p>
@@ -104,7 +144,7 @@ export const Footer: React.FC = () => {
               aria-label="OK"
             >
               <svg className={styles.socialIcon} fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.622c2.03 0 3.678 1.648 3.678 3.678S14.03 11.978 12 11.978s-3.678-1.648-3.678-3.678S9.97 4.622 12 4.622zm6.36 14.969c-.414.414-1.086.414-1.5 0L12 14.731l-4.86 4.86c-.414.414-1.086.414-1.5 0-.414-.414-.414-1.086 0-1.5l4.86-4.86-4.86-4.86c-.414-.414-.414-1.086 0-1.5.414-.414 1.086-.414 1.5 0l4.86 4.86 4.86-4.86c.414-.414 1.086-.414 1.5 0 .414.414.414 1.086 0 1.5l-4.86 4.86 4.86 4.86c.414.414.414 1.086 0 1.5z" />
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.622c2.03 0 3.678 1.648 3.678 3.678S14.03 11.978 12 11.978s-3.678-1.648-3.678-3.678S9.97 4.622 12 4.622zm6.36 14.969c-.414.414-1.086.414-1.5 0L12 14.731l-4.86 4.86c-.414.414-1.086.414-1.5 0-.414-.414-.414-1.086 0-1.5l4.86-4.86-4.86-4.86c-.414-.414-.414-1.086 0-1.5.414-.414 1.086-.414 1.5 0l4.86 4.86 4.86-4.86c.414.414.414 1.086 0 1.5z" />
               </svg>
             </button>
           </div>
@@ -113,12 +153,12 @@ export const Footer: React.FC = () => {
         {/* Bottom Section */}
         <div className={styles.bottomSection}>
           <div className={styles.copyright}>
-            © {new Date().getFullYear()} ООО «Экологистика». Все права защищены.
+            © {new Date().getFullYear()} {t.footer.copyright}
           </div>
           <div className={styles.bottomLinks}>
-            <Link href="/privacy" className={styles.bottomLink}>Приватность</Link>
-            <Link href="/cookies" className={styles.bottomLink}>Cookies</Link>
-            <Link href="/terms" className={styles.bottomLink}>Условия</Link>
+            <Link href="/privacy" className={styles.bottomLink}>{t.footer.privacy}</Link>
+            <Link href="/cookies" className={styles.bottomLink}>{t.footer.cookies}</Link>
+            <Link href="/terms" className={styles.bottomLink}>{t.footer.terms}</Link>
           </div>
         </div>
       </div>
