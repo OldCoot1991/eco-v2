@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './TariffsFiz.module.css';
+import styles from "./TariffsFiz.module.css";
 
 
 type ZoneKey = 'zone1' | 'zone2' | 'zone3';
