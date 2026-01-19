@@ -1,0 +1,170 @@
+/* Vacancies Component Styles */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #047857; /* emerald-700 */
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d1fae5; /* emerald-100 */
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.2);
+  border-color: #34d399; /* emerald-400 */
+}
+
+.cardHeader {
+  margin-bottom: 1rem;
+}
+
+.positionTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #065f46; /* emerald-800 */
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.salary {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #059669; /* emerald-600 */
+  background: #ecfdf5; /* emerald-50 */
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  display: inline-block;
+}
+
+.detailsToggle {
+  margin-top: auto;
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+
+.detailsToggle:hover {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.detailsToggleActive {
+  background: #d1fae5; /* emerald-100 */
+  color: #065f46; /* emerald-800 */
+}
+
+.detailsContent {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  margin-top: 0;
+}
+
+.detailsContentActive {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.contactLabel {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.contactPhone {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #047857;
+  text-decoration: none;
+}
+
+.contactPhone:hover {
+  text-decoration: underline;
+}
+
+/* Info Section */
+.infoSection {
+  background: linear-gradient(to right, #047857, #059669);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  color: white;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.infoTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.infoPhone {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  transition: background 0.2s;
+}
+
+.infoPhone:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

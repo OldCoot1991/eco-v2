@@ -1,7 +1,7 @@
 /* Footer Component Styles */
 
 .footer {
-  border-top: 1px solid rgba(var(--foreground-rgb), 0.1);
+  border-top: 1px solid #10b981;
   padding: 4rem 0;
   background: var(--background);
 }
