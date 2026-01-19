@@ -87,11 +87,10 @@ export default function ContactsPage() {
             },
             {
                 "@type": "ContactPoint",
-                "telephone": "+7-800-555-33-22",
+                "telephone": "+7-8662-22-91-10",
                 "contactType": "customer support",
                 "areaServed": "RU",
-                "availableLanguage": ["Russian"],
-                "contactOption": "TollFree"
+                "availableLanguage": ["Russian"]
             }
         ],
         "location": [
