@@ -3,6 +3,7 @@
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { toggleLanguage } from "@/lib/features/language/languageSlice";
 import { HiLanguage } from "react-icons/hi2";
+import styles from "./LanguageSwitcher.module.css";
 
 export default function LanguageSwitcher() {
     const language = useAppSelector((state) => state.language.current);
@@ -12,17 +13,12 @@ export default function LanguageSwitcher() {
     return (
         <button
             onClick={() => dispatch(toggleLanguage())}
-            className={`relative group flex items-center gap-1 px-2 h-6 rounded text-[11px]
-        ${theme === "dark"
-                    ? "border-white/30 border bg-white/10 hover:bg-white/20 hover:border-white/40 hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] text-white"
-                    : "border-black/20 border bg-transparent hover:bg-black/5 hover:border-black/50 hover:shadow-[0_0_10px_rgba(0,0,0,0.1)] text-gray-900"
-                } backdrop-blur-sm 
-        transition-all duration-300 hover:scale-105 active:scale-95`}
+            className={`${styles.button} ${theme === "dark" ? styles.buttonDark : styles.buttonLight}`}
             aria-label="Toggle language"
         >
-            <HiLanguage className="w-3 h-3 stroke-1 min-w-[12px]" />
-            <span className={`font-bold mx-0.5 text-[9px] ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`}>/</span>
-            <span className="text-[11px] font-extrabold uppercase tracking-wide">{language}</span>
+            <HiLanguage className={styles.icon} />
+            <span className={`${styles.separator} ${theme === 'dark' ? styles.separatorDark : styles.separatorLight}`}>/</span>
+            <span className={styles.language}>{language}</span>
         </button>
     );
 }

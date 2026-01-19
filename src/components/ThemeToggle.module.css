@@ -1,0 +1,277 @@
+/* ThemeToggle Component Styles */
+
+/* Mobile/Tablet Button */
+.mobileButton {
+  position: relative;
+  width: 3.5rem;
+  height: 1.75rem;
+  border-radius: 9999px;
+  padding: 0.125rem;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: none;
+}
+
+.mobileButton:hover {
+  transform: scale(1.05);
+}
+
+.mobileButton:active {
+  transform: scale(0.95);
+}
+
+.mobileButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+}
+
+.mobileButtonDark {
+  background: #0f172a;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.mobileButtonLight {
+  background: #7dd3fc;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .mobileButton {
+    display: none;
+  }
+}
+
+/* Desktop Button */
+.desktopButton {
+  display: none;
+  position: relative;
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  padding: 0.125rem;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .desktopButton {
+    display: flex;
+  }
+}
+
+.desktopButton:hover {
+  transform: scale(1.05);
+}
+
+.desktopButton:active {
+  transform: scale(0.95);
+}
+
+.desktopButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+}
+
+.desktopButtonDark {
+  background: #0f172a;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.desktopButtonLight {
+  background: #7dd3fc;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Background Layers */
+.bgDark {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.bgDarkVisible {
+  opacity: 1;
+}
+
+.bgDarkHidden {
+  opacity: 0;
+}
+
+.bgDarkGradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 120%, #4f46e5, #0f172a);
+}
+
+.star1 {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.75rem;
+  width: 0.125rem;
+  height: 0.125rem;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.star2 {
+  position: absolute;
+  top: 0.75rem;
+  left: 1.5rem;
+  width: 0.125rem;
+  height: 0.125rem;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+.star3 {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 1rem;
+  width: 0.25rem;
+  height: 0.25rem;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.6;
+  filter: blur(0.5px);
+}
+
+.bgLight {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.bgLightVisible {
+  opacity: 1;
+}
+
+.bgLightHidden {
+  opacity: 0;
+}
+
+.bgLightGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #38bdf8, #7dd3fc);
+}
+
+.cloud1 {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.5rem;
+  width: 1rem;
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 9999px;
+  filter: blur(1px);
+}
+
+.cloud2 {
+  position: absolute;
+  bottom: 0.25rem;
+  right: 1.25rem;
+  width: 1.25rem;
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  filter: blur(2px);
+}
+
+/* Knob (Sun/Moon) */
+.knob {
+  position: relative;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(0);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.knobMobile {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.knobDesktop {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.knobDark {
+  background: #e2e8f0;
+}
+
+.knobLight {
+  background: #fcd34d;
+}
+
+.knobTranslateDark {
+  transform: translateX(1.75rem);
+}
+
+.knobTranslateLight {
+  transform: translateX(0);
+}
+
+.knobTranslateDarkDesktop {
+  transform: translateX(1.5rem);
+}
+
+/* Moon */
+.moon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #cbd5e1;
+}
+
+.crater1 {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.5rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  background: #cbd5e1;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.crater2 {
+  position: absolute;
+  bottom: 0.25rem;
+  right: 0.375rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  background: #cbd5e1;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Sun */
+.sun {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #fcd34d;
+  overflow: hidden;
+  box-shadow: inset -2px -2px 4px rgba(245, 158, 11, 0.5);
+}
+
+.sunGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top right, #fbbf24, #fef3c7);
+}

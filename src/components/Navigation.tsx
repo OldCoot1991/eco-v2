@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import styles from "./Navigation.module.css";
 
 export interface SubmenuItem {
   label: string;
@@ -21,24 +22,24 @@ export default function Navigation({ items }: NavigationProps) {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   return (
-    <nav className="border-b border-foreground/5 bg-background/50">
-      <div className="container mx-auto px-4">
-        <ul className="flex items-center gap-8 py-3">
+    <nav className={styles.nav}>
+      <div className={styles.container}>
+        <ul className={styles.list}>
           {items.map((item) => (
             <li
               key={item.label}
-              className="relative group"
+              className={styles.item}
               onMouseEnter={() => item.submenu && setOpenMenu(item.label)}
               onMouseLeave={() => setOpenMenu(null)}
             >
               <a
                 href={item.href || "#"}
-                className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground flex items-center gap-1"
+                className={styles.link}
               >
                 {item.label}
                 {item.submenu && (
                   <svg
-                    className="w-4 h-4 transition-transform group-hover:rotate-180"
+                    className={styles.chevron}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -56,17 +57,13 @@ export default function Navigation({ items }: NavigationProps) {
               {/* Dropdown Menu */}
               {item.submenu && (
                 <ul
-                  className={`absolute left-0 top-full pt-2 w-48 bg-background border border-foreground/10 rounded shadow-lg transition-all duration-200 ${
-                    openMenu === item.label
-                      ? "opacity-100 visible"
-                      : "opacity-0 invisible"
-                  }`}
+                  className={`${styles.submenu} ${openMenu === item.label ? styles.submenuVisible : styles.submenuHidden}`}
                 >
                   {item.submenu.map((subitem) => (
-                    <li key={subitem.href}>
+                    <li key={subitem.href} className={styles.submenuItem}>
                       <a
                         href={subitem.href}
-                        className="block px-4 py-2 text-sm text-foreground/70 hover:text-foreground hover:bg-foreground/5 transition-colors first:rounded-t last:rounded-b"
+                        className={styles.submenuLink}
                       >
                         {subitem.label}
                       </a>

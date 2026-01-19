@@ -5,6 +5,7 @@ import StoreProvider from "@/components/StoreProvider";
 import ThemeSync from "@/components/ThemeSync";
 import Header from "@/components/Header";
 import { Footer } from "@/components/footer/Footer";
+import styles from "./page.module.css";
 
 
 const geistSans = Geist({
@@ -89,7 +90,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground transition-colors duration-300`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${styles.layoutBody}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

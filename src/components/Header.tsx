@@ -10,6 +10,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import UserProfileButton from "@/components/ui/UserProfileButton";
 import { Navbar } from "./navbar/Navbar";
+import styles from "./Header.module.css";
 
 export default function Header() {
   const currentPath = usePathname();
@@ -25,36 +26,36 @@ export default function Header() {
   return (
     <>
       {/* Top Bar - Theme & Language (Mobile/Tablet only) */}
-      <div className="lg:hidden bg-card-bg border-b border-primary/10">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-end py-2 gap-3">
-            <div className="scale-75">
+      <div className={styles.topBar}>
+        <div className={styles.topBarContainer}>
+          <div className={styles.topBarContent}>
+            <div className={styles.topBarControl}>
               <ThemeToggle />
             </div>
-            <div className="scale-75">
+            <div className={styles.topBarControl}>
               <LanguageSwitcher />
             </div>
           </div>
         </div>
       </div>
 
-      <header className="relative z-40 w-full border-b lg:border-b border-primary/10 bg-card-bg shadow-sm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-3 sm:py-4">
+      <header className={styles.header}>
+        <div className={styles.headerContainer}>
           {/* Mobile Layout */}
-          <div className="flex md:hidden items-center justify-between">
+          <div className={styles.mobileLayout}>
             {/* Left: Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="flex h-10 w-10 items-center justify-center rounded bg-slate-900 dark:bg-emerald-500 text-white shadow-lg hover:scale-105 transition-transform"
+              className={styles.menuButton}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={styles.menuIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
 
             {/* Center: Logo */}
-            <Link href="/" className="hover:opacity-80 transition-opacity">
-              <Logo className="h-10 w-auto" />
+            <Link href="/" className={styles.logoLink}>
+              <Logo className={styles.mobileLogo} />
             </Link>
 
             {/* Right: User Profile */}
@@ -62,16 +63,16 @@ export default function Header() {
           </div>
 
           {/* Desktop Layout */}
-          <div className="hidden md:flex items-center justify-between">
+          <div className={styles.desktopLayout}>
             {/* Logo */}
-            <Link href="/" className="hover:opacity-80 transition-opacity shrink-0">
-              <Logo className="h-8 sm:h-10 w-auto" />
+            <Link href="/" className={styles.desktopLogoLink}>
+              <Logo className={styles.desktopLogo} />
             </Link>
 
             {/* Controls */}
-            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+            <div className={styles.controls}>
               {/* Social links on desktop */}
-              <div className="hidden md:block">
+              <div className={styles.socialLinksWrapper}>
                 <SocialLinks />
               </div>
               <ThemeToggle />

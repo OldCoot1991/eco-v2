@@ -27,6 +27,13 @@
   
   /* Gradients for icons */
   --gradient-accent: linear-gradient(135deg, #059669 0%, #0EA5E9 100%);
+  /* Tariffs Component Colors - LIGHT THEME (яркие, насыщенные цвета) */
+  --tariff-heading: #047857; /* насыщенный изумрудный для заголовков */
+  --tariff-text: #059669; /* яркий изумрудный для текста */
+  --tariff-text-secondary: #10b981; /* светлый изумрудный для вторичного текста */
+  --tariff-card-bg: #ffffff;
+  --tariff-border: #a7f3d0; /* яркая изумрудная граница */
+  --tariff-shadow: rgba(16, 185, 129, 0.3); /* более заметная тень */
 }
 
 .dark {
@@ -36,6 +43,14 @@
   --primary-hover: #3b82f6;
   --card-bg: rgba(255, 255, 255, 0.05);
   --border: rgba(255, 255, 255, 0.1);
+
+  /* Tariffs Component Colors - DARK THEME (нейтральные цвета для контраста) */
+  --tariff-heading: #ffffff; /* чистый белый */
+  --tariff-text: #e5e7eb; /* светло-серый */
+  --tariff-text-secondary: #9ca3af; /* серый */
+  --tariff-card-bg: #1f2937; /* темно-серый фон */
+  --tariff-border: #374151; /* темная граница */
+  --tariff-shadow: transparent; /* без теней */
 }
 
 html {

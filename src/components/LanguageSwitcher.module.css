@@ -1,0 +1,78 @@
+/* LanguageSwitcher Component Styles */
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0 0.5rem;
+  height: 1.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.6875rem;
+  border: 1px solid;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+/* Light theme */
+.buttonLight {
+  border-color: rgba(0, 0, 0, 0.2);
+  background: transparent;
+  color: #111827;
+}
+
+.buttonLight:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme */
+.buttonDark {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.buttonDark:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  min-width: 0.75rem;
+  stroke-width: 1;
+}
+
+.separator {
+  font-weight: 700;
+  margin: 0 0.125rem;
+  font-size: 0.5625rem;
+}
+
+.separatorLight {
+  color: #9ca3af;
+}
+
+.separatorDark {
+  color: #6b7280;
+}
+
+.language {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

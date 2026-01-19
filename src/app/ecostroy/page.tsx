@@ -1,8 +1,10 @@
+import styles from "../../page.module.css";
+
 export default function EcostroyPage() {
     return (
-        <div className="container mx-auto px-6 py-16">
-            <h1 className="text-4xl font-black uppercase mb-8">Экострой</h1>
-            <p className="text-lg">Строительные услуги и материалы</p>
+        <div className={styles.pageContainer}>
+            <h1 className={styles.pageTitle}>Экострой</h1>
+            <p className={styles.pageText}>Строительные услуги</p>
         </div>
     );
 }

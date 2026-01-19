@@ -1,8 +1,10 @@
+import styles from "../page.module.css";
+
 export default function FizPage() {
     return (
-        <div className="container mx-auto px-6 py-16">
-            <h1 className="text-4xl font-black uppercase mb-8">Физ. лицам</h1>
-            <p className="text-lg">Информация для физических лиц</p>
+        <div className={styles.pageContainer}>
+            <h1 className={styles.pageTitle}>Физическим лицам</h1>
+            <p className={styles.pageText}>Информация для физических лиц</p>
         </div>
     );
 }

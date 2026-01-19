@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAppSelector } from "@/lib/hooks";
 import { navConfig } from './NavConfig';
+import styles from './Navbar.module.css';
 
 interface NavbarProps {
   currentPath: string;
   onNavigate: (path: string) => void;
-  // Removed isDark/setIsDark props as we now use Redux directly
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (val: boolean) => void;
 }
@@ -14,7 +14,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobileMenuOpen, setIsMobileMenuOpen }) => {
   const router = useRouter();
   const theme = useAppSelector((state) => state.theme.mode);
-  const isDark = theme === 'dark'; // True source of truth
+  const isDark = theme === 'dark';
 
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState<string[]>([]);
@@ -35,52 +35,31 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
     );
   };
 
-  // Define explicit classes for themes to guarantee separation
-  // Dark: Strict Black & White
-  // Light: Premium Subtle with Emerald Accents
-  const mobileMenuBg = isDark ? 'bg-black' : 'bg-linear-to-b from-slate-50 to-emerald-50';
-  const mobileHeaderBorder = isDark ? 'border-zinc-800' : 'border-emerald-100/50';
-  const mobileTextMain = isDark ? 'text-white' : 'text-slate-900';
-
-  const mobileButtonBg = isDark ? 'bg-zinc-900' : 'bg-white';
-  const mobileButtonBorder = isDark ? 'border-zinc-800' : 'border-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] ring-1 ring-emerald-900/5';
-  const mobileButtonHover = isDark ? 'hover:bg-zinc-800 hover:border-zinc-700' : 'hover:bg-emerald-50 hover:ring-emerald-500/20';
-  const mobileTextSub = isDark ? 'text-zinc-400' : 'text-slate-600';
-
   return (
     <header
-      className="relative z-50 w-full bg-card-bg shadow-sm"
+      className={styles.header}
       onMouseLeave={() => setActiveMenu(null)}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10 h-12 sm:h-14 md:h-16 flex items-center justify-between">
-
+      <div className={styles.headerContainer}>
         {/* Left side placeholder */}
         <div></div>
 
         {/* Desktop Nav */}
-        <nav className="hidden xl:flex items-center gap-1 lg:gap-2">
+        <nav className={styles.desktopNav}>
           {navConfig.map((item) => (
             <div
               key={item.title}
-              className="relative group"
+              className={styles.navItem}
               onMouseEnter={() => setActiveMenu(item.title)}
             >
               <button
                 onClick={() => handleLinkClick(item.path)}
-                className={`relative flex items-center gap-2 px-3 lg:px-4 xl:px-6 py-2 rounded text-sm lg:text-base font-bold transition-all duration-300 cursor-pointer ${currentPath === item.path || activeMenu === item.title
-                  ? 'text-emerald-600 dark:text-emerald-400'
-                  : 'text-emerald-600/70 dark:text-emerald-400/70 hover:text-emerald-600 dark:hover:text-emerald-400'
-                  }`}
+                className={`${styles.navButton} ${currentPath === item.path || activeMenu === item.title ? styles.navButtonActive : styles.navButtonDefault}`}
               >
-                {/* Top-left corner */}
-                <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                {/* Top-right corner */}
-                <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                {/* Bottom-left corner */}
-                <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                {/* Bottom-right corner */}
-
-                <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className={styles.cornerTL}></div>
+                <div className={styles.cornerTR}></div>
+                <div className={styles.cornerBL}></div>
+                <div className={styles.cornerBR}></div>
                 {item.title}
               </button>
             </div>
@@ -92,46 +71,43 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
       </div>
 
       {/* Mega Menu Overlay */}
-      <div
-        className={`absolute left-0 right-0 top-full bg-background border-b border-foreground/10 shadow-md transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden ${activeMenu ? 'max-h-[60vh] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
-          }`}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-12 lg:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-x-12 lg:gap-y-10">
+      <div className={`${styles.megaMenu} ${activeMenu ? styles.megaMenuOpen : styles.megaMenuClosed}`}>
+        <div className={styles.megaMenuContainer}>
+          <div className={styles.megaMenuGrid}>
+            <div className={styles.megaMenuItems}>
               {activeMenu && navConfig.find(n => n.title === activeMenu)?.subItems?.map((sub, idx) => (
                 <button
                   key={sub.title}
                   onClick={() => handleLinkClick(sub.path)}
-                  className="group flex items-center gap-4 sm:gap-6 lg:gap-8 text-left p-4 sm:p-5 lg:p-6 rounded hover:bg-emerald-500/5 dark:hover:bg-emerald-500/10 border-2 border-transparent hover:border-emerald-500/20 transition-all duration-500 animate-in slide-in-from-bottom-8"
+                  className={styles.megaMenuItem}
                   style={{ animationDelay: `${idx * 75}ms` }}
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded flex items-center justify-center shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-sm group-hover:shadow-2xl" style={{ background: idx % 3 === 0 ? 'var(--gradient-accent)' : idx % 3 === 1 ? 'linear-gradient(135deg, #F59E0B 0%, #EC4899 100%)' : 'linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%)' }}>
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d={sub.icon} /></svg>
+                  <div className={styles.megaMenuIcon} style={{ background: idx % 3 === 0 ? 'var(--gradient-accent)' : idx % 3 === 1 ? 'linear-gradient(135deg, #F59E0B 0%, #EC4899 100%)' : 'linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%)' }}>
+                    <svg className={styles.megaMenuIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d={sub.icon} /></svg>
                   </div>
                   <div>
-                    <div className="text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-1 sm:mb-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
+                    <div className={styles.megaMenuItemTitle}>
                       {sub.title}
                     </div>
-                    <div className="text-[10px] sm:text-xs font-bold text-slate-700 dark:text-slate-300 leading-relaxed">
+                    <div className={styles.megaMenuItemDesc}>
                       {sub.desc}
                     </div>
                   </div>
                 </button>
               ))}
             </div>
-            <div className="lg:col-span-4 lg:pl-8 xl:pl-16 lg:border-l border-slate-200 dark:border-slate-800">
-              <div className="p-6 sm:p-8 lg:p-10 rounded bg-background border-2 border-accent-orange/20 space-y-6 sm:space-y-8 relative overflow-hidden group/card">
-                <div className="space-y-3 sm:space-y-4">
-                  <span className="inline-block px-3 sm:px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[9px] sm:text-[10px] font-black uppercase tracking-widest">Support</span>
-                  <h4 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Нужна помощь?</h4>
-                  <p className="text-[10px] sm:text-xs font-bold text-slate-700 dark:text-slate-300 leading-relaxed uppercase tracking-wider">Ответим на любой вопрос за 5 минут.</p>
+            <div className={styles.megaMenuSidebar}>
+              <div className={styles.supportCard}>
+                <div>
+                  <span className={styles.supportBadge}>Support</span>
+                  <h4 className={styles.supportTitle}>Нужна помощь?</h4>
+                  <p className={styles.supportDesc}>Ответим на любой вопрос за 5 минут.</p>
                 </div>
-                <a href="tel:88005553322" className="flex items-center gap-3 sm:gap-4 text-slate-900 dark:text-white group/link">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded bg-emerald-500 dark:bg-emerald-600 flex items-center justify-center shadow-lg group-hover/link:bg-emerald-600 dark:group-hover/link:bg-emerald-500 transition-colors">
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 5z" /></svg>
+                <a href="tel:88005553322" className={styles.supportPhone}>
+                  <div className={styles.supportPhoneIcon}>
+                    <svg className={styles.supportPhoneIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 5z" /></svg>
                   </div>
-                  <span className="text-base sm:text-lg font-black tracking-tight uppercase">8 800 555-33-22</span>
+                  <span className={styles.supportPhoneNumber}>8 800 555-33-22</span>
                 </a>
               </div>
             </div>
@@ -139,31 +115,31 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
         </div>
       </div>
 
-      {/* Mobile Menu - Explicit Theme Logic */}
-      <div className={`fixed inset-0 z-[110] ${mobileMenuBg} transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="flex flex-col h-full">
-          <div className={`flex items-center justify-between p-4 border-b ${mobileHeaderBorder}`}>
-            <h2 className={`text-xl font-black uppercase ${mobileTextMain} tracking-tight`}>Навигация</h2>
+      {/* Mobile Menu */}
+      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : styles.mobileMenuClosed} ${isDark ? styles.mobileMenuDark : styles.mobileMenuLight}`}>
+        <div className={styles.mobileMenuContent}>
+          <div className={`${styles.mobileMenuHeader} ${isDark ? styles.mobileMenuHeaderDark : styles.mobileMenuHeaderLight}`}>
+            <h2 className={`${styles.mobileMenuTitle} ${isDark ? styles.mobileMenuTitleDark : styles.mobileMenuTitleLight}`}>Навигация</h2>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`w-10 h-10 rounded ${mobileButtonBg} border ${mobileButtonBorder} flex items-center justify-center ${mobileTextSub} ${mobileButtonHover} transition-colors`}
+              className={`${styles.mobileMenuCloseButton} ${isDark ? styles.mobileMenuCloseButtonDark : styles.mobileMenuCloseButtonLight}`}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" /></svg>
+              <svg className={styles.mobileMenuCloseIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
           </div>
-          <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-2">
+          <div className={styles.mobileMenuList}>
             {navConfig.map((item) => {
               const isExpanded = expandedMobileMenus.includes(item.title);
               return (
-                <div key={item.title} className="flex flex-col">
+                <div key={item.title}>
                   <button
                     onClick={() => item.subItems ? toggleMobileSubmenu(item.title) : handleLinkClick(item.path)}
-                    className={`w-full flex items-center justify-between p-3 rounded ${mobileButtonBg} border ${mobileButtonBorder} text-sm font-black uppercase tracking-tight ${mobileButtonHover} transition-colors ${currentPath === item.path ? 'text-primary' : mobileTextMain}`}
+                    className={`${styles.mobileMenuItemButton} ${isDark ? styles.mobileMenuItemButtonDark : styles.mobileMenuItemButtonLight} ${currentPath === item.path ? styles.mobileMenuItemButtonActive : ''}`}
                   >
                     {item.title}
                     {item.subItems && (
                       <svg
-                        className={`w-4 h-4 opacity-40 transition-transform duration-300 ${mobileTextMain} ${isExpanded ? 'rotate-90' : ''}`}
+                        className={`${styles.mobileMenuChevron} ${isExpanded ? styles.mobileMenuChevronExpanded : ''}`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -173,22 +149,19 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
                     )}
                   </button>
                   {item.subItems && (
-                    <div
-                      className={`flex flex-col gap-2 pl-2 overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-[2000px] opacity-100 pt-2' : 'max-h-0 opacity-0 pt-0'
-                        }`}
-                    >
+                    <div className={`${styles.mobileMenuSubmenu} ${isExpanded ? styles.mobileMenuSubmenuExpanded : styles.mobileMenuSubmenuCollapsed}`}>
                       {item.subItems.map((sub) => (
                         <button
                           key={sub.title}
                           onClick={() => handleLinkClick(sub.path)}
-                          className={`flex items-center gap-3 w-full text-left p-2.5 rounded ${mobileButtonBg} border ${mobileButtonBorder} ${mobileButtonHover} transition-all`}
+                          className={`${styles.mobileMenuSubItem} ${isDark ? styles.mobileMenuSubItemDark : styles.mobileMenuSubItemLight}`}
                         >
-                          <div className="w-8 h-8 rounded bg-emerald-500 text-white flex items-center justify-center shrink-0">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className={styles.mobileMenuSubItemIcon}>
+                            <svg className={styles.mobileMenuSubItemIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d={sub.icon} />
                             </svg>
                           </div>
-                          <div className={`text-xs font-black uppercase tracking-tight ${mobileTextSub}`}>{sub.title}</div>
+                          <div className={`${styles.mobileMenuSubItemTitle} ${isDark ? styles.mobileMenuSubItemTitleDark : styles.mobileMenuSubItemTitleLight}`}>{sub.title}</div>
                         </button>
                       ))}
                     </div>

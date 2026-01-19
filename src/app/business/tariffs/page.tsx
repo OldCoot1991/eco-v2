@@ -1,8 +1,10 @@
+import TariffsJur from "@/components/tariffs/TariffsJur";
+import styles from "../../page.module.css";
+
 export default function BusinessTariffsPage() {
     return (
-        <div className="container mx-auto px-6 py-16">
-            <h1 className="text-4xl font-black uppercase mb-8">Тарифы - Бизнесу</h1>
-            <p className="text-lg">Цены для юридических лиц</p>
+        <div className={styles.pageContainer}>
+            <TariffsJur />
         </div>
     );
 }
