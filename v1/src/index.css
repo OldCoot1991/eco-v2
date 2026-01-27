@@ -1,0 +1,184 @@
+@font-face {
+    font-family: "MyriadPro";
+    src: local("MyriadPro"),
+        url("./assets/fonts/MyriadPro-Regular.ttf") format("truetype"),
+        url("./assets/fonts/MyriadPro-Regular.eot") format("embedded-opentype"),
+        url("./assets/fonts/MyriadPro-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* SemiBold */
+
+@font-face {
+    font-family: "MyriadPro";
+    src: local("MyriadPro"),
+        url("./assets/fonts/MyriadPro-SemiBold.ttf") format("truetype"),
+        url("./assets/fonts/MyriadPro-SemiBold.eot") format("embedded-opentype"),
+        url("./assets/fonts/MyriadPro-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Bold */
+
+@font-face {
+    font-family: "MyriadPro";
+    src: local("MyriadPro"),
+        url("./assets/fonts/MyriadPro-Bold.ttf") format("truetype"),
+        url("./assets/fonts/MyriadPro-Bold.eot") format("embedded-opentype"),
+        url("./assets/fonts/MyriadPro-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Italic */
+
+@font-face {
+    font-family: "MyriadPro";
+    src: local("MyriadPro"),
+        url("./assets/fonts/MyriadPro-Italic.ttf") format("truetype"),
+        url("./assets/fonts/MyriadPro-Italic.eot") format("embedded-opentype"),
+        url("./assets/fonts/MyriadPro-Italic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* BoldItalic */
+
+@font-face {
+    font-family: "MyriadPro";
+    src: local("MyriadPro"),
+        url("./assets/fonts/MyriadPro-BoldItalic.ttf") format("truetype"),
+        url("./assets/fonts/MyriadPro-BoldItalic.eot")
+            format("embedded-opentype"),
+        url("./assets/fonts/MyriadPro-BoldItalic.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* SemiBoldItalic */
+
+@font-face {
+    font-family: "MyriadPro";
+    src: local("MyriadPro"),
+        url("./assets/fonts/MyriadPro-SemiBoldItalic.ttf") format("truetype"),
+        url("./assets/fonts/MyriadPro-SemiBoldItalic.eot")
+            format("embedded-opentype"),
+        url("./assets/fonts/MyriadPro-SemiBoldItalic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    font-family: MyriadPro, italic;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+#complex {
+    line-height: 20px;
+}
+
+.faqfiz {
+    padding-bottom: 0;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.link-tarrifs {
+    list-style: none;
+    font-size:  20px;
+    margin-top: 30px;
+    text-align: left;
+    color: black;
+}
+@media (min-width: 320px) and (max-width: 900px){
+    .container_header_menu  {
+        display: none;
+    }
+    h1 {
+        font-size: 25px;
+    }
+    .link-tarrifs {
+    font-size: 14px;
+    }
+    .link-app-android {
+        background-image: url(./components/NewBannerActions/googleplay.png);
+        width: 160px;
+        height: 52px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border-radius: 5px;
+    }
+    .link-app-ios {
+        background-image: url(./components/NewBannerActions/appstore-ios.png);
+        width: 160px;
+        height: 52px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border-radius: 5px;
+    }
+    .container-app {
+        display: flex;
+        height: 60px;
+        gap: 30px;
+    }
+    .containersss {
+        margin-top: 70px;
+    }
+}
+
+.Info-title-header {
+    color: #89c228;
+    font-size: 30px;
+    text-align: center;
+}
+
+.Info-header-container {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+.flex-col{ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding: 16px;
+}
+
+.flex-col-link{ 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.paragraf-info-link {
+    text-decoration: none;
+    color: black;
+}
+@media (max-width: 1200px){
+    .Info-header-container {
+     
+    }
+    .Info-title-header {
+        font-size: 18px;
+    }
+    .container-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    padding: 0px 5px;
+}
+}
+

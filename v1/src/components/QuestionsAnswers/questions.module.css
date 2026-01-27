@@ -1,0 +1,101 @@
+.accordion {
+    max-width: 1100px;
+    height: max-content;
+    font-family: "MyriadPro";
+    font-size: 16px;
+    padding: 30px 0px;
+    margin: 20px auto;
+    color: black;
+    background-color: #f9f9f9;
+  }
+  .top_zagolovok {
+    color: #89c228;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .item {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  .zagolovol {
+    width: 98%;
+    margin: 0 auto;
+    padding-top: 20px;
+    font-weight: 500;
+    font-size: 22px;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+  }
+
+  .text {
+    font-size: 20px;
+    margin-top: 30px;
+    padding: 0px 10px 0px 52px;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+    cursor: pointer;
+  }
+  .plus {
+    display: flex;
+    padding-top: 5px;
+    color: #89c228;
+    width: 5%;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin: 0px;
+    cursor: pointer;
+  }
+
+  .text {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 1s cubic-bezier(0, 1, 0, 1);
+  }
+
+  .text.show {
+    height: auto;
+    max-height: 9999px;
+    transition: all 1s cubic-bezier(1, 0, 1, 0);
+  }
+
+  .card {
+    width: 600px;
+  }
+
+
+  @media (min-width: 320px) and (max-width: 600px){
+
+  .item {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  .plus {
+    margin-right: 10px;
+    padding-top: 0px;
+    font-size: 25px;
+  }
+  .zagolovol {
+    width: 98%;
+    margin: 0 auto;
+    padding-top: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    border-bottom: 2px solid black;
+    padding-bottom: 0px;
+  }
+  .text {
+    font-size: 15px;
+    margin-top: 10px;
+    padding: 0px 10px 0px 28px;
+  }
+  }

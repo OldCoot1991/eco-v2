@@ -1,0 +1,294 @@
+/* AppPromo Component Styles */
+
+.appPromo {
+    padding: 6rem 0;
+    background: #FAFAF9;
+}
+
+:global(.dark) .appPromo {
+    background: #09090b;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+/* Mobile App Section */
+.mobileAppSection {
+    background: #18181b;
+    border-radius: 3rem;
+    padding: 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .mobileAppSection {
+        padding: 4rem;
+    }
+}
+
+.bgGradient {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(16, 185, 129, 0.2), transparent);
+    pointer-events: none;
+}
+
+.appGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 1024px) {
+    .appGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.appContent {}
+
+.appBadge {
+    display: inline-block;
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.appHeading {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+@media (min-width: 768px) {
+    .appHeading {
+        font-size: 3rem;
+    }
+}
+
+.appDescription {
+    font-size: 1.125rem;
+    color: #a1a1aa;
+    margin-bottom: 2rem;
+    max-width: 28rem;
+}
+
+.appButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.appButton {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.appButtonPrimary {
+    background: #ffffff;
+    color: #18181b;
+}
+
+.appButtonPrimary:hover {
+    background: #f4f4f5;
+}
+
+.appButtonSecondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+}
+
+.appButtonSecondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.appIcon {
+    font-size: 1.5rem;
+}
+
+.appButtonText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+}
+
+.appButtonLabel {
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #71717a;
+}
+
+.appButtonPrimary .appButtonLabel {
+    color: #71717a;
+}
+
+.appButtonSecondary .appButtonLabel {
+    color: #a1a1aa;
+}
+
+.appButtonTitle {
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.appMockup {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .appMockup {
+        display: flex;
+    }
+}
+
+.phoneMockup {
+    width: 16rem;
+    height: 31.25rem;
+    background: #3f3f46;
+    border-radius: 3rem;
+    border: 8px solid #52525b;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #71717a;
+    font-weight: 500;
+}
+
+/* Partners Section */
+.partnersGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .partnersGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.partnerCard {
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e4e4e7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: box-shadow 0.2s;
+}
+
+:global(.dark) .partnerCard {
+    background: #18181b;
+    border-color: #3f3f46;
+}
+
+.partnerCard:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.partnerInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.partnerIcon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.partnerIconGreen {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.partnerIconYellow {
+    background: rgba(234, 179, 8, 0.1);
+    color: #ca8a04;
+}
+
+.partnerDetails {}
+
+.partnerName {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #18181b;
+}
+
+:global(.dark) .partnerName {
+    color: #ffffff;
+}
+
+.partnerDescription {
+    font-size: 0.875rem;
+    color: #71717a;
+}
+
+.partnerButton {
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    background: #f4f4f5;
+    color: #18181b;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.partnerButton:hover {
+    background: #e4e4e7;
+}
+
+:global(.dark) .partnerButton {
+    background: #3f3f46;
+    color: #ffffff;
+}
+
+:global(.dark) .partnerButton:hover {
+    background: #52525b;
+}

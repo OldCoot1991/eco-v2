@@ -1,0 +1,151 @@
+.footer_2 {
+    display: none;
+}
+
+.container_footer {
+    justify-content: center;
+    background-color: #253036;
+    color: #97c3e2;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 40px 0px;
+}
+
+.footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: #97c3e2;
+    margin: 0px;
+    padding: 0px;
+}
+.links {
+    text-decoration: none;
+    color: #97c3e2;
+    margin: 0px;
+    padding: 0px;
+    margin-right: 10px;
+}
+.bottom_link {
+    text-decoration: none;
+    color: #97c3e2;
+    border-bottom: 1px solid #97c3e2;
+}
+
+.zagolovok {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+    color: white;
+}
+
+.link_telegram {
+    display: block;
+    background-image: url(../../assets/images/socials/telegram.svg);
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    width: 84%;
+    margin-bottom: 40px;
+    height: 100%;
+}
+.number_tel {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin: 20px 0px;
+    margin-top: 0px;
+}
+.footer_grid {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.button {
+    padding: 0.5rem;
+    text-decoration: none;
+    border: 2px solid #97c3e2;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    background: transparent;
+    color: white;
+    width: 150px;
+    height: 40px;
+    margin: 10px 0px;
+}
+
+.text_white {
+    color: white;
+}
+
+.flex_column {
+    display: flex;
+}
+.bottom_text {
+    color: rgb(134, 134, 134);
+}
+.container_link {
+    margin-top: 50px;
+}
+
+.header_text {
+    font-size: 16px;
+    margin: 10px 0px 5px;
+    width: 80%;
+}
+
+
+@media (min-width: 320px) and (max-width: 580px){
+    .footer {
+        display: none;
+    }
+    .container_footer {
+    justify-content: center;
+    background-color: #253036;
+    color: #97c3e2;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 40px 0px;
+}
+    .footer_2 {
+        display: flex;
+        padding: 20px 10px;
+        align-items: center;
+        justify-content: center;
+    }
+    .flex_column {
+     display: flex;
+     place-content: center;
+    }
+    .container_footer2 {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button2 {
+        padding: 10px;
+        text-decoration: none;
+        border: 2px solid #97c3e2;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 20px;
+        background: transparent;
+        color: white;
+        margin: 10px 0px;
+    }
+}

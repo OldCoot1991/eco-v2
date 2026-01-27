@@ -1,0 +1,234 @@
+.menu {
+    background-color: #f8f8f8;
+    padding: 10px 0px;
+    margin-top: 10px;
+    max-height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: black;
+}
+
+.menu__list {
+    display: flex;
+    flex-direction: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.menu__item {
+    width: 100%;
+}
+
+.sub_menu__list {
+    display: none;
+    background-color: #f8f8f8;
+    position: relative;
+    z-index: 999999999999;
+    
+}
+
+.menu__item:hover .sub_menu__list {
+    list-style-type: none;
+    text-align: left;
+    width: 100%;
+    padding: 10px 5px;
+    margin-top: 5px;
+    border: 2px solid rgb(222, 222, 222);
+    background-color: white;
+    border-top: 2px solid green;
+    cursor: pointer;
+    display: block;
+    box-sizing: border-box;
+}
+
+.sub_menu__link {
+    margin: 5px 0px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.menu__item:hover .link {
+    color: #89c228;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.sub_link:hover {
+    color: #89c228;
+    width: 100%;
+}
+
+.sub_link {
+    text-decoration: none;
+    color: black;
+}
+
+.link_active {
+    color: black;
+    border-bottom: 2px solid green;
+}
+
+.btn1 {
+    display: none;
+}
+
+@media (min-width: 320px) and (max-width: 900px) {
+    .menu {
+        height: auto;
+        width: 100%;
+        background-color: white;
+        margin-bottom: 50px;
+        margin-top: 5px;
+    }
+
+    .btn1 {
+        box-sizing: border-box;
+        display: flex;
+        height: 40px;
+        width: 40px;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #89c228;
+        background-color: white;
+        position: absolute;
+        right: 0px;
+        text-align: center;
+        border-radius: 20px;
+        border-top-left-radius: 50%;
+        margin-right: 10px;
+        border-bottom-left-radius: 50%;
+    }
+
+    .link {
+        color: black;
+    }
+
+    .sub_menu__list {
+        position: relative;
+        z-index: 99999999999999;
+        background: #f8f8f8;
+    }
+
+    .link_active {
+        color: black;
+        border-bottom: 2px solid black;
+        height: 40px;
+    }
+
+    .menu__item:hover .link {
+        color: black;
+        height: 40px;
+    }
+
+    .menu__list {
+        font-size: 0px;
+        display: none;
+        height: 0px;
+    }
+
+    .menu__list_enebled {
+        box-sizing: border-box;
+        display: flex;
+        text-align: left;
+        width: 100%;
+        padding: 20px 20px;
+        flex-direction: column;
+        font-size: 16px;
+        margin: 0px auto;
+        height: auto;
+        position: absolute;
+        z-index: 9999999;
+        margin-top: 50px;
+        background-color: #f8f8f8;
+    }
+
+    .menu__list_enebled .menu__item {
+        color: #89c228;
+        padding: 5px 0px;
+        font-size: 13px;
+    }
+
+    .btn1 p {
+        font-size: 30px;
+        text-align: center;
+        padding-bottom: 2px;
+        color: black;
+    }
+
+    .btn1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .uni {
+        margin: 0px;
+        padding: 0px;
+        width: auto;
+        height: 5px;
+        margin-left: 10px;
+    }
+
+    .menu__list_enebled .link_active {
+        border-bottom: 0px;
+        height: 100%;
+    }
+
+    .menu__list_enebled .menu__item {
+        border-bottom: 2px solid #89c228;
+        width: 100%;
+    }
+
+    .menu__item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu__item:hover .sub_menu__list {
+        list-style-type: none;
+        text-align: left;
+        width: auto;
+        padding: 0px 3px;
+        font-size: 12px;
+        margin-top: 0px;
+        border: 2px solid rgb(222, 222, 222);
+        background-color: white;
+        border-top: 2px solid green;
+        cursor: pointer;
+        display: block;
+        box-sizing: border-box;
+    }
+
+    .sub_menu__link {
+        margin: 5px 0px;
+    }
+
+    .menu__item:hover .link {
+        color: black;
+        height: 100%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 420px) {
+    .menu {
+        height: auto;
+        width: 100%;
+        background-color: transparent;
+        margin-bottom: 50px;
+        margin-top: 5px;
+    }
+
+    .menu {
+        position: fixed;
+    }
+}
+
+

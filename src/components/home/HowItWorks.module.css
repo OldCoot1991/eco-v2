@@ -1,0 +1,250 @@
+/* HowItWorks Component Styles */
+
+.howItWorks {
+    padding: 6rem 0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+:global(.dark) .howItWorks {
+    background: #18181b;
+}
+
+.bgPattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.bgGradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at top, rgba(16, 185, 129, 0.15), transparent);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .header {
+        flex-direction: row;
+    }
+}
+
+.headerContent {
+    max-width: 32rem;
+}
+
+.heading {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #18181b;
+}
+
+:global(.dark) .heading {
+    color: #ffffff;
+}
+
+@media (min-width: 768px) {
+    .heading {
+        font-size: 3rem;
+    }
+}
+
+.description {
+    font-size: 1.125rem;
+    color: #52525b;
+}
+
+:global(.dark) .description {
+    color: #a1a1aa;
+}
+
+.aboutLink {
+    display: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e4e4e7;
+    color: #52525b;
+    background: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+@media (min-width: 768px) {
+    .aboutLink {
+        display: inline-flex;
+    }
+}
+
+.aboutLink:hover {
+    background: #fafafa;
+}
+
+:global(.dark) .aboutLink {
+    background: #18181b;
+    color: #a1a1aa;
+    border-color: #3f3f46;
+}
+
+:global(.dark) .aboutLink:hover {
+    background: #27272a;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.connectingLine {
+    display: none;
+    position: absolute;
+    top: 3rem;
+    left: 16%;
+    right: 16%;
+    height: 2px;
+    background: #f4f4f5;
+}
+
+@media (min-width: 768px) {
+    .connectingLine {
+        display: block;
+    }
+}
+
+:global(.dark) .connectingLine {
+    background: #3f3f46;
+}
+
+.step {
+    position: relative;
+}
+
+.stepCircle {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 4px solid #ecfdf5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    position: relative;
+    z-index: 10;
+    transition: transform 0.3s;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+:global(.dark) .stepCircle {
+    background: #18181b;
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.step:hover .stepCircle {
+    transform: scale(1.1);
+}
+
+.stepNumber {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #059669;
+}
+
+:global(.dark) .stepNumber {
+    color: #34d399;
+}
+
+.stepContent {
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.stepTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #18181b;
+}
+
+:global(.dark) .stepTitle {
+    color: #ffffff;
+}
+
+.stepDescription {
+    color: #52525b;
+}
+
+:global(.dark) .stepDescription {
+    color: #a1a1aa;
+}
+
+.mobileLink {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e4e4e7;
+    color: #52525b;
+    background: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+@media (min-width: 768px) {
+    .mobileLink {
+        display: none;
+    }
+}
+
+.mobileLink:hover {
+    background: #fafafa;
+}
+
+:global(.dark) .mobileLink {
+    background: #18181b;
+    color: #a1a1aa;
+    border-color: #3f3f46;
+}
+
+:global(.dark) .mobileLink:hover {
+    background: #27272a;
+}

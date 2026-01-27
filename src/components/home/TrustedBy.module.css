@@ -1,0 +1,225 @@
+/* TrustedBy Component Styles */
+
+.trustedBy {
+    position: relative;
+    padding: 6rem 0;
+    background: #fafafa;
+    overflow: hidden;
+}
+
+:global(.dark) .trustedBy {
+    background: #09090b;
+}
+
+/* Wave Background */
+.waveBg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.waveLeft {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    opacity: 0.6;
+}
+
+.waveRight {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    opacity: 0.6;
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #059669;
+    margin-bottom: 4rem;
+    font-family: var(--font-source-serif), serif;
+}
+
+:global(.dark) .heading {
+    color: #34d399;
+}
+
+@media (min-width: 768px) {
+    .heading {
+        font-size: 3rem;
+    }
+}
+
+/* Swiper Styles */
+.swiper {
+    width: 100%;
+    padding: 3rem 0 5rem;
+}
+
+.swiperSlide {
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .swiperSlide {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+/* White overlay removed as requested */
+
+.partnerCard {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    /* Fallback */
+}
+
+.swiperSlide:global(.swiper-slide-active) .partnerCard {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.logoPlaceholder {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-align: center;
+    padding: 1rem;
+    font-family: var(--font-raleway), sans-serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .logoPlaceholder {
+        font-size: 1rem;
+    }
+}
+
+/* Swiper Navigation Buttons */
+.swiper :global(.swiper-button-next),
+.swiper :global(.swiper-button-prev) {
+    width: 3rem;
+    height: 3rem;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s;
+    z-index: 20;
+    /* Ensure above slides */
+}
+
+.swiper :global(.swiper-button-next):after,
+.swiper :global(.swiper-button-prev):after {
+    font-size: 1.25rem;
+    color: #059669;
+    font-weight: 900;
+}
+
+.swiper :global(.swiper-button-next):hover,
+.swiper :global(.swiper-button-prev):hover {
+    background: #059669;
+    transform: scale(1.1);
+}
+
+.swiper :global(.swiper-button-next):hover:after,
+.swiper :global(.swiper-button-prev):hover:after {
+    color: white;
+}
+
+:global(.dark) .swiper :global(.swiper-button-next),
+:global(.dark) .swiper :global(.swiper-button-prev) {
+    background: #18181b;
+    border: 2px solid #3f3f46;
+}
+
+:global(.dark) .swiper :global(.swiper-button-next):after,
+:global(.dark) .swiper :global(.swiper-button-prev):after {
+    color: #34d399;
+}
+
+:global(.dark) .swiper :global(.swiper-button-next):hover,
+:global(.dark) .swiper :global(.swiper-button-prev):hover {
+    background: #059669;
+    border-color: #059669;
+}
+
+/* Swiper Pagination */
+.swiper :global(.swiper-pagination-bullet) {
+    width: 0.75rem;
+    height: 0.75rem;
+    background: rgba(16, 185, 129, 0.3);
+    opacity: 1;
+    transition: all 0.3s;
+}
+
+.swiper :global(.swiper-pagination-bullet-active) {
+    background: #059669;
+    width: 2rem;
+    border-radius: 1rem;
+}
+
+:global(.dark) .swiper :global(.swiper-pagination-bullet) {
+    background: rgba(52, 211, 153, 0.3);
+}
+
+:global(.dark) .swiper :global(.swiper-pagination-bullet-active) {
+    background: #34d399;
+}
+
+/* View All Link */
+.viewAllLink {
+    display: block;
+    text-align: center;
+    color: #059669;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: underline;
+    transition: color 0.2s;
+    font-family: var(--font-raleway), sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 2rem;
+}
+
+.viewAllLink:hover {
+    color: #047857;
+}
+
+:global(.dark) .viewAllLink {
+    color: #34d399;
+}
+
+:global(.dark) .viewAllLink:hover {
+    color: #6ee7b7;
+}

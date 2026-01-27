@@ -1,0 +1,132 @@
+.uslugi_container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 0px 100px;
+}
+
+.uslugi_container__card {
+    display: grid;
+    max-width: 1000px;
+    grid-template-columns: repeat(auto-fill, minmax( 250px, 1fr));
+    grid-gap: 30px;
+    margin: 0 auto;
+    border: 2px solid transparent;
+}
+
+.uslugi_card:hover {
+    border: 2px solid #89c228;
+}
+
+.uslugi_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    padding: 20px 10px;
+    font-size: 16px;
+    margin: 0 auto;
+    border: 2px solid transparent;
+    background-color: #f9f9f9;
+}
+
+
+.uslugi_img {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.uslugi_container__text {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+}
+
+.uslugi_container_title {
+   text-align: center;
+   font-size: 1.8em;
+   padding: 0px 20px;
+   margin: 20px auto;
+}
+
+.waste_button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.container_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    margin: 0 auto;
+}
+
+
+@media (min-width: 320px) and (max-width: 580px){
+    .uslugi_container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px 0px;
+    }
+
+    .uslugi_container__card {
+        display: grid;
+        max-width: 500px;
+        grid-template-columns: repeat(auto-fill, minmax( 100%, 1fr));
+        grid-gap: 30px;
+        margin: 0 auto;
+        border: 2px solid transparent;
+    }
+
+    .uslugi_card:hover {
+        border: 2px solid #89c228;
+    }
+
+    .uslugi_card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 10px;
+        font-size: 16px;
+        width: 86%;
+        font-weight: 500;
+        margin: 0 auto;
+        border: 2px solid transparent;
+        background-color: #f9f9f9;
+    }
+
+
+    .uslugi_img {
+        display: block;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .uslugi_container__text {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        text-align: center;
+        width: 90%;
+    }
+
+    .uslugi_container_title {
+       text-align: center;
+       font-size: 1.8em;
+       padding: 0px 20px;
+       margin: 20px auto;
+    }
+
+    .waste_button {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}

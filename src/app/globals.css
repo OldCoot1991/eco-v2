@@ -5,6 +5,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-raleway);
+  --font-title: var(--font-source-serif);
 }
 
 :root {
@@ -19,21 +21,26 @@
   --accent-pink: #EC4899;
   --card-bg: #FFFFFF;
   --border: rgba(0, 0, 0, 0.06);
-  
+
   /* Soft shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  
+
   /* Gradients for icons */
   --gradient-accent: linear-gradient(135deg, #059669 0%, #0EA5E9 100%);
   /* Tariffs Component Colors - LIGHT THEME (яркие, насыщенные цвета) */
-  --tariff-heading: #047857; /* насыщенный изумрудный для заголовков */
-  --tariff-text: #059669; /* яркий изумрудный для текста */
-  --tariff-text-secondary: #10b981; /* светлый изумрудный для вторичного текста */
+  --tariff-heading: #047857;
+  /* насыщенный изумрудный для заголовков */
+  --tariff-text: #059669;
+  /* яркий изумрудный для текста */
+  --tariff-text-secondary: #10b981;
+  /* светлый изумрудный для вторичного текста */
   --tariff-card-bg: #ffffff;
-  --tariff-border: #a7f3d0; /* яркая изумрудная граница */
-  --tariff-shadow: rgba(16, 185, 129, 0.3); /* более заметная тень */
+  --tariff-border: #a7f3d0;
+  /* яркая изумрудная граница */
+  --tariff-shadow: rgba(16, 185, 129, 0.3);
+  /* более заметная тень */
 }
 
 .dark {
@@ -45,12 +52,18 @@
   --border: rgba(255, 255, 255, 0.1);
 
   /* Tariffs Component Colors - DARK THEME (нейтральные цвета для контраста) */
-  --tariff-heading: #ffffff; /* чистый белый */
-  --tariff-text: #e5e7eb; /* светло-серый */
-  --tariff-text-secondary: #9ca3af; /* серый */
-  --tariff-card-bg: #1f2937; /* темно-серый фон */
-  --tariff-border: #374151; /* темная граница */
-  --tariff-shadow: transparent; /* без теней */
+  --tariff-heading: #ffffff;
+  /* чистый белый */
+  --tariff-text: #e5e7eb;
+  /* светло-серый */
+  --tariff-text-secondary: #9ca3af;
+  /* серый */
+  --tariff-card-bg: #1f2937;
+  /* темно-серый фон */
+  --tariff-border: #374151;
+  /* темная граница */
+  --tariff-shadow: transparent;
+  /* без теней */
 }
 
 html {
@@ -63,6 +76,20 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
+}
+
+/* Apply Raleway to main headings */
+h1,
+h2 {
+  font-family: var(--font-raleway), sans-serif;
+}
+
+/* Apply Source Serif Pro to block titles */
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-source-serif), serif;
 }
 
 * {
@@ -89,6 +116,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -100,6 +128,7 @@ body {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -107,8 +136,13 @@ body {
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .animate-spin-slow {
@@ -117,7 +151,9 @@ body {
 
 /* Touch-friendly tap targets for mobile */
 @media (max-width: 768px) {
-  button, a {
+
+  button,
+  a {
     min-height: 44px;
     min-width: 44px;
   }

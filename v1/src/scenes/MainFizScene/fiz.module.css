@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+
+.news_containers {
+    width: 100%;
+    background-color: #f9f9f9;
+}
+.onli {
+    width: 95%;
+}
+
+.color_text {
+    color:  white;
+    width: 34%;
+}
+.color_title {
+    color: white;
+}
+
+.bankscontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 500px) {
+    .color_text {
+        color:  black;
+        width: 34%;
+    }
+    .color_title {
+        color: black;
+    } 
+}

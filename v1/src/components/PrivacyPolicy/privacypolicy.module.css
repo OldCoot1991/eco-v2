@@ -1,0 +1,67 @@
+.customCookie {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 501;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-top: 1px solid #0f2d37;
+    padding: 20px 40px;
+  }
+  .customCookie__hidden {
+    display: none;
+  }
+  .customCookie__content {
+    display: grid;
+    grid-template: " text        buttons   " auto / 1fr 200px;
+  }
+  .customCookie__text {
+    grid-area: text;
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 0;
+  }
+  .customCookie__buttons {
+    grid-area: buttons;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .customCookie__button {
+    text-align: center;
+    height: 35px;
+    width: 200px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #f8f8f8;
+  }
+  .customCookie__button:hover {
+    cursor: pointer;
+  }
+  .customCookie__button__accept {
+    background-color:  #5aad3a;
+    border-radius: 2px;
+    border: none;
+  }
+  .customCookie__button__policy {
+    color: #e6e6e6;
+    text-decoration: underline;
+    font-weight: bold;
+    line-height: 35px;
+    white-space: nowrap;
+    color: #0f2d37;
+  }
+
+  @media only screen and (max-width: 639px) {
+    .customCookie {
+      padding: 20px 15px;
+    }
+    .customCookie__content {
+      display: grid;
+      grid-template: " text    " auto " buttons " auto / 1fr;
+    }
+    .customCookie__text {
+      padding: 0 0 20px 0;
+    }
+  }

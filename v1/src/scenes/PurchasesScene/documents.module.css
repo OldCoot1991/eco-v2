@@ -1,0 +1,53 @@
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    padding: 0 5px;
+}
+.tittle {
+    text-align: center;
+    margin: 30px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    margin: 0px;
+}
+
+.paragraf {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    margin:  0px;
+}
+
+.container_card {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax( 100%, 1fr));
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.img {
+    background-image: url(./pdf.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 768px) {
+    .paragraf {
+        flex-direction: column;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 20px;
+    }
+    .tittle {
+        font-size: 20px;
+        margin: 20px;
+    } 
+}

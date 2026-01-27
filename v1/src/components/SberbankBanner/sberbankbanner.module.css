@@ -1,0 +1,17 @@
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 512px;
+  margin-bottom: 20px;
+}
+
+.sberbankbanner {
+  max-width: 512px;
+}
+
+@media (min-width: 20px) and (max-width: 580px){
+  .sberbankbanner {
+    width: 100%;
+    max-width: 580px;
+  }
+}
