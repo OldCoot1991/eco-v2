@@ -1,0 +1,65 @@
+/* SectionTitle Component Styles */
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+    /* Match Services.module.css */
+    text-align: center;
+}
+
+.title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    margin: 0 0 1.5rem 0;
+    color: #18181b;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+:global(.dark) .title {
+    color: #ffffff;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 3.5rem;
+    }
+}
+
+.accent {
+    color: #059669;
+    /* emerald-600 */
+    margin-left: 0.25em;
+    /* small space if needed, or rely on whitespace in props */
+}
+
+:global(.dark) .accent {
+    color: #34d399;
+    /* emerald-400 */
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #52525b;
+    /* zinc-600 */
+    max-width: 42rem;
+    line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    margin: 0;
+}
+
+:global(.dark) .subtitle {
+    color: #a1a1aa;
+    /* zinc-400 */
+}
+
+@media (min-width: 768px) {
+    .subtitle {
+        font-size: 1.25rem;
+    }
+}

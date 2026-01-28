@@ -14,34 +14,34 @@ export const Footer: React.FC = () => {
   const getNavTitle = (key: string) => {
     // Map known Russian titles to translation keys
     const map: Record<string, string> = {
-        'Физ. лицам': t.nav.fiz,
-        'Бизнесу': t.nav.business,
-        'Новости': t.nav.news,
-        'О компании': t.nav.company,
-        'Документы': t.nav.documents,
-        'Закупки': t.nav.purchases,
-        'Экострой': t.nav.ecostroy,
-        // Subitems
-        'Главная': t.nav.items.main,
-        'Тарифы': t.nav.items.tariffs,
-        'Вопросы-ответы': t.nav.items.faq,
-        'Обратная связь': t.nav.items.feedback,
-        'Контракт': t.nav.items.contract,
-        'Нормативы': t.nav.items.norms,
-        'Наша компания': t.nav.items.about,
-        'Руководство': t.nav.items.management,
-        'Наши клиенты': t.nav.items.clients,
-        'Автопарк': t.nav.items.fleet,
-        'Контейнеры': t.nav.items.containers,
-        'Вакансии': t.nav.items.jobs,
-        'Как сдавать отходы': t.nav.items.howto,
-        'РСО для детей': t.nav.items.kids,
-        'Контакты': t.nav.items.contacts,
-        'ООО «Экологистика»': t.nav.items.companyDocs,
-        'Нормативные правовые акты': t.nav.items.legal,
-        'Заключение договора': t.nav.items.contract,
-        'Строительно-монтажные работы': t.nav.items.construction,
-        'Продажа/поставка стройматериалов': t.nav.items.materials,
+      'Физ. лицам': t.nav.fiz,
+      'Бизнесу': t.nav.business,
+      'Новости': t.nav.news,
+      'О компании': t.nav.company,
+      'Документы': t.nav.documents,
+      'Закупки': t.nav.purchases,
+      'Экострой': t.nav.ecostroy,
+      // Subitems
+      'Главная': t.nav.items.main,
+      'Тарифы': t.nav.items.tariffs,
+      'Вопросы-ответы': t.nav.items.faq,
+      'Обратная связь': t.nav.items.feedback,
+      'Контракт': t.nav.items.contract,
+      'Нормативы': t.nav.items.norms,
+      'Наша компания': t.nav.items.about,
+      'Руководство': t.nav.items.management,
+      'Наши клиенты': t.nav.items.clients,
+      'Автопарк': t.nav.items.fleet,
+      'Контейнеры': t.nav.items.containers,
+      'Вакансии': t.nav.items.jobs,
+      'Как сдавать отходы': t.nav.items.howto,
+      'РСО для детей': t.nav.items.kids,
+      'Контакты': t.nav.items.contacts,
+      'ООО «Экологистика»': t.nav.items.companyDocs,
+      'Нормативные правовые акты': t.nav.items.legal,
+      'Заключение договора': t.nav.items.contract,
+      'Строительно-монтажные работы': t.nav.items.construction,
+      'Продажа/поставка стройматериалов': t.nav.items.materials,
     };
     return map[key] || key;
   };
@@ -106,14 +106,14 @@ export const Footer: React.FC = () => {
             <div className={styles.contactContentWrapper}>
               <h5 className={styles.contactTitle}>{t.footer.addressTitle}</h5>
               <p className={styles.contactContent}>
-                {t.footer.address.split('\\n').map((line, i) => <React.Fragment key={i}>{line}<br/></React.Fragment>)}
+                {t.footer.address.split('\\n').map((line, i) => <React.Fragment key={i}>{line}<br /></React.Fragment>)}
               </p>
             </div>
           </div>
 
           <div className={styles.contactItem}>
             <div className={styles.iconWrapper}>
-               <svg className={styles.contactIcon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className={styles.contactIcon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             </div>

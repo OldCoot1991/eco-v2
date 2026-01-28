@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./TariffsJur.module.css";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 
 
@@ -179,10 +180,10 @@ const TariffsJur = () => {
                     </div>
                 </div>
 
-                <div className={styles.sectionHeader}>
-                    <h2 className={styles.sectionTitle}>{t.tariffs.zonesTitle}</h2>
-                    <p className={styles.sectionSubtitle}>{t.tariffs.zonesSubtitle}</p>
-                </div>
+                <SectionTitle
+                    title={t.tariffs.zonesTitle}
+                    subtitle={t.tariffs.zonesSubtitle}
+                />
 
                 <div className={styles.zoneGrid}>
                     {tariffZones.map((zone) => (
@@ -195,7 +196,7 @@ const TariffsJur = () => {
                             </div>
                             <div className={styles.timeline}>
                                 <div className={styles.timelineLine}></div>
-                                
+
                                 {zone.timeline.map((item, index) => (
                                     <div key={index} className={styles.timelineItem}>
                                         <div className={`${styles.timelineDot} ${item.isActive ? styles.timelineDotActive : ''}`}></div>

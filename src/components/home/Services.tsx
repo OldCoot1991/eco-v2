@@ -1,46 +1,51 @@
+"use client";
+
 import Link from "next/link";
 import { FaTruck, FaExclamationTriangle, FaQuestionCircle } from "react-icons/fa";
 import styles from "./Services.module.css";
+import { SectionTitle } from "../ui/SectionTitle";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
-const services = [
-    {
-        icon: FaTruck,
-        title: "Вывоз отходов",
-        description: "Заказать вывоз ТКО, КГО и строительного мусора",
-        href: "/request-tko",
-        iconClass: styles.iconEmerald,
-        buttonText: "Заказать вывоз"
-    },
-    {
-        icon: FaExclamationTriangle,
-        title: "Сообщить о проблеме",
-        description: "Сообщить о невывозе отходов или нарушении графика",
-        href: "/report-tko",
-        iconClass: styles.iconAmber,
-        buttonText: "Подать жалобу"
-    },
-    {
-        icon: FaQuestionCircle,
-        title: "Поддержка",
-        description: "Задать вопрос или получить консультацию специалиста",
-        href: "/support",
-        iconClass: styles.iconBlue,
-        buttonText: "Задать вопрос"
-    }
-];
+
 
 export const Services = () => {
+    const { t } = useTranslation();
+
+    const services = [
+        {
+            icon: FaTruck,
+            title: t.home.services.cards.tko.title,
+            description: t.home.services.cards.tko.desc,
+            href: "/request-tko",
+            iconClass: styles.iconEmerald,
+            buttonText: t.home.services.cards.tko.button
+        },
+        {
+            icon: FaExclamationTriangle,
+            title: t.home.services.cards.report.title,
+            description: t.home.services.cards.report.desc,
+            href: "/report-tko",
+            iconClass: styles.iconAmber,
+            buttonText: t.home.services.cards.report.button
+        },
+        {
+            icon: FaQuestionCircle,
+            title: t.home.services.cards.support.title,
+            description: t.home.services.cards.support.desc,
+            href: "/support",
+            iconClass: styles.iconBlue,
+            buttonText: t.home.services.cards.support.button
+        }
+    ];
+
     return (
         <section className={styles.services}>
             <div className={styles.container}>
-                <div className={styles.header}>
-                    <h2 className={styles.heading}>
-                        Услуги для <span className={styles.headingAccent}>физических лиц</span>
-                    </h2>
-                    <p className={styles.description}>
-                        Выберите необходимую услугу для быстрого решения вашего вопроса
-                    </p>
-                </div>
+                <SectionTitle
+                    title={t.home.services.title}
+                    accent={t.home.services.accent}
+                    subtitle={t.home.services.subtitle}
+                />
 
                 <div className={styles.grid}>
                     {services.map((service, index) => (

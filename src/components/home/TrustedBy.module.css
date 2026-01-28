@@ -3,38 +3,29 @@
 .trustedBy {
     position: relative;
     padding: 6rem 0;
-    background: #fafafa;
+    background: var(--background);
     overflow: hidden;
 }
 
 :global(.dark) .trustedBy {
-    background: #09090b;
+    background: var(--background);
 }
 
 /* Wave Background */
 .waveBg {
     position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.waveLeft {
-    position: absolute;
+    bottom: 0;
     left: 0;
-    bottom: 0;
-    width: 50%;
-    height: 100%;
-    opacity: 0.6;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.waveRight {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 50%;
-    height: 100%;
-    opacity: 0.6;
+.waveSvg {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .container {
@@ -43,49 +34,54 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1rem;
+    /* Matched to Services */
 }
 
 @media (min-width: 768px) {
     .container {
         padding: 0 1.5rem;
+        /* Matched to Services */
     }
 }
 
-.heading {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    color: #059669;
-    margin-bottom: 4rem;
-    font-family: var(--font-source-serif), serif;
-}
 
-:global(.dark) .heading {
-    color: #34d399;
-}
 
-@media (min-width: 768px) {
-    .heading {
-        font-size: 3rem;
-    }
-}
 
 /* Swiper Styles */
 .swiper {
     width: 100%;
-    padding: 3rem 0 5rem;
+    /* Forced 20px shift up via padding/margin differential */
+    /* Original: 3rem 0 5rem. */
+    /* New: Top 1.75rem (-20px), Bottom 6.25rem (+20px). */
+    padding: 1.75rem 0 6.25rem;
+}
+
+/* Explicitly pin pagination to bottom to prevent it from moving with the padding shift */
+.swiper :global(.swiper-pagination) {
+    bottom: 0 !important;
+    padding-bottom: 1rem;
+    /* match original breathing room if needed */
 }
 
 .swiperSlide {
-    width: 300px;
-    height: 300px;
+    width: 329px;
+    height: 329px;
     position: relative;
+    /* Move slides up explicitly if padding isn't enough */
+    top: -20px;
+}
+
+@media (max-width: 1440px) {
+    .swiperSlide {
+        width: 260px;
+        height: 260px;
+    }
 }
 
 @media (max-width: 768px) {
     .swiperSlide {
-        width: 220px;
-        height: 220px;
+        width: 200px;
+        height: 200px;
     }
 }
 
@@ -102,7 +98,8 @@
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
-    background-color: white;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
     /* Fallback */
 }
 
@@ -126,74 +123,115 @@
     }
 }
 
-/* Swiper Navigation Buttons */
-.swiper :global(.swiper-button-next),
-.swiper :global(.swiper-button-prev) {
-    width: 3rem;
-    height: 3rem;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s;
+/* Custom Navigation Buttons */
+.navBtn {
+    position: absolute;
+    top: 50%;
+    /* 
+       Centering Calculation:
+       Container Pad Top: 1.75rem (28px). Bottom: 6.25rem (100px).
+       Diff = 72px. Center offset = 36px down.
+       Slide Shift: -20px.
+       Total correction needed = 36px (padding) + 20px (shift) = 56px UP.
+       56px = 3.5rem.
+    */
+    transform: translateY(calc(-50% - 3.5rem));
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(5, 150, 105, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid #059669;
+    /* visible in light mode */
+    border-radius: 4px;
+    /* Requested 4px radius */
     z-index: 20;
-    /* Ensure above slides */
-}
-
-.swiper :global(.swiper-button-next):after,
-.swiper :global(.swiper-button-prev):after {
-    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: #059669;
-    font-weight: 900;
+    /* visible in light mode */
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.swiper :global(.swiper-button-next):hover,
-.swiper :global(.swiper-button-prev):hover {
-    background: #059669;
-    transform: scale(1.1);
-}
-
-.swiper :global(.swiper-button-next):hover:after,
-.swiper :global(.swiper-button-prev):hover:after {
+:global(.dark) .navBtn {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
     color: white;
 }
 
-:global(.dark) .swiper :global(.swiper-button-next),
-:global(.dark) .swiper :global(.swiper-button-prev) {
-    background: #18181b;
-    border: 2px solid #3f3f46;
+.navPrev {
+    left: -3rem;
 }
 
-:global(.dark) .swiper :global(.swiper-button-next):after,
-:global(.dark) .swiper :global(.swiper-button-prev):after {
-    color: #34d399;
+.navNext {
+    right: -3rem;
 }
 
-:global(.dark) .swiper :global(.swiper-button-next):hover,
-:global(.dark) .swiper :global(.swiper-button-prev):hover {
+.navBtn:hover {
     background: #059669;
+    /* Full green on hover for both */
     border-color: #059669;
+    color: white;
+    transform: translateY(calc(-50% - 3.5rem)) scale(1.1);
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.4);
 }
 
-/* Swiper Pagination */
-.swiper :global(.swiper-pagination-bullet) {
+@media (max-width: 768px) {
+    .navPrev {
+        left: 0;
+    }
+
+    .navNext {
+        right: 0;
+    }
+
+    .container {
+        padding: 0 3rem;
+    }
+}
+
+
+
+/* Custom Pagination - Fixed 5 Dots */
+.customPagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+    z-index: 20;
+}
+
+.dot {
     width: 0.75rem;
     height: 0.75rem;
     background: rgba(16, 185, 129, 0.3);
-    opacity: 1;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    margin: 0 0.5rem;
+    cursor: pointer;
     transition: all 0.3s;
 }
 
-.swiper :global(.swiper-pagination-bullet-active) {
+.dotActive {
     background: #059669;
+    border-color: #ffffff;
     width: 2rem;
     border-radius: 1rem;
 }
 
-:global(.dark) .swiper :global(.swiper-pagination-bullet) {
+:global(.dark) .dot {
     background: rgba(52, 211, 153, 0.3);
 }
 
-:global(.dark) .swiper :global(.swiper-pagination-bullet-active) {
+:global(.dark) .dotActive {
     background: #34d399;
 }
 

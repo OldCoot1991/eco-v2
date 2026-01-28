@@ -10,6 +10,7 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-bottom: 2px solid #10b981;
 }
+
 :global(.dark) .header {
   background: var(--card-bg);
 }
@@ -256,7 +257,7 @@
 
 @media (min-width: 1280px) {
   .megaMenuItems {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 1.5rem;
   }
 }
@@ -281,6 +282,7 @@
     opacity: 0;
     transform: translateY(2rem);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -342,7 +344,7 @@
 }
 
 .megaMenuItemTitle {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -356,7 +358,7 @@
 
 @media (min-width: 640px) {
   .megaMenuItemTitle {
-    font-size: 0.7rem;
+    font-size: 0.8125rem;
     margin-bottom: 0.15rem;
   }
 }
@@ -374,7 +376,7 @@
 }
 
 .megaMenuItemDesc {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: #334155;
   line-height: 1.625;
@@ -382,7 +384,7 @@
 
 @media (min-width: 640px) {
   .megaMenuItemDesc {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 }
 
@@ -692,7 +694,7 @@
   padding: 0.75rem;
   border-radius: 0.25rem;
   border: 1px solid;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.025em;
@@ -811,7 +813,7 @@
 }
 
 .mobileMenuSubItemTitle {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.025em;

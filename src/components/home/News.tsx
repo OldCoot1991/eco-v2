@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FaCalendarAlt, FaArrowRight } from "react-icons/fa";
 import styles from "./News.module.css";
+import { SectionTitle } from "../ui/SectionTitle";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 interface NewsItem {
     id: number;
@@ -15,6 +17,7 @@ interface NewsItem {
 const API_URL = "https://ecologistika.com/api";
 
 export const News = () => {
+    const { t } = useTranslation();
     const [news, setNews] = useState<NewsItem[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -33,17 +36,14 @@ export const News = () => {
     return (
         <section className={styles.news}>
             <div className={styles.container}>
-                <div className={styles.header}>
-                    <div>
-                        <h2 className={styles.heading}>
-                            Новости
-                        </h2>
-                        <p className={styles.description}>
-                            Последние события и важные уведомления
-                        </p>
-                    </div>
+                <SectionTitle
+                    title={t.home.news.title}
+                    subtitle={t.home.news.subtitle}
+                />
+
+                <div className={styles.headerActions}>
                     <Link href="/news" className={styles.allNewsLink}>
-                        Все новости
+                        {t.home.news.all}
                         <FaArrowRight className={styles.linkIcon} />
                     </Link>
                 </div>
@@ -85,7 +85,7 @@ export const News = () => {
                                         {item.description}
                                     </h3>
                                     <div className={styles.readMore}>
-                                        Читать далее
+                                        {t.home.news.read}
                                         <FaArrowRight className={styles.readMoreIcon} />
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@ export const News = () => {
 
                 <div className={styles.mobileAllNews}>
                     <Link href="/news">
-                        Все новости
+                        {t.home.news.all}
                         <FaArrowRight className={styles.linkIcon} />
                     </Link>
                 </div>
