@@ -41,8 +41,8 @@ const partners = [
 
 export const TrustedBy = () => {
     const { t } = useTranslation();
-    const prevRef = useRef(null);
-    const nextRef = useRef(null);
+    const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
+    const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const swiperRef = useRef<any>(null);
 
@@ -79,15 +79,7 @@ export const TrustedBy = () => {
 
             <div className={styles.container}>
                 <SectionTitle title={t.home.trusted.title} accent={t.home.trusted.accent} />
-
                 <div className={styles.swiperWrapper}>
-                    <button ref={prevRef} className={`${styles.navBtn} ${styles.navPrev}`}>
-                        <FiChevronLeft />
-                    </button>
-                    <button ref={nextRef} className={`${styles.navBtn} ${styles.navNext}`}>
-                        <FiChevronRight />
-                    </button>
-
                     <Swiper
                         ref={swiperRef}
                         effect={'coverflow'}
@@ -101,16 +93,30 @@ export const TrustedBy = () => {
                             modifier: 2,
                             slideShadows: false,
                         }}
+                        breakpoints={{
+                            320: {
+                                coverflowEffect: {
+                                    rotate: 0,
+                                    stretch: 0,
+                                    depth: 100,
+                                    modifier: 2,
+                                    slideShadows: false,
+                                }
+                            },
+                            768: {
+                                coverflowEffect: {
+                                    rotate: 0,
+                                    stretch: 0,
+                                    depth: 100,
+                                    modifier: 2,
+                                    slideShadows: false,
+                                }
+                            }
+                        }}
                         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                         navigation={{
-                            prevEl: prevRef.current,
-                            nextEl: nextRef.current,
-                        }}
-                        onBeforeInit={(swiper) => {
-                            // @ts-ignore
-                            swiper.params.navigation.prevEl = prevRef.current;
-                            // @ts-ignore
-                            swiper.params.navigation.nextEl = nextRef.current;
+                            prevEl,
+                            nextEl,
                         }}
                         autoplay={{
                             delay: 3000,
@@ -135,22 +141,31 @@ export const TrustedBy = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-
-                    {/* Custom Pagination - Fixed 5 Dots */}
-                    <div className={styles.customPagination}>
-                        {[...Array(5)].map((_, i) => (
-                            <div
-                                key={i}
-                                className={`${styles.dot} ${i === activeDot ? styles.dotActive : ''}`}
-                                onClick={() => handleDotClick(i)}
-                            />
-                        ))}
-                    </div>
                 </div>
 
-                <a href="/partners" className={styles.viewAllLink}>
-                    {t.home.trusted.all}
-                </a>
+                <div className={styles.controlsContainer}>
+                    <div className={styles.navigationWrapper}>
+                        <button ref={setPrevEl} className={`${styles.navBtn} ${styles.navPrev}`}>
+                            <FiChevronLeft />
+                        </button>
+                        <div className={styles.customPagination}>
+                            {[...Array(5)].map((_, i) => (
+                                <div
+                                    key={i}
+                                    className={`${styles.dot} ${i === activeDot ? styles.dotActive : ''}`}
+                                    onClick={() => handleDotClick(i)}
+                                />
+                            ))}
+                        </div>
+                        <button ref={setNextEl} className={`${styles.navBtn} ${styles.navNext}`}>
+                            <FiChevronRight />
+                        </button>
+                    </div>
+
+                    <a href="/partners" className={styles.viewAllLink}>
+                        {t.home.trusted.all}
+                    </a>
+                </div>
             </div>
         </section>
     );
