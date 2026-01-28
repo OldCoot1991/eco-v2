@@ -89,7 +89,7 @@
 .partnerCard {
     width: 100%;
     aspect-ratio: 1;
-    border-radius: 1.5rem;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,12 +161,12 @@
 
 @media (max-width: 768px) {
     .container {
-        padding: 0 20px;
+        padding: 0 18px;
     }
 
     /* Increased padding to accommodate larger scale */
     .swiper {
-        padding: 3.5rem 0 4rem;
+        padding: 4rem 0 4.5rem;
     }
 
     .swiperSlide:global(.swiper-slide-active) .partnerCard {
