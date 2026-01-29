@@ -13,30 +13,27 @@ import { SectionTitle } from "../../ui/SectionTitle";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 
 const partners = [
-    { name: "ВТБ", logo: "/partners/vtb.svg", color: "#0021A5" },
-    { name: "Магнит", logo: "/partners/magnit.svg", color: "#E31E24" },
-    { name: "Сбербанк", logo: "/partners/sberbank.svg", color: "#21A038" },
-    { name: "Пятёрочка", logo: "/partners/pyaterochka.svg", color: "#E31E24" },
-    { name: "Почта России", logo: "/partners/pochta.svg", color: "#003D7A" },
-    { name: "Газпром", logo: "/partners/gazprom.svg", color: "#0066B3" },
-    { name: "Роснефть", logo: "/partners/rosneft.svg", color: "#FFD700" },
-    { name: "Лукойл", logo: "/partners/lukoil.svg", color: "#E31E24" },
-    { name: "ВТБ", logo: "/partners/vtb.svg", color: "#0021A5" },
-    { name: "Магнит", logo: "/partners/magnit.svg", color: "#E31E24" },
-    { name: "Сбербанк", logo: "/partners/sberbank.svg", color: "#21A038" },
-    { name: "Пятёрочка", logo: "/partners/pyaterochka.svg", color: "#E31E24" },
-    { name: "Почта России", logo: "/partners/pochta.svg", color: "#003D7A" },
-    { name: "Газпром", logo: "/partners/gazprom.svg", color: "#0066B3" },
-    { name: "Роснефть", logo: "/partners/rosneft.svg", color: "#FFD700" },
-    { name: "Лукойл", logo: "/partners/lukoil.svg", color: "#E31E24" },
-    { name: "ВТБ", logo: "/partners/vtb.svg", color: "#0021A5" },
-    { name: "Магнит", logo: "/partners/magnit.svg", color: "#E31E24" },
-    { name: "Сбербанк", logo: "/partners/sberbank.svg", color: "#21A038" },
-    { name: "Пятёрочка", logo: "/partners/pyaterochka.svg", color: "#E31E24" },
-    { name: "Почта России", logo: "/partners/pochta.svg", color: "#003D7A" },
-    { name: "Газпром", logo: "/partners/gazprom.svg", color: "#0066B3" },
-    { name: "Роснефть", logo: "/partners/rosneft.svg", color: "#FFD700" },
-    { name: "Лукойл", logo: "/partners/lukoil.svg", color: "#E31E24" },
+    { name: "Sberbank", logo: "/img/trustedBy/sberbank.svg" },
+    { name: "VTB", logo: "/img/trustedBy/vtb.svg" },
+    { name: "Gazprom", logo: "/img/trustedBy/gazprom.svg" },
+    { name: "Rosneft", logo: "/img/trustedBy/rosneft.svg" },
+    { name: "Magnit", logo: "/img/trustedBy/magnet.svg" },
+    { name: "Five", logo: "/img/trustedBy/five.svg" },
+    { name: "Russian Railways", logo: "/img/trustedBy/russian-railways.svg" },
+    { name: "Rostelecom", logo: "/img/trustedBy/rostelecom.svg" },
+    { name: "Rosseti", logo: "/img/trustedBy/rosseti.svg" },
+    { name: "Post Bank", logo: "/img/trustedBy/post-office-bank.svg" },
+    { name: "Gloria Jeans", logo: "/img/trustedBy/gloria-jeans.svg" },
+    { name: "Fix Price", logo: "/img/trustedBy/fix-price.svg" },
+    { name: "Megafon", logo: "/img/trustedBy/megafon.svg" },
+    { name: "Rosgostrah", logo: "/img/trustedBy/rosgostrah.svg" },
+    { name: "Invitro", logo: "/img/trustedBy/invitro.svg" },
+    { name: "Hemotest", logo: "/img/trustedBy/hemotest.svg" },
+    { name: "Rosselkhoznadzor", logo: "/img/trustedBy/rosselkhoznadzor-bank.svg" },
+    { name: "Nalchik Sweetness", logo: "/img/trustedBy/nalchik-sweetness.svg" },
+    { name: "Ridada", logo: "/img/trustedBy/ridada.svg" },
+    { name: "DEA", logo: "/img/trustedBy/dea.svg" },
+    { name: "Wester Hyper", logo: "/img/trustedBy/wester-hyper.svg" },
 ];
 
 export const TrustedBy = () => {
@@ -60,6 +57,7 @@ export const TrustedBy = () => {
 
     return (
         <section className={styles.trustedBy}>
+            {/* Wave background kept as is */}
             <div className={styles.waveBg}>
                 <svg className={styles.waveSvg} viewBox="0 0 1920 442" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
                     <path d="M0 0C66.8333 89.7222 363.5 269.167 957.5 269.167V442H0V0Z" fill="url(#paint0_linear_bg)" fillOpacity="0.5" />
@@ -128,15 +126,12 @@ export const TrustedBy = () => {
                     >
                         {partners.map((partner, index) => (
                             <SwiperSlide key={index} className={styles.swiperSlide}>
-                                <div
-                                    className={styles.partnerCard}
-                                    style={{
-                                        backgroundColor: partner.color,
-                                    }}
-                                >
-                                    <div className={styles.logoPlaceholder}>
-                                        {partner.name}
-                                    </div>
+                                <div className={styles.partnerCard}>
+                                    <img
+                                        src={partner.logo}
+                                        alt={partner.name}
+                                        className={styles.partnerLogo}
+                                    />
                                 </div>
                             </SwiperSlide>
                         ))}
