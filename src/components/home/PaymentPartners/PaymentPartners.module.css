@@ -1,0 +1,78 @@
+/* PaymentPartners Component Styles */
+
+.partnersGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .partnersGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.partnerCard {
+    padding: 2rem;
+    border-radius: 4px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e4e4e7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: box-shadow 0.2s;
+}
+
+:global(.dark) .partnerCard {
+    background: #18181b;
+    border-color: #3f3f46;
+}
+
+.partnerCard:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.partnerInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.partnerIcon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.partnerIconGreen {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.partnerIconYellow {
+    background: rgba(234, 179, 8, 0.1);
+    color: #ca8a04;
+}
+
+.partnerDetails {}
+
+.partnerName {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #18181b;
+    font-family: var(--font-raleway), sans-serif;
+}
+
+:global(.dark) .partnerName {
+    color: #ffffff;
+}
+
+.partnerDescription {
+    font-size: 1rem;
+    color: #71717a;
+}

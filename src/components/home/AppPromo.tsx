@@ -59,9 +59,7 @@ export const AppPromo = () => {
                                 <p className={styles.partnerDescription}>Оплата без комиссии</p>
                             </div>
                         </div>
-                        <button className={styles.partnerButton}>
-                            Оплатить
-                        </button>
+
                     </div>
                     <div className={styles.partnerCard}>
                         <div className={styles.partnerInfo}>
@@ -73,9 +71,7 @@ export const AppPromo = () => {
                                 <p className={styles.partnerDescription}>Быстрые платежи</p>
                             </div>
                         </div>
-                        <button className={styles.partnerButton}>
-                            Оплатить
-                        </button>
+
                     </div>
                 </div>
             </div>

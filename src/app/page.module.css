@@ -1,36 +1,25 @@
-/* Shared Page Styles - Common layouts for all pages */
+.page {
+  /* ... existing styles if any ... */
+}
 
-/* Page Container */
-.pageContainer {
+/* Add specialized container for the unified promo section if needed */
+.promoSection {
+  padding: 6rem 0;
+  /* background: #FAFAF9; - default body bg */
+}
+
+.container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  /* Spacing between MobileApp and Partners */
 }
 
-@media (min-width: 640px) {
-  .pageContainer {
-    padding: 4rem 1.5rem;
+@media (min-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
   }
-}
-
-/* Page Title */
-.pageTitle {
-  font-size: 2.25rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  color: var(--foreground);
-}
-
-/* Page Text */
-.pageText {
-  font-size: 1.125rem;
-  color: var(--foreground);
-}
-
-/* Layout Body */
-.layoutBody {
-  background: var(--background);
-  color: var(--foreground);
-  transition: background-color 0.3s, color 0.3s;
 }

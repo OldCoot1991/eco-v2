@@ -2,7 +2,6 @@
 
 .trustedBy {
     position: relative;
-    padding: 6rem 0;
     background: var(--background);
     overflow: hidden;
 }
@@ -34,39 +33,30 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1rem;
-    /* Matched to Services */
 }
 
 @media (min-width: 768px) {
     .container {
         padding: 0 1.5rem;
-        /* Matched to Services */
     }
 }
-
-
-
 
 /* Swiper Styles */
 .swiper {
     width: 100%;
-    /* Forced 20px shift up via padding/margin differential */
-    /* Reduced bottom padding as dots are now outside */
-    padding: 3rem 0 3.5rem;
+    padding: 0rem 0rem 10rem;
 }
 
-/* Explicitly pin pagination to bottom to prevent it from moving with the padding shift */
+/* Explicitly pin pagination to bottom */
 .swiper :global(.swiper-pagination) {
     bottom: 0 !important;
     padding-bottom: 1rem;
-    /* match original breathing room if needed */
 }
 
 .swiperSlide {
     width: 329px;
     height: 329px;
     position: relative;
-    /* Move slides up explicitly if padding isn't enough */
     top: -20px;
 }
 
@@ -84,8 +74,6 @@
     }
 }
 
-/* White overlay removed as requested */
-
 .partnerCard {
     width: 100%;
     aspect-ratio: 1;
@@ -98,11 +86,6 @@
     overflow: hidden;
     background-color: var(--card-bg);
     border: 1px solid var(--border);
-    /* Fallback */
-}
-
-.swiperSlide:global(.swiper-slide-active) .partnerCard {
-    /* box-shadow removed */
 }
 
 .logoPlaceholder {
@@ -129,9 +112,7 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 2px solid #059669;
-    /* visible in light mode */
     border-radius: 4px;
-    /* Requested 4px radius */
     z-index: 20;
     display: flex;
     align-items: center;
@@ -139,7 +120,6 @@
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: #059669;
-    /* visible in light mode */
     font-size: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -152,7 +132,6 @@
 
 .navBtn:hover {
     background: #059669;
-    /* Full green on hover for both */
     border-color: #059669;
     color: white;
     transform: scale(1.1);
@@ -164,7 +143,6 @@
         padding: 0 18px;
     }
 
-    /* Increased padding to accommodate larger scale */
     .swiper {
         padding: 4rem 0 4.5rem;
     }
@@ -181,9 +159,7 @@
     }
 }
 
-
-
-/* Custom Pagination - Fixed 5 Dots */
+/* Custom Pagination */
 .controlsContainer {
     display: flex;
     flex-direction: column;
@@ -192,6 +168,7 @@
     margin-top: 1rem;
     position: relative;
     z-index: 20;
+    bottom: 40px;
 }
 
 .navigationWrapper {
