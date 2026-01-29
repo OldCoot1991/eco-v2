@@ -48,7 +48,7 @@
 .card {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 1rem;
+    border-radius: 4px;
     padding: 2.5rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -68,7 +68,7 @@
     background: var(--background);
     /* Fallback to bg */
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;

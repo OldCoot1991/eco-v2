@@ -1,0 +1,217 @@
+.pageContainer {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 8rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.heroSection {
+    position: relative;
+    padding: 8rem 1rem 5rem;
+    background: radial-gradient(circle at 70% 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+        radial-gradient(circle at 30% 80%, rgba(59, 130, 246, 0.05), transparent 60%);
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.heroTitle {
+    font-family: var(--font-accent);
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+    margin-bottom: 2rem;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--foreground) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.heroText {
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: var(--foreground);
+    opacity: 0.7;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+.categorySection {
+    max-width: 1800px;
+    margin: 0 auto 6rem;
+    padding: 0 2rem;
+}
+
+/* Updated Title Design: Centered, Clean, No Side Stripes */
+.categoryTitle {
+    font-family: var(--font-accent);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+/* Beautiful Custom Card Design */
+.card {
+    background: var(--card-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    /* Soft but defined shadow */
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    height: 100%;
+    width: 420px;
+    /* Fixed width for centering logic, or use min-width/flex-basis */
+    flex: 0 1 420px;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: #f1f5f9;
+    /* Slate-100 for better contrast */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border-radius: 4px 4px 0 0;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+    mix-blend-mode: multiply;
+    /* Helps integrate white-bg images */
+}
+
+.card:hover .image {
+    transform: scale(1.08);
+}
+
+.cardContent {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 0 0 4px 4px;
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    font-family: var(--font-accent);
+}
+
+.cardFooter {
+    margin-top: auto;
+}
+
+/* Modern "Action" Button */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.1rem 1.5rem;
+    background: var(--background);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    /* Subtle border */
+    border-radius: 4px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.button:hover {
+    border-color: var(--primary);
+    background: rgba(16, 185, 129, 0.05);
+    /* Very light primary tint */
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--secondary);
+    /* Changed from foreground (black) to secondary (blue) */
+    border-radius: 50%;
+    /* Keep circle for arrow? User said "except arrow"... assume arrow wrapper is fine circular? Or radius 4px? "except arrow" usually means the icon itself or the wrapper. I'll keep circle for now as it's a specific UI element, but change color. User said "background black" I dislike. */
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.button:hover .iconWrapper {
+    background: var(--primary);
+    color: white;
+    transform: rotate(-45deg);
+}
+
+.buttonText {
+    font-size: 1.15rem;
+    /* Increased size (~18px) */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 2.5rem;
+    }
+
+    .categoryTitle {
+        font-size: 2rem;
+        text-align: left;
+        padding-left: 0;
+    }
+
+
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

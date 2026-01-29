@@ -42,7 +42,7 @@
 .card {
   position: relative;
   padding: 2rem;
-  border-radius: var(--radius-lg);
+  border-radius: 4px;
   background: #ffffff;
   border: 2px solid #e4e4e7;
   transition: all 0.3s;
@@ -67,7 +67,7 @@
 .iconWrapper {
   width: 3.5rem;
   height: 3.5rem;
-  border-radius: var(--radius-md);
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;

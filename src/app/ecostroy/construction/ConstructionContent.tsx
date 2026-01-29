@@ -40,82 +40,47 @@ const Icons = {
 };
 
 export default function ConstructionContent() {
+    const { t } = useTranslation();
+
     const services = [
         {
-            title: "Общестроительные работы",
+            title: t.nav.construction.general.title,
             icon: Icons.General,
-            items: [
-                "Земляные работы",
-                "Каменные работы",
-                "Монтаж строительных конструкций",
-                "Возведение несущих и ограждающих конструкций",
-                "Кровельные работы"
-            ]
+            items: t.nav.construction.general.items
         },
         {
-            title: "Инженерные сети",
+            title: t.nav.construction.network.title,
             icon: Icons.Network,
-            items: [
-                "Сети электроснабжения и электроосвещения",
-                "Сети водоснабжения и канализации",
-                "Сети газоснабжения (всегда давления)",
-                "Внутренние инженерные системы",
-                "Капитальный ремонт и реконструкция сетей"
-            ]
+            items: t.nav.construction.network.items
         },
         {
-            title: "Транспортная инфраструктура",
+            title: t.nav.construction.road.title,
             icon: Icons.Road,
-            items: [
-                "Строительство автомобильных дорог",
-                "Устройство оснований и покрытий",
-                "Защитные сооружения",
-                "Обустройство дорог III-V категорий",
-                "Строительство проезжей части улиц"
-            ]
+            items: t.nav.construction.road.items
         },
         {
-            title: "Монтаж оборудования",
+            title: t.nav.construction.tech.title,
             icon: Icons.Tech,
-            items: [
-                "Монтаж технологического оборудования",
-                "Пусконаладочные работы",
-                "Системы контроля и сигнализации",
-                "Объекты электроэнергетики",
-                "Приборы учета и контроля"
-            ]
+            items: t.nav.construction.tech.items
         },
         {
-            title: "Специальные работы",
+            title: t.nav.construction.special.title,
             icon: Icons.Forest,
-            items: [
-                "Буровые работы",
-                "Устройство свайных оснований",
-                "Грудротехнические сооружения",
-                "Плотины и дамбы",
-                "Селезащитные сооружения"
-            ]
+            items: t.nav.construction.special.items
         },
         {
-            title: "Линейные сооружения",
+            title: t.nav.construction.linear.title,
             icon: Icons.Linear,
-            items: [
-                "Прокладка линейных сооружений",
-                "Монтаж стальных резервуаров",
-                "Емкости под давлением",
-                "Хранилища взрывопожароопасных веществ",
-                "Капитальный ремонт сооружений"
-            ]
+            items: t.nav.construction.linear.items
         }
     ];
 
     return (
         <div className={styles.pageContainer}>
             <section className={styles.heroSection}>
-                <h1 className={styles.heroTitle}>Строительно-монтажные работы</h1>
+                <h1 className={styles.heroTitle}>{t.nav.construction.title}</h1>
                 <p className={styles.heroText}>
-                    Полный комплекс услуг по возведению зданий, сооружений и монтажу технологических систем.
-                    Профессиональный подход, соблюдение сроков и гарантия качества.
+                    {t.nav.construction.subtitle}
                 </p>
             </section>
 
@@ -131,7 +96,7 @@ export default function ConstructionContent() {
                             </div>
                             <h3 className={styles.cardTitle}>{service.title}</h3>
                             <ul className={styles.cardList}>
-                                {service.items.map((item, idx) => (
+                                {service.items.map((item: string, idx: number) => (
                                     <li key={idx} className={styles.cardListItem}>{item}</li>
                                 ))}
                             </ul>

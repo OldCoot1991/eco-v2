@@ -58,6 +58,37 @@ export const translations = {
                 contractOrder: "Порядок заключения договора",
                 construction: "Строительные услуги",
                 materials: "Строительные материалы",
+            },
+            materials: {
+                title: "Продажа стройматериалов",
+                subtitle: "Качественные строительные материалы от ведущих производителей. Арматура, трубы и все необходимое для строительства.",
+                categories: {
+                    rebar: "Арматура",
+                    pipes: "Пластиковые трубы"
+                },
+                items: {
+                    rebar12: "Арматура рифленая А3 (А500С), 12 мм",
+                    fiberRebar12: "Арматура стеклопластиковая (бухта 10 м), 12 мм",
+                    pipe202: "Труба полипропиленовая армированная стекловолокном Valtec PP-FIBER VTp.700.FB20.20, PN20, 2 м, 20х2,8 мм",
+                    pipe204: "Труба полипропиленовая армированная стекловолокном Valtec PP-FIBER VTp.700.FB20.20, PN20, 4 м, 20х2,8 мм",
+                    pipe252: "Труба полипропиленовая армированная стекловолокном Valtec PP-FIBER VTp.700.FB20.25, PN20, 2 м, 25х3,5 мм",
+                    pipe322: "Труба полипропиленовая армированная стекловолокном Valtec PP-FIBER VTp.700.FB20.32, PN20, 2 м, 32х4,4 мм",
+                    pipe324: "Труба полипропиленовая армированная стекловолокном Valtec PP-FIBER VTp.700.FB20.32, PN20, 4 м, 32х4,4 мм",
+                    pipe404: "Труба полипропиленовая армированная стекловолокном Valtec PP-FIBER VTp.700.FB20.40, PN20, 4 м, 40х5,5 мм",
+                    pipe504: "Труба полипропиленовая армированная стекловолокном Valtec PP-FIBER VTp.700.FB20.50, PN20, 4 м, 50х6,9 мм",
+                    pipeNormal: "Труба полипропиленовая Valtec PP-R VTp.700.0020.20, PN20, 4 м, 20х3,4 мм"
+                },
+                button: "Узнать стоимость"
+            },
+            construction: {
+                title: "Строительно-монтажные работы",
+                subtitle: "Полный комплекс услуг по возведению зданий, сооружений и монтажу технологических систем. Профессиональный подход, соблюдение сроков и гарантия качества.",
+                general: { title: "Общестроительные работы", items: ["Земляные работы", "Каменные работы", "Монтаж строительных конструкций", "Возведение несущих и ограждающих конструкций", "Кровельные работы"] },
+                network: { title: "Инженерные сети", items: ["Сети электроснабжения и электроосвещения", "Сети водоснабжения и канализации", "Сети газоснабжения (всех давлений)", "Внутренние инженерные системы", "Капитальный ремонт и реконструкция сетей"] },
+                road: { title: "Транспортная инфраструктура", items: ["Строительство автомобильных дорог", "Устройство оснований и покрытий", "Защитные сооружения", "Обустройство дорог III-V категорий", "Строительство проезжей части улиц"] },
+                tech: { title: "Монтаж оборудования", items: ["Монтаж технологического оборудования", "Пусконаладочные работы", "Системы контроля и сигнализации", "Объекты электроэнергетики", "Приборы учета и контроля"] },
+                special: { title: "Специальные работы", items: ["Буровые работы", "Устройство свайных оснований", "Гидротехнические сооружения", "Плотины и дамбы", "Селезащитные сооружения"] },
+                linear: { title: "Линейные сооружения", items: ["Прокладка линейных сооружений", "Монтаж стальных резервуаров", "Емкости под давлением", "Хранилища взрывопожароопасных веществ", "Капитальный ремонт сооружений"] }
             }
         },
         header: {
@@ -423,6 +454,37 @@ export const translations = {
                 contractOrder: "Contract procedure",
                 construction: "Construction services",
                 materials: "Building materials",
+            },
+            materials: {
+                title: "Building Materials Sale",
+                subtitle: "Quality construction materials from leading manufacturers. Rebar, pipes, and everything needed for construction.",
+                categories: {
+                    rebar: "Rebar",
+                    pipes: "Plastic Pipes"
+                },
+                items: {
+                    rebar12: "Rebar A3 (A500C), 12 mm",
+                    fiberRebar12: "Fiberglass Rebar (10 m coil), 12 mm",
+                    pipe202: "PP-FIBER Pipe Valtec VTp.700.FB20.20, PN20, 2 m, 20x2.8 mm",
+                    pipe204: "PP-FIBER Pipe Valtec VTp.700.FB20.20, PN20, 4 m, 20x2.8 mm",
+                    pipe252: "PP-FIBER Pipe Valtec VTp.700.FB20.25, PN20, 2 m, 25x3.5 mm",
+                    pipe322: "PP-FIBER Pipe Valtec VTp.700.FB20.32, PN20, 2 m, 32x4.4 mm",
+                    pipe324: "PP-FIBER Pipe Valtec VTp.700.FB20.32, PN20, 4 m, 32x4.4 mm",
+                    pipe404: "PP-FIBER Pipe Valtec VTp.700.FB20.40, PN20, 4 m, 40x5.5 mm",
+                    pipe504: "PP-FIBER Pipe Valtec VTp.700.FB20.50, PN20, 4 m, 50x6.9 mm",
+                    pipeNormal: "PP-R Pipe Valtec VTp.700.0020.20, PN20, 4 m, 20x3.4 mm"
+                },
+                button: "Get Price"
+            },
+            construction: {
+                title: "Construction and Installation Works",
+                subtitle: "Full range of services for building construction and installation of technological systems. Professional approach, adherence to deadlines, and quality guarantee.",
+                general: { title: "General Construction", items: ["Earthworks", "Masonry works", "Installation of building structures", "Erection of load-bearing and enclosing structures", "Roofing works"] },
+                network: { title: "Engineering Networks", items: ["Power supply and lighting networks", "Water supply and sewage networks", "Gas supply networks (all pressures)", "Internal engineering systems", "Capital repair and reconstruction of networks"] },
+                road: { title: "Transport Infrastructure", items: ["Road construction", "Base and pavement construction", "Protective structures", "Arrangement of category III-V roads", "Construction of street roadways"] },
+                tech: { title: "Equipment Installation", items: ["Installation of technological equipment", "Commissioning works", "Control and alarm systems", "Power engineering objects", "Metering and control devices"] },
+                special: { title: "Special Works", items: ["Drilling works", "Pile foundation construction", "Hydrotechnical structures", "Dams and dikes", "Mudflow protection structures"] },
+                linear: { title: "Linear Structures", items: ["Laying of linear structures", "Installation of steel tanks", "Pressure vessels", "Storage of explosive substances", "Capital repair of structures"] }
             }
         },
         header: {
