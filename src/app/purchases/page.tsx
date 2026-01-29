@@ -1,13 +1,21 @@
-import PurchasesContent from "./PurchasesContent";
-
+import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";
+import PurchasesDocs from "@/components/Documents/PurchasesDocs";
 
 export const metadata = {
     title: "Закупки | Экологистика КБР",
-    description: "Информация о закупках и тендерах ООО «Экологистика». Приглашаем поставщиков и подрядчиков к сотрудничеству.",
+    description: "Информация о закупочной деятельности ООО «Экологистика». Перечни товаров, работ и услуг для субъектов МСП.",
 };
 
 export default function PurchasesPage() {
     return (
-        <PurchasesContent />
+        <>
+            <BreadcrumbsLd
+                items={[
+                    { name: "Главная", item: "/" },
+                    { name: "Закупки", item: "/purchases" },
+                ]}
+            />
+            <PurchasesDocs />
+        </>
     );
 }

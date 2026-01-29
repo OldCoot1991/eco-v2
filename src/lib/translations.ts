@@ -322,6 +322,15 @@ export const translations = {
                     "Типовой договор на оказание услуг по обращению с твердыми коммунальными отходами для индивидуальных предпринимателей",
                     "Типовой договор на оказание услуг по обращению с твердыми коммунальными отходами для юридических лиц"
                 ]
+            },
+            purchases: {
+                title: "Закупки",
+                subtitle: "Информация о закупочной деятельности",
+                list: [
+                    "Приказ от 24 июля 2023 г. №273 «Об утверждении Перечня товаров, работ, услуг, закупки которых осуществляется у субъектов малого и среднего предпринимательства»",
+                    "Приказ от 21 декабря 2023 г. №286 «Об утверждении Перечня товаров, работ, услуг, закупки которых осуществляется у субъектов малого и среднего предпринимательства»",
+                    "Приложение №1 к приказу от 21.12.2023 г. №286 «Об утверждении Перечня товаров, работ, услуг, закупки которых осуществляется у субъектов малого и среднего предпринимательства»"
+                ]
             }
         },
         home: {
@@ -677,6 +686,15 @@ export const translations = {
                     "Standard contract for solid waste management services for budget organizations",
                     "Standard contract for solid waste management services for individual entrepreneurs",
                     "Standard contract for solid waste management services for legal entities"
+                ]
+            },
+            purchases: {
+                title: "Purchases",
+                subtitle: "Procurement Information",
+                list: [
+                    "Order No. 273 of July 24, 2023",
+                    "Order No. 286 of December 21, 2023",
+                    "Appendix No. 1 to Order No. 286 of December 21, 2023"
                 ]
             }
         },
