@@ -307,12 +307,41 @@
 @media (max-width: 1024px) {
     .contentWrapper {
         grid-template-columns: 1fr;
-        /* Stack on tablet */
+        gap: 2rem;
     }
 
     .sidebar {
-        display: none;
-        /* Hide sidebar on mobile/tablet for now or move to top */
+        width: 100%;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .stickyMenu {
+        position: relative;
+        top: 0;
+        max-height: none;
+        overflow-y: visible;
+        padding: 1rem;
+    }
+
+    .anchorNav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .anchorLink {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        background: var(--background);
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    .anchorLink:hover {
+        transform: none;
+        border-bottom-color: var(--primary);
     }
 }
 
@@ -322,23 +351,49 @@
     }
 
     .heroTitle {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
     }
 
     .infoCard {
-        padding: 2rem;
+        padding: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .infoText {
+        font-size: 1rem;
+    }
+
+    .formula {
+        padding: 1rem;
+        font-size: 1rem;
     }
 
     .categoryHeader {
-        padding: 1.5rem;
+        padding: 1.25rem;
+    }
+
+    .categoryTitle {
+        font-size: 1.2rem;
     }
 
     .table {
         padding: 0 1rem 1rem;
+        min-width: 600px;
+        /* Allow smaller scroll width */
+    }
+
+    .table th,
+    .table td {
+        padding: 0.75rem;
     }
 
     .table td {
-        padding: 1rem;
-        font-size: 0.9rem;
+        font-size: 1rem;
+        /* Slightly smaller than desktop */
     }
 }
