@@ -56,8 +56,8 @@
 }
 
 .grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 420px);
     justify-content: center;
     gap: 3rem;
 }
@@ -74,9 +74,8 @@
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(0, 0, 0, 0.04);
     height: 100%;
-    width: 420px;
-    /* Fixed width for centering logic, or use min-width/flex-basis */
-    flex: 0 1 420px;
+    height: 100%;
+    /* Width managed by grid-template-columns */
 }
 
 .card:hover {
