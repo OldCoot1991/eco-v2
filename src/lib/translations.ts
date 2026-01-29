@@ -300,6 +300,17 @@ export const translations = {
             news: { title: "Новости", subtitle: "Последние новости компании" },
             company: { title: "О компании", subtitle: "Информация о компании Экологистика" }
         },
+        management: {
+            title: "Руководство",
+            subtitle: "Управляющая команда ООО «Экологистика»",
+            roles: {
+                ceo: { title: "Генеральный директор", name: "Рустам Галиевич Кочесоков" },
+                director: { title: "Директор", name: "Заурбек Каральчуевич Гедгагов" },
+                deputyFinance: { title: "Заместитель генерального директора по финансам", name: "Ахмед Борисович Хапов" },
+                deputyServices: { title: "Заместитель генерального директора по реализации услуг", name: "Аслан Султанович Мурзаканов" },
+                deputyAutomation: { title: "Заместитель генерального директора по автоматизации бизнес-процессов", name: "Рамазан Резуанович Мурзаканов" }
+            }
+        },
         documents: {
             view: "Просмотр",
             download: "Скачать",
@@ -695,6 +706,17 @@ export const translations = {
             purchases: { title: "Purchases", subtitle: "Procurement Information" },
             news: { title: "News", subtitle: "Latest Company News" },
             company: { title: "About Company", subtitle: "Information about Ecologistika" }
+        },
+        management: {
+            title: "Management",
+            subtitle: "Management Team of LLC \"Ecologistika\"",
+            roles: {
+                ceo: { title: "General Director", name: "Rustam Galievich Kochesokov" },
+                director: { title: "Director", name: "Zaurbek Karalchuevich Gedgagov" },
+                deputyFinance: { title: "Deputy General Director for Finance", name: "Ahmed Borisovich Khapov" },
+                deputyServices: { title: "Deputy General Director for Service Implementation", name: "Aslan Sultanovich Murzakanov" },
+                deputyAutomation: { title: "Deputy General Director for Business Process Automation", name: "Ramazan Rezuanovich Murzakanov" }
+            }
         },
         documents: {
             view: "View",
