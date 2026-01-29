@@ -39,7 +39,6 @@ const TariffsFiz = () => {
   const ZONES_INFO: Record<ZoneKey, { label: string; description: string; iconClass: string }> = {
     zone1: { label: t.tariffs.zone1, description: t.tariffs.zone1Desc, iconClass: styles.zoneIcon1 },
     zone2: { label: t.tariffs.zone2, description: t.tariffs.zone2Desc, iconClass: styles.zoneIcon2 },
-    // Simplified logic for Zone 3
     zone3: {
       label: isEn ? "Zone #3" : "Зона 3",
       description: "",
@@ -88,13 +87,10 @@ const TariffsFiz = () => {
       {/* Official Doc Card */}
       <div className={styles.documentCard}>
         <div className={styles.documentCardInner}>
-
           <div className={styles.documentCardBg} />
-
           <div className={styles.documentIcon}>
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><polyline points="14 2 14 8 20 8" /></svg>
           </div>
-
           <div className={styles.documentContent}>
             <div className={styles.documentMeta}>
               <span className={styles.documentBadge}>{t.tariffs.order}</span>
@@ -107,7 +103,6 @@ const TariffsFiz = () => {
               {t.tariffs.orderSubtitle}
             </p>
           </div>
-
           <a
             href="/docs/prikaz_214.pdf"
             target="_blank"
@@ -120,45 +115,49 @@ const TariffsFiz = () => {
         </div>
       </div>
 
-      {/* Main Tariffs Grid */}
+      {/* Main Tariffs Table */}
       <div>
         <SectionTitle
           title={t.tariffs.zonesTitle}
           subtitle={t.tariffs.zonesSubtitle}
         />
 
-        <div className={styles.zoneGrid}>
-          {(Object.keys(ZONES_INFO) as ZoneKey[]).map((zoneKey) => (
-            <div key={zoneKey} className={styles.zoneCard}>
-              <div className={styles.zoneHeader}>
-                <div className={styles.zoneInfo}>
-                  <h4 className={styles.zoneTitle}>{ZONES_INFO[zoneKey].label}</h4>
-                  <p className={styles.zoneDescription}>{ZONES_INFO[zoneKey].description}</p>
-                </div>
-                <div className={`${styles.zoneIcon} ${ZONES_INFO[zoneKey].iconClass}`}></div>
-              </div>
-
-              <div className={styles.timeline}>
-                <div className={styles.timelineLine} />
-
-                {TARIFF_DATA.map((period, idx) => (
-                  <div key={period.id} className={styles.timelineItem}>
-                    <div className={`${styles.timelineDot} ${idx === 1 ? styles.timelineDotActive : ''}`} />
-
-                    <div className={styles.timelineContent}>
-                      <div className={styles.timelineInfo}>
-                        <span className={styles.timelineLabel}>{period.label}</span>
-                        <span className={styles.timelineDate}>{period.start} - {period.end}</span>
-                      </div>
-                      <span className={`${styles.timelinePrice} ${idx === 1 ? styles.timelinePriceActive : ''}`}>
-                        {period.zones[zoneKey].toFixed(2).replace('.', ',')} ₽
-                      </span>
-                    </div>
-                  </div>
+        <div className={styles.tableContainer}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th className={styles.th}>{t.tariffs.zonesTitle}</th>
+                {TARIFF_DATA.map((period) => (
+                  <th key={period.id} className={styles.th}>
+                    <div>{period.label}</div>
+                    <div className={styles.thSub}>{period.start} - {period.end}</div>
+                  </th>
                 ))}
-              </div>
-            </div>
-          ))}
+              </tr>
+            </thead>
+            <tbody>
+              {(Object.keys(ZONES_INFO) as ZoneKey[]).map((zoneKey) => (
+                <tr key={zoneKey} className={styles.tr}>
+                  <td className={styles.td}>
+                    <div className={styles.zoneCell}>
+                      <div className={`${styles.zoneIconMini} ${ZONES_INFO[zoneKey].iconClass}`}></div>
+                      <div className={styles.zoneInfo}>
+                        <div className={styles.zoneName}>{ZONES_INFO[zoneKey].label}</div>
+                        <div className={styles.zoneDescription}>{ZONES_INFO[zoneKey].description}</div>
+                      </div>
+                    </div>
+                  </td>
+                  {TARIFF_DATA.map((period) => (
+                    <td key={period.id} className={styles.td}>
+                      <div className={styles.priceCell}>
+                        {period.zones[zoneKey].toFixed(2).replace('.', ',')} ₽
+                      </div>
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
