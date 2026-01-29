@@ -21,9 +21,8 @@
 }
 
 .pageContainer {
-  padding: 8rem 1rem 6rem;
-  /* Top 8rem to clear header, bottom 6rem */
-  min-height: 100vh;
+  padding: 4rem 1rem 6rem;
+  /* Reduced top padding, removed min-height */
   margin: 0 auto;
   max-width: 1280px;
 }
