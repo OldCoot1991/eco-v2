@@ -1,3 +1,9 @@
+
+export const metadata = {
+    title: "Заказать вывоз ТКО | Экологистика КБР",
+    description: "Оставьте заявку на вывоз твердых коммунальных отходов. Услуги для частных лиц и организаций в Нальчике и КБР.",
+};
+
 export default function RequestTkoPage() {
     return (
         <main className="container min-h-screen py-24 px-4">

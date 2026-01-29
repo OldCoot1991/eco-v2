@@ -1,3 +1,9 @@
+
+export const metadata = {
+    title: "Мониторинг вывоза | Экологистика КБР",
+    description: "Система мониторинга вывоза ТКО. Отслеживайте статус вывоза мусора и работу спецтехники в реальном времени.",
+};
+
 export default function MonitoringPage() {
     return (
         <main className="container min-h-screen py-24 px-4">

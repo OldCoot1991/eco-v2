@@ -1,3 +1,9 @@
+
+export const metadata = {
+    title: "Сообщить о проблеме | Экологистика КБР",
+    description: "Сообщите о несвоевременном вывозе мусора, переполненных контейнерах или несанкционированных свалках в КБР.",
+};
+
 export default function ReportTkoPage() {
     return (
         <main className="container min-h-screen py-24 px-4">
