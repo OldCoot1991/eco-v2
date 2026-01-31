@@ -1,55 +1,31 @@
+/* Construction Content Styles - Fluid Calc */
+
 .pageContainer {
     width: 100%;
     margin: 0 auto;
-    padding-bottom: 6rem;
+    /* Fluid padding-bottom: 48px to 96px */
+    padding-bottom: calc(48px + (96 - 48) * ((100vw - 320px) / (1920 - 320)));
     animation: fadeIn 0.8s ease-out;
-}
-
-.heroSection {
-    position: relative;
-    padding: 6rem 1rem 4rem;
-    background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.08), transparent 70%),
-        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05), transparent 70%);
-    text-align: center;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
-}
-
-.heroTitle {
-    font-family: var(--font-accent);
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--foreground);
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    background: linear-gradient(135deg, var(--foreground) 0%, var(--primary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.heroText {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: var(--foreground);
-    opacity: 0.8;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Fluid gap: 24px to 32px */
+    gap: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 1rem;
+    /* Fluid padding-x: 16px to 32px */
+    padding-left: calc(16px + (32 - 16) * ((100vw - 320px) / (1920 - 320)));
+    padding-right: calc(16px + (32 - 16) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 4px;
-    padding: 2.5rem;
+    /* Fluid padding: 24px to 40px */
+    padding: calc(24px + (40 - 24) * ((100vw - 320px) / (1920 - 320)));
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -62,34 +38,14 @@
     border-color: var(--primary);
 }
 
-.cardIconWrapper {
-    width: 64px;
-    height: 64px;
-    background: var(--background);
-    /* Fallback to bg */
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    color: var(--primary);
-    transition: all 0.3s ease;
-}
-
-.card:hover .cardIconWrapper {
-    background: var(--primary);
-    color: white;
-    transform: scale(1.1) rotate(5deg);
-    border-color: var(--primary);
-}
-
 .cardTitle {
     font-family: var(--font-accent);
-    font-size: 1.5rem;
+    /* Fluid font-size: 20px to 24px */
+    font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1920 - 320)));
     font-weight: 700;
     color: var(--foreground);
-    margin-bottom: 1rem;
+    /* Fluid margin-bottom: 12px to 16px */
+    margin-bottom: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .cardList {
@@ -100,12 +56,15 @@
 
 .cardListItem {
     position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.75rem;
+    /* Fluid padding-left: 20px to 24px */
+    padding-left: calc(20px + (24 - 20) * ((100vw - 320px) / (1920 - 320)));
+    /* Fluid margin-bottom: 10px to 12px */
+    margin-bottom: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)));
     color: var(--foreground);
     opacity: 0.8;
     line-height: 1.5;
-    font-size: 1.05rem;
+    /* Fluid font-size: 15px to 17px */
+    font-size: calc(15px + (17 - 15) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .cardListItem::before {
@@ -127,19 +86,5 @@
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .heroTitle {
-        font-size: 2.25rem;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        padding: 1.5rem;
     }
 }

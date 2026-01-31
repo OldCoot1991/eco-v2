@@ -1,8 +1,62 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from './BusinessNormsContent.module.css';
 import { useTranslation } from '@/lib/hooks/useTranslation';
+import { SectionTitle } from '@/components/ui/SectionTitle';
+import { CustomScrollbar } from '@/components/ui/CustomScrollbar/CustomScrollbar';
+
+interface CategoryItemProps {
+    category: {
+        title: string;
+        rows: {
+            name: string;
+            unit: string;
+            m3: string | number;
+            kg: string | number;
+        }[];
+    };
+    index: number;
+    t: any;
+}
+
+const CategoryItem: React.FC<CategoryItemProps> = ({ category, index, t }) => {
+    const tableContainerRef = useRef<HTMLDivElement>(null);
+
+    return (
+        <div id={`category-${index}`} className={styles.categoryGroup}>
+            <div className={styles.categoryHeader}>
+                <h2 className={styles.categoryTitle}>{category.title}</h2>
+            </div>
+            <div className={styles.tableWrapper} ref={tableContainerRef}>
+                <table className={styles.table}>
+                    <thead>
+                        <tr>
+                            <th className={styles.colName}>{t.nav.businessNorms.table.category}</th>
+                            <th className={styles.colUnit}>{t.nav.businessNorms.table.unit}</th>
+                            <th className={styles.colValue}>{t.nav.businessNorms.table.normM3}</th>
+                            <th className={styles.colValue}>{t.nav.businessNorms.table.normKg}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {category.rows.map((row: any, rIndex: number) => (
+                            <tr key={rIndex}>
+                                <td>{row.name}</td>
+                                <td>{row.unit}</td>
+                                <td className={styles.colValue}>{row.m3}</td>
+                                <td className={styles.colValue}>{row.kg}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <CustomScrollbar
+                containerRef={tableContainerRef}
+                className="mt-4 px-4 sm:block"
+            />
+        </div>
+    );
+};
 
 export default function BusinessNormsContent() {
     const { t } = useTranslation();
@@ -12,10 +66,11 @@ export default function BusinessNormsContent() {
 
     return (
         <div className={styles.pageContainer}>
-            <section className={styles.heroSection}>
-                <h1 className={styles.heroTitle}>{t.nav.businessNorms.title}</h1>
-                <p className={styles.heroSubtitle}>{t.nav.businessNorms.subtitle}</p>
-            </section>
+            <SectionTitle
+                title={t.nav.businessNorms.title}
+                subtitle={t.nav.businessNorms.subtitle}
+                size="small"
+            />
 
             <div className={styles.contentWrapper}>
                 <div className={styles.mainContent}>
@@ -29,33 +84,12 @@ export default function BusinessNormsContent() {
 
                     <div className={styles.categoriesSection}>
                         {categories.map((category, index) => (
-                            <div key={index} id={`category-${index}`} className={styles.categoryGroup}>
-                                <div className={styles.categoryHeader}>
-                                    <h2 className={styles.categoryTitle}>{category.title}</h2>
-                                </div>
-                                <div className={styles.tableWrapper}>
-                                    <table className={styles.table}>
-                                        <thead>
-                                            <tr>
-                                                <th className={styles.colName}>{t.nav.businessNorms.table.category}</th>
-                                                <th className={styles.colUnit}>{t.nav.businessNorms.table.unit}</th>
-                                                <th className={styles.colValue}>{t.nav.businessNorms.table.normM3}</th>
-                                                <th className={styles.colValue}>{t.nav.businessNorms.table.normKg}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {category.rows.map((row, rIndex) => (
-                                                <tr key={rIndex}>
-                                                    <td>{row.name}</td>
-                                                    <td>{row.unit}</td>
-                                                    <td className={styles.colValue}>{row.m3}</td>
-                                                    <td className={styles.colValue}>{row.kg}</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                            <CategoryItem
+                                key={index}
+                                category={category}
+                                index={index}
+                                t={t}
+                            />
                         ))}
                     </div>
                 </div>

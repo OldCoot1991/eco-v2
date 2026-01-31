@@ -4,7 +4,7 @@
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  border-radius: 0.375rem;
+  border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.2); /* Fixed light mode border color to match LanguageSwitcher */
   backdrop-filter: blur(4px);
   background: transparent;

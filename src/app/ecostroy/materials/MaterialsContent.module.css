@@ -1,216 +1,198 @@
+/* Materials Content Styles - Clean Minimal Design */
+
 .pageContainer {
-    width: 100%;
-    margin: 0 auto;
-    padding-bottom: 8rem;
-    animation: fadeIn 0.8s ease-out;
+  width: 100%;
+  margin: 0 auto;
+  /* Fluid padding-bottom: 64px to 128px */
+  padding-bottom: calc(64px + (128 - 64) * ((100vw - 320px) / (1920 - 320)));
+  animation: fadeIn 0.8s ease-out;
 }
 
 .heroSection {
-    position: relative;
-    padding: 8rem 1rem 5rem;
-    background: radial-gradient(circle at 70% 20%, rgba(16, 185, 129, 0.08), transparent 60%),
-        radial-gradient(circle at 30% 80%, rgba(59, 130, 246, 0.05), transparent 60%);
-    text-align: center;
-    margin-bottom: 4rem;
+  position: relative;
+  /* Fluid padding-top: 80px to 160px */
+  padding-top: calc(80px + (160 - 80) * ((100vw - 320px) / (1920 - 320)));
+  /* Fluid padding-bottom: 40px to 80px */
+  padding-bottom: calc(40px + (80 - 40) * ((100vw - 320px) / (1920 - 320)));
+  /* Fluid padding-x: 16px to 32px */
+  padding-left: calc(16px + (32 - 16) * ((100vw - 320px) / (1920 - 320)));
+  padding-right: calc(16px + (32 - 16) * ((100vw - 320px) / (1920 - 320)));
+  
+  background: radial-gradient(circle at 70% 20%, rgba(16, 185, 129, 0.08), transparent 60%),
+    radial-gradient(circle at 30% 80%, rgba(59, 130, 246, 0.05), transparent 60%);
+  text-align: center;
+  /* Fluid margin-bottom: 32px to 64px */
+  margin-bottom: calc(32px + (64 - 32) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .heroTitle {
-    font-family: var(--font-accent);
-    font-size: 3.5rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--foreground);
-    margin-bottom: 2rem;
-    line-height: 1.1;
-    background: linear-gradient(135deg, var(--foreground) 0%, var(--primary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  font-family: var(--font-accent);
+  /* Fluid font-size: 32px to 56px */
+  font-size: calc(32px + (56 - 32) * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  /* Fluid margin-bottom: 16px to 32px */
+  margin-bottom: calc(16px + (32 - 16) * ((100vw - 320px) / (1920 - 320)));
+  line-height: 1.1;
+  background: linear-gradient(135deg, var(--foreground) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .heroText {
-    font-size: 1.35rem;
-    line-height: 1.6;
-    color: var(--foreground);
-    opacity: 0.7;
-    max-width: 700px;
-    margin: 0 auto;
-    font-weight: 400;
+  /* Fluid font-size: 16px to 22px */
+  font-size: calc(16px + (22 - 16) * ((100vw - 320px) / (1920 - 320)));
+  line-height: 1.6;
+  color: var(--foreground);
+  opacity: 0.7;
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 400;
 }
 
 .categorySection {
-    max-width: 1800px;
-    margin: 0 auto 6rem;
-    padding: 0 2rem;
+  max-width: 1800px;
+  margin: 0 auto;
+  /* Fluid margin-bottom: 48px to 96px */
+  margin-bottom: calc(48px + (96 - 48) * ((100vw - 320px) / (1920 - 320)));
+  /* Fluid padding-x: 16px to 32px */
+  padding-left: calc(16px + (32 - 16) * ((100vw - 320px) / (1920 - 320)));
+  padding-right: calc(16px + (32 - 16) * ((100vw - 320px) / (1920 - 320)));
 }
 
-/* Updated Title Design: Centered, Clean, No Side Stripes */
 .categoryTitle {
-    font-family: var(--font-accent);
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--foreground);
-    margin-bottom: 3rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    text-align: center;
+  font-family: var(--font-accent);
+  /* Fluid font-size: 24px to 36px */
+  font-size: calc(24px + (36 - 24) * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
+  color: var(--foreground);
+  /* Fluid margin-bottom: 24px to 48px */
+  margin-bottom: calc(24px + (48 - 24) * ((100vw - 320px) / (1920 - 320)));
+  text-align: center;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 420px);
-    justify-content: center;
-    gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 320px));
+  justify-content: center;
+  /* Fluid gap: 20px to 32px */
+  gap: calc(20px + (32 - 20) * ((100vw - 320px) / (1920 - 320)));
 }
 
-/* Beautiful Custom Card Design */
 .card {
-    background: var(--card-bg);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    /* Soft but defined shadow */
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    height: 100%;
-    height: 100%;
-    /* Width managed by grid-template-columns */
+  background: var(--card-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+  height: 100%;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
 .imageWrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/10;
-    overflow: hidden;
-    background: #f1f5f9;
-    /* Slate-100 for better contrast */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    border-radius: 4px 4px 0 0;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Fluid padding: 16px to 24px */
+  padding: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: transform 0.5s ease;
-    mix-blend-mode: multiply;
-    /* Helps integrate white-bg images */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
 .card:hover .image {
-    transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .cardContent {
-    padding: 2rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    background: var(--card-bg);
-    border-top: 1px solid rgba(0, 0, 0, 0.03);
-    border-radius: 0 0 4px 4px;
+  /* Fluid padding: 16px to 24px */
+  padding: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
 }
 
 .cardTitle {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--foreground);
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
-    font-family: var(--font-accent);
+  /* Fluid font-size: 14px to 16px */
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
+  color: var(--foreground);
+  /* Fluid margin-bottom: 12px to 16px */
+  margin-bottom: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
+  line-height: 1.4;
+  font-family: var(--font-accent);
 }
 
 .cardFooter {
-    margin-top: auto;
+  margin-top: auto;
 }
 
-/* Modern "Action" Button */
 .button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 1.1rem 1.5rem;
-    background: var(--background);
-    color: var(--foreground);
-    border: 1px solid var(--border);
-    /* Subtle border */
-    border-radius: 4px;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  /* Fluid padding: 10px to 14px */
+  padding: calc(10px + (14 - 10) * ((100vw - 320px) / (1920 - 320)));
+  background: var(--background);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
 .button:hover {
-    border-color: var(--primary);
-    background: rgba(16, 185, 129, 0.05);
-    /* Very light primary tint */
-    color: var(--primary);
-    transform: translateY(-2px);
+  background: var(--primary);
+  color: white;
 }
 
 .iconWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: var(--secondary);
-    /* Changed from foreground (black) to secondary (blue) */
-    border-radius: 50%;
-    /* Keep circle for arrow? User said "except arrow"... assume arrow wrapper is fine circular? Or radius 4px? "except arrow" usually means the icon itself or the wrapper. I'll keep circle for now as it's a specific UI element, but change color. User said "background black" I dislike. */
-    color: white;
-    transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: all 0.2s ease;
 }
 
 .button:hover .iconWrapper {
-    background: var(--primary);
-    color: white;
-    transform: rotate(-45deg);
+  transform: translateX(4px);
 }
 
 .buttonText {
-    font-size: 1.15rem;
-    /* Increased size (~18px) */
+  /* Fluid font-size: 14px to 16px */
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .heroTitle {
-        font-size: 2.5rem;
-    }
-
-    .categoryTitle {
-        font-size: 2rem;
-        text-align: left;
-        padding-left: 0;
-    }
-
-
-
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

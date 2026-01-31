@@ -4,6 +4,7 @@ import React from 'react';
 import styles from './ManagementContent.module.css';
 import { useTranslation } from '@/lib/hooks/useTranslation';
 import { FaUserTie } from 'react-icons/fa';
+import { SectionTitle } from '@/components/ui/SectionTitle';
 
 export default function ManagementContent() {
     const { t } = useTranslation();
@@ -33,14 +34,11 @@ export default function ManagementContent() {
 
     return (
         <div className={styles.pageContainer}>
-            <section className={styles.heroSection}>
-                <h1 className={styles.heroTitle}>
-                    {t.management.title}
-                </h1>
-                <p className={styles.heroSubtitle}>
-                    {t.management.subtitle}
-                </p>
-            </section>
+            <SectionTitle
+                title={t.management.title}
+                subtitle={t.management.subtitle}
+                size="small"
+            />
 
             <div className={styles.grid}>
                 {managementTeam.map((person, index) => (

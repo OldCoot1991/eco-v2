@@ -4,6 +4,7 @@ import React from 'react';
 import { useTranslation } from "@/lib/hooks/useTranslation";
 import Requisites from "@/components/Requisites/Requisites";
 import styles from "./Contacts.module.css";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 
 const LocationIcon = () => (
     <svg className={styles.icon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,10 +30,11 @@ export default function Contacts() {
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.pageHeader}>
-                <h1 className={styles.pageTitle} suppressHydrationWarning>{t.contacts.title}</h1>
-                <p className={styles.pageText} suppressHydrationWarning>{t.contacts.subtitle}</p>
-            </div>
+            <SectionTitle
+                title={t.contacts.title}
+                subtitle={t.contacts.subtitle}
+                size="small"
+            />
 
             <div className={styles.container}>
                 <div className={styles.grid}>
@@ -44,13 +46,13 @@ export default function Contacts() {
                                 </div>
                                 <span className={styles.addressText}>{office.address}</span>
                             </a>
-                            
+
                             <div className={styles.cardBody}>
                                 <div className={styles.infoRow}>
                                     <ClockIcon />
                                     <div className={styles.schedule}>{office.schedule}</div>
                                 </div>
-                                
+
                                 {office.phone && (
                                     <a href={`tel:${office.phone.replace(/[^\d+]/g, '')}`} className={styles.phoneButton}>
                                         <PhoneIcon />

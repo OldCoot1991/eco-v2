@@ -1,9 +1,11 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from "./TariffsFiz.module.css";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { useTranslation } from "@/lib/hooks/useTranslation";
+import { CustomScrollbar } from "@/components/ui/CustomScrollbar/CustomScrollbar";
+import { DocumentCard } from "./DocumentCard";
 
 type ZoneKey = 'zone1' | 'zone2' | 'zone3';
 
@@ -17,6 +19,7 @@ interface TariffPeriod {
 
 const TariffsFiz = () => {
   const { t } = useTranslation();
+  const tableContainerRef = useRef<HTMLDivElement>(null);
   const isEn = t.common.download === "Download";
 
   const TARIFF_DATA: TariffPeriod[] = [
@@ -85,44 +88,28 @@ const TariffsFiz = () => {
     <div className={styles.container}>
 
       {/* Official Doc Card */}
-      <div className={styles.documentCard}>
-        <div className={styles.documentCardInner}>
-          <div className={styles.documentCardBg} />
-          <div className={styles.documentIcon}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><polyline points="14 2 14 8 20 8" /></svg>
-          </div>
-          <div className={styles.documentContent}>
-            <div className={styles.documentMeta}>
-              <span className={styles.documentBadge}>{t.tariffs.order}</span>
-              <span className={styles.documentDate}>{t.tariffs.date}</span>
-            </div>
-            <h2 className={styles.documentTitle}>
-              {t.tariffs.orderFullTitle}
-            </h2>
-            <p className={styles.documentSubtitle}>
-              {t.tariffs.orderSubtitle}
-            </p>
-          </div>
-          <a
-            href="/docs/prikaz_214.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.downloadButton}
-          >
-            <span>{t.tariffs.download}</span>
-            <svg style={{ width: '1rem', height: '1rem' }} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-          </a>
-        </div>
-      </div>
+      {/* Official Doc Card - Shared Component */}
+      <DocumentCard
+        badgeText={t.tariffs.order}
+        dateText={t.tariffs.date}
+        title={t.tariffs.orderFullTitle}
+        subtitle={t.tariffs.orderSubtitle}
+        downloadText={t.tariffs.download}
+        fileUrl="/docs/prikaz_214.pdf"
+      />
 
       {/* Main Tariffs Table */}
       <div>
         <SectionTitle
           title={t.tariffs.zonesTitle}
           subtitle={t.tariffs.zonesSubtitle}
+          size="small"
         />
 
-        <div className={styles.tableContainer}>
+        <div
+          className={styles.tableContainer}
+          ref={tableContainerRef}
+        >
           <table className={styles.table}>
             <thead>
               <tr>
@@ -158,7 +145,12 @@ const TariffsFiz = () => {
               ))}
             </tbody>
           </table>
+
         </div>
+        <CustomScrollbar
+          containerRef={tableContainerRef}
+          className="mt-4 px-4 sm:block"
+        />
       </div>
 
       {/* Calculated Payment Section */}
@@ -166,6 +158,7 @@ const TariffsFiz = () => {
         <SectionTitle
           title={t.tariffs.calcTitle}
           subtitle={t.tariffs.calcSubtitle}
+          size="small"
         />
 
         <div className={styles.paymentGrid}>
@@ -213,7 +206,7 @@ const TariffsFiz = () => {
         </div>
       </div>
 
-    </div>
+    </div >
   );
 };
 export default TariffsFiz;

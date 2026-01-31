@@ -4,7 +4,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  /* Fluid gap: 32px to 64px */
+  gap: calc(32px + (64 - 32) * ((100vw - 320px) / (1920 - 320)));
   animation: fadeIn 0.7s ease-in;
   max-width: 1280px;
   /* Explicit constraint */
@@ -23,149 +24,23 @@
 }
 
 /* Document Card (Kept as is) */
-.documentCard {
-  position: relative;
-  border-radius: 1.5rem;
-  padding: 1px;
-  background: linear-gradient(to right, #a7f3d0, #5eead4, #67e8f9);
-  box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.3);
-}
-
-.documentCardInner {
-  position: relative;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(24px);
-  border-radius: calc(1.5rem - 1px);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .documentCardInner {
-    flex-direction: row;
-    align-items: center;
-  }
-}
-
-.documentCardBg {
-  position: absolute;
-  right: -1.5rem;
-  top: -1.5rem;
-  width: 8rem;
-  height: 8rem;
-  background: #d1fae5;
-  border-radius: 50%;
-  filter: blur(3rem);
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.documentIcon {
-  flex-shrink: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  background: linear-gradient(to bottom right, #10b981, #14b8a6);
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  color: white;
-  transition: transform 0.3s;
-}
-
-.documentCard:hover .documentIcon {
-  transform: scale(1.1);
-}
-
-.documentContent {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.documentMeta {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.documentBadge {
-  padding: 0.25rem 0.75rem;
-  background: #d1fae5;
-  color: #047857;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.documentDate {
-  color: #10b981;
-  font-size: 0.875rem;
-}
-
-.documentTitle {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #047857;
-  line-height: 1.25;
-  transition: color 0.3s;
-}
-
-.documentCard:hover .documentTitle {
-  color: #059669;
-}
-
-.documentSubtitle {
-  color: #10b981;
-  font-size: 0.875rem;
-  max-width: 42rem;
-}
-
-@media (min-width: 768px) {
-  .documentTitle {
-    font-size: 1.875rem;
-  }
-
-  .documentSubtitle {
-    font-size: 1rem;
-  }
-}
-
-.downloadButton {
-  flex-shrink: 0;
-  padding: 0.75rem 1.5rem;
-  background: white;
-  border: 1px solid #a7f3d0;
-  color: #047857;
-  font-weight: 600;
-  border-radius: 0.75rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.downloadButton:hover {
-  background: #d1fae5;
-  border-color: #6ee7b7;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transform: translateX(0.25rem);
-}
+/* Document Card styles removed - using shared component */
 
 /* === TABLE STYLES === */
 .tableContainer {
   overflow-x: auto;
-  border-radius: 1rem;
+  border-radius: 4px;
   border: 1px solid var(--border);
   background: var(--card-bg);
+
+  background: var(--card-bg);
+  /* Hide scrollbar for cleaner look with custom one */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tableContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .table {
@@ -176,22 +51,26 @@
 }
 
 .th {
-  padding: 1.5rem;
+  /* Fluid padding: 12px to 24px */
+  padding: calc(12px + (24 - 12) * ((100vw - 320px) / (1920 - 320)));
   text-align: left;
   background: rgba(16, 185, 129, 0.1);
   color: #047857;
   font-weight: 700;
-  font-size: 1rem;
+  /* Fluid font-size: 14px to 16px */
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-bottom: 2px solid #a7f3d0;
 }
 
 .thSub {
-  font-size: 0.75rem;
+  /* Fluid font-size: 11px to 12px */
+  font-size: calc(11px + (12 - 11) * ((100vw - 320px) / (1920 - 320)));
   color: #059669;
   font-weight: 500;
-  margin-top: 0.25rem;
+  /* Fluid margin-top: 4px to 6px */
+  margin-top: calc(4px + (6 - 4) * ((100vw - 320px) / (1920 - 320)));
   text-transform: none;
 }
 
@@ -213,20 +92,24 @@
 }
 
 .td {
-  padding: 1.5rem;
+  /* Fluid padding: 12px to 24px */
+  padding: calc(12px + (24 - 12) * ((100vw - 320px) / (1920 - 320)));
   color: #1f2937;
-  font-size: 1rem;
+  /* Fluid font-size: 14px to 16px */
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .zoneCell {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  /* Fluid gap: 12px to 16px */
+  gap: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .zoneIconMini {
-  width: 2rem;
-  height: 2rem;
+  /* Fluid size: 32px to 48px */
+  width: calc(32px + (48 - 32) * ((100vw - 320px) / (1920 - 320)));
+  height: calc(32px + (48 - 32) * ((100vw - 320px) / (1920 - 320)));
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -249,9 +132,10 @@
 }
 
 .priceCell {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-weight: 700;
-  font-size: 1.25rem;
+  /* Fluid font-size: 16px to 24px */
+  font-size: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
   color: #059669;
 }
 
@@ -260,55 +144,7 @@
 }
 
 /* === DARK THEME OVERRIDES === */
-:global(.dark) .documentCard {
-  background: linear-gradient(to right, rgba(16, 185, 129, 0.3), rgba(20, 184, 166, 0.3), rgba(6, 182, 212, 0.3));
-  box-shadow: none;
-}
 
-:global(.dark) .documentCardInner {
-  background: rgba(31, 41, 55, 0.8);
-}
-
-:global(.dark) .documentCardBg {
-  background: rgba(16, 185, 129, 0.2);
-}
-
-:global(.dark) .documentIcon {
-  box-shadow: none;
-}
-
-:global(.dark) .documentBadge {
-  background: rgba(16, 185, 129, 0.5);
-  color: #6ee7b7;
-}
-
-:global(.dark) .documentDate {
-  color: #9ca3af;
-}
-
-:global(.dark) .documentTitle {
-  color: #e5e7eb;
-}
-
-:global(.dark) .documentCard:hover .documentTitle {
-  color: #6ee7b7;
-}
-
-:global(.dark) .documentSubtitle {
-  color: #9ca3af;
-}
-
-:global(.dark) .downloadButton {
-  background: #374151;
-  border-color: #047857;
-  color: #6ee7b7;
-}
-
-:global(.dark) .downloadButton:hover {
-  background: rgba(16, 185, 129, 0.3);
-  border-color: #059669;
-  box-shadow: none;
-}
 
 :global(.dark) .tableContainer {
   background: #18181b;

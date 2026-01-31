@@ -1,8 +1,11 @@
 "use client";
 
+import { useRef } from "react";
 import styles from "./TariffsJur.module.css";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { useTranslation } from "@/lib/hooks/useTranslation";
+import { CustomScrollbar } from "@/components/ui/CustomScrollbar/CustomScrollbar";
+import { DocumentCard } from "./DocumentCard";
 
 interface TimelineItem {
     label: string;
@@ -21,6 +24,7 @@ interface TariffZone {
 
 const TariffsJur = () => {
     const { t } = useTranslation();
+    const tableContainerRef = useRef<HTMLDivElement>(null);
     const isEn = t.common.download === "Download";
 
     const tariffZones: TariffZone[] = [
@@ -85,45 +89,26 @@ const TariffsJur = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.documentCard}>
-                <div className={styles.documentCardInner}>
-                    <div className={styles.documentCardBg} />
-                    <div className={styles.documentIcon}>
-                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                    </div>
-                    <div className={styles.documentContent}>
-                        <div className={styles.documentMeta}>
-                            <span className={styles.documentBadge}>{t.tariffs.order}</span>
-                            <span className={styles.documentDate}>{t.tariffs.date}</span>
-                        </div>
-                        <h3 className={styles.documentTitle}>{t.tariffs.orderFullTitle}</h3>
-                        <p className={styles.documentSubtitle}>
-                            {t.tariffs.orderSubtitle}
-                        </p>
-                    </div>
-                    <a
-                        href="/docs/prikaz_214.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.downloadButton}
-                    >
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                        </svg>
-                        {t.tariffs.download}
-                    </a>
-                </div>
-            </div>
+            <DocumentCard
+                badgeText={t.tariffs.order}
+                dateText={t.tariffs.date}
+                title={t.tariffs.orderFullTitle}
+                subtitle={t.tariffs.orderSubtitle}
+                downloadText={t.tariffs.download}
+                fileUrl="/docs/prikaz_214.pdf"
+            />
 
             <div>
                 <SectionTitle
                     title={t.tariffs.zonesTitle}
                     subtitle={t.tariffs.zonesSubtitle}
+                    size="small"
                 />
 
-                <div className={styles.tableContainer}>
+                <div
+                    className={styles.tableContainer}
+                    ref={tableContainerRef}
+                >
                     <table className={styles.table}>
                         <thead>
                             <tr>
@@ -158,6 +143,10 @@ const TariffsJur = () => {
                         </tbody>
                     </table>
                 </div>
+                <CustomScrollbar
+                    containerRef={tableContainerRef}
+                    className="mt-4 px-4 sm:block"
+                />
             </div>
         </div>
     );
