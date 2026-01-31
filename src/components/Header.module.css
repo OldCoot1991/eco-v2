@@ -3,7 +3,8 @@
 .mobileControls {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  /* Fluid gap: 6px to 8px */
+  gap: calc(6px + (8 - 6) * ((100vw - 320px) / (1920 - 320)));
 }
 
 /* Main Header */
@@ -28,7 +29,8 @@
 .headerContainer {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0.75rem 1rem;
+  /* Fluid padding: 10px to 12px (vertical), 16px to 24px (horizontal) */
+  padding: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320))) calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
 }
 
 @media (min-width: 640px) {
@@ -65,8 +67,9 @@
 
 .menuButton {
   display: flex;
-  height: 2.5rem;
-  width: 2.5rem;
+  /* Fluid size: 36px to 40px */
+  height: calc(36px + (40 - 36) * ((100vw - 320px) / (1920 - 320)));
+  width: calc(36px + (40 - 36) * ((100vw - 320px) / (1920 - 320)));
   align-items: center;
   justify-content: center;
   border-radius: 0.25rem;
@@ -87,8 +90,9 @@
 }
 
 .menuIcon {
-  width: 1.25rem;
-  height: 1.25rem;
+  /* Fluid size: 18px to 20px */
+  width: calc(18px + (20 - 18) * ((100vw - 320px) / (1920 - 320)));
+  height: calc(18px + (20 - 18) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .logoLink {
@@ -101,7 +105,8 @@
 }
 
 .mobileLogo {
-  height: 2.5rem;
+  /* Fluid height: 32px to 40px */
+  height: calc(32px + (40 - 32) * ((100vw - 320px) / (1920 - 320)));
   width: auto;
 }
 
@@ -129,26 +134,16 @@
 }
 
 .desktopLogo {
-  height: 2rem;
+  /* Fluid height: 32px to 40px */
+  height: calc(32px + (40 - 32) * ((100vw - 320px) / (1920 - 320)));
   width: auto;
-}
-
-@media (min-width: 640px) {
-  .desktopLogo {
-    height: 2.5rem;
-  }
 }
 
 .controls {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-}
-
-@media (min-width: 640px) {
-  .controls {
-    gap: 0.75rem;
-  }
+  /* Fluid gap: 8px to 12px */
+  gap: calc(8px + (12 - 8) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .socialLinksWrapper {
@@ -166,8 +161,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  /* Fluid size: 32px to 36px */
+  width: calc(32px + (36 - 32) * ((100vw - 320px) / (1920 - 320)));
+  height: calc(32px + (36 - 32) * ((100vw - 320px) / (1920 - 320)));
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   background: transparent;
@@ -175,13 +171,6 @@
   color: #334155;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-@media (min-width: 768px) {
-  .settingsButton {
-    width: 2.25rem;
-    height: 2.25rem;
-  }
 }
 
 .settingsButton:hover {
@@ -207,28 +196,24 @@
 }
 
 .settingsIcon {
-  width: 1.25rem;
-  height: 1.25rem;
+  /* Fluid size: 18px to 22px */
+  width: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));
+  height: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));
   transition: transform 0.3s ease;
-}
-
-@media (min-width: 768px) {
-  .settingsIcon {
-    width: 1.375rem;
-    height: 1.375rem;
-  }
 }
 
 .contactsButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
+  /* Fluid padding: 6px to 8px (vertical), 12px to 16px (horizontal) */
+  padding: calc(6px + (8 - 6) * ((100vw - 320px) / (1920 - 320))) calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
   border-radius: 4px;
   background: white;
   color: #0f172a;
   font-weight: 500;
-  font-size: 0.875rem;
+  /* Fluid font-size: 13px to 14px */
+  font-size: calc(13px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.2s;

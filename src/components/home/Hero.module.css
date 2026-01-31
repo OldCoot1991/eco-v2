@@ -1,4 +1,4 @@
-﻿/* Hero Component Styles */
+﻿/* Hero Component Styles - Fluid Calc */
 
 .hero {
   position: relative;
@@ -64,15 +64,11 @@
 .container {
   position: relative;
   z-index: 10;
-  padding: 0 1rem;
+  /* Fluid padding-x: 16px to 24px */
+  padding-left: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+  padding-right: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
   max-width: 1280px;
   margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding: 0 1.5rem;
-  }
 }
 
 .content {
@@ -84,16 +80,20 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1.5rem;
+  /* Fluid gap: 10px to 12px */
+  gap: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)));
+  /* Fluid padding: 10px to 12px (vertical), 20px to 24px (horizontal) */
+  padding: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320))) calc(20px + (24 - 20) * ((100vw - 320px) / (1920 - 320)));
   border-radius: 4px;
   background: rgba(16, 185, 129, 0.1);
   color: #047857;
   backdrop-filter: blur(4px);
   border: 2px solid rgba(16, 185, 129, 0.2);
-  font-size: 1rem;
+  /* Fluid font-size: 14px to 16px */
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 900;
-  margin-bottom: 2rem;
+  /* Fluid margin-bottom: 24px to 32px */
+  margin-bottom: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
   animation: fadeInUp 0.8s ease-out;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -106,30 +106,20 @@
 }
 
 .heading {
-  font-size: 1.25rem;
+  /* Fluid font-size: 20px to 40px */
+  font-size: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 900;
   letter-spacing: -0.025em;
   color: #ffffff;
   line-height: 1.1;
-  margin-bottom: 2rem;
+  /* Fluid margin-bottom: 24px to 32px */
+  margin-bottom: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
   text-transform: uppercase;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 :global(.dark) .heading {
   color: #ffffff;
-}
-
-@media (min-width: 768px) {
-  .heading {
-    font-size: 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .heading {
-    font-size: 2.5rem;
-  }
 }
 
 .headingGradient {
@@ -147,11 +137,13 @@
 }
 
 .description {
-  font-size: 0.9375rem;
+  /* Fluid font-size: 14px to 18px */
+  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 700;
   color: #e4e4e7;
   max-width: 42rem;
-  margin: 0 auto 3rem;
+  /* Fluid margin-bottom: 32px to 48px */
+  margin: 0 auto calc(32px + (48 - 32) * ((100vw - 320px) / (1920 - 320)));
   line-height: 1.6;
   text-transform: uppercase;
   letter-spacing: 0.025em;
@@ -162,16 +154,11 @@
   color: #e4e4e7;
 }
 
-@media (min-width: 768px) {
-  .description {
-    font-size: 1.125rem;
-  }
-}
-
 .buttons {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  /* Fluid gap: 12px to 16px */
+  gap: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
   justify-content: center;
   align-items: center;
 }
@@ -184,17 +171,20 @@
 
 .primaryButton {
   position: relative;
-  padding: 1.25rem 2.5rem;
+  /* Fluid padding: 16px to 20px (vertical), 32px to 40px (horizontal) */
+  padding: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320))) calc(32px + (40 - 32) * ((100vw - 320px) / (1920 - 320)));
   background: #059669;
   color: white;
   border-radius: 4px;
   font-weight: 900;
-  font-size: 1rem;
+  /* Fluid font-size: 14px to 16px */
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
   transition: all 0.2s;
   box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.3);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  /* Fluid gap: 10px to 12px */
+  gap: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)));
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -209,13 +199,15 @@
 }
 
 .secondaryButton {
-  padding: 1.25rem 2.5rem;
+  /* Fluid padding: 16px to 20px (vertical), 32px to 40px (horizontal) */
+  padding: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320))) calc(32px + (40 - 32) * ((100vw - 320px) / (1920 - 320)));
   background: white;
   color: #18181b;
   border: 2px solid #e4e4e7;
   border-radius: 4px;
   font-weight: 900;
-  font-size: 1rem;
+  /* Fluid font-size: 14px to 16px */
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
   transition: all 0.2s;
   text-decoration: none;
   text-transform: uppercase;
@@ -243,7 +235,8 @@
 
 .arrowIcon {
   transition: transform 0.2s;
-  font-size: 1.125rem;
+  /* Fluid font-size: 16px to 18px */
+  font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .primaryButton:hover .arrowIcon {

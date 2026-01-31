@@ -1,40 +1,48 @@
-/* ThemeToggle Component Styles */
+/* ThemeToggle Component Styles - Premium Enhanced */
 
 /* Mobile/Tablet Button */
 .mobileButton {
   position: relative;
-  width: 3.5rem;
-  height: 1.75rem;
-  border-radius: 4px;
-  padding: 0.125rem;
+  /* Fluid width: 52px to 56px, height: 26px to 28px */
+  width: calc(52px + (56 - 52) * ((100vw - 320px) / (1920 - 320)));
+  height: calc(26px + (28 - 26) * ((100vw - 320px) / (1920 - 320)));
+  border-radius: 9999px;
+  padding: 2px;
   cursor: pointer;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15),
+              0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  border: none;
+  border: 2px solid transparent;
 }
 
 .mobileButton:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2),
+              0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .mobileButton:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 .mobileButton:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3),
+              inset 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .mobileButtonDark {
-  background: #0f172a;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6),
+              0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .mobileButtonLight {
-  background: #7dd3fc;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #38bdf8 0%, #7dd3fc 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1),
+              0 4px 8px rgba(56, 189, 248, 0.3);
 }
 
 @media (min-width: 768px) {
@@ -47,15 +55,17 @@
 .desktopButton {
   display: none;
   position: relative;
-  width: 3rem;
-  height: 1.5rem;
-  border-radius: 4px;
-  padding: 0.125rem;
+  /* Fluid width: 46px to 48px, height: 22px to 24px */
+  width: calc(46px + (48 - 46) * ((100vw - 320px) / (1920 - 320)));
+  height: calc(22px + (24 - 22) * ((100vw - 320px) / (1920 - 320)));
+  border-radius: 9999px;
+  padding: 2px;
   cursor: pointer;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15),
+              0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  border: none;
+  border: 2px solid transparent;
 }
 
 @media (min-width: 768px) {
@@ -65,132 +75,193 @@
 }
 
 .desktopButton:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2),
+              0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .desktopButton:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 .desktopButton:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3),
+              inset 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .desktopButtonDark {
-  background: #0f172a;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6),
+              0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .desktopButtonLight {
-  background: #7dd3fc;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #38bdf8 0%, #7dd3fc 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1),
+              0 4px 8px rgba(56, 189, 248, 0.3);
 }
 
 /* Background Layers */
 .bgDark {
   position: absolute;
   inset: 0;
-  transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
 }
 
 .bgDarkVisible {
   opacity: 1;
+  transform: scale(1);
 }
 
 .bgDarkHidden {
   opacity: 0;
+  transform: scale(0.9);
 }
 
 .bgDarkGradient {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 120%, #4f46e5, #0f172a);
+  background: radial-gradient(circle at 50% 120%, #4f46e5 0%, #312e81 50%, #0f172a 100%);
+  animation: shimmerDark 3s ease-in-out infinite;
+}
+
+@keyframes shimmerDark {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
 }
 
 .star1 {
   position: absolute;
-  top: 0.25rem;
-  left: 0.75rem;
-  width: 0.125rem;
-  height: 0.125rem;
+  top: 4px;
+  left: 12px;
+  width: 2px;
+  height: 2px;
   background: white;
   border-radius: 50%;
-  opacity: 0.8;
+  opacity: 0.9;
+  animation: twinkle 2s ease-in-out infinite;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
 }
 
 .star2 {
   position: absolute;
-  top: 0.75rem;
-  left: 1.5rem;
-  width: 0.125rem;
-  height: 0.125rem;
+  top: 12px;
+  left: 24px;
+  width: 2px;
+  height: 2px;
   background: white;
   border-radius: 50%;
-  opacity: 0.4;
+  opacity: 0.6;
+  animation: twinkle 3s ease-in-out infinite 0.5s;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
 }
 
 .star3 {
   position: absolute;
-  bottom: 0.5rem;
-  left: 1rem;
-  width: 0.25rem;
-  height: 0.25rem;
+  bottom: 8px;
+  left: 16px;
+  width: 3px;
+  height: 3px;
   background: white;
   border-radius: 50%;
-  opacity: 0.6;
+  opacity: 0.8;
   filter: blur(0.5px);
+  animation: twinkle 2.5s ease-in-out infinite 1s;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.9);
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
 }
 
 .bgLight {
   position: absolute;
   inset: 0;
-  transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
 }
 
 .bgLightVisible {
   opacity: 1;
+  transform: scale(1);
 }
 
 .bgLightHidden {
   opacity: 0;
+  transform: scale(0.9);
 }
 
 .bgLightGradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #38bdf8, #7dd3fc);
+  background: linear-gradient(180deg, #38bdf8 0%, #7dd3fc 50%, #bae6fd 100%);
+  animation: shimmerLight 4s ease-in-out infinite;
+}
+
+@keyframes shimmerLight {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.95;
+  }
 }
 
 .cloud1 {
   position: absolute;
-  top: 0.25rem;
-  right: 0.5rem;
-  width: 1rem;
-  height: 0.5rem;
-  background: rgba(255, 255, 255, 0.4);
+  top: 4px;
+  right: 8px;
+  width: 16px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 9999px;
   filter: blur(1px);
+  animation: float 4s ease-in-out infinite;
 }
 
 .cloud2 {
   position: absolute;
-  bottom: 0.25rem;
-  right: 1.25rem;
-  width: 1.25rem;
-  height: 0.5rem;
-  background: rgba(255, 255, 255, 0.3);
+  bottom: 4px;
+  right: 20px;
+  width: 20px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 9999px;
   filter: blur(2px);
+  animation: float 5s ease-in-out infinite 1s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
 }
 
 /* Knob (Sun/Moon) */
 .knob {
   position: relative;
   border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3),
+              0 1px 3px rgba(0, 0, 0, 0.2);
   transform: translateX(0);
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.5s;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.6s ease,
+              box-shadow 0.6s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,25 +269,31 @@
 }
 
 .knobMobile {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 22px;
+  height: 22px;
 }
 
 .knobDesktop {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 18px;
+  height: 18px;
 }
 
 .knobDark {
-  background: #e2e8f0;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4),
+              0 1px 3px rgba(0, 0, 0, 0.3),
+              inset 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .knobLight {
-  background: #fcd34d;
+  background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);
+  box-shadow: 0 3px 8px rgba(252, 211, 77, 0.5),
+              0 1px 3px rgba(252, 211, 77, 0.3),
+              inset 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .knobTranslateDark {
-  transform: translateX(1.75rem);
+  transform: translateX(28px);
 }
 
 .knobTranslateLight {
@@ -224,7 +301,7 @@
 }
 
 .knobTranslateDarkDesktop {
-  transform: translateX(1.5rem);
+  transform: translateX(24px);
 }
 
 /* Moon */
@@ -234,29 +311,39 @@
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  background: #cbd5e1;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  animation: moonGlow 3s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+  0%, 100% {
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .crater1 {
   position: absolute;
-  top: 0.25rem;
-  left: 0.5rem;
-  width: 0.375rem;
-  height: 0.375rem;
+  top: 4px;
+  left: 8px;
+  width: 6px;
+  height: 6px;
   background: #cbd5e1;
   border-radius: 50%;
-  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
 .crater2 {
   position: absolute;
-  bottom: 0.25rem;
-  right: 0.375rem;
-  width: 0.375rem;
-  height: 0.375rem;
+  bottom: 4px;
+  right: 6px;
+  width: 6px;
+  height: 6px;
   background: #cbd5e1;
   border-radius: 50%;
-  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Sun */
@@ -265,13 +352,26 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #fcd34d;
+  background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);
   overflow: hidden;
-  box-shadow: inset -2px -2px 4px rgba(245, 158, 11, 0.5);
+  box-shadow: inset -2px -2px 6px rgba(245, 158, 11, 0.6);
+  animation: sunPulse 2s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+  0%, 100% {
+    box-shadow: inset -2px -2px 6px rgba(245, 158, 11, 0.6),
+                0 0 8px rgba(252, 211, 77, 0.4);
+  }
+  50% {
+    box-shadow: inset -2px -2px 6px rgba(245, 158, 11, 0.8),
+                0 0 12px rgba(252, 211, 77, 0.6);
+  }
 }
 
 .sunGradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top right, #fbbf24, #fef3c7);
+  background: linear-gradient(to top right, #fbbf24 0%, #fef3c7 100%);
+  opacity: 0.8;
 }
