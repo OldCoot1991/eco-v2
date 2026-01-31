@@ -70,7 +70,7 @@
     }
 }
 
-.appContent {}
+/* .appContent {} removed */
 
 .appBadge {
     display: inline-block;
@@ -270,7 +270,7 @@
     color: #ca8a04;
 }
 
-.partnerDetails {}
+/* .partnerDetails {} removed */
 
 .partnerName {
     font-weight: 700;
