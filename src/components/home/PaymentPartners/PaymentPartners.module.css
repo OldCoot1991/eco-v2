@@ -1,9 +1,10 @@
-/* PaymentPartners Component Styles */
+/* PaymentPartners Component Styles - Compact with Fluid Calc */
 
 .partnersGrid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    /* Fluid gap: 16px to 20px */
+    gap: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
 }
 
 @media (min-width: 768px) {
@@ -13,7 +14,8 @@
 }
 
 .partnerCard {
-    padding: 2rem;
+    /* Fluid padding: 16px to 20px */
+    padding: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
     border-radius: 4px;
     background: #ffffff;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -36,12 +38,14 @@
 .partnerInfo {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    /* Fluid gap: 12px to 14px */
+    gap: calc(12px + (14 - 12) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .partnerIcon {
-    width: 3rem;
-    height: 3rem;
+    /* Fluid size: 36px to 40px */
+    width: calc(36px + (40 - 36) * ((100vw - 320px) / (1920 - 320)));
+    height: calc(36px + (40 - 36) * ((100vw - 320px) / (1920 - 320)));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -59,13 +63,15 @@
     color: #ca8a04;
 }
 
-.partnerDetails {}
-
 .partnerName {
+
     font-weight: 700;
-    font-size: 1.25rem;
+    /* Fluid font-size: 16px to 18px */
+    font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
     color: #18181b;
     font-family: var(--font-raleway), sans-serif;
+    /* Fluid margin-bottom: 2px to 4px */
+    margin-bottom: calc(2px + (4 - 2) * ((100vw - 320px) / (1920 - 320)));
 }
 
 :global(.dark) .partnerName {
@@ -73,6 +79,7 @@
 }
 
 .partnerDescription {
-    font-size: 1rem;
+    /* Fluid font-size: 13px to 14px */
+    font-size: calc(13px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
     color: #71717a;
 }

@@ -1,18 +1,14 @@
-/* MobileApp Component Styles */
+/* MobileApp Component Styles - Compact with Fluid Calc */
 
 .mobileAppSection {
     background: #18181b;
     border-radius: 4px;
-    padding: 2rem 4rem;
+    /* Fluid padding: 24px to 48px (vertical), 16px to 64px (horizontal) */
+    padding: calc(24px + (48 - 24) * ((100vw - 320px) / (1920 - 320))) calc(16px + (64 - 16) * ((100vw - 320px) / (1920 - 320)));
     position: relative;
     overflow: hidden;
-    margin-bottom: 3rem;
-}
-
-@media (min-width: 768px) {
-    .mobileAppSection {
-        padding: 4rem;
-    }
+    /* Fluid margin-bottom: 32px to 48px */
+    margin-bottom: calc(32px + (48 - 32) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .bgGradient {
@@ -26,64 +22,104 @@
 }
 
 .appGrid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    /* Fluid gap: 32px to 48px */
+    gap: calc(32px + (48 - 32) * ((100vw - 320px) / (1920 - 320)));
     position: relative;
     z-index: 10;
 }
 
 @media (min-width: 1024px) {
     .appGrid {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
+        align-items: center;
     }
 }
 
-.appContent {}
+.appContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .appContent {
+        align-items: flex-start;
+    }
+}
 
 .appBadge {
+
     display: inline-block;
-    padding: 0.375rem 1rem;
+    /* Fluid padding: 6px to 8px (vertical), 14px to 16px (horizontal) */
+    padding: calc(6px + (8 - 6) * ((100vw - 320px) / (1920 - 320))) calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
     border-radius: 4px;
     background: rgba(16, 185, 129, 0.1);
     color: #34d399;
     font-weight: 500;
-    font-size: 0.875rem;
-    margin-bottom: 1.5rem;
+    /* Fluid font-size: 12px to 14px */
+    font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1920 - 320)));
+    /* Fluid margin-bottom: 16px to 24px */
+    margin-bottom: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .appHeading {
-    font-size: 1.875rem;
+    /* Fluid font-size: 28px to 48px */
+    font-size: calc(28px + (48 - 28) * ((100vw - 320px) / (1920 - 320)));
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    /* Fluid margin-bottom: 16px to 24px */
+    margin-bottom: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
     color: #ffffff;
+    text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .appHeading {
-        font-size: 3rem;
+        text-align: left;
     }
 }
 
 .appDescription {
-    font-size: 1.125rem;
+    /* Fluid font-size: 14px to 16px */
+    font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
     color: #a1a1aa;
-    margin-bottom: 2rem;
+    /* Fluid margin-bottom: 24px to 32px */
+    margin-bottom: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
     max-width: 28rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .appDescription {
+        text-align: left;
+    }
 }
 
 .appButtons {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    justify-content: center;
+    /* Fluid gap: 10px to 12px */
+    gap: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)));
+}
+
+@media (min-width: 1024px) {
+    .appButtons {
+        justify-content: flex-start;
+    }
 }
 
 .appButton {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.875rem 1.5rem;
+    /* Fluid gap: 8px to 10px */
+    gap: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320)));
+    /* Fluid padding: 10px to 12px (vertical), 16px to 20px (horizontal) */
+    padding: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320))) calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
     border-radius: 4px;
     font-weight: 600;
     transition: all 0.2s;
@@ -113,7 +149,8 @@
 }
 
 .appIcon {
-    font-size: 1.5rem;
+    /* Fluid font-size: 20px to 24px */
+    font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .appButtonText {
@@ -124,11 +161,14 @@
 }
 
 .appButtonLabel {
-    font-size: 0.625rem;
+    /* Fluid font-size: 9px to 10px */
+    font-size: calc(9px + (10 - 9) * ((100vw - 320px) / (1920 - 320)));
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: #71717a;
+    /* Fluid margin-bottom: 2px to 3px */
+    margin-bottom: calc(2px + (3 - 2) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .appButtonPrimary .appButtonLabel {
@@ -140,32 +180,31 @@
 }
 
 .appButtonTitle {
-    font-size: 0.875rem;
+    /* Fluid font-size: 13px to 14px */
+    font-size: calc(13px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
     font-weight: 700;
 }
 
 .appMockup {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-@media (min-width: 1024px) {
-    .appMockup {
-        display: flex;
-    }
-}
-
 .phoneMockup {
-    width: 16rem;
-    height: 31.25rem;
+    /* Fluid width: 140px to 256px */
+    width: calc(140px + (256 - 140) * ((100vw - 320px) / (1920 - 320)));
+    /* Fluid height: 280px to 500px */
+    height: calc(280px + (500 - 280) * ((100vw - 320px) / (1920 - 320)));
     background: #3f3f46;
     border-radius: 4px;
-    border: 8px solid #52525b;
+    /* Fluid border: 4px to 8px */
+    border: calc(4px + (8 - 4) * ((100vw - 320px) / (1920 - 320))) solid #52525b;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #71717a;
     font-weight: 500;
+    overflow: hidden;
 }

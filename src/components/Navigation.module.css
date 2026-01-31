@@ -1,4 +1,4 @@
-/* Navigation Component Styles */
+/* Navigation Component Styles - Fluid Calc */
 
 .nav {
   border-bottom: 1px solid rgba(var(--foreground-rgb), 0.05);
@@ -8,14 +8,19 @@
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1rem;
+  /* Fluid padding-x: 16px to 24px */
+  padding-left: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+  padding-right: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .list {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  padding: 0.75rem 0;
+  /* Fluid gap: 24px to 32px */
+  gap: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
+  /* Fluid padding-y: 10px to 12px */
+  padding-top: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)));
+  padding-bottom: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)));
   list-style: none;
   margin: 0;
 }
@@ -25,13 +30,15 @@
 }
 
 .link {
-  font-size: 1rem;
+  /* Fluid font-size: 14px to 16px */
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 500;
   color: rgba(var(--foreground-rgb), 0.7);
   transition: color 0.2s;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  /* Fluid gap: 3px to 4px */
+  gap: calc(3px + (4 - 3) * ((100vw - 320px) / (1920 - 320)));
   text-decoration: none;
 }
 
@@ -40,8 +47,9 @@
 }
 
 .chevron {
-  width: 1rem;
-  height: 1rem;
+  /* Fluid size: 14px to 16px */
+  width: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+  height: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
   transition: transform 0.2s;
 }
 
@@ -53,11 +61,13 @@
   position: absolute;
   left: 0;
   top: 100%;
-  padding-top: 0.5rem;
-  width: 12rem;
+  /* Fluid padding-top: 6px to 8px */
+  padding-top: calc(6px + (8 - 6) * ((100vw - 320px) / (1920 - 320)));
+  /* Fluid width: 180px to 192px */
+  width: calc(180px + (192 - 180) * ((100vw - 320px) / (1920 - 320)));
   background: var(--background);
   border: 1px solid rgba(var(--foreground-rgb), 0.1);
-  border-radius: 0.25rem;
+  border-radius: 4px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   transition: all 0.2s;
   list-style: none;
@@ -77,8 +87,10 @@
 
 .submenuLink {
   display: block;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  /* Fluid padding: 6px to 8px (vertical), 12px to 16px (horizontal) */
+  padding: calc(6px + (8 - 6) * ((100vw - 320px) / (1920 - 320))) calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
+  /* Fluid font-size: 14px to 16px */
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
   color: rgba(var(--foreground-rgb), 0.7);
   transition: all 0.2s;
   text-decoration: none;
@@ -90,11 +102,11 @@
 }
 
 .submenuLink:first-child {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 .submenuLink:last-child {
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
