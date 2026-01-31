@@ -1,7 +1,9 @@
-/* GosuslugiSection Component Styles */
+/* GosuslugiSection Component Styles - Fluid Calc Refactor */
 
 .gosuslugi {
-    padding: 6rem 0;
+    width: 100%;
+    /* Fluid padding: 48px to 96px */
+    padding: calc(48px + (96 - 48) * ((100vw - 320px) / (1920 - 320))) 0;
     background: #FAFAF9;
 }
 
@@ -12,19 +14,17 @@
 .container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 1rem;
-}
-
-@media (min-width: 768px) {
-    .container {
-        padding: 0 1.5rem;
-    }
+    /* Fluid padding-x: 16px to 24px */
+    padding-left: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+    padding-right: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+    width: 100%;
 }
 
 .widgetWrapper {
     background: #ffffff;
   border-radius: 4px;
-    padding: 2rem;
+    /* Fluid padding: 24px to 40px */
+    padding: calc(24px + (40 - 24) * ((100vw - 320px) / (1920 - 320)));
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 

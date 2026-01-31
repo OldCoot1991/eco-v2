@@ -1,7 +1,9 @@
-/* AppPromo Component Styles */
+/* AppPromo Component Styles - Fluid Calc Refactor */
 
 .appPromo {
-    padding: 6rem 0;
+    width: 100%;
+    /* Fluid padding: 48px to 96px */
+    padding: calc(48px + (96 - 48) * ((100vw - 320px) / (1920 - 320))) 0;
     background: #FAFAF9;
 }
 
@@ -12,7 +14,10 @@
 .container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 1rem;
+    /* Fluid padding-x: 16px to 24px */
+    padding-left: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+    padding-right: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+    width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -25,10 +30,12 @@
 .mobileAppSection {
     background: #18181b;
     border-radius: 4px;
-    padding: 2rem 4rem;
+    /* Fluid padding: 32px to 64px */
+    padding: calc(32px + (64 - 32) * ((100vw - 320px) / (1920 - 320)));
     position: relative;
     overflow: hidden;
-    margin-bottom: 3rem;
+    /* Fluid margin-bottom: 32px to 48px */
+    margin-bottom: calc(32px + (48 - 32) * ((100vw - 320px) / (1920 - 320)));
 }
 
 @media (min-width: 768px) {
@@ -50,7 +57,8 @@
 .appGrid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    /* Fluid gap: 32px to 64px */
+    gap: calc(32px + (64 - 32) * ((100vw - 320px) / (1920 - 320)));
     align-items: center;
     position: relative;
     z-index: 10;
@@ -72,14 +80,18 @@
     color: #34d399;
     font-weight: 500;
     font-size: 0.875rem;
-    margin-bottom: 1.5rem;
+    /* Fluid margin-bottom: 16px to 24px */
+    margin-bottom: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .appHeading {
-    font-size: 1.875rem;
+    /* Fluid font-size: 24px to 48px */
+    font-size: calc(24px + (48 - 24) * ((100vw - 320px) / (1920 - 320)));
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    /* Fluid margin-bottom: 16px to 24px */
+    margin-bottom: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
     color: #ffffff;
+    line-height: 1.1;
 }
 
 @media (min-width: 768px) {
@@ -89,10 +101,13 @@
 }
 
 .appDescription {
-    font-size: 1.125rem;
+    /* Fluid font-size: 16px to 18px */
+    font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
     color: #a1a1aa;
-    margin-bottom: 2rem;
+    /* Fluid margin-bottom: 24px to 32px */
+    margin-bottom: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
     max-width: 28rem;
+    line-height: 1.6;
 }
 
 .appButtons {
@@ -179,8 +194,9 @@
 }
 
 .phoneMockup {
-    width: 16rem;
-    height: 31.25rem;
+    /* Fluid width: 200px to 256px and height scaled accordingly */
+    width: calc(200px + (256 - 200) * ((100vw - 320px) / (1920 - 320)));
+    height: calc(400px + (500 - 400) * ((100vw - 320px) / (1920 - 320)));
     background: #3f3f46;
     border-radius: 4px;
     border: 8px solid #52525b;
@@ -196,7 +212,8 @@
 .partnersGrid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    /* Fluid gap: 24px to 32px */
+    gap: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
 }
 
 @media (min-width: 768px) {
@@ -206,7 +223,8 @@
 }
 
 .partnerCard {
-    padding: 2rem;
+    /* Fluid padding: 24px to 32px */
+    padding: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
     border-radius: 4px;
     background: #ffffff;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -256,7 +274,8 @@
 
 .partnerName {
     font-weight: 700;
-    font-size: 1.25rem;
+    /* Fluid font-size: 18px to 20px */
+    font-size: calc(18px + (20 - 18) * ((100vw - 320px) / (1920 - 320)));
     /* Increased from 1.125rem */
     color: #18181b;
     font-family: var(--font-raleway), sans-serif;

@@ -1,7 +1,9 @@
-﻿/* InfoSection Component Styles */
+﻿/* InfoSection Component Styles - Fluid Calc Refactor */
 
 .infoSection {
-  padding: 6rem 0;
+  width: 100%;
+  /* Fluid padding: 48px to 96px */
+  padding: calc(48px + (96 - 48) * ((100vw - 320px) / (1920 - 320))) 0;
   background: #ffffff;
   border-bottom: 1px solid rgba(16, 185, 129, 0.1);
 }
@@ -14,19 +16,17 @@
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1rem;
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding: 0 1.5rem;
-  }
+  /* Fluid padding-x: 16px to 24px */
+  padding-left: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+  padding-right: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+  width: 100%;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  /* Fluid gap: 24px to 32px */
+  gap: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
 }
 
 @media (min-width: 768px) {
@@ -36,12 +36,16 @@
 }
 
 .card {
-  padding: 2.5rem;
+  /* Fluid padding: 24px to 40px */
+  padding: calc(24px + (40 - 24) * ((100vw - 320px) / (1920 - 320)));
   border-radius: 4px;
   background: #FAFAF9;
   border: 2px solid #e4e4e7;
   transition: all 0.3s;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 :global(.dark) .card {
@@ -62,13 +66,16 @@
 .cardHeader {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  /* Fluid gap: 12px to 16px */
+  gap: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
+  /* Fluid margin-bottom: 16px to 24px */
+  margin-bottom: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .iconWrapper {
-  width: 3.5rem;
-  height: 3.5rem;
+  /* Fluid size: 48px to 64px */
+  width: calc(48px + (64 - 48) * ((100vw - 320px) / (1920 - 320)));
+  height: calc(48px + (64 - 48) * ((100vw - 320px) / (1920 - 320)));
   border-radius: 4px;
   background: linear-gradient(135deg, #059669, #14b8a6);
   display: flex;
@@ -78,53 +85,48 @@
 }
 
 .icon {
-  font-size: 1.75rem;
+  /* Fluid font-size: 24px to 32px */
+  font-size: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
   color: white;
 }
 
 .cardTitle {
-  font-size: 1.75rem;
+  /* Fluid font-size: 24px to 32px */
+  font-size: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 900;
   color: #18181b;
   text-transform: uppercase;
   letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
 :global(.dark) .cardTitle {
   color: #ffffff;
 }
 
-@media (min-width: 768px) {
-  .cardTitle {
-    font-size: 2rem;
-  }
-}
-
 .cardDescription {
   color: #52525b;
-  margin-bottom: 2rem;
+  /* Fluid margin-bottom: 24px to 32px */
+  margin-bottom: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
   line-height: 1.7;
-  font-size: 1.125rem;
+  /* Fluid font-size: 16px to 18px */
+  font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.025em;
+  flex-grow: 1;
 }
 
 :global(.dark) .cardDescription {
   color: #a1a1aa;
 }
 
-@media (min-width: 768px) {
-  .cardDescription {
-    font-size: 1.25rem;
-  }
-}
-
 .cardLink {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem 2rem;
+  /* Fluid padding: 12px 24px to 16px 32px */
+  padding: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320))) calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
   background: #059669;
   color: white;
   border-radius: 4px;
@@ -135,6 +137,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.3);
+  width: fit-content;
 }
 
 .cardLink:hover {
