@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from './NormativeActs.module.css';
 import { useTranslation } from "@/lib/hooks/useTranslation";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 
 const documentPaths = [
     "/docs/purchases/order273.pdf",               // 0
@@ -17,8 +18,7 @@ export default function PurchasesDocs() {
         <div className={styles.wrapper}>
             <div className={styles.container}>
                 <div className={styles.pageHeader}>
-                    <h1 className={styles.pageTitle} suppressHydrationWarning>{t.documents.purchases.title}</h1>
-                    <p className={styles.pageText} suppressHydrationWarning>{t.documents.purchases.subtitle}</p>
+                    <SectionTitle title={t.documents.purchases.title} subtitle={t.documents.purchases.subtitle} />
                 </div>
 
                 <div className={styles.grid}>

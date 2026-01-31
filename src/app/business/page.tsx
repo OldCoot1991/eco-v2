@@ -1,5 +1,6 @@
 import styles from "../page.module.css";
 import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 
 
 export const metadata = {
@@ -17,7 +18,7 @@ export default function BusinessPage() {
                     { name: "Юридическим лицам", item: "/business" },
                 ]}
             />
-            <h1 className={styles.pageTitle}>Юридическим лицам</h1>
+            <SectionTitle title="Юридическим лицам" />
             <p className={styles.pageText}>Информация для юридических лиц</p>
         </div>
     );

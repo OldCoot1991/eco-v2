@@ -4,9 +4,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    /* Match Services.module.css */
+    /* Fluid margin-top: 28px to 44px (reduced by 20px) */
+    margin-top: calc(28px + (44 - 28) * ((100vw - 320px) / (1920 - 320)));
+    /* Fluid margin-bottom: 32px to 48px - matches Contacts margin-bottom */
+    margin-bottom: calc(32px + (48 - 32) * ((100vw - 320px) / (1920 - 320)));
     text-align: center;
 }
 

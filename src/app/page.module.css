@@ -21,8 +21,8 @@
 }
 
 .pageContainer {
-  padding: 4rem 1rem 6rem;
-  /* Reduced top padding, removed min-height */
+  padding: 0 1rem 6rem;
+  /* Removed top padding to avoid double spacing with SectionTitle */
   margin: 0 auto;
   max-width: 1280px;
 }

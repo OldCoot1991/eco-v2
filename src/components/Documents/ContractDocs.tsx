@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from './NormativeActs.module.css';
 import { useTranslation } from "@/lib/hooks/useTranslation";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 
 const documentPaths = [
     "/docs/application_contract.docx",       // 0
@@ -19,22 +20,21 @@ export default function ContractDocs() {
         <div className={styles.wrapper}>
             <div className={styles.container}>
                 <div className={styles.pageHeader}>
-                    <h1 className={styles.pageTitle} suppressHydrationWarning>{t.documents.contract.title}</h1>
-                    <p className={styles.pageText} suppressHydrationWarning>{t.documents.contract.subtitle}</p>
+                    <SectionTitle title={t.documents.contract.title} subtitle={t.documents.contract.subtitle} />
                 </div>
 
                 {/* Notification Link */}
-                <div style={{ 
-                    textAlign: 'center', 
+                <div style={{
+                    textAlign: 'center',
                     marginBottom: '2rem',
                     padding: '1rem',
                     backgroundColor: 'rgba(239, 68, 68, 0.1)',
                     borderRadius: '0.5rem',
                     border: '1px solid rgba(239, 68, 68, 0.3)'
                 }}>
-                    <a 
-                        href="/docs/notification_of_changes.pdf" 
-                        target="_blank" 
+                    <a
+                        href="/docs/notification_of_changes.pdf"
+                        target="_blank"
                         rel="noreferrer"
                         style={{
                             color: '#dc2626',
@@ -55,9 +55,9 @@ export default function ContractDocs() {
                                 <h3 className={styles.cardTitle}>{t.documents.contract.list[index] || ""}</h3>
                             </div>
                             <div className={styles.cardActions}>
-                                <a 
-                                    href={href} 
-                                    target="_blank" 
+                                <a
+                                    href={href}
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                     className={`${styles.button} ${styles.viewButton}`}
                                     aria-label={t.documents.view}
@@ -68,8 +68,8 @@ export default function ContractDocs() {
                                     </svg>
                                     {t.documents.view}
                                 </a>
-                                <a 
-                                    href={href} 
+                                <a
+                                    href={href}
                                     download
                                     className={`${styles.button} ${styles.downloadButton}`}
                                     aria-label={t.documents.download}

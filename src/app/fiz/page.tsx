@@ -1,5 +1,6 @@
 import styles from "../page.module.css";
 import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 
 
 export const metadata = {
@@ -17,7 +18,7 @@ export default function FizPage() {
                     { name: "Частным лицам", item: "/fiz" },
                 ]}
             />
-            <h1 className={styles.pageTitle}>Физическим лицам</h1>
+            <SectionTitle title="Физическим лицам" />
             <p className={styles.pageText}>Информация для физических лиц</p>
         </div>
     );

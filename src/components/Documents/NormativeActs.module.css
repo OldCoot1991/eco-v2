@@ -2,13 +2,12 @@
 
 .wrapper {
   width: 100%;
-  padding: 4rem 0;
-  /* aligned with other pages */
+  padding: 0 0 4rem;
+  /* Removed top padding to prevent double spacing */
 }
 
 .pageHeader {
-  margin-bottom: 3rem;
-  /* Aligned with jobs.module.css */
+  /* Removed margin-bottom - SectionTitle has its own margin-bottom */
   text-align: center;
 }
 

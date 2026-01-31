@@ -1,5 +1,6 @@
 
 import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 import styles from "../page.module.css";
 
 export const metadata = {
@@ -10,14 +11,14 @@ export const metadata = {
 
 export default function SupportPage() {
     return (
-        <main className="container min-h-screen py-24 px-4">
+        <main className="container min-h-screen pb-24 px-4">
             <BreadcrumbsLd
                 items={[
                     { name: "Главная", item: "/" },
                     { name: "Поддержка", item: "/support" },
                 ]}
             />
-            <h1 className={styles.pageTitle}>Поддержка</h1>
+            <SectionTitle title="Поддержка" />
             <p className={styles.pageText}>Страница находится в разработке.</p>
         </main>
     );

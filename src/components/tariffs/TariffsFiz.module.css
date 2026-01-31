@@ -4,12 +4,15 @@
 .container {
   display: flex;
   flex-direction: column;
+  /* Fluid margin-top: 28px to 44px - match SectionTitle spacing */
+  margin-top: calc(28px + (44 - 28) * ((100vw - 320px) / (1920 - 320)));
   /* Fluid gap: 32px to 64px */
   gap: calc(32px + (64 - 32) * ((100vw - 320px) / (1920 - 320)));
   animation: fadeIn 0.7s ease-in;
   max-width: 1280px;
   /* Explicit constraint */
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
 }
 

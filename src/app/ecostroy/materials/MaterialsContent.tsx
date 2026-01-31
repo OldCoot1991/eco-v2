@@ -5,6 +5,7 @@ import styles from './MaterialsContent.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from '@/lib/hooks/useTranslation';
+import { SectionTitle } from '@/components/ui/SectionTitle';
 
 export default function MaterialsContent() {
     const { t } = useTranslation();
@@ -64,12 +65,12 @@ export default function MaterialsContent() {
 
     return (
         <div className={styles.pageContainer}>
-            <section className={styles.heroSection}>
-                <h1 className={styles.heroTitle}>{t.nav.materials.title}</h1>
-                <p className={styles.heroText}>
-                    {t.nav.materials.subtitle}
-                </p>
-            </section>
+            <div className={styles.pageHeader}>
+                <SectionTitle
+                    title={t.nav.materials.title}
+                    subtitle={t.nav.materials.subtitle}
+                />
+            </div>
 
             {materialsData.map((category, index) => (
                 <div key={index} className={styles.categorySection}>

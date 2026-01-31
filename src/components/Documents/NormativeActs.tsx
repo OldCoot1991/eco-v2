@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from './NormativeActs.module.css';
 import { useTranslation } from "@/lib/hooks/useTranslation";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 
 // We keep hrefs here, but titles will come from translation by index
 const documentPaths = [
@@ -35,8 +36,7 @@ export default function NormativeActs() {
         <div className={styles.wrapper}>
             <div className={styles.container}>
                 <div className={styles.pageHeader}>
-                    <h1 className={styles.pageTitle} suppressHydrationWarning>{t.documents.legal.title}</h1>
-                    <p className={styles.pageText} suppressHydrationWarning>{t.documents.legal.subtitle}</p>
+                    <SectionTitle title={t.documents.legal.title} subtitle={t.documents.legal.subtitle} />
                 </div>
 
                 <div className={styles.grid}>
@@ -47,9 +47,9 @@ export default function NormativeActs() {
                                 <h3 className={styles.cardTitle}>{t.documents.legal.list[index] || ""}</h3>
                             </div>
                             <div className={styles.cardActions}>
-                                <a 
-                                    href={href} 
-                                    target="_blank" 
+                                <a
+                                    href={href}
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                     className={`${styles.button} ${styles.viewButton}`}
                                     aria-label={t.documents.view}
@@ -60,8 +60,8 @@ export default function NormativeActs() {
                                     </svg>
                                     {t.documents.view}
                                 </a>
-                                <a 
-                                    href={href} 
+                                <a
+                                    href={href}
                                     download
                                     className={`${styles.button} ${styles.downloadButton}`}
                                     aria-label={t.documents.download}

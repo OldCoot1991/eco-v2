@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from './NormativeActs.module.css';
 import { useTranslation } from "@/lib/hooks/useTranslation";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 
 const documentPaths = [
     "/docs/ustav.pdf",                           // 0
@@ -20,8 +21,7 @@ export default function CompanyDocs() {
         <div className={styles.wrapper}>
             <div className={styles.container}>
                 <div className={styles.pageHeader}>
-                    <h1 className={styles.pageTitle} suppressHydrationWarning>{t.documents.company.title}</h1>
-                    <p className={styles.pageText} suppressHydrationWarning>{t.documents.company.subtitle}</p>
+                    <SectionTitle title={t.documents.company.title} subtitle={t.documents.company.subtitle} />
                 </div>
 
                 <div className={styles.grid}>
@@ -32,9 +32,9 @@ export default function CompanyDocs() {
                                 <h3 className={styles.cardTitle}>{t.documents.company.list[index] || ""}</h3>
                             </div>
                             <div className={styles.cardActions}>
-                                <a 
-                                    href={href} 
-                                    target="_blank" 
+                                <a
+                                    href={href}
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                     className={`${styles.button} ${styles.viewButton}`}
                                     aria-label={t.documents.view}
@@ -45,8 +45,8 @@ export default function CompanyDocs() {
                                     </svg>
                                     {t.documents.view}
                                 </a>
-                                <a 
-                                    href={href} 
+                                <a
+                                    href={href}
                                     download
                                     className={`${styles.button} ${styles.downloadButton}`}
                                     aria-label={t.documents.download}
