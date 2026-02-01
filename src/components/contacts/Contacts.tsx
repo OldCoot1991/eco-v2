@@ -5,7 +5,7 @@ import { useTranslation } from "@/lib/hooks/useTranslation";
 import styles from "./Contacts.module.css";
 import { SectionTitle } from '../ui/SectionTitle/SectionTitle';
 import Requisites from '../requisites/Requisites';
-import { contactInfoItems } from '../ContactsModal/contactsData';
+import { contactInfoItems } from '../contactsModal/contactsData';
 
 const LocationIcon = () => (
     <svg className={styles.icon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
