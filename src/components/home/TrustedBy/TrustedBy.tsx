@@ -10,8 +10,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 import styles from "./TrustedBy.module.css";
 
-import { useTranslation } from "@/lib/hooks/useTranslation";
 import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 const partners = [
     { name: "Sberbank", logo: "/img/trustedBy/sberbank.svg" },

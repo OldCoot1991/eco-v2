@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FaTruck, FaExclamationTriangle, FaQuestionCircle } from "react-icons/fa";
 import styles from "./Services.module.css";
-import { SectionTitle } from "../ui/SectionTitle";
+import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 
 

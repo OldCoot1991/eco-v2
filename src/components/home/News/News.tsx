@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FaCalendarAlt, FaArrowRight } from "react-icons/fa";
 import styles from "./News.module.css";
-import { SectionTitle } from "../ui/SectionTitle";
+import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 
 interface NewsItem {

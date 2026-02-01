@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import styles from "./TariffsJur.module.css";
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 import { CustomScrollbar } from "@/components/ui/CustomScrollbar/CustomScrollbar";
 import { DocumentCard } from "./DocumentCard";
