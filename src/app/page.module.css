@@ -1,9 +1,8 @@
 /* Add specialized container for the unified promo section if needed */
 .promoSection {
-  /* Fluid padding: 48px to 96px */
-  padding: calc(48px + (96 - 48) * ((100vw - 320px) / (1920 - 320))) 0;
-  /* background: #FAFAF9; - default body bg */
+  padding: 1.5rem 0;
 }
+
 
 .container {
   max-width: 1280px;
@@ -13,9 +12,8 @@
   padding-right: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
   display: flex;
   flex-direction: column;
-  /* Fluid gap: 24px to 48px */
-  gap: calc(24px + (48 - 24) * ((100vw - 320px) / (1920 - 320)));
-  /* Spacing between MobileApp and Partners */
+  /* gap between MobileApp and Partners */
+  gap: 1.5rem;
 }
 
 
@@ -26,4 +24,85 @@
   /* Removed top padding to avoid double spacing with SectionTitle */
   margin: 0 auto;
   max-width: 1280px;
+}
+
+.pageText {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.subtitle {
+  font-size: 1.875rem;
+  font-weight: 600;
+  /* Dark Metallic Gradient for Light Mode */
+  background-image: linear-gradient(to right, #374151, #111827, #374151);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading), sans-serif;
+}
+
+:global(.dark) .subtitle {
+  /* Silver Metallic Gradient for Dark Mode */
+  background-image: linear-gradient(to right, #9ca3af, #f3f4f6, #9ca3af);
+  color: transparent;
+}
+
+
+
+.list {
+  list-style: disc;
+  font-size: 1.25rem;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+  opacity: 0.9;
+}
+
+.combinedSection {
+  background: radial-gradient(circle at top right, #f4f4f5, #ffffff, #f4f4f5);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.02);
+}
+
+:global(.dark) .combinedSection {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.combinedGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .combinedGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.contactsCard {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border);
+  height: 100%;
+}
+
+.listItem {
+    margin-bottom: 0.5rem;
 }

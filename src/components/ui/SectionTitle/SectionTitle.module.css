@@ -15,14 +15,20 @@
     font-size: 2.25rem;
     font-weight: 900;
     margin: 0 0 1.5rem 0;
-    color: #18181b;
+    /* Dark Metallic Gradient for Light Mode */
+    background-image: linear-gradient(to right, #374151, #111827, #374151);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     text-transform: uppercase;
     letter-spacing: -0.025em;
     line-height: 1.2;
 }
 
 :global(.dark) .title {
-    color: #ffffff;
+    /* Silver Metallic Gradient for Dark Mode */
+    background-image: linear-gradient(to right, #9ca3af, #f3f4f6, #9ca3af);
+    color: transparent;
 }
 
 @media (min-width: 768px) {

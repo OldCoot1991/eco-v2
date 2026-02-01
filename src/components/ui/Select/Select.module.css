@@ -1,0 +1,142 @@
+.container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.trigger {
+    width: 100%;
+    padding: 1rem;
+    padding-right: 3rem; /* Space for arrow */
+    background-color: rgba(0,0,0,0.03); /* Match Input style */
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--foreground);
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+:global(.dark) .trigger {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.trigger:focus,
+.trigger:active,
+.container.open .trigger {
+    border-color: var(--primary); /* Keep primary border for focus state or change to gray? Keeping primary for active state is usually good UX, but user hates blue/green. Let's make it subtle silver or just darker border */
+    border-color: #9ca3af; 
+    box-shadow: 0 0 0 2px rgba(156, 163, 175, 0.2);
+}
+
+.arrow {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #6b7280;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:global(.dark) .arrow {
+    color: #9ca3af;
+}
+
+.container.open .arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background: var(--card-bg); 
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    z-index: 50;
+    animation: fadeIn 0.1s ease-out;
+}
+
+:global(.dark) .dropdown {
+   /* Use specific dark background to match page, not the blueish slate */
+   background: #0f0f0f; /* Matches var(--background) in globals.css */
+   border-color: rgba(255, 255, 255, 0.1);
+}
+
+.option {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    color: var(--foreground);
+    transition: background 0.1s;
+    font-size: 0.95rem;
+}
+
+/* Hover State - Silver/Gray */
+.option:hover,
+.option.focused {
+    background-color: #e5e7eb; 
+    color: #111827; 
+}
+
+/* Selected State - Darker Silver */
+.option.selected {
+    background-color: #d1d5db;
+    color: #111827;
+    font-weight: 600;
+}
+
+:global(.dark) .option:hover,
+:global(.dark) .option.focused {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f3f4f6;
+}
+
+:global(.dark) .option.selected {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.placeholder {
+    opacity: 0.6;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: rgba(0,0,0,0.02);
+}
+
+/* Scrollbar styling for list */
+.dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+.dropdown::-webkit-scrollbar-track {
+    background: transparent;
+}
+.dropdown::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.5);
+    border-radius: 3px;
+}
+.dropdown::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.8);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}

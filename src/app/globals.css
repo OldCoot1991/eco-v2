@@ -10,7 +10,7 @@
 }
 
 :root {
-  --background: #FAFAF9;
+  --background: linear-gradient(180deg, #e4e4e7 0%, #f4f4f5 50%, #ffffff 100%); /* Brighter silver gradient */
   --foreground: #1F2937;
   --primary: #059669;
   --primary-hover: #047857;
@@ -75,6 +75,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 

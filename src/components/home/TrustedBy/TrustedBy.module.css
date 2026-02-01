@@ -2,12 +2,11 @@
 
 .trustedBy {
     position: relative;
-    background: var(--background);
     overflow: hidden;
 }
 
 :global(.dark) .trustedBy {
-    background: var(--background);
+    /* No background needed */
 }
 
 /* Wave Background */

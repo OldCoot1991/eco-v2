@@ -1,10 +1,10 @@
 /* Footer Component Styles - Fluid Calc */
 
 .footer {
-  border-top: 1px solid #10b981;
+  border-top: 1px solid #d4d4d8;
   /* Fluid padding: 48px to 64px */
   padding: calc(48px + (64 - 48) * ((100vw - 320px) / (1920 - 320))) 0;
-  background: var(--background);
+  background: transparent;
 }
 
 .container {
