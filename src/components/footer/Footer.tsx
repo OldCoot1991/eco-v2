@@ -2,10 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Logo from '@/components/ui/Logo';
-import { navConfig } from '../navbar/NavConfig';
 import styles from './Footer.module.css';
 import { useTranslation } from '@/lib/hooks/useTranslation';
+import Logo from '../ui/Logo/Logo';
+import { navConfig } from '../Navbar/NavConfig';
+import { bottomLinksConfig } from './footerData';
 
 export const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -100,9 +101,11 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} {t.footer.copyright}
           </div>
           <div className={styles.bottomLinks}>
-            <Link href="/privacy" className={styles.bottomLink}>{t.footer.privacy}</Link>
-            <Link href="/cookies" className={styles.bottomLink}>{t.footer.cookies}</Link>
-            <Link href="/terms" className={styles.bottomLink}>{t.footer.terms}</Link>
+            {bottomLinksConfig.map((link, index) => (
+              <Link key={index} href={link.href} className={styles.bottomLink}>
+                {t.footer[link.labelKey]}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

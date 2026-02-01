@@ -3,15 +3,8 @@
 import React from 'react';
 import styles from './NormativeActs.module.css';
 import { useTranslation } from "@/lib/hooks/useTranslation";
-import { SectionTitle } from "@/components/ui/SectionTitle";
-
-const documentPaths = [
-    "/docs/application_contract.docx",       // 0
-    "/docs/standard_contract.docx",          // 1
-    "/docs/standard_contract_bo.docx",       // 2
-    "/docs/standard_contract_ip.docx",       // 3
-    "/docs/standard_contract_jur.docx",      // 4
-];
+import { SectionTitle } from '../ui/SectionTitle/SectionTitle';
+import { contractDocsPaths } from './documentsData';
 
 export default function ContractDocs() {
     const { t } = useTranslation();
@@ -48,7 +41,7 @@ export default function ContractDocs() {
                 </div>
 
                 <div className={styles.grid}>
-                    {documentPaths.map((href, index) => (
+                    {contractDocsPaths.map((href, index) => (
                         <div key={index} className={styles.card}>
                             <div className={styles.cardContent}>
                                 <div className={styles.indexNumber}>{t.documents.docNum} {index + 1}</div>

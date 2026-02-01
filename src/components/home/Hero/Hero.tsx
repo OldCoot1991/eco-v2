@@ -1,14 +1,15 @@
 import Link from "next/link";
-import { FaArrowRight, FaRecycle } from "react-icons/fa";
+import { FaRecycle } from "react-icons/fa";
 import styles from "./Hero.module.css";
+import { heroButtons, bgCircles } from "./heroData";
 
 export const Hero = () => {
     return (
         <section className={styles.hero}>
-            {/* Background decoration */}
             <div className={styles.bgDecor}>
-                <div className={styles.bgCircle1} />
-                <div className={styles.bgCircle2} />
+                {bgCircles.map((circle) => (
+                    <div key={circle} className={styles[circle]} />
+                ))}
             </div>
 
             <div className={styles.container}>
@@ -30,13 +31,19 @@ export const Hero = () => {
                     </p>
 
                     <div className={styles.buttons}>
-                        <Link href="/request-tko" className={styles.primaryButton}>
-                            Заказать вывоз
-                            <FaArrowRight className={styles.arrowIcon} />
-                        </Link>
-                        <Link href="/report-tko" className={styles.secondaryButton}>
-                            Сообщить о проблеме
-                        </Link>
+                        {heroButtons.map((button) => {
+                            const Icon = button.icon;
+                            const buttonClass = button.variant === 'primary'
+                                ? styles.primaryButton
+                                : styles.secondaryButton;
+
+                            return (
+                                <Link key={button.href} href={button.href} className={buttonClass}>
+                                    {button.text}
+                                    {Icon && <Icon className={styles.arrowIcon} />}
+                                </Link>
+                            );
+                        })}
                     </div>
                 </div>
             </div>

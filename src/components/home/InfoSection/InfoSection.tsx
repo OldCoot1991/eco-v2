@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FaChartLine, FaRecycle } from "react-icons/fa";
 import styles from "./InfoSection.module.css";
-import { SectionTitle } from "../ui/SectionTitle";
+import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 
 export const InfoSection = () => {

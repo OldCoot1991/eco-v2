@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAppSelector } from "@/lib/hooks";
-import { navConfig } from './NavConfig';
 import styles from './Navbar.module.css';
 import { useTranslation } from '@/lib/hooks/useTranslation';
+import { navConfig } from './NavConfig';
 
 interface NavbarProps {
   currentPath: string;
@@ -23,7 +23,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState<string[]>([]);
 
-  // Helper to get translated nav title/desc
   const getNavTitle = (key: string) => {
     const map: Record<string, string> = {
       'Физ. лицам': t.nav.fiz,
@@ -33,7 +32,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
       'Документы': t.nav.documents,
       'Закупки': t.nav.purchases,
       'Экострой': t.nav.ecostroy,
-      // Subitems
       'Главная': t.nav.items.main,
       'Тарифы': t.nav.items.tariffs,
       'Вопросы-ответы': t.nav.items.faq,
@@ -60,10 +58,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
 
   const getNavDesc = (key: undefined | string) => {
     if (!key) return '';
-    // Map based on partial content or specific keys if possible
-    // Since desc in NavConfig are specific sentences, we map them by known russian strings
-    // Ideally we would put IDs in NavConfig.
-    const map: Record<string, string> = {
+
+    const descMap: Record<string, string> = {
       'Главная страница для физических лиц': t.nav.desc.fizMain,
       'Утвержденные цены на услуги': t.nav.desc.tariffs,
       'Часто задаваемые вопросы': t.nav.desc.faq,
@@ -87,7 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
       'Строительные услуги': t.nav.desc.construction,
       'Строительные материалы': t.nav.desc.materials,
     };
-    return map[key] || key;
+    return descMap[key] || key;
   };
 
   const handleLinkClick = (path: string) => {
@@ -112,10 +108,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
       onMouseLeave={() => setActiveMenu(null)}
     >
       <div className={styles.headerContainer}>
-        {/* Left side placeholder */}
         <div></div>
 
-        {/* Desktop Nav */}
         <nav className={styles.desktopNav}>
           {navConfig.map((item) => (
             <div
@@ -133,21 +127,18 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
                 onClick={() => handleLinkClick(item.path)}
                 className={`${styles.navButton} ${currentPath === item.path || activeMenu === item.title ? styles.navButtonActive : styles.navButtonDefault}`}
               >
-                <div className={styles.cornerTL}></div>
-                <div className={styles.cornerTR}></div>
-                <div className={styles.cornerBL}></div>
-                <div className={styles.cornerBR}></div>
+                {['TL', 'TR', 'BL', 'BR'].map(corner => (
+                  <div key={corner} className={styles[`corner${corner}` as keyof typeof styles]} />
+                ))}
                 {getNavTitle(item.title)}
               </button>
             </div>
           ))}
         </nav>
 
-        {/* Right side placeholder */}
         <div></div>
       </div>
 
-      {/* Mega Menu Overlay */}
       <div className={`${styles.megaMenu} ${activeMenu ? styles.megaMenuOpen : styles.megaMenuClosed}`}>
         <div className={styles.megaMenuContainer}>
           <div className={styles.megaMenuGrid}>
@@ -192,7 +183,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : styles.mobileMenuClosed} ${isDark ? styles.mobileMenuDark : styles.mobileMenuLight}`}>
         <div className={styles.mobileMenuContent}>
           <div className={`${styles.mobileMenuHeader} ${isDark ? styles.mobileMenuHeaderDark : styles.mobileMenuHeaderLight}`}>
@@ -220,10 +210,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
                       <svg
                         className={`${styles.mobileMenuChevron} ${isExpanded ? styles.mobileMenuChevronExpanded : ''}`}
                         fill="none"
-                        stroke="currentColor"
                         viewBox="0 0 24 24"
+                        stroke="currentColor"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     )}
                   </button>

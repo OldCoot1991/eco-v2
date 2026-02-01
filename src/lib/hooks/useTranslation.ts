@@ -10,7 +10,6 @@ export const useTranslation = () => {
         setMounted(true);
     }, []);
 
-    // Return 'ru' (server default) until mounted to prevent hydration mismatch
     const currentLanguage = mounted ? language : 'ru';
 
     return {

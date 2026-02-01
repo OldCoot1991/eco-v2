@@ -10,7 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 1,
     },
-    // Main sections
     {
       url: `${baseUrl}/company`,
       lastModified: new Date(),
@@ -35,7 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.7,
     },
-    // Services & Info
     {
       url: `${baseUrl}/documents`,
       lastModified: new Date(),
@@ -60,7 +58,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'always',
       priority: 0.5,
     },
-    // User Actions
     {
       url: `${baseUrl}/request-tko`,
       lastModified: new Date(),

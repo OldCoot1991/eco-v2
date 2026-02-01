@@ -9,13 +9,11 @@ export default function ThemeSync() {
     const theme = useAppSelector((state) => state.theme.mode);
     const [mounted, setMounted] = useState(false);
 
-    // Initialize theme from localStorage on mount
     useEffect(() => {
         dispatch(initializeTheme());
         setMounted(true);
     }, [dispatch]);
 
-    // Sync state changes to DOM and localStorage, but ONLY after initialization
     useEffect(() => {
         if (!mounted) return;
 

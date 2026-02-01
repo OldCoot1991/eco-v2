@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from "@/lib/hooks/useTranslation";
 import styles from "./Requisites.module.css";
+import { legalInfoItems, bankInfoItems } from "./requisitesData";
 
 const CopyIcon = () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -38,8 +39,8 @@ const RequisiteItem: React.FC<RequisiteItemProps> = ({ label, value, allowCopy }
             <div className={styles.valueWrapper}>
                 <div className={styles.value}>{value}</div>
                 {allowCopy && (
-                    <button 
-                        className={`${styles.copyButton} ${copied ? styles.copied : ''}`} 
+                    <button
+                        className={`${styles.copyButton} ${copied ? styles.copied : ''}`}
                         onClick={handleCopy}
                         title={copied ? "Скопировано" : "Копировать"}
                     >
@@ -54,32 +55,57 @@ const RequisiteItem: React.FC<RequisiteItemProps> = ({ label, value, allowCopy }
 export default function Requisites() {
     const { t } = useTranslation();
 
+    const renderItems = (items: typeof legalInfoItems) => {
+        const result: React.ReactElement[] = [];
+        let rowItems: typeof legalInfoItems = [];
+
+        items.forEach((item, index) => {
+            if (item.isRow) {
+                rowItems.push(item);
+                const nextItem = items[index + 1];
+                if (!nextItem || !nextItem.isRow) {
+                    result.push(
+                        <div key={`row-${index}`} className={styles.rowTwo}>
+                            {rowItems.map((rowItem, idx) => (
+                                <RequisiteItem
+                                    key={idx}
+                                    label={t.requisites[rowItem.labelKey as keyof typeof t.requisites] as string}
+                                    value={t.requisites[rowItem.valueKey as keyof typeof t.requisites] as string}
+                                    allowCopy={rowItem.allowCopy}
+                                />
+                            ))}
+                        </div>
+                    );
+                    rowItems = [];
+                }
+            } else {
+                result.push(
+                    <RequisiteItem
+                        key={index}
+                        label={t.requisites[item.labelKey as keyof typeof t.requisites] as string}
+                        value={t.requisites[item.valueKey as keyof typeof t.requisites] as string}
+                        allowCopy={item.allowCopy}
+                    />
+                );
+            }
+        });
+
+        return result;
+    };
+
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>{t.requisites.title}</h2>
-            
+
             <div className={styles.grid}>
                 <div className={styles.section}>
                     <h3 className={styles.sectionTitle}>{t.requisites.legalInfo}</h3>
-                    <RequisiteItem label={t.requisites.orgName} value={t.requisites.orgNameValue} />
-                    <RequisiteItem label={t.requisites.legalAddress} value={t.requisites.legalAddressValue} />
-                    <RequisiteItem label={t.requisites.director} value={t.requisites.directorValue} />
-                    <div className={styles.rowTwo}>
-                        <RequisiteItem label={t.requisites.inn} value={t.requisites.innValue} allowCopy />
-                        <RequisiteItem label={t.requisites.kpp} value={t.requisites.kppValue} allowCopy />
-                    </div>
-                    <RequisiteItem label={t.requisites.ogrn} value={t.requisites.ogrnValue} allowCopy />
+                    {renderItems(legalInfoItems)}
                 </div>
 
                 <div className={styles.section}>
                     <h3 className={styles.sectionTitle}>{t.requisites.bankInfo}</h3>
-                    <RequisiteItem label={t.requisites.bank} value={t.requisites.bankValue} />
-                    <RequisiteItem label={t.requisites.account} value={t.requisites.accountValue} allowCopy />
-                    <div className={styles.rowTwo}>
-                        <RequisiteItem label={t.requisites.bik} value={t.requisites.bikValue} allowCopy />
-                        <RequisiteItem label={t.requisites.bankInn} value={t.requisites.bankInnValue} allowCopy />
-                    </div>
-                    <RequisiteItem label={t.requisites.corrAccount} value={t.requisites.corrAccountValue} allowCopy />
+                    {renderItems(bankInfoItems)}
                 </div>
             </div>
 

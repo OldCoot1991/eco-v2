@@ -1,7 +1,7 @@
 
-import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";;
 import styles from "../page.module.css";
+import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
 
 export const metadata = {
     title: "Поддержка | Экологистика КБР",

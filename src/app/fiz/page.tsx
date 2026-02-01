@@ -1,6 +1,6 @@
+import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
 import styles from "../page.module.css";
 import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";
-import { SectionTitle } from "@/components/ui/SectionTitle";
 
 
 export const metadata = {

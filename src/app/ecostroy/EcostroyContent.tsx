@@ -1,8 +1,8 @@
 "use client";
 import React from 'react';
 import { useTranslation } from "@/lib/hooks/useTranslation";
-import { SectionTitle } from "@/components/ui/SectionTitle";
 import styles from "../page.module.css";
+import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
 
 export default function EcostroyContent() {
     const { t } = useTranslation();

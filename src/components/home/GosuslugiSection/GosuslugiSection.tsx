@@ -7,13 +7,11 @@ export const GosuslugiSection = () => {
     const widgetRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        // Load Gosuslugi script
         const script = document.createElement("script");
         script.src = "https://pos.gosuslugi.ru/bin/script.min.js";
         script.async = true;
         document.body.appendChild(script);
 
-        // Inject widget HTML after script loads
         script.onload = () => {
             if (widgetRef.current) {
                 widgetRef.current.innerHTML = `

@@ -3,31 +3,8 @@
 import React from 'react';
 import styles from './NormativeActs.module.css';
 import { useTranslation } from "@/lib/hooks/useTranslation";
-import { SectionTitle } from "@/components/ui/SectionTitle";
-
-// We keep hrefs here, but titles will come from translation by index
-const documentPaths = [
-    "/docs/fz_188.pdf",           // 0
-    "/docs/fz_89.pdf",            // 1
-    "/docs/agreement_1.pdf",      // 2
-    "/docs/agreement_2.pdf",      // 3
-    "/docs/agreement_3.pdf",      // 4
-    "/docs/resolution_354.pdf",   // 5
-    "/docs/resolution_1156.pdf",  // 6
-    "/docs/resolution_1133.pdf",  // 7
-    "/docs/resolution_505.pdf",   // 8
-    "/docs/resolution_484.pdf",   // 9
-    "/docs/order_222.pdf",        // 10
-    "/docs/order_204.pdf",        // 11
-    "/docs/order_218.pdf",        // 12
-    "/docs/order_154.pdf",        // 13
-    "/docs/order_191.pdf",        // 14
-    "/docs/order_193.pdf",        // 15
-    "/docs/order197.pdf",         // 16
-    "/docs/order199.pdf",         // 17
-    "/docs/prikaz_213.pdf",       // 18
-    "/docs/prikaz_214.pdf",       // 19
-];
+import { SectionTitle } from "../ui/SectionTitle/SectionTitle";
+import { normativeActsPaths } from './documentsData';
 
 export default function NormativeActs() {
     const { t } = useTranslation();
@@ -40,7 +17,7 @@ export default function NormativeActs() {
                 </div>
 
                 <div className={styles.grid}>
-                    {documentPaths.map((href, index) => (
+                    {normativeActsPaths.map((href, index) => (
                         <div key={index} className={styles.card}>
                             <div className={styles.cardContent}>
                                 <div className={styles.indexNumber}>{t.documents.docNum} {index + 1}</div>

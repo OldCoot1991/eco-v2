@@ -2,8 +2,9 @@
 
 import React from 'react';
 import styles from './NormativeActs.module.css';
-import { useTranslation } from "@/lib/hooks/useTranslation";
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import { useTranslation } from '@/lib/hooks/useTranslation';
+import { SectionTitle } from '../ui/SectionTitle/SectionTitle';
+import { companyDocsPaths } from './documentsData';
 
 const documentPaths = [
     "/docs/ustav.pdf",                           // 0
@@ -25,7 +26,7 @@ export default function CompanyDocs() {
                 </div>
 
                 <div className={styles.grid}>
-                    {documentPaths.map((href, index) => (
+                    {companyDocsPaths.map((href, index) => (
                         <div key={index} className={styles.card}>
                             <div className={styles.cardContent}>
                                 <div className={styles.indexNumber}>{t.documents.docNum} {index + 1}</div>

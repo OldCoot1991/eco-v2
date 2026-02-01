@@ -8,27 +8,22 @@ export default function ThemeToggle() {
     const dispatch = useAppDispatch();
     const theme = useAppSelector((state) => state.theme.mode);
 
-    // Reusable inner content for the toggle to ensure identical design
     const ToggleContent = () => (
         <>
-            {/* Dynamic Backgrounds */}
             <div className={`${styles.bgDark} ${theme === 'dark' ? styles.bgDarkVisible : styles.bgDarkHidden}`}>
                 <div className={styles.bgDarkGradient} />
-                {/* Stars */}
                 <div className={styles.star1} />
                 <div className={styles.star2} />
                 <div className={styles.star3} />
             </div>
             <div className={`${styles.bgLight} ${theme === 'dark' ? styles.bgLightHidden : styles.bgLightVisible}`}>
                 <div className={styles.bgLightGradient} />
-                {/* Clouds */}
                 <div className={styles.cloud1} />
                 <div className={styles.cloud2} />
             </div>
         </>
     );
 
-    // Reusable knob (Sun/Moon)
     const ToggleKnob = ({ isMobile }: { isMobile: boolean }) => (
         <div className={`
             ${styles.knob} 

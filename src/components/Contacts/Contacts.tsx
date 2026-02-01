@@ -4,7 +4,8 @@ import React from 'react';
 import { useTranslation } from "@/lib/hooks/useTranslation";
 import Requisites from "@/components/Requisites/Requisites";
 import styles from "./Contacts.module.css";
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import { contactInfoItems } from "@/components/ContactsModal/contactsData";
+import { SectionTitle } from '../ui/SectionTitle/SectionTitle';
 
 const LocationIcon = () => (
     <svg className={styles.icon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,16 +68,18 @@ export default function Contacts() {
 
             <div className={styles.contactInfo}>
                 <div className={styles.contactInfoCard}>
-                    <div className={styles.contactInfoItem}>
-                        <div className={styles.label}>{t.requisites.postalAddr}</div>
-                        <div className={styles.value}>{t.requisites.postalAddrValue}</div>
-                    </div>
-                    <div className={styles.contactInfoItem}>
-                        <div className={styles.label}>{t.requisites.phone}</div>
-                        <a href={`tel:${t.requisites.phoneValue.replace(/[^\d+]/g, '')}`} className={styles.bigPhoneLink}>
-                            {t.requisites.phoneValue}
-                        </a>
-                    </div>
+                    {contactInfoItems.map((item, index) => (
+                        <div key={index} className={styles.contactInfoItem}>
+                            <div className={styles.label}>{t.requisites[item.labelKey as keyof typeof t.requisites]}</div>
+                            {item.isPhone ? (
+                                <a href={`tel:${(t.requisites[item.valueKey as keyof typeof t.requisites] as string).replace(/[^\d+]/g, '')}`} className={styles.bigPhoneLink}>
+                                    {t.requisites[item.valueKey as keyof typeof t.requisites]}
+                                </a>
+                            ) : (
+                                <div className={styles.value}>{t.requisites[item.valueKey as keyof typeof t.requisites]}</div>
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
 

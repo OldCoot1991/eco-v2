@@ -9,8 +9,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 import styles from "./TrustedBy.module.css";
-import { SectionTitle } from "../../ui/SectionTitle";
+
 import { useTranslation } from "@/lib/hooks/useTranslation";
+import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
 
 const partners = [
     { name: "Sberbank", logo: "/img/trustedBy/sberbank.svg" },
@@ -43,8 +44,6 @@ export const TrustedBy = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const swiperRef = useRef<any>(null);
 
-    // Calculate active dot (5 dots total)
-    // Cycle through dots 0-4 as slides change
     const totalSlides = partners.length;
     const activeDot = activeIndex % 5;
 

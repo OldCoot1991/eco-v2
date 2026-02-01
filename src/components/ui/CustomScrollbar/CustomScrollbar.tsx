@@ -33,19 +33,16 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
         setShowScroll(isScrollable);
 
         if (isScrollable) {
-            // Calculate thumb width based on viewport ratio
             const ratio = clientWidth / scrollWidth;
-            const newThumbWidth = Math.max(ratio * 100, 10); // Min 10% width
+            const newThumbWidth = Math.max(ratio * 100, 10);
             setThumbWidth(newThumbWidth);
 
-            // Calculate thumb position percentage
             const maxScroll = scrollWidth - clientWidth;
             const scrollPercentage = maxScroll > 0 ? (currentScrollLeft / maxScroll) * 100 : 0;
             setScrollLeft(scrollPercentage);
         }
     }, [containerRef]);
 
-    // Sync scroll from container
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
@@ -61,7 +58,6 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
         window.addEventListener('resize', updateScrollState);
         container.addEventListener('scroll', handleScroll);
 
-        // Initial check
         updateScrollState();
 
         return () => {
@@ -71,7 +67,6 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
         };
     }, [containerRef, updateScrollState]);
 
-    // Handle drag interaction
     const handleMouseDown = (e: React.MouseEvent) => {
         isDragging.current = true;
         startX.current = e.clientX;
@@ -80,7 +75,7 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
 
         document.addEventListener('mousemove', handleMouseMove);
         document.addEventListener('mouseup', handleMouseUp);
-        e.preventDefault(); // Prevent text selection
+        e.preventDefault();
     };
 
     const handleTouchStart = (e: React.TouchEvent) => {
@@ -103,8 +98,6 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
         const trackWidth = track.clientWidth;
         const maxScroll = scrollWidth - clientWidth;
 
-        // Calculate how many pixels of scroll corresponds to 1 pixel of drag
-        // Thumb width in pixels approx
         const thumbWidthPx = (trackWidth * thumbWidth) / 100;
         const availableTrack = trackWidth - thumbWidthPx;
 
@@ -118,8 +111,6 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
 
     const handleTouchMove = useCallback((e: TouchEvent) => {
         if (!isDragging.current || !containerRef.current || !trackRef.current) return;
-        // Prevent default only if necessary, passive is forced to false for touchmove to prevent scroll interfere
-        // e.preventDefault(); 
 
         const container = containerRef.current;
         const track = trackRef.current;
@@ -158,10 +149,8 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
             className={`w-full h-3 mt-2 relative touch-none select-none ${className}`}
             ref={trackRef}
         >
-            {/* Track */}
             <div className={`absolute top-0 left-0 w-full h-full rounded-full bg-gray-200 dark:bg-gray-700 ${trackClassName}`} />
 
-            {/* Thumb */}
             <div
                 className={`absolute top-0 h-full rounded-full bg-emerald-500 hover:bg-emerald-600 transition-colors cursor-pointer ${thumbClassName}`}
                 style={{

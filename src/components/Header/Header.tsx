@@ -4,24 +4,24 @@ import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAppSelector } from "@/lib/hooks";
-import Logo from "@/components/ui/Logo";
-import UserProfileButton from "@/components/ui/UserProfileButton";
-import { Navbar } from "./navbar/Navbar";
-import SettingsModal from "@/components/SettingsModal";
-import ContactsModal from "@/components/ContactsModal";
 import styles from "./Header.module.css";
 import { FaCog } from "react-icons/fa";
+import Logo from "../ui/Logo/Logo";
+import UserProfileButton from "../ui/UserProfileButton/UserProfileButton";
+import { Navbar } from "../Navbar/Navbar";
+import SettingsModal from "../SettingsModal/SettingsModal";
+import ContactsModal from "../ContactsModal/ContactsModal";
 
 export default function Header() {
   const currentPath = usePathname();
   const theme = useAppSelector((state) => state.theme.mode);
   const language = useAppSelector((state) => state.language.current);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isContactsOpen, setIsContactsOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
-  const handleNavigate = (href: string) => {
-    // Navigation logic here if needed
+  const handleNavigation = (path: string) => {
   };
 
   return (
@@ -93,7 +93,7 @@ export default function Header() {
       {/* Navigation Bar */}
       <Navbar
         currentPath={currentPath}
-        onNavigate={handleNavigate}
+        onNavigate={handleNavigation}
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />

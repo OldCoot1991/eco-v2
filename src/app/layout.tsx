@@ -1,11 +1,12 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Raleway, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/components/StoreProvider";
 import ThemeSync from "@/components/ThemeSync";
-import Header from "@/components/Header";
-import { Footer } from "@/components/footer/Footer";
 import styles from "./page.module.css";
+import Header from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
 
 
 const geistSans = Geist({
@@ -152,11 +153,11 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();`,
+            __html: `(function () { try { var t = localStorage.getItem('theme'); if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme:dark)').matches)) { document.documentElement.classList.add('dark') } } catch (e) { } })(); `,
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} ${sourceSerif.variable} ${styles.layoutBody}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} ${sourceSerif.variable} ${styles.layoutBody} `}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
