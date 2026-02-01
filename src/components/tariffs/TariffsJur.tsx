@@ -2,10 +2,10 @@
 
 import { useRef } from "react";
 import styles from "./TariffsJur.module.css";
-import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
 import { useTranslation } from "@/lib/hooks/useTranslation";
-import { CustomScrollbar } from "@/components/ui/CustomScrollbar/CustomScrollbar";
 import { DocumentCard } from "./DocumentCard";
+import { TariffTable } from "./TariffTable";
+import { TariffColumn, TariffRow } from "./types";
 
 interface TimelineItem {
     label: string;
@@ -24,7 +24,6 @@ interface TariffZone {
 
 const TariffsJur = () => {
     const { t } = useTranslation();
-    const tableContainerRef = useRef<HTMLDivElement>(null);
     const isEn = t.common.download === "Download";
 
     const tariffZones: TariffZone[] = [
@@ -87,6 +86,32 @@ const TariffsJur = () => {
         }
     ];
 
+    const columns: TariffColumn[] = [
+        {
+            id: 'current',
+            label: tariffZones[0].timeline[0].label,
+            subLabel: tariffZones[0].timeline[0].date
+        },
+        {
+            id: 'future',
+            label: tariffZones[0].timeline[1].label,
+            subLabel: tariffZones[0].timeline[1].date
+        }
+    ];
+
+    const rows: TariffRow[] = tariffZones.map(zone => ({
+        id: zone.id,
+        header: {
+            title: zone.title,
+            description: zone.description,
+            iconVariant: `zone${zone.id}` as 'zone1' | 'zone2' | 'zone3'
+        },
+        cells: [
+            { value: zone.timeline[0].price, isFuture: zone.timeline[0].isActive === false },
+            { value: zone.timeline[1].price, isFuture: zone.timeline[1].isActive === false }
+        ]
+    }));
+
     return (
         <div className={styles.container}>
             <DocumentCard
@@ -98,56 +123,13 @@ const TariffsJur = () => {
                 fileUrl="/docs/prikaz_214.pdf"
             />
 
-            <div>
-                <SectionTitle
-                    title={t.tariffs.zonesTitle}
-                    subtitle={t.tariffs.zonesSubtitle}
-                    size="small"
-                />
-
-                <div
-                    className={styles.tableContainer}
-                    ref={tableContainerRef}
-                >
-                    <table className={styles.table}>
-                        <thead>
-                            <tr>
-                                <th className={styles.th}>{t.tariffs.zonesTitle}</th>
-                                <th className={styles.th}>
-                                    <div>{tariffZones[0].timeline[0].label}</div>
-                                    <div className={styles.thSub}>{tariffZones[0].timeline[0].date}</div>
-                                </th>
-                                <th className={styles.th}>
-                                    <div>{tariffZones[0].timeline[1].label}</div>
-                                    <div className={styles.thSub}>{tariffZones[0].timeline[1].date}</div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {tariffZones.map((zone) => (
-                                <tr key={zone.id} className={styles.tr}>
-                                    <td className={styles.td}>
-                                        <div className={styles.zoneCell}>
-                                            <div className={`${styles.zoneIconMini} ${zone.iconClass}`}></div>
-                                            <div className={styles.zoneName}>{zone.title}</div>
-                                        </div>
-                                    </td>
-                                    <td className={styles.td}>
-                                        <div className={styles.priceCell}>{zone.timeline[0].price}</div>
-                                    </td>
-                                    <td className={styles.td}>
-                                        <div className={`${styles.priceCell} ${styles.futurePrice}`}>{zone.timeline[1].price}</div>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-                <CustomScrollbar
-                    containerRef={tableContainerRef}
-                    className="mt-4 px-4 sm:block"
-                />
-            </div>
+            <TariffTable
+                title={t.tariffs.zonesTitle}
+                subtitle={t.tariffs.zonesSubtitle}
+                caption={t.tariffs.zonesTitle}
+                columns={columns}
+                rows={rows}
+            />
         </div>
     );
 };

@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React from 'react';
 import styles from "./TariffsFiz.module.css";
 import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
 import { useTranslation } from "@/lib/hooks/useTranslation";
-import { CustomScrollbar } from "@/components/ui/CustomScrollbar/CustomScrollbar";
 import { DocumentCard } from "./DocumentCard";
+import { TariffTable } from "./TariffTable";
+import { TariffColumn, TariffRow } from "./types";
 
 type ZoneKey = 'zone1' | 'zone2' | 'zone3';
 
@@ -19,7 +20,6 @@ interface TariffPeriod {
 
 const TariffsFiz = () => {
   const { t } = useTranslation();
-  const tableContainerRef = useRef<HTMLDivElement>(null);
   const isEn = t.common.download === "Download";
 
   const TARIFF_DATA: TariffPeriod[] = [
@@ -83,6 +83,26 @@ const TariffsFiz = () => {
     return value.toFixed(2).replace('.', ',');
   }
 
+  const columns: TariffColumn[] = TARIFF_DATA.map(period => ({
+    id: period.id,
+    label: period.label,
+    subLabel: `${period.start} - ${period.end}`
+  }));
+
+  const rows: TariffRow[] = (Object.keys(ZONES_INFO) as ZoneKey[]).map((zoneKey) => ({
+    id: zoneKey,
+    header: {
+      title: ZONES_INFO[zoneKey].label,
+      description: ZONES_INFO[zoneKey].description,
+      iconVariant: zoneKey
+    },
+    cells: TARIFF_DATA.map((period) => ({
+      value: period.zones[zoneKey].toFixed(2).replace('.', ','),
+      subValue: '₽',
+      isFuture: false
+    }))
+  }));
+
 
   return (
     <div className={styles.container}>
@@ -99,59 +119,13 @@ const TariffsFiz = () => {
       />
 
       {/* Main Tariffs Table */}
-      <div>
-        <SectionTitle
-          title={t.tariffs.zonesTitle}
-          subtitle={t.tariffs.zonesSubtitle}
-          size="small"
-        />
-
-        <div
-          className={styles.tableContainer}
-          ref={tableContainerRef}
-        >
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th className={styles.th}>{t.tariffs.zonesTitle}</th>
-                {TARIFF_DATA.map((period) => (
-                  <th key={period.id} className={styles.th}>
-                    <div>{period.label}</div>
-                    <div className={styles.thSub}>{period.start} - {period.end}</div>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {(Object.keys(ZONES_INFO) as ZoneKey[]).map((zoneKey) => (
-                <tr key={zoneKey} className={styles.tr}>
-                  <td className={styles.td}>
-                    <div className={styles.zoneCell}>
-                      <div className={`${styles.zoneIconMini} ${ZONES_INFO[zoneKey].iconClass}`}></div>
-                      <div className={styles.zoneInfo}>
-                        <div className={styles.zoneName}>{ZONES_INFO[zoneKey].label}</div>
-                        <div className={styles.zoneDescription}>{ZONES_INFO[zoneKey].description}</div>
-                      </div>
-                    </div>
-                  </td>
-                  {TARIFF_DATA.map((period) => (
-                    <td key={period.id} className={styles.td}>
-                      <div className={styles.priceCell}>
-                        {period.zones[zoneKey].toFixed(2).replace('.', ',')} ₽
-                      </div>
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
-        </div>
-        <CustomScrollbar
-          containerRef={tableContainerRef}
-          className="mt-4 px-4 sm:block"
-        />
-      </div>
+      <TariffTable
+        title={t.tariffs.zonesTitle}
+        subtitle={t.tariffs.zonesSubtitle}
+        caption={t.tariffs.zonesTitle}
+        columns={columns}
+        rows={rows}
+      />
 
       {/* Calculated Payment Section */}
       <div>

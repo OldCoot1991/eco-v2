@@ -6,6 +6,8 @@ import { useAppSelector } from "@/lib/hooks";
 import styles from './Navbar.module.css';
 import { useTranslation } from '@/lib/hooks/useTranslation';
 import { navConfig } from './NavConfig';
+import { MegaMenu } from "./MegaMenu";
+import { MobileMenu } from "./MobileMenu";
 
 interface NavbarProps {
   currentPath: string;
@@ -21,7 +23,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
   const { t } = useTranslation();
 
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [expandedMobileMenus, setExpandedMobileMenus] = useState<string[]>([]);
 
   const getNavTitle = (key: string) => {
     const map: Record<string, string> = {
@@ -94,13 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const toggleMobileSubmenu = (title: string) => {
-    setExpandedMobileMenus(prev =>
-      prev.includes(title)
-        ? prev.filter(item => item !== title)
-        : [...prev, title]
-    );
-  };
+
 
   return (
     <header
@@ -139,110 +134,24 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
         <div></div>
       </div>
 
-      <div className={`${styles.megaMenu} ${activeMenu ? styles.megaMenuOpen : styles.megaMenuClosed}`}>
-        <div className={styles.megaMenuContainer}>
-          <div className={styles.megaMenuGrid}>
-            <div className={styles.megaMenuItems}>
-              {activeMenu && navConfig.find(n => n.title === activeMenu)?.subItems?.map((sub, idx) => (
-                <button
-                  key={sub.title}
-                  onClick={() => handleLinkClick(sub.path)}
-                  className={styles.megaMenuItem}
-                  style={{ animationDelay: `${idx * 75}ms` }}
-                >
-                  <div className={styles.megaMenuIcon} style={{ background: idx % 3 === 0 ? 'var(--gradient-accent)' : idx % 3 === 1 ? 'linear-gradient(135deg, #F59E0B 0%, #EC4899 100%)' : 'linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%)' }}>
-                    <svg className={styles.megaMenuIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d={sub.icon} /></svg>
-                  </div>
-                  <div>
-                    <div className={styles.megaMenuItemTitle}>
-                      {getNavTitle(sub.title)}
-                    </div>
-                    <div className={styles.megaMenuItemDesc}>
-                      {getNavDesc(sub.desc)}
-                    </div>
-                  </div>
-                </button>
-              ))}
-            </div>
-            <div className={styles.megaMenuSidebar}>
-              <div className={styles.supportCard}>
-                <div>
-                  <span className={styles.supportBadge}>Support</span>
-                  <h4 className={styles.supportTitle}>{t.header.support}</h4>
-                  <p className={styles.supportDesc}>{t.header.supportDesc}</p>
-                </div>
-                <a href="tel:88662229110" className={styles.supportPhone}>
-                  <div className={styles.supportPhoneIcon}>
-                    <svg className={styles.supportPhoneIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 5z" /></svg>
-                  </div>
-                  <span className={styles.supportPhoneNumber}>8 (8662) 22-91-10</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <MegaMenu
+        activeMenu={activeMenu}
+        navConfig={navConfig}
+        handleLinkClick={handleLinkClick}
+        getNavTitle={getNavTitle}
+        getNavDesc={getNavDesc}
+        supportTitle={t.header.support}
+        supportDesc={t.header.supportDesc}
+      />
 
-      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : styles.mobileMenuClosed} ${isDark ? styles.mobileMenuDark : styles.mobileMenuLight}`}>
-        <div className={styles.mobileMenuContent}>
-          <div className={`${styles.mobileMenuHeader} ${isDark ? styles.mobileMenuHeaderDark : styles.mobileMenuHeaderLight}`}>
-            <h2 className={`${styles.mobileMenuTitle} ${isDark ? styles.mobileMenuTitleDark : styles.mobileMenuTitleLight}`}>
-              Main Menu
-            </h2>
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`${styles.mobileMenuCloseButton} ${isDark ? styles.mobileMenuCloseButtonDark : styles.mobileMenuCloseButtonLight}`}
-            >
-              <svg className={styles.mobileMenuCloseIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-          </div>
-          <div className={styles.mobileMenuList}>
-            {navConfig.map((item) => {
-              const isExpanded = expandedMobileMenus.includes(item.title);
-              return (
-                <div key={item.title}>
-                  <button
-                    onClick={() => item.subItems ? toggleMobileSubmenu(item.title) : handleLinkClick(item.path)}
-                    className={`${styles.mobileMenuItemButton} ${isDark ? styles.mobileMenuItemButtonDark : styles.mobileMenuItemButtonLight} ${currentPath === item.path ? styles.mobileMenuItemButtonActive : ''}`}
-                  >
-                    {getNavTitle(item.title)}
-                    {item.subItems && (
-                      <svg
-                        className={`${styles.mobileMenuChevron} ${isExpanded ? styles.mobileMenuChevronExpanded : ''}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    )}
-                  </button>
-                  {item.subItems && (
-                    <div className={`${styles.mobileMenuSubmenu} ${isExpanded ? styles.mobileMenuSubmenuExpanded : styles.mobileMenuSubmenuCollapsed}`}>
-                      {item.subItems.map((sub) => (
-                        <button
-                          key={sub.title}
-                          onClick={() => handleLinkClick(sub.path)}
-                          className={`${styles.mobileMenuSubItem} ${isDark ? styles.mobileMenuSubItemDark : styles.mobileMenuSubItemLight}`}
-                        >
-                          <div className={styles.mobileMenuSubItemIcon}>
-                            <svg className={styles.mobileMenuSubItemIconSvg} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d={sub.icon} />
-                            </svg>
-                          </div>
-                          <div className={`${styles.mobileMenuSubItemTitle} ${isDark ? styles.mobileMenuSubItemTitleDark : styles.mobileMenuSubItemTitleLight}`}>
-                            {getNavTitle(sub.title)}
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        isDark={isDark}
+        navConfig={navConfig}
+        handleLinkClick={handleLinkClick}
+        getNavTitle={getNavTitle}
+      />
     </header>
   );
 };
