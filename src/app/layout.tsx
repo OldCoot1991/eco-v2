@@ -5,8 +5,8 @@ import "./globals.css";
 import StoreProvider from "@/components/StoreProvider";
 import ThemeSync from "@/components/ThemeSync";
 import styles from "./page.module.css";
-import Header from "@/components/Header/Header";
-import { Footer } from "@/components/Footer/Footer";
+import Header from "@/components/header/Header";
+import { Footer } from "@/components/footer/Footer";
 
 
 const geistSans = Geist({

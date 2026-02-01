@@ -5,7 +5,7 @@ import Link from 'next/link';
 import styles from './Footer.module.css';
 import { useTranslation } from '@/lib/hooks/useTranslation';
 import Logo from '../ui/Logo/Logo';
-import { navConfig } from '../Navbar/NavConfig';
+import { navConfig } from '../navbar/NavConfig';
 import { bottomLinksConfig } from './footerData';
 
 export const Footer: React.FC = () => {

@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
 import { NavItem } from './NavConfig';
-
 interface MobileMenuProps {
     isOpen: boolean;
     onClose: () => void;
@@ -54,14 +53,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                             <div key={item.title} className={styles.mobileMenuItem}>
                                 <button
                                     onClick={() => hasSubItems ? toggleMenu(item.title) : handleLinkClick(item.path)}
-                                    className={`${styles.mobileMenuLink} ${isDark ? styles.mobileMenuLinkDark : styles.mobileMenuLinkLight}`}
+                                    className={`${styles.mobileMenuItemButton} ${isDark ? styles.mobileMenuItemButtonDark : styles.mobileMenuItemButtonLight}`}
                                 >
-                                    <span className={styles.mobileMenuLinkText}>
-                                        {getNavTitle(item.title)}
-                                    </span>
+                                    {getNavTitle(item.title)}
                                     {hasSubItems && (
                                         <svg
-                                            className={`${styles.mobileMenuArrow} ${isExpanded ? styles.mobileMenuArrowExpanded : styles.mobileMenuArrowCollapsed}`}
+                                            className={`${styles.mobileMenuChevron} ${isExpanded ? styles.mobileMenuChevronExpanded : ''}`}
                                             fill="none"
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"

@@ -8,9 +8,9 @@ import styles from "./Header.module.css";
 import { FaCog } from "react-icons/fa";
 import Logo from "../ui/Logo/Logo";
 import UserProfileButton from "../ui/UserProfileButton/UserProfileButton";
-import { Navbar } from "../Navbar/Navbar";
-import SettingsModal from "../SettingsModal/SettingsModal";
-import ContactsModal from "../ContactsModal/ContactsModal";
+import { Navbar } from "../navbar/Navbar";
+import SettingsModal from "../settingsModal/SettingsModal";
+import ContactsModal from "../contactsModal/ContactsModal";
 
 export default function Header() {
   const currentPath = usePathname();

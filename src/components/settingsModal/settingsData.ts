@@ -1,5 +1,5 @@
-import ThemeToggle from "../ThemeToggle/ThemeToggle";
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import ThemeToggle from "../themeToggle/ThemeToggle";
+import LanguageSwitcher from "../languageSwitcher/LanguageSwitcher";
 
 export interface SettingsSection {
     label: { en: string; ru: string };

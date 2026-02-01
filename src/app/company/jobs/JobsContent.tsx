@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styles from './jobs.module.css';
-import Vacancies from "@/components/Vacancies/Vacancies";
+import Vacancies from "@/components/vacancies/Vacancies";
 import { useTranslation } from "@/lib/hooks/useTranslation";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 

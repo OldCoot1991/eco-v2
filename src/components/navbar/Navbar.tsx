@@ -97,10 +97,25 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
 
 
 
+  const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+
+  const handleHeaderLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveMenu(null);
+    }, 300);
+  };
+
+  const handleHeaderEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  };
+
   return (
     <header
       className={styles.header}
-      onMouseLeave={() => setActiveMenu(null)}
+      onMouseLeave={handleHeaderLeave}
+      onMouseEnter={handleHeaderEnter}
     >
       <div className={styles.headerContainer}>
         <div></div>
@@ -111,6 +126,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
               key={item.title}
               className={styles.navItem}
               onMouseEnter={() => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
                 if (item.subItems && item.subItems.length > 0) {
                   setActiveMenu(item.title);
                 } else {

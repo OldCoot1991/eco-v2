@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import CompanyDocs from "@/components/Documents/CompanyDocs";
+import CompanyDocs from "@/components/documents/CompanyDocs";
 
 export const metadata: Metadata = {
   title: "Документы ООО «Экологистика» - Устав, Лицензии, Политики | Официальные документы",

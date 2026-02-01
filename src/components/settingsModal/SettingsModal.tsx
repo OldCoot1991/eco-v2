@@ -2,10 +2,7 @@
 
 import { useEffect } from "react";
 import styles from "./SettingsModal.module.css";
-import { useTranslation } from "@/lib/hooks/useTranslation";
 import { useAppSelector } from "@/lib/hooks";
-import ThemeToggle from "../ThemeToggle/ThemeToggle";
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { settingsSections } from "./settingsData";
 
 interface SettingsModalProps {

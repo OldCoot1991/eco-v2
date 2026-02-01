@@ -5,8 +5,8 @@ import styles from "./ContactsModal.module.css";
 import { useAppSelector } from "@/lib/hooks";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import SocialLinks from "../ui/SocialLinks/SocialLinks";
-import { contactItems } from "./contactsData";
 import { useTranslation } from "@/lib/hooks/useTranslation";
+import { contactItems } from "./contactsData";
 
 interface ContactsModalProps {
     isOpen: boolean;

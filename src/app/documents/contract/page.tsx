@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ContractDocs from "@/components/Documents/ContractDocs";
+import ContractDocs from "@/components/documents/ContractDocs";
 
 export const metadata: Metadata = {
   title: "Заключение договора на вывоз ТКО - Типовые договоры и заявки | Экологистика",
