@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef, useCallback } from "react";
+import styles from "./CustomScrollbar.module.css";
 
 interface CustomScrollbarProps {
     containerRef: React.RefObject<HTMLElement | null>;
@@ -146,13 +147,13 @@ export const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
 
     return (
         <div
-            className={`w-full h-3 mt-2 relative touch-none select-none ${className}`}
+            className={`${styles.scrollbarContainer} ${className}`}
             ref={trackRef}
         >
-            <div className={`absolute top-0 left-0 w-full h-full rounded-full bg-gray-200 dark:bg-gray-700 ${trackClassName}`} />
+            <div className={`${styles.track} ${trackClassName}`} />
 
             <div
-                className={`absolute top-0 h-full rounded-full bg-emerald-500 hover:bg-emerald-600 transition-colors cursor-pointer ${thumbClassName}`}
+                className={`${styles.thumb} ${thumbClassName}`}
                 style={{
                     width: `${thumbWidth}%`,
                     left: `calc(${scrollLeft}% - (${scrollLeft} * ${thumbWidth / 100}%))` // Correct math to keep inside bounds

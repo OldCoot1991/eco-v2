@@ -83,3 +83,8 @@
     font-size: calc(13px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
     color: #71717a;
 }
+
+.iconSvg {
+    width: 1.5rem;
+    height: 1.5rem;
+}

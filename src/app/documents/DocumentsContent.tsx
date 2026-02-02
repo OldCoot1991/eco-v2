@@ -39,12 +39,12 @@ export default function DocumentsContent() {
                 <h3 className={styles.subtitle}>Типовые договоры</h3>
                 <ul className={styles.list}>
                     <li className={styles.listItem}>
-                        <a href="/docs/contract_fiz.pdf" className="text-emerald-600 hover:text-emerald-700 underline">
+                        <a href="/docs/contract_fiz.pdf" className={styles.documentLink}>
                             Типовой договор с физическим лицом (оферта)
                         </a>
                     </li>
                     <li className={styles.listItem}>
-                        <a href="/docs/contract_jur.pdf" className="text-emerald-600 hover:text-emerald-700 underline">
+                        <a href="/docs/contract_jur.pdf" className={styles.documentLink}>
                             Типовой договор с юридическим лицом
                         </a>
                     </li>

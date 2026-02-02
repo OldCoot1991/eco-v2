@@ -164,3 +164,15 @@
 :global(.dark) .futurePrice {
   color: #9ca3af;
 }
+
+.scrollbarWrapper {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .scrollbarWrapper {
+    display: block;
+  }
+}

@@ -106,3 +106,18 @@
 .listItem {
     margin-bottom: 0.5rem;
 }
+
+.mainLayout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.documentLink {
+  color: #059669;
+  text-decoration: underline;
+}
+
+.documentLink:hover {
+  color: #047857;
+}

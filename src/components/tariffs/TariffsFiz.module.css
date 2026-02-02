@@ -534,3 +534,9 @@
 :global(.dark) .paymentZonePrice {
   color: #e5e7eb;
 }
+
+.iconSvg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+}

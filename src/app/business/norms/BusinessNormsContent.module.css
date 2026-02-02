@@ -269,3 +269,16 @@
   /* Fluid font-size: 14px to 18px */
   font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
 }
+
+.scrollbarWrapper {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .scrollbarWrapper {
+    display: block;
+  }
+}

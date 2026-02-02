@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className={styles.mainLayout}>
       <Hero />
       <Services />
 

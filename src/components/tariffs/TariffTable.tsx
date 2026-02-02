@@ -75,7 +75,7 @@ export const TariffTable: React.FC<TariffTableProps> = ({
             </div>
             <CustomScrollbar
                 containerRef={tableContainerRef}
-                className="mt-4 px-4 sm:block"
+                className={styles.scrollbarWrapper}
             />
         </div>
     );

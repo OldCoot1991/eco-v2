@@ -52,7 +52,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ category, index, t }) => {
             </div>
             <CustomScrollbar
                 containerRef={tableContainerRef}
-                className="mt-4 px-4 sm:block"
+                className={styles.scrollbarWrapper}
             />
         </div>
     );
