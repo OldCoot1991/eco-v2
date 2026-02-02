@@ -11,9 +11,7 @@
   border-bottom: none;
 }
 
-:global(.dark) .header {
-  background: var(--card-bg);
-}
+
 
 @media (min-width: 1200px) {
   .header {
@@ -64,6 +62,7 @@
 }
 
 .navButton {
+  font-family: var(--font-raleway);
   position: relative;
   display: flex;
   align-items: center;
