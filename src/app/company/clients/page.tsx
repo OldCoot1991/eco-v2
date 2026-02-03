@@ -1,10 +1,27 @@
-import styles from "../../page.module.css";
+import styles from "./page.module.css";
+import { partners } from "@/components/home/TrustedBy/trustedByData";
+import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
 
 export default function CompanyClientsPage() {
     return (
         <div className={styles.pageContainer}>
-            <h1 className={styles.pageTitle}>Наши клиенты</h1>
-            <p className={styles.pageText}>Список клиентов компании</p>
+            <SectionTitle
+                title="Наши"
+                accent="клиенты"
+                subtitle="Список клиентов компании"
+            />
+
+            <div className={styles.clientsGrid}>
+                {partners.map((partner, index) => (
+                    <div key={index} className={styles.clientCard}>
+                        <img
+                            src={partner.logo}
+                            alt={partner.name}
+                            className={styles.clientLogo}
+                        />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
