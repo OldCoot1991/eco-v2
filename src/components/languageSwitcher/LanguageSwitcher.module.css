@@ -4,6 +4,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.35rem;
   padding: 0 0.75rem;
   height: 2rem; /* Increased from 1.5rem */
@@ -13,6 +14,15 @@
   backdrop-filter: blur(4px);
   transition: all 0.3s;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .button {
+    height: 2.5rem !important; /* More compact */
+    padding: 0 0.5rem !important;
+    font-size: 0.75rem !important;
+    min-height: 1.5rem !important;
+  }
 }
 
 .button:hover {
@@ -72,7 +82,7 @@
 
 .language {
   font-size: 0.875rem; /* Increased from 0.6875rem */
-  font-weight: 900; /* Extra bold */
+  font-weight: 700; /* Reduced from 900 (Extra Bold) to Bold */
   text-transform: uppercase;
   letter-spacing: 0.05em;
   line-height: 1;

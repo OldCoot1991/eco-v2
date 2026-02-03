@@ -20,24 +20,26 @@ export default function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
             onClose={onClose}
             title={language === 'en' ? 'Settings' : 'Настройки'}
         >
-            {settingsSections.map((section, index) => {
-                const Component = section.component;
-                return (
-                    <div key={index} className={styles.section}>
-                        <div className={styles.info}>
-                            <span className={styles.label}>
-                                {language === 'en' ? section.label.en : section.label.ru}
-                            </span>
-                            <span className={styles.description}>
-                                {language === 'en' ? section.description.en : section.description.ru}
-                            </span>
+            <div className={styles.list}>
+                {settingsSections.map((section, index) => {
+                    const Component = section.component;
+                    return (
+                        <div key={index} className={styles.section}>
+                            <div className={styles.info}>
+                                <span className={styles.label}>
+                                    {language === 'en' ? section.label.en : section.label.ru}
+                                </span>
+                                <span className={styles.description}>
+                                    {language === 'en' ? section.description.en : section.description.ru}
+                                </span>
+                            </div>
+                            <div className={styles.control}>
+                                <Component />
+                            </div>
                         </div>
-                        <div className={styles.control}>
-                            <Component />
-                        </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </Modal>
     );
 }

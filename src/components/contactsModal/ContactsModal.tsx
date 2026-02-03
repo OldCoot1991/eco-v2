@@ -35,9 +35,6 @@ export default function ContactsModal({ isOpen, onClose }: ContactsModalProps) {
 
                     return (
                         <ItemTag key={index} className={styles.item} {...itemProps}>
-                            <div className={styles.iconWrapper}>
-                                <Icon className={styles.itemIcon} />
-                            </div>
                             <div className={styles.text}>
                                 <span className={styles.label}>
                                     {isEn ? item.label.en : item.label.ru}
@@ -48,6 +45,15 @@ export default function ContactsModal({ isOpen, onClose }: ContactsModalProps) {
                                 >
                                     {valueText}
                                 </span>
+                            </div>
+                            <div
+                                className={styles.iconWrapper}
+                                style={{
+                                    background: `${item.color}1a`, // 10% opacity
+                                    color: item.color
+                                }}
+                            >
+                                <Icon className={styles.itemIcon} />
                             </div>
                         </ItemTag>
                     );

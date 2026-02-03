@@ -1,31 +1,67 @@
 /* Settings Modal Styles */
 
+/* Settings Modal Styles */
+
+/* Modal Content (Grid Layout) */
+.list { /* Using generic 'list' class if possible, or mapping to container in TSX */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .section {
   display: flex;
+  flex-direction: row; /* Keep row for settings (Label left, Switch right) */
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+  height: 100%; /* Equal height */
+}
+
+.section:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Reset border from prev style */
 }
 
 .section:last-child {
-  border-bottom: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Reset border */
 }
 
 :global(.dark) .section {
+  background: rgba(255, 255, 255, 0.03);
   border-color: rgba(255, 255, 255, 0.05);
+}
+
+:global(.dark) .section:hover {
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .info {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  flex: 1; /* Take available text space */
 }
 
 .label {
-  font-size: 1rem;
+  font-size: 0.875rem; /* Match ContactsModal label size roughly? 0.75rem was uppercase there. 1rem here. */
   font-weight: 600;
   color: #0f172a;
+  font-family: var(--font-raleway), sans-serif;
 }
 
 :global(.dark) .label {
@@ -35,7 +71,9 @@
 .description {
   font-size: 0.75rem;
   color: #64748b;
-  max-width: 200px;
+  max-width: 100%; /* Allow full width */
+  font-family: var(--font-sans), sans-serif;
+  line-height: 1.4;
 }
 
 :global(.dark) .description {
@@ -43,5 +81,9 @@
 }
 
 .control {
-    transform: scale(0.9);
+    flex-shrink: 0;
+    /* transform: scale(0.9); Remove scale to keep it "adaptive" or natural size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

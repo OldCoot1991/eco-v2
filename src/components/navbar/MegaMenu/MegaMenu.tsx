@@ -1,8 +1,8 @@
 "use client";
 
 import React, { memo } from 'react';
-import styles from './Navbar.module.css';
-import { NavItem } from './NavConfig';
+import styles from './MegaMenu.module.css';
+import { NavItem } from '../NavConfig';
 
 interface MegaMenuProps {
     activeMenu: string | null;

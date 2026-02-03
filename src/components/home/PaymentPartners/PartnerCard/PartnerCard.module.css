@@ -1,0 +1,75 @@
+.partnerCard {
+    /* Fluid padding: 16px to 20px */
+    padding: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
+    border-radius: 4px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e4e4e7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: box-shadow 0.2s;
+}
+
+:global(.dark) .partnerCard {
+    background: #18181b;
+    border-color: #3f3f46;
+}
+
+.partnerCard:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.partnerInfo {
+    display: flex;
+    align-items: center;
+    /* Fluid gap: 12px to 14px */
+    gap: calc(12px + (14 - 12) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.partnerIcon {
+    /* Fluid size: 36px to 40px */
+    width: calc(36px + (40 - 36) * ((100vw - 320px) / (1920 - 320)));
+    height: calc(36px + (40 - 36) * ((100vw - 320px) / (1920 - 320)));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.partnerIconGreen {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.partnerIconYellow {
+    background: rgba(234, 179, 8, 0.1);
+    color: #ca8a04;
+}
+
+.partnerName {
+
+    font-weight: 700;
+    /* Fluid font-size: 16px to 18px */
+    font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
+    color: #18181b;
+    font-family: var(--font-raleway), sans-serif;
+    /* Fluid margin-bottom: 2px to 4px */
+    margin-bottom: calc(2px + (4 - 2) * ((100vw - 320px) / (1920 - 320)));
+}
+
+:global(.dark) .partnerName {
+    color: #ffffff;
+}
+
+.partnerDescription {
+    /* Fluid font-size: 13px to 14px */
+    font-size: calc(13px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
+    color: #71717a;
+}
+
+.iconSvg {
+    width: 1.5rem;
+    height: 1.5rem;
+}

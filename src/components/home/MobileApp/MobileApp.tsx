@@ -1,5 +1,6 @@
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 import styles from "./MobileApp.module.css";
+import { StoreButton } from "@/components/ui/StoreButton/StoreButton";
 
 export const MobileApp = () => {
     return (
@@ -19,20 +20,20 @@ export const MobileApp = () => {
                     </p>
 
                     <div className={styles.appButtons}>
-                        <button className={`${styles.appButton} ${styles.appButtonPrimary}`}>
-                            <FaApple className={styles.appIcon} />
-                            <div className={styles.appButtonText}>
-                                <div className={styles.appButtonLabel}>Download on</div>
-                                <div className={styles.appButtonTitle}>App Store</div>
-                            </div>
-                        </button>
-                        <button className={`${styles.appButton} ${styles.appButtonSecondary}`}>
-                            <FaGooglePlay className={styles.appIcon} />
-                            <div className={styles.appButtonText}>
-                                <div className={styles.appButtonLabel}>Get it on</div>
-                                <div className={styles.appButtonTitle}>Google Play</div>
-                            </div>
-                        </button>
+                        <StoreButton
+                            icon={FaApple}
+                            label="Download on"
+                            title="App Store"
+                            variant="primary"
+                            href="#" // Placeholder or actual link
+                        />
+                        <StoreButton
+                            icon={FaGooglePlay}
+                            label="Get it on"
+                            title="Google Play"
+                            variant="secondary"
+                            href="#" // Placeholder or actual link
+                        />
                     </div>
                 </div>
 

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import styles from './Navbar.module.css';
-import { NavItem } from './NavConfig';
+import styles from './MobileMenu.module.css';
+import { NavItem } from '../NavConfig';
 interface MobileMenuProps {
     isOpen: boolean;
     onClose: () => void;

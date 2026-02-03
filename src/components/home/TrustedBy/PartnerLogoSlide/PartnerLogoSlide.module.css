@@ -1,0 +1,25 @@
+.partnerCard {
+    border: 1px solid #b5b6b6;
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+    /* Removed flex, width/height 100%, to match original shrink-wrap behavior or slide flow */
+    /* If the original relied on slide size, we might need to check, but user said 'huge empty space' implies I made it too big. */
+    /* Original css had no width/height on partnerCard. */
+    display: flex; /* Kept for likely centering need, but will remove 100% height */
+    justify-content: center;
+    align-items: center;
+}
+
+:global(.dark) .partnerCard {
+    background: #18181b;
+    border-color: #3f3f46;
+}
+
+.partnerLogo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+

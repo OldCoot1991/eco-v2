@@ -73,24 +73,6 @@
     }
 }
 
-.partnerCard {
-    border: 1px solid #b5b6b6;
-    border-radius: 4px;
-    overflow: hidden;
-    /* Ensure content respects radius */
-}
-
-.partnerLogo {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.partnerCard:hover .partnerLogo {
-    transform: scale(1.1);
-}
-
 /* Custom Navigation Buttons */
 .navBtn {
     width: 2.5rem;
@@ -134,14 +116,18 @@
         padding: 4rem 0 4.5rem;
     }
 
-    .swiperSlide:global(.swiper-slide-active) .partnerCard {
-        transform: scale(1.7);
+    /* We need to target the child component's styles if possible, or use deep selector if css modules allow.
+       Since we extracted the component, the transform scaling for active/prev/next slides needs to be applied to the slide itself or validly passed down.
+       Ideally, swiper scales the slide container.
+    */
+    .swiperSlide:global(.swiper-slide-active) {
+        transform: scale(1.2); /* Adjusted for visual balance with internal component */
         z-index: 10;
     }
 
-    .swiperSlide:global(.swiper-slide-prev) .partnerCard,
-    .swiperSlide:global(.swiper-slide-next) .partnerCard {
-        transform: scale(1.55);
+    .swiperSlide:global(.swiper-slide-prev),
+    .swiperSlide:global(.swiper-slide-next) {
+        transform: scale(1.1);
         z-index: 5;
     }
 }

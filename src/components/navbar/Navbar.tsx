@@ -6,8 +6,9 @@ import { useAppSelector } from "@/lib/hooks";
 import styles from './Navbar.module.css';
 import { useTranslation } from '@/lib/hooks/useTranslation';
 import { navConfig } from './NavConfig';
-import { MegaMenu } from "./MegaMenu";
-import { MobileMenu } from "./MobileMenu";
+import { MegaMenu } from "./MegaMenu/MegaMenu";
+import { MobileMenu } from "./MobileMenu/MobileMenu";
+import { NavButton } from "./NavButton/NavButton";
 
 interface NavbarProps {
   currentPath: string;
@@ -134,15 +135,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate, isMobil
                 }
               }}
             >
-              <button
+              <NavButton
+                title={getNavTitle(item.title)}
+                isActive={currentPath === item.path || activeMenu === item.title}
                 onClick={() => handleLinkClick(item.path)}
-                className={`${styles.navButton} ${currentPath === item.path || activeMenu === item.title ? styles.navButtonActive : styles.navButtonDefault}`}
-              >
-                {['TL', 'TR', 'BL', 'BR'].map(corner => (
-                  <div key={corner} className={styles[`corner${corner}` as keyof typeof styles]} />
-                ))}
-                {getNavTitle(item.title)}
-              </button>
+              />
             </div>
           ))}
         </nav>

@@ -1,0 +1,105 @@
+.navButton {
+  font-family: var(--font-raleway);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+@media (min-width: 1024px) {
+  .navButton {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navButton {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+.navButtonDefault {
+  color: rgba(5, 150, 105, 0.7);
+}
+
+.navButtonActive {
+  color: #059669;
+}
+
+:global(.dark) .navButtonDefault {
+  color: rgba(52, 211, 153, 0.7);
+}
+
+:global(.dark) .navButtonActive {
+  color: #34d399;
+}
+
+.navButton:hover {
+  color: #059669;
+}
+
+:global(.dark) .navButton:hover {
+  color: #34d399;
+}
+
+/* Corner decorations */
+.cornerTL,
+.cornerTR,
+.cornerBL,
+.cornerBR {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-color: var(--foreground);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* We need a way to trigger hover from parent or manage state. 
+   The original css used .navItem:hover .corner... 
+   If we wrap the button in the component, we can use .navButton:hover or a wrapper.
+   Let's use .container:hover if we wrap it, or just .navButton:hover if the corners are inside.
+*/
+.navButton:hover .cornerTL,
+.navButton:hover .cornerTR,
+.navButton:hover .cornerBL,
+.navButton:hover .cornerBR {
+  opacity: 1;
+}
+
+.cornerTL {
+  top: 0;
+  left: 0;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.cornerTR {
+  top: 0;
+  right: 0;
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+.cornerBL {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+}
+
+.cornerBR {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
