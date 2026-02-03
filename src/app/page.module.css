@@ -121,3 +121,16 @@
 .documentLink:hover {
   color: #047857;
 }
+
+.link {
+  color: #10b981;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.link:hover {
+  border-bottom-color: #10b981;
+  opacity: 0.8;
+}
