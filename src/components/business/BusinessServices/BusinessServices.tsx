@@ -1,53 +1,58 @@
+"use client";
+
 import Link from "next/link";
 import { FaTruck, FaFileContract, FaRecycle, FaIndustry, FaTrashAlt, FaLeaf } from "react-icons/fa";
 import styles from "./BusinessServices.module.css";
-
-const services = [
-    {
-        icon: <FaFileContract />,
-        title: "Заключение договора",
-        description: "Обязательное заключение договора с региональным оператором для всех юридических лиц и ИП.",
-        link: "/documents",
-        color: "emerald"
-    },
-    {
-        icon: <FaTruck />,
-        title: "Вывоз ТКО",
-        description: "Регулярный вывоз твердых коммунальных отходов по согласованному графику.",
-        link: "/tariffs",
-        color: "blue"
-    },
-    {
-        icon: <FaRecycle />,
-        title: "Раздельный сбор",
-        description: "Организация раздельного накопления отходов для снижения платы за негативное воздействие.",
-        link: "/business",
-        color: "green"
-    },
-    {
-        icon: <FaIndustry />,
-        title: "Промышленные отходы",
-        description: "Вывоз и утилизация отходов производства, не относящихся к ТКО (по отдельной заявке).",
-        link: "/contacts",
-        color: "amber"
-    },
-    {
-        icon: <FaTrashAlt />,
-        title: "Аренда контейнеров",
-        description: "Предоставление контейнеров и бункеров различного объема в аренду.",
-        link: "/contacts",
-        color: "purple"
-    },
-    {
-        icon: <FaLeaf />,
-        title: "Экологическое сопровождение",
-        description: "Консультации по вопросам экологического законодательства и нормативов.",
-        link: "/support",
-        color: "teal"
-    }
-];
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 export const BusinessServices = () => {
+    const { t } = useTranslation();
+
+    const services = [
+        {
+            icon: <FaFileContract />,
+            title: t.businessServices.contract,
+            description: t.businessServices.contractDesc,
+            link: "/documents",
+            color: "emerald"
+        },
+        {
+            icon: <FaTruck />,
+            title: t.businessServices.wasteRemoval,
+            description: t.businessServices.wasteRemovalDesc,
+            link: "/tariffs",
+            color: "blue"
+        },
+        {
+            icon: <FaRecycle />,
+            title: t.businessServices.recycling,
+            description: t.businessServices.recyclingDesc,
+            link: "/business",
+            color: "green"
+        },
+        {
+            icon: <FaIndustry />,
+            title: t.businessServices.industrial,
+            description: t.businessServices.industrialDesc,
+            link: "/contacts",
+            color: "amber"
+        },
+        {
+            icon: <FaTrashAlt />,
+            title: t.businessServices.containers,
+            description: t.businessServices.containersDesc,
+            link: "/contacts",
+            color: "purple"
+        },
+        {
+            icon: <FaLeaf />,
+            title: t.businessServices.ecoSupport,
+            description: t.businessServices.ecoSupportDesc,
+            link: "/support",
+            color: "teal"
+        }
+    ];
+
     return (
         <div className={styles.grid}>
             {services.map((service, index) => (

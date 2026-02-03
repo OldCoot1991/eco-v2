@@ -1,8 +1,13 @@
+"use client";
+
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 import styles from "./MobileApp.module.css";
 import { StoreButton } from "@/components/ui/StoreButton/StoreButton";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 export const MobileApp = () => {
+    const { t } = useTranslation();
+
     return (
         <section className={styles.mobileAppSection}>
             <div className={styles.bgGradient} />
@@ -10,26 +15,26 @@ export const MobileApp = () => {
             <div className={styles.appGrid}>
                 <div className={styles.appContent}>
                     <div className={styles.appBadge}>
-                        Все услуги в кармане
+                        {t.mobileApp.badge}
                     </div>
                     <h2 className={styles.appHeading}>
-                        Мобильное приложение
+                        {t.mobileApp.title}
                     </h2>
                     <p className={styles.appDescription}>
-                        Оплачивайте услуги, подавайте заявки и следите за статусом выполнения в нашем удобном приложении.
+                        {t.mobileApp.desc}
                     </p>
 
                     <div className={styles.appButtons}>
                         <StoreButton
                             icon={FaApple}
-                            label="Download on"
+                            label={t.mobileApp.downloadOn}
                             title="App Store"
                             variant="primary"
                             href="#" // Placeholder or actual link
                         />
                         <StoreButton
                             icon={FaGooglePlay}
-                            label="Get it on"
+                            label={t.mobileApp.getItOn}
                             title="Google Play"
                             variant="secondary"
                             href="#" // Placeholder or actual link

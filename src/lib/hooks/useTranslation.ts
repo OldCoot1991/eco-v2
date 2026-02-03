@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 import { useAppSelector } from "@/lib/hooks";
 import { translations, Language } from "@/lib/translations";

@@ -5,15 +5,18 @@ import styles from "./ContractModalTrigger.module.css";
 import { Modal } from "@/components/ui/Modal/Modal";
 import { ContractForm } from "../ContractForm/ContractForm";
 
+import { useTranslation } from "@/lib/hooks/useTranslation";
+
 export const ContractModalTrigger = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { t } = useTranslation();
 
     return (
         <>
             <button className={styles.silverButton} onClick={() => setIsOpen(true)}>
-                Заявка на заключение договора
+                {t.businessContract.form.button}
             </button>
-            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Заявка на заключение договора">
+            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title={t.businessContract.form.title}>
                 <ContractForm />
             </Modal>
         </>

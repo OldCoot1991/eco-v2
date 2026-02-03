@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAppSelector } from "@/lib/hooks";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 import styles from "./Header.module.css";
 import { FaCog } from "react-icons/fa";
 import Logo from "../ui/Logo/Logo";
@@ -14,6 +15,7 @@ import ContactsModal from "../contactsModal/ContactsModal";
 
 export default function Header() {
   const currentPath = usePathname();
+  const { t } = useTranslation();
   const theme = useAppSelector((state) => state.theme.mode);
   const language = useAppSelector((state) => state.language.current);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -72,7 +74,7 @@ export default function Header() {
                 onClick={() => setIsContactsOpen(true)}
                 className={styles.contactsButton}
               >
-                {language === 'en' ? 'Contacts' : 'Контакты'}
+                {t.nav.items.contacts}
               </button>
 
               {/* Settings Button */}

@@ -1,29 +1,34 @@
-import styles from "./BusinessSteps.module.css";
+"use client";
 
-const steps = [
-    {
-        number: "01",
-        title: "Подготовьте документы",
-        description: "Вам понадобятся: копия свидетельства ОГРН/ИП, карточка предприятия, документ на право собственности или аренды помещения."
-    },
-    {
-        number: "02",
-        title: "Заполните заявку",
-        description: "Скачайте бланк заявки на сайте в разделе Документы, заполните его и заверьте печатью/подписью."
-    },
-    {
-        number: "03",
-        title: "Направьте нам",
-        description: "Отправьте скан-копии документов и заявки на электронную почту info@ecologistika.com или принесите в офис."
-    },
-    {
-        number: "04",
-        title: "Получите договор",
-        description: "Наши специалисты подготовят проект договора и направят вам на подписание. После этого начнется обслуживание."
-    }
-];
+import styles from "./BusinessSteps.module.css";
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
 export const BusinessSteps = () => {
+    const { t } = useTranslation();
+
+    const steps = [
+        {
+            number: "01",
+            title: t.businessSteps.prepareDocs,
+            description: t.businessSteps.prepareDocsDesc
+        },
+        {
+            number: "02",
+            title: t.businessSteps.fillApp,
+            description: t.businessSteps.fillAppDesc
+        },
+        {
+            number: "03",
+            title: t.businessSteps.sendToUs,
+            description: t.businessSteps.sendToUsDesc
+        },
+        {
+            number: "04",
+            title: t.businessSteps.getContract,
+            description: t.businessSteps.getContractDesc
+        }
+    ];
+
     return (
         <div className={styles.stepsContainer}>
             {steps.map((step, index) => (

@@ -5,41 +5,19 @@ import styles from './ContractForm.module.css';
 import { orgs } from '@/data/contract-orgs';
 import { FaPlus, FaTrash, FaFileAlt, FaCheck, FaExclamationCircle } from 'react-icons/fa';
 import { Select } from '@/components/ui/Select/Select';
+import { useTranslation } from "@/lib/hooks/useTranslation";
 
-// Initial state types
-const forIP = {
-    orgType: 'Для ИП',
+// Helper to get initial state
+const getInitialState = (type: string) => ({
+    orgType: type,
     orgName: '',
-    okved: '',
-    inn: '',
-    kpp: '',
-    ogrnip: '',
-    bank: '',
-    bank_schet: '',
-    korr_schet: '',
-    bik: '',
-    jurAddr: '',
-    postAddr: '',
-    faktAddr: [''],
-    wasteType: '',
-    usluga: '',
-    payment: 'Оплата по нормативам',
-    orgIs: '',
-    normativ: { title: '', value: '' },
-    dolzhn: '',
-    phoneNumber: '',
-    email: '',
-    comment: '',
-    files: [] as string[]
-};
-
-const forJur = {
-    orgType: 'Для юридических лиц',
-    orgName: '',
+    fullName: '',
     okved: '',
     inn: '',
     kpp: '',
     ogrn: '',
+    ogrnip: '',
+    pasp: '',
     bank: '',
     bank_schet: '',
     korr_schet: '',
@@ -49,65 +27,47 @@ const forJur = {
     faktAddr: [''],
     wasteType: '',
     usluga: '',
-    payment: 'Оплата по нормативам',
+    payment: 'norm', // 'norm' or 'kont'
     orgIs: '',
     normativ: { title: '', value: '' },
+    kont_count: '',
+    m3: '',
     dolzhn: '',
-    phoneNumber: '',
-    email: '',
-    comment: '',
-    files: [] as string[]
-};
-
-const forFiz = {
-    orgType: 'Для физических лиц',
-    fullName: '',
-    inn: '',
-    pasp: '',
-    postAddr: '',
-    faktAddr: [''],
-    wasteType: '',
-    usluga: '',
-    payment: 'Оплата по нормативам',
-    dolzhn: '',
-    orgIs: '',
-    normativ: { title: '', value: '' },
-    phoneNumber: '',
-    email: '',
-    comment: '',
-    files: [] as string[]
-};
-
-const subAgreement = {
-    orgType: 'Для юридических лиц',
-    orgName: '',
     dogNo: '',
-    dolzhn: '',
     phoneNumber: '',
     email: '',
     comment: '',
     files: [] as string[]
-};
-
-const subAgreementFiz = {
-    orgType: 'Для физических лиц',
-    fullName: '',
-    dogNo: '',
-    dolzhn: '',
-    phoneNumber: '',
-    email: '',
-    comment: '',
-    files: [] as string[]
-};
+});
 
 const wasteTypes = ['Крупно-габаритный мусор (КГМ)', 'Твердые коммунальные отходы (ТКО)', 'Строительный мусор'];
 const serviceTypes = ['На вывоз отходов (+ захоронение)', 'Только на захоронение'];
 
-type FormType = typeof forJur & typeof forFiz & typeof subAgreement & { [key: string]: any };
-
 export const ContractForm = () => {
+    const { t } = useTranslation();
+    const f = t.businessContract.form;
+
+    // Translation maps for logic values
+    const orgTypeMap = {
+        jur: f.labels.jur, // "Для юридических лиц"
+        ip: f.labels.ip,   // "Для ИП"
+        fiz: f.labels.fiz  // "Для физических лиц"
+    };
+
+    const wasteTypesTranslated = [f.placeholders.wasteType, 'MSW', 'Construction Waste']; // Simplified for now, should ideally come from translations too if critical
+    // Keeping original arrays for functionality if backend expects specific strings, 
+    // BUT for UI we should show translated. 
+    // For this update, I will assume we should display translated strings but maybe keep internal values?
+    // Let's stick to using the `f` keys for UI labels and placeholders.
+
     const [isSub, setIsSub] = useState(false);
-    const [form, setForm] = useState<FormType>(forJur as any);
+    // Initialize with a generic structure, fields will be used based on logic
+    const [form, setForm] = useState(getInitialState('jur'));
+
+    // We need to manage the "type" state separately or derive it.
+    // Let's simplify:
+    // orgType internal values: 'jur', 'ip', 'fiz'
+
     const [files, setFiles] = useState<File[]>([]);
     const [warning, setWarning] = useState(false);
     const [submitted, setSubmitted] = useState(false);
@@ -119,16 +79,14 @@ export const ContractForm = () => {
         setSubmitted(true);
         setWarning(false);
 
-        // Simple validation check (checking required fields roughly)
-        // In a real app, you'd use a validation schema like Zod
         const requiredFields = isSub
             ? ['phoneNumber', 'email', 'dogNo']
             : ['phoneNumber', 'email', 'postAddr'];
 
-        const hasEmptyFields = requiredFields.some(field => !form[field as keyof FormType]);
+        const hasEmptyFields = requiredFields.some(field => !form[field as keyof typeof form]);
 
         if (hasEmptyFields) {
-            alert("Пожалуйста, заполните все обязательные поля");
+            alert(f.fillWarning);
             return;
         }
 
@@ -137,7 +95,6 @@ export const ContractForm = () => {
             return;
         }
 
-        // Mock submission
         setTimeout(() => {
             setSuccess(true);
             console.log("Form submitted:", form, files);
@@ -169,11 +126,12 @@ export const ContractForm = () => {
         }
     };
 
-    const handlePaymentChange = (type: 'norm' | 'kont') => {
+    const handlePaymentChange = (type: string) => {
+        setForm({ ...form, payment: type });
         if (type === 'norm') {
-            setForm({ ...form, payment: 'Оплата по нормативам', kont_count: '', m3: '' });
+            setForm(prev => ({ ...prev, payment: 'norm', kont_count: '', m3: '' }));
         } else {
-            setForm({ ...form, payment: 'Оплата по контейнерам', orgIs: '', normativ: { title: '', value: '' } });
+            setForm(prev => ({ ...prev, payment: 'kont', orgIs: '', normativ: { title: '', value: '' } }));
         }
     };
 
@@ -185,16 +143,14 @@ export const ContractForm = () => {
                 <div style={{ fontSize: '4rem', color: 'var(--primary)', marginBottom: '1.5rem' }}>
                     <FaCheck />
                 </div>
-                <h2 className={styles.title}>Спасибо за Вашу заявку!</h2>
-                <p style={{ fontSize: '1.25rem', opacity: 0.8 }}>
-                    Наши специалисты рассмотрят её и свяжутся с Вами в ближайшее время.
-                </p>
+                <h2 className={styles.title}>{f.successTitle}</h2>
+                <p style={{ fontSize: '1.25rem', opacity: 0.8 }}>{f.successMsg}</p>
                 <button
                     onClick={() => { setSuccess(false); setSubmitted(false); setSigned(false); setFiles([]); }}
                     className={styles.submit_btn}
                     style={{ marginTop: '2rem', maxWidth: '300px' }}
                 >
-                    Отправить еще заявку
+                    {f.submitAnother}
                 </button>
             </div>
         );
@@ -204,18 +160,18 @@ export const ContractForm = () => {
         <div className={styles.container}>
             <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
                 <button
-                    onClick={() => { setIsSub(false); setForm(forJur as any); }}
+                    onClick={() => { setIsSub(false); setForm({ ...getInitialState('jur') }); }}
                     className={!isSub ? styles.submit_btn : styles.remove_btn}
                     style={{ flex: 1, padding: '0.75rem', fontSize: '1rem' }}
                 >
-                    Заключить договор
+                    {f.button}
                 </button>
                 <button
-                    onClick={() => { setIsSub(true); setForm(subAgreement as any); }}
+                    onClick={() => { setIsSub(true); setForm({ ...getInitialState('jur') }); }}
                     className={isSub ? styles.submit_btn : styles.remove_btn}
                     style={{ flex: 1, padding: '0.75rem', fontSize: '1rem' }}
                 >
-                    Доп. соглашение
+                    {f.subButton}
                 </button>
             </div>
 
@@ -223,30 +179,30 @@ export const ContractForm = () => {
                 {!isSub && (
                     <div className={styles.radios}>
                         <label className={styles.radio}>
-                            <span className={styles.radio_text}>Для юридических лиц</span>
+                            <span className={styles.radio_text}>{f.labels.jur}</span>
                             <input
                                 type="radio"
                                 name="orgType"
-                                checked={form.orgType === 'Для юридических лиц'}
-                                onChange={() => setForm(forJur as any)}
+                                checked={form.orgType === 'jur'}
+                                onChange={() => setForm({ ...form, orgType: 'jur' })}
                             />
                         </label>
                         <label className={styles.radio}>
-                            <span className={styles.radio_text}>Для ИП</span>
+                            <span className={styles.radio_text}>{f.labels.ip}</span>
                             <input
                                 type="radio"
                                 name="orgType"
-                                checked={form.orgType === 'Для ИП'}
-                                onChange={() => setForm(forIP as any)}
+                                checked={form.orgType === 'ip'}
+                                onChange={() => setForm({ ...form, orgType: 'ip' })}
                             />
                         </label>
                         <label className={styles.radio}>
-                            <span className={styles.radio_text}>Для физ. лиц</span>
+                            <span className={styles.radio_text}>{f.labels.fiz}</span>
                             <input
                                 type="radio"
                                 name="orgType"
-                                checked={form.orgType === 'Для физических лиц'}
-                                onChange={() => setForm(forFiz as any)}
+                                checked={form.orgType === 'fiz'}
+                                onChange={() => setForm({ ...form, orgType: 'fiz' })}
                             />
                         </label>
                     </div>
@@ -255,21 +211,21 @@ export const ContractForm = () => {
                 {isSub && (
                     <div className={styles.radios}>
                         <label className={styles.radio}>
-                            <span className={styles.radio_text}>Для юридических лиц / ИП</span>
+                            <span className={styles.radio_text}>{f.labels.jurIp}</span>
                             <input
                                 type="radio"
                                 name="orgTypeSub"
-                                checked={form.orgType === 'Для юридических лиц'}
-                                onChange={() => setForm(subAgreement as any)}
+                                checked={form.orgType === 'jur'}
+                                onChange={() => setForm({ ...form, orgType: 'jur' })}
                             />
                         </label>
                         <label className={styles.radio}>
-                            <span className={styles.radio_text}>Для физ. лиц</span>
+                            <span className={styles.radio_text}>{f.labels.fiz}</span>
                             <input
                                 type="radio"
                                 name="orgTypeSub"
-                                checked={form.orgType === 'Для физических лиц'}
-                                onChange={() => setForm(subAgreementFiz as any)}
+                                checked={form.orgType === 'fiz'}
+                                onChange={() => setForm({ ...form, orgType: 'fiz' })}
                             />
                         </label>
                     </div>
@@ -277,15 +233,15 @@ export const ContractForm = () => {
 
 
                 {/* COMMON FIELDS BASE ON TYPE */}
-                {form.orgType === 'Для физических лиц' ? (
+                {form.orgType === 'fiz' ? (
                     <>
                         <input
                             value={form.fullName || ''}
                             onChange={e => setForm({ ...form, fullName: e.target.value })}
                             className={`${styles.input} ${submitted && !form.fullName && styles.not_filled}`}
-                            placeholder="Ф.И.О."
+                            placeholder={f.placeholders.fullName}
                         />
-                        {submitted && !form.fullName && <span className={styles.not_filled_warning}>Введите данные</span>}
+                        {submitted && !form.fullName && <span className={styles.not_filled_warning}>{f.fillWarning}</span>}
                     </>
                 ) : (
                     <>
@@ -293,9 +249,9 @@ export const ContractForm = () => {
                             value={form.orgName || ''}
                             onChange={e => setForm({ ...form, orgName: e.target.value })}
                             className={`${styles.input} ${submitted && !form.orgName && styles.not_filled}`}
-                            placeholder={`Наименование ${form.orgType === 'Для ИП' ? 'ИП' : 'организации'}`}
+                            placeholder={form.orgType === 'ip' ? f.placeholders.ipName : f.placeholders.orgName}
                         />
-                        {submitted && !form.orgName && <span className={styles.not_filled_warning}>Введите данные</span>}
+                        {submitted && !form.orgName && <span className={styles.not_filled_warning}>{f.fillWarning}</span>}
                     </>
                 )}
 
@@ -305,21 +261,21 @@ export const ContractForm = () => {
                             value={form.dogNo || ''}
                             onChange={e => setForm({ ...form, dogNo: e.target.value })}
                             className={`${styles.input} ${submitted && !form.dogNo && styles.not_filled}`}
-                            placeholder="Номер договора"
+                            placeholder={f.placeholders.dogNo}
                         />
-                        {submitted && !form.dogNo && <span className={styles.not_filled_warning}>Введите данные</span>}
+                        {submitted && !form.dogNo && <span className={styles.not_filled_warning}>{f.fillWarning}</span>}
                     </>
                 )}
 
                 {!isSub && (
                     <>
-                        {form.orgType !== 'Для физических лиц' && (
+                        {form.orgType !== 'fiz' && (
                             <>
                                 <input
                                     value={form.okved || ''}
                                     onChange={e => setForm({ ...form, okved: e.target.value })}
                                     className={styles.input}
-                                    placeholder="Вид деятельности, ОКВЭД"
+                                    placeholder={f.placeholders.okved}
                                 />
                                 <div className={styles.inn_kpp}>
                                     <div>
@@ -327,61 +283,61 @@ export const ContractForm = () => {
                                             value={form.inn || ''}
                                             onChange={e => setForm({ ...form, inn: e.target.value })}
                                             className={`${styles.input} ${submitted && !form.inn && styles.not_filled}`}
-                                            placeholder="ИНН"
+                                            placeholder={f.placeholders.inn}
                                         />
-                                        {submitted && !form.inn && <span className={styles.not_filled_warning}>Введите данные</span>}
+                                        {submitted && !form.inn && <span className={styles.not_filled_warning}>{f.fillWarning}</span>}
                                     </div>
                                     <div>
                                         <input
                                             value={form.kpp || ''}
                                             onChange={e => setForm({ ...form, kpp: e.target.value })}
                                             className={styles.input}
-                                            placeholder="КПП"
+                                            placeholder={f.placeholders.kpp}
                                         />
                                     </div>
                                 </div>
                             </>
                         )}
 
-                        {form.orgType === 'Для физических лиц' && (
+                        {form.orgType === 'fiz' && (
                             <input
                                 value={form.inn || ''}
                                 onChange={e => setForm({ ...form, inn: e.target.value })}
                                 className={styles.input}
-                                placeholder="ИНН (Личный)"
+                                placeholder={f.placeholders.inn}
                             />
                         )}
 
-                        {form.orgType !== 'Для физических лиц' && (
+                        {form.orgType !== 'fiz' && (
                             <input
-                                value={form.orgType === 'Для ИП' ? form.ogrnip : form.ogrn || ''}
-                                onChange={e => form.orgType === 'Для ИП' ? setForm({ ...form, ogrnip: e.target.value }) : setForm({ ...form, ogrn: e.target.value })}
+                                value={form.orgType === 'ip' ? form.ogrnip : form.ogrn || ''}
+                                onChange={e => form.orgType === 'ip' ? setForm({ ...form, ogrnip: e.target.value }) : setForm({ ...form, ogrn: e.target.value })}
                                 className={styles.input}
-                                placeholder={form.orgType === 'Для ИП' ? "ОГРНИП" : "ОГРН"}
+                                placeholder={form.orgType === 'ip' ? f.placeholders.ogrnip : f.placeholders.ogrn}
                             />
                         )}
 
-                        {form.orgType !== 'Для физических лиц' && (
+                        {form.orgType !== 'fiz' && (
                             <>
-                                <input value={form.bank || ''} onChange={e => setForm({ ...form, bank: e.target.value })} className={styles.input} placeholder="Банк" />
-                                <input value={form.bank_schet || ''} onChange={e => setForm({ ...form, bank_schet: e.target.value })} className={styles.input} placeholder="Расчетный счет" />
-                                <input value={form.korr_schet || ''} onChange={e => setForm({ ...form, korr_schet: e.target.value })} className={styles.input} placeholder="Корреспондентский счет" />
-                                <input value={form.bik || ''} onChange={e => setForm({ ...form, bik: e.target.value })} className={styles.input} placeholder="БИК" />
-                                <input value={form.jurAddr || ''} onChange={e => setForm({ ...form, jurAddr: e.target.value })} className={styles.input} placeholder="Юридический адрес" />
+                                <input value={form.bank || ''} onChange={e => setForm({ ...form, bank: e.target.value })} className={styles.input} placeholder={f.placeholders.bank} />
+                                <input value={form.bank_schet || ''} onChange={e => setForm({ ...form, bank_schet: e.target.value })} className={styles.input} placeholder={f.placeholders.rs} />
+                                <input value={form.korr_schet || ''} onChange={e => setForm({ ...form, korr_schet: e.target.value })} className={styles.input} placeholder={f.placeholders.ks} />
+                                <input value={form.bik || ''} onChange={e => setForm({ ...form, bik: e.target.value })} className={styles.input} placeholder={f.placeholders.bik} />
+                                <input value={form.jurAddr || ''} onChange={e => setForm({ ...form, jurAddr: e.target.value })} className={styles.input} placeholder={f.placeholders.jurAddr} />
                             </>
                         )}
 
-                        {form.orgType === 'Для физических лиц' && (
-                            <input value={form.pasp || ''} onChange={e => setForm({ ...form, pasp: e.target.value })} className={styles.input} placeholder="Серия, номер паспорта" />
+                        {form.orgType === 'fiz' && (
+                            <input value={form.pasp || ''} onChange={e => setForm({ ...form, pasp: e.target.value })} className={styles.input} placeholder={f.placeholders.pasp} />
                         )}
 
                         <input
                             value={form.postAddr || ''}
                             onChange={e => setForm({ ...form, postAddr: e.target.value })}
                             className={`${styles.input} ${submitted && !form.postAddr && styles.not_filled}`}
-                            placeholder="Почтовый адрес"
+                            placeholder={f.placeholders.postAddr}
                         />
-                        {submitted && !form.postAddr && <span className={styles.not_filled_warning}>Введите данные</span>}
+                        {submitted && !form.postAddr && <span className={styles.not_filled_warning}>{f.fillWarning}</span>}
 
                         {form.faktAddr && form.faktAddr.map((addr: string, i: number) => (
                             <div key={i} className={styles.address_group}>
@@ -389,7 +345,7 @@ export const ContractForm = () => {
                                     value={addr}
                                     onChange={e => handleAddressChange(e.target.value, i)}
                                     className={`${styles.input} ${submitted && !addr && styles.not_filled}`}
-                                    placeholder="Фактический адрес для вывоза"
+                                    placeholder={f.placeholders.factAddr}
                                 />
                                 {i > 0 || form.faktAddr.length > 1 ? (
                                     <button type="button" onClick={() => handleRemoveAddress(i)} className={styles.remove_btn}><FaTrash /> Удалить</button>
@@ -403,49 +359,49 @@ export const ContractForm = () => {
                             value={form.wasteType || ''}
                             onChange={(val) => setForm({ ...form, wasteType: val })}
                             options={wasteTypes}
-                            placeholder="Вид отходов"
+                            placeholder={f.placeholders.wasteType}
                             className={submitted && !form.wasteType ? styles.not_filled : ''}
                         />
-                        {submitted && !form.wasteType && <span className={styles.not_filled_warning}>Выберите значение</span>}
+                        {submitted && !form.wasteType && <span className={styles.not_filled_warning}>{f.fillWarning}</span>}
 
                         <Select
                             value={form.usluga || ''}
                             onChange={(val) => setForm({ ...form, usluga: val })}
                             options={serviceTypes}
-                            placeholder="Вид услуги"
+                            placeholder={f.placeholders.serviceType}
                             className={submitted && !form.usluga ? styles.not_filled : ''}
                         />
-                        {submitted && !form.usluga && <span className={styles.not_filled_warning}>Выберите значение</span>}
+                        {submitted && !form.usluga && <span className={styles.not_filled_warning}>{f.fillWarning}</span>}
 
                         <div className={styles.radios}>
-                            <h4 className={styles.radio_label}>Способ расчета</h4>
+                            <h4 className={styles.radio_label}>{f.labels.calcMethod}</h4>
                             <label className={styles.radio}>
-                                <span>Оплата по нормативам</span>
+                                <span>{f.labels.norm}</span>
                                 <input
                                     type="radio"
                                     name="payment"
-                                    checked={form.payment === 'Оплата по нормативам'}
+                                    checked={form.payment === 'norm'}
                                     onChange={() => handlePaymentChange('norm')}
                                 />
                             </label>
                             <label className={styles.radio}>
-                                <span>Оплата по контейнерам</span>
+                                <span>{f.labels.container}</span>
                                 <input
                                     type="radio"
                                     name="payment"
-                                    checked={form.payment === 'Оплата по контейнерам'}
+                                    checked={form.payment === 'kont'}
                                     onChange={() => handlePaymentChange('kont')}
                                 />
                             </label>
                         </div>
 
-                        {form.payment === 'Оплата по нормативам' ? (
+                        {form.payment === 'norm' ? (
                             <>
                                 <Select
                                     value={form.orgIs || ''}
                                     onChange={(val) => setForm({ ...form, orgIs: val, normativ: { title: '', value: '' } })}
                                     options={orgs}
-                                    placeholder="Тип организации"
+                                    placeholder={f.placeholders.orgIs}
                                     className={submitted && !form.orgIs ? styles.not_filled : ''}
                                 />
 
@@ -453,7 +409,7 @@ export const ContractForm = () => {
                                     value={form.normativ?.value || ''}
                                     onChange={e => setForm({ ...form, normativ: { ...form.normativ, value: e.target.value } })}
                                     className={`${styles.input} ${submitted && !form.normativ?.value && styles.not_filled}`}
-                                    placeholder={currentNorm ? currentNorm[1] : 'Выберите тип организации'}
+                                    placeholder={currentNorm ? currentNorm[1] : f.placeholders.normValue}
                                     disabled={!form.orgIs}
                                 />
                             </>
@@ -463,13 +419,13 @@ export const ContractForm = () => {
                                     value={form.kont_count || ''}
                                     onChange={e => setForm({ ...form, kont_count: e.target.value })}
                                     className={styles.input}
-                                    placeholder="Количество контейнеров"
+                                    placeholder={f.placeholders.count}
                                 />
                                 <input
                                     value={form.m3 || ''}
                                     onChange={e => setForm({ ...form, m3: e.target.value })}
                                     className={styles.input}
-                                    placeholder="Объем (м3)"
+                                    placeholder={f.placeholders.volume}
                                 />
                             </div>
                         )}
@@ -480,43 +436,43 @@ export const ContractForm = () => {
                     value={form.dolzhn || ''}
                     onChange={e => setForm({ ...form, dolzhn: e.target.value })}
                     className={styles.input}
-                    placeholder="Представитель (ФИО, должность)"
+                    placeholder={f.placeholders.rep}
                 />
 
                 <input
                     value={form.phoneNumber || ''}
                     onChange={e => setForm({ ...form, phoneNumber: e.target.value })}
                     className={`${styles.input} ${submitted && !form.phoneNumber && styles.not_filled}`}
-                    placeholder="Телефон: +7 (999) 000-00-00"
+                    placeholder={f.placeholders.phone}
                 />
-                {submitted && !form.phoneNumber && <span className={styles.not_filled_warning}>Введите данные</span>}
+                {submitted && !form.phoneNumber && <span className={styles.not_filled_warning}>{f.fillWarning}</span>}
 
                 <input
                     value={form.email || ''}
                     onChange={e => setForm({ ...form, email: e.target.value })}
                     className={`${styles.input} ${submitted && !form.email && styles.not_filled}`}
-                    placeholder="Email"
+                    placeholder={f.placeholders.email}
                     type="email"
                 />
-                {submitted && !form.email && <span className={styles.not_filled_warning}>Введите данные</span>}
+                {submitted && !form.email && <span className={styles.not_filled_warning}>{f.fillWarning}</span>}
 
                 <textarea
                     value={form.comment || ''}
                     onChange={e => setForm({ ...form, comment: e.target.value })}
                     className={styles.textarea}
-                    placeholder={isSub ? 'Какие изменения Вы хотите внести?' : 'Комментарий'}
+                    placeholder={isSub ? f.placeholders.changes : f.placeholders.comment}
                 />
 
                 <div className={styles.files_section}>
                     <label className={styles.upload_label}>
-                        {form.orgType === 'Для физических лиц'
-                            ? 'Прикрепите паспортные данные, ИНН, документы на собственность'
-                            : 'Прикрепите карточку организации, копии ИНН, ОГРН, документы на помещение'
+                        {form.orgType === 'fiz'
+                            ? f.labels.uploadFiz
+                            : f.labels.uploadJur
                         }
                     </label>
                     <label className={styles.upload_area}>
                         <input type="file" multiple onChange={handleUpload} style={{ display: 'none' }} />
-                        <span className={styles.upload_text}><FaPlus /> Выбрать файлы</span>
+                        <span className={styles.upload_text}><FaPlus /> {f.upload}</span>
                     </label>
                     <div className={styles.file_list}>
                         {files.map((file, i) => (
@@ -534,14 +490,14 @@ export const ContractForm = () => {
                 <div className={styles.form_footer}>
                     <label className={styles.checkbox}>
                         <input type="checkbox" checked={signed} onChange={() => setSigned(!signed)} />
-                        <span>Нажимая кнопку, я даю согласие на обработку моих персональных данных</span>
+                        <span>{f.personalCons}</span>
                     </label>
 
                     <button type="submit" disabled={!signed} className={styles.submit_btn}>
-                        {isSub ? 'Оставить заявку на доп. соглашение' : 'Оставить заявку на договор'}
+                        {isSub ? f.submitSub : f.submit}
                     </button>
 
-                    {warning && <span className={styles.warning}><FaExclamationCircle /> Прикрепите необходимые файлы</span>}
+                    {warning && <span className={styles.warning}><FaExclamationCircle /> {f.fileWarning}</span>}
                 </div>
             </form>
         </div>

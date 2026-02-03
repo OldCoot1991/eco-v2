@@ -5,7 +5,7 @@
   right: 0;
   top: 100%;
   background: var(--background);
-  border-bottom: 1px solid rgba(var(--foreground-rgb), 0.1);
+  border-bottom: 1px solid #C0C0C0;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
   overflow-y: auto;

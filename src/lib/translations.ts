@@ -7,6 +7,59 @@ export const translations = {
             halfYear1: "I Полугодие",
             halfYear2: "II Полугодие",
         },
+        companyPage: {
+            badge: "О компании",
+            hero: {
+                title1: "Чистое будущее",
+                title2: "Кабардино-Балкарии",
+                text: "Экологистика — это инновационный подход к обращению с отходами. 900+ сотрудников, собственный автопарк и цифровая экосистема, работающая на благо региона."
+            },
+            autopark: {
+                tag: "Автопарк",
+                title: "Технологии на страже чистоты",
+                desc: "Мы заменили устаревшую технику на современные мусоровозы и спецтранспорт. Это гарантирует, что мусор будет вывезен вовремя, в любую погоду.",
+                stat: "Техники",
+                points: [
+                    "Современные мусоровозы Scania и КАМАЗ",
+                    "Ежедневный технический аудит",
+                    "Максимальная эффективность логистики"
+                ]
+            },
+            ecology: {
+                title: "Экологическая ответственность",
+                text: "Наш полигон — это инженерный комплекс с защитными мембрарами. Мы обрабатываем отходы безопасными реагентами, предотвращая запахи и возгорания. Сохранение природы КБР — наш главный приоритет."
+            },
+            it: {
+                tag: "Цифровизация",
+                title: "Полный цифровой контроль",
+                desc: "Уникальная IT-платформа позволяет нам видеть каждый мусоровоз, каждый контейнер и каждую операцию в режиме реального времени.",
+                stat: "Сотрудников",
+                points: [
+                    "GPS-трекинг всей техники",
+                    "Прозрачная система расчетов",
+                    "Удобные приложения для жителей"
+                ]
+            },
+            services: {
+                title: "Экосистема Сервисов",
+                subtitle: "Мы создаем комплексную инфраструктуру для комфортной жизни в республике",
+                items: {
+                    operator: { title: "Региональный оператор", text: "Вывоз и безопасная утилизация ТКО по всей республике." },
+                    uk: { title: "Управляющая компания", text: "Профессиональное управление 126 многоквартирными домами." },
+                    erc: { title: "Расчетный Центр", text: "Единое окно оплаты ЖКХ и современные мобильные сервисы." },
+                    stroy: { title: "Экострой", text: "Проектирование и благоустройство городских территорий." },
+                    materials: { title: "Материалы", text: "Собственное производство полимерных и строительных материалов." }
+                },
+                actions: {
+                    more: "Подробнее",
+                    go: "Перейти"
+                }
+            },
+            gallery: {
+                uk: { title: "Комфорт в каждый дом", desc: "Управление жилым фондом" },
+                erc: { title: "Удобные платежи", desc: "Современные офисы обслуживания" }
+            }
+        },
         nav: {
             fiz: "Физ. лицам",
             business: "Бизнесу",
@@ -508,6 +561,184 @@ export const translations = {
                 all: "Все новости",
                 read: "Читать далее"
             }
+        },
+        businessPage: {
+            obligationTitle: "Обязанность заключения договора",
+            obligationText: "В соответствии с Федеральным законом №89-ФЗ «Об отходах производства и потребления», все юридические лица и индивидуальные предприниматели, в результате деятельности которых образуются твердые коммунальные отходы, <strong>обязаны заключить договор</strong> с региональным оператором.",
+            obligationWarning: "Отсутствие договора не освобождает от обязанности оплачивать услуги по вывозу ТКО и может повлечь административную ответственность (штрафы до 250 000 рублей для юридических лиц).",
+            contractStepsTitle: "Как заключить договор",
+            servicesTitle: "Наши услуги для бизнеса",
+            documentsTitle: "Документы",
+            allDocuments: "Все документы",
+            documentsText: "Для заключения договора вам потребуются уставные документы, выписка из ЕГРЮЛ/ЕГРИП и заявка установленного образца.",
+            downloadApp: "Скачать форму заявки на заключение договора",
+            stdContract: "Типовой договор на оказание услуг по обращению с ТКО",
+            tariffsNorms: "Действующие тарифы и нормативы накопления",
+            contactsTitle: "Контакты для юрлиц",
+            subDept: "Абонентский отдел:",
+            phone: "Телефон:",
+            email: "Email:"
+        },
+        businessSteps: {
+            prepareDocs: "Подготовьте документы",
+            prepareDocsDesc: "Вам понадобятся: копия свидетельства ОГРН/ИП, карточка предприятия, документ на право собственности или аренды помещения.",
+            fillApp: "Заполните заявку",
+            fillAppDesc: "Скачайте бланк заявки на сайте в разделе Документы, заполните его и заверьте печатью/подписью.",
+            sendToUs: "Направьте нам",
+            sendToUsDesc: "Отправьте скан-копии документов и заявки на электронную почту info@ecologistika.com или принесите в офис.",
+            getContract: "Получите договор",
+            getContractDesc: "Наши специалисты подготовят проект договора и направят вам на подписание. После этого начнется обслуживание."
+        },
+        businessServices: {
+            contract: "Заключение договора",
+            contractDesc: "Обязательное заключение договора с региональным оператором для всех юридических лиц и ИП.",
+            wasteRemoval: "Вывоз ТКО",
+            wasteRemovalDesc: "Регулярный вывоз твердых коммунальных отходов по согласованному графику.",
+            recycling: "Раздельный сбор",
+            recyclingDesc: "Организация раздельного накопления отходов для снижения платы за негативное воздействие.",
+            industrial: "Промышленные отходы",
+            industrialDesc: "Вывоз и утилизация отходов производства, не относящихся к ТКО (по отдельной заявке).",
+            containers: "Аренда контейнеров",
+            containersDesc: "Предоставление контейнеров и бункеров различного объема в аренду.",
+            ecoSupport: "Экологическое сопровождение",
+            ecoSupportDesc: "Консультации по вопросам экологического законодательства и нормативов."
+        },
+        mobileApp: {
+            badge: "Все услуги в кармане",
+            title: "Мобильное приложение",
+            desc: "Оплачивайте услуги, подавайте заявки и следите за статусом выполнения в нашем удобном приложении.",
+            downloadOn: "Загрузите в",
+            getItOn: "Доступно в"
+        },
+        paymentPartners: {
+            sberName: "Сбербанк Онлайн",
+            sberDesc: "Оплата без комиссии",
+            tbankName: "Т-Банк",
+            tbankDesc: "Быстрые платежи"
+        },
+        faq: {
+            title: "Вопросы и ответы",
+            items: [
+                {
+                    title: "Как заключить договор на вывоз мусора?",
+                    content: "Договор с региональным оператором на оказание услуг по обращению с ТКО носит характер публичной оферты. Его проект размещается на сайте компании. Заключение договора в письменной форме для физических лиц не обязательно, однако вы можете подать заявку на заключение письменного договора в офисе компании или направив сканированные копии документов на электронную почту."
+                },
+                {
+                    title: "Где можно оплатить услуги без комиссии?",
+                    content: "Оплатить услуги без комиссии можно через мобильное приложение «Сбербанк Онлайн» (по QR-коду на квитанции), в отделениях Почты России, а также в кассах расчетного центра ООО «Экологистика»."
+                },
+                {
+                    title: "Что делать, если в квитанции указано неверное количество проживающих?",
+                    content: "Если количество проживающих указано неверно, необходимо предоставить в абонентский отдел справку о составе семьи или выписку из домовой книги. Перерасчет будет произведен с момента подачи заявления с приложением подтверждающих документов."
+                },
+                {
+                    title: "Кто должен заключать договор на вывоз ТКО?",
+                    content: "Собственники твердых коммунальных отходов обязаны заключить договор на оказание услуг по обращению с ТКО с региональным оператором, в зоне деятельности которого образуются отходы и находятся места их накопления."
+                },
+                {
+                    title: "Какие льготы предусмотрены для населения?",
+                    content: "Услуга по обращению с ТКО относится к коммунальным услугам, поэтому на нее распространяются все льготы, предусмотренные законодательством для оплаты ЖКУ (ветераны труда, инвалиды, многодетные семьи и др.). Компенсация предоставляется органами социальной защиты."
+                }
+            ]
+        },
+        businessContract: {
+            title: "Договор на оказание услуг",
+            subtitle: "Обязательность заключения договора",
+            legalBasis: "В соответствии с Федеральным законом от 24.06.1998 г. № 89-ФЗ «Об отходах производства и потребления», собственники твердых коммунальных отходов (ТКО) обязаны заключить договор на оказание услуг по обращению с ТКО с региональным оператором, в зоне деятельности которого образуются отходы и находятся места их накопления.",
+            legalBasis2: "<strong>Региональный оператор ООО «Экологистика»</strong> осуществляет деятельность по обращению с ТКО на всей территории Кабардино-Балкарской Республики.",
+            documents: {
+                title: "Необходимые документы",
+                legal: {
+                    title: "Для юридических лиц",
+                    list: [
+                       "Копия Устава (первая, последняя страницы, полномочия руководителя)",
+                       "Копия Свидетельства о государственной регистрации (ОГРН)",
+                       "Копия Свидетельства о постановке на налоговый учет (ИНН/КПП)",
+                       "Копия документа, подтверждающего полномочия руководителя (протокол/решение, приказ)",
+                       "Карточка предприятия (банковские реквизиты, юридический и фактический адрес, контакты)",
+                       "Документы на помещение (свидетельство о собственности или договор аренды)"
+                    ]
+                },
+                entrepreneur: {
+                    title: "Для индивидуальных предпринимателей",
+                    list: [
+                       "Копия Свидетельства о государственной регистрации физического лица в качестве ИП (ОГРНИП)",
+                       "Копия Свидетельства о постановке на налоговый учет (ИНН)",
+                       "Копия паспорта (разворот с фото и прописка)",
+                       "Банковские реквизиты (карточка)",
+                       "Документы на помещение (свидетельство о собственности или договор аренды)"
+                    ]
+                }
+            },
+            stepsTitle: "Как заключить договор",
+            download: {
+                title: "Скачать документы",
+                appForm: "Бланк заявления",
+                template: "Типовой договор",
+                button: "Скачать"
+            },
+            contacts: {
+                title: "Контакты договорного отдела",
+                address: "Адрес офиса:",
+                addressValue: "360000, КБР, г. Нальчик, ул. Ленина, 57",
+                phone: "Телефон:",
+                email: "Email для приема заявок:"
+            },
+            form: {
+                title: "Заявка на заключение договора",
+                button: "Заявка на заключение договора",
+                subButton: "Заявка на доп. соглашение",
+                submit: "Оставить заявку на договор",
+                submitSub: "Оставить заявку на доп. соглашение",
+                successTitle: "Спасибо за Вашу заявку!",
+                successMsg: "Наши специалисты рассмотрят её и свяжутся с Вами в ближайшее время.",
+                submitAnother: "Отправить еще заявку",
+                personalCons: "Нажимая кнопку, я даю согласие на обработку моих персональных данных",
+                fillWarning: "Пожалуйста, заполните все обязательные поля",
+                fileWarning: "Прикрепите необходимые файлы",
+                upload: "Выбрать файлы",
+                placeholders: {
+                    fullName: "Ф.И.О.",
+                    orgName: "Наименование организации",
+                    ipName: "Наименование ИП",
+                    dogNo: "Номер договора",
+                    okved: "Вид деятельности, ОКВЭД",
+                    inn: "ИНН",
+                    kpp: "КПП",
+                    ogrn: "ОГРН",
+                    ogrnip: "ОГРНИП",
+                    bank: "Банк",
+                    rs: "Расчетный счет",
+                    ks: "Корреспондентский счет",
+                    bik: "БИК",
+                    jurAddr: "Юридический адрес",
+                    postAddr: "Почтовый адрес",
+                    factAddr: "Фактический адрес для вывоза",
+                    pasp: "Серия, номер паспорта",
+                    wasteType: "Вид отходов",
+                    serviceType: "Вид услуги",
+                    rep: "Представитель (ФИО, должность)",
+                    phone: "Телефон: +7 (999) 000-00-00",
+                    email: "Email",
+                    comment: "Комментарий",
+                    changes: "Какие изменения Вы хотите внести?",
+                    count: "Количество контейнеров",
+                    volume: "Объем (м3)",
+                    orgIs: "Тип организации",
+                    normValue: "Выберите тип организации"
+                },
+                labels: {
+                    jur: "Для юридических лиц",
+                    ip: "Для ИП",
+                    fiz: "Для физ. лиц",
+                    jurIp: "Для юридических лиц / ИП",
+                    calcMethod: "Способ расчета",
+                    norm: "Оплата по нормативам",
+                    container: "Оплата по контейнерам",
+                    uploadFiz: "Прикрепите паспортные данные, ИНН, документы на собственность",
+                    uploadJur: "Прикрепите карточку организации, копии ИНН, ОГРН, документы на помещение"
+                }
+            }
         }
     },
     en: {
@@ -517,6 +748,59 @@ export const translations = {
             currency: "RUB",
             halfYear1: "I Half-year",
             halfYear2: "II Half-year",
+        },
+        companyPage: {
+            badge: "About Company",
+            hero: {
+                title1: "Clean Future",
+                title2: "of Kabardino-Balkaria",
+                text: "Ecologistika is an innovative approach to waste management. 900+ employees, own fleet and a digital ecosystem working for the benefit of the region."
+            },
+            autopark: {
+                tag: "Fleet",
+                title: "Technologies Guarding Cleanliness",
+                desc: "We have replaced outdated equipment with modern garbage trucks and special vehicles. This guarantees that waste will be removed on time, in any weather.",
+                stat: "Vehicles",
+                points: [
+                    "Modern Scania and KAMAZ garbage trucks",
+                    "Daily technical audit",
+                    "Maximum logistics efficiency"
+                ]
+            },
+            ecology: {
+                title: "Ecological Responsibility",
+                text: "Our landfill is an engineering complex with protective membranes. We treat waste with safe reagents, preventing odors and fires. Preserving the nature of the KBR is our top priority."
+            },
+            it: {
+                tag: "Digitalization",
+                title: "Full Digital Control",
+                desc: "Unique IT platform allows us to see every garbage truck, every container and every operation in real time.",
+                stat: "Employees",
+                points: [
+                    "GPS tracking of all vehicles",
+                    "Transparent calculation system",
+                    "Convenient apps for residents"
+                ]
+            },
+            services: {
+                title: "Service Ecosystem",
+                subtitle: "We create a comprehensive infrastructure for comfortable life in the republic",
+                items: {
+                    operator: { title: "Regional Operator", text: "Removal and safe disposal of MSW throughout the republic." },
+                    uk: { title: "Management Company", text: "Professional management of 126 multi-apartment buildings." },
+                    erc: { title: "Calculation Center", text: "One-stop shop for utility payments and modern mobile services." },
+                    stroy: { title: "Ecostroy", text: "Design and improvement of urban areas." },
+                    materials: { title: "Materials", text: "Own production of polymer and building materials." }
+                },
+                actions: {
+                    more: "Details",
+                    go: "Go"
+                }
+            },
+            gallery: {
+                uk: { title: "Comfort in Every Home", desc: "Housing stock management" },
+                erc: { title: "Convenient Payments", desc: "Modern service offices" }
+            }
         },
         nav: {
             fiz: "Individuals",
@@ -1018,6 +1302,184 @@ export const translations = {
                 subtitle: "Latest events and important notifications",
                 all: "All News",
                 read: "Read More"
+            }
+        },
+        businessPage: {
+            obligationTitle: "Duty to Conclude a Contract",
+            obligationText: "In accordance with Federal Law No. 89-FZ 'On Production and Consumption Waste', all legal entities and individual entrepreneurs whose activities generate solid municipal waste must <strong>conclude a contract</strong> with a regional operator.",
+            obligationWarning: "The absence of a contract does not exempt from the obligation to pay for MSW removal services and may entail administrative liability (fines up to 250,000 rubles for legal entities).",
+            contractStepsTitle: "How to Conclude a Contract",
+            servicesTitle: "Our Services for Business",
+            documentsTitle: "Documents",
+            allDocuments: "All Documents",
+            documentsText: "To conclude a contract, you will need constituent documents, an extract from the Unified State Register of Legal Entities/IEs, and an application of the established form.",
+            downloadApp: "Download application form for contract conclusion",
+            stdContract: "Standard contract for MSW management services",
+            tariffsNorms: "Current tariffs and accumulation standards",
+            contactsTitle: "Contacts for Legal Entities",
+            subDept: "Subscriber Department:",
+            phone: "Phone:",
+            email: "Email:"
+        },
+        businessSteps: {
+            prepareDocs: "Prepare Documents",
+            prepareDocsDesc: "You will need: copy of OGRN/IE certificate, company card, document on ownership or lease of premises.",
+            fillApp: "Fill Application",
+            fillAppDesc: "Download the application form in the Documents section, fill it out and certify with stamp/signature.",
+            sendToUs: "Send to Us",
+            sendToUsDesc: "Send scanned copies of documents and application to info@ecologistika.com or bring to the office.",
+            getContract: "Receive Contract",
+            getContractDesc: "Our specialists will prepare a draft contract and send it to you for signing. Service starts afterwards."
+        },
+        businessServices: {
+            contract: "Contract Conclusion",
+            contractDesc: "Mandatory contract conclusion with regional operator for all legal entities and IEs.",
+            wasteRemoval: "MSW Removal",
+            wasteRemovalDesc: "Regular solid municipal waste removal according to agreed schedule.",
+            recycling: "Waste Separation",
+            recyclingDesc: "Organization of separate waste accumulation to reduce negative impact fees.",
+            industrial: "Industrial Waste",
+            industrialDesc: "Removal and disposal of production waste not classified as MSW (by separate request).",
+            containers: "Container Rental",
+            containersDesc: "Provision of containers and bunkers of various volumes for rent.",
+            ecoSupport: "Environmental Support",
+            ecoSupportDesc: "Consultations on environmental legislation and regulations standards."
+        },
+        mobileApp: {
+            badge: "All services in your pocket",
+            title: "Mobile Application",
+            desc: "Pay for services, submit requests and track the status in our convenient application.",
+            downloadOn: "Download on",
+            getItOn: "Get it on"
+        },
+        paymentPartners: {
+            sberName: "Sberbank Online",
+            sberDesc: "Commission-free payment",
+            tbankName: "T-Bank",
+            tbankDesc: "Fast payments"
+        },
+        faq: {
+            title: "FAQ",
+            items: [
+                {
+                    title: "How to conclude a waste removal contract?",
+                    content: "The contract with the regional operator for MSW services is a public offer. Its draft is posted on the company's website. Concluding a written contract is not mandatory for individuals, however, you can submit an application for a written contract at the company's office or by sending scanned copies of documents via email."
+                },
+                {
+                    title: "Where can I pay for services without commission?",
+                    content: "You can pay for services without commission via the Sberbank Online mobile app (using the QR code on the receipt), at Russian Post branches, as well as at the cash desks of the settlement center of LLC Ecologistika."
+                },
+                {
+                    title: "What if the number of residents in the receipt is incorrect?",
+                    content: "If the number of residents is incorrect, you need to provide a family composition certificate or an extract from the house register to the subscriber department. Recalculation will be made from the moment of submitting the application with supporting documents attached."
+                },
+                {
+                    title: "Who must conclude an MSW contract?",
+                    content: "Owners of solid municipal waste are obliged to conclude a contract for MSW services with the regional operator in whose zone of activity waste is generated and accumulation places are located."
+                },
+                {
+                    title: "What benefits are provided for the population?",
+                    content: "MSW service is a utility service, so all benefits provided by legislation for utility payments apply to it (labor veterans, disabled people, large families, etc.). Compensation is provided by social protection authorities."
+                }
+            ]
+        },
+        businessContract: {
+            title: "Service Contract",
+            subtitle: "Obligation to Conclude a Contract",
+            legalBasis: "In accordance with Federal Law No. 89-FZ of June 24, 1998 'On Production and Consumption Waste', owners of solid municipal waste (MSW) are obliged to conclude a contract for MSW services with a regional operator in whose zone of activity waste is generated and accumulation places are located.",
+            legalBasis2: "<strong>Regional Operator LLC Ecologistika</strong> carries out MSW management activities throughout the territory of the Kabardino-Balkarian Republic.",
+            documents: {
+                title: "Required Documents",
+                legal: {
+                    title: "For Legal Entities",
+                    list: [
+                       "Copy of the Charter (first, last pages, powers of the head)",
+                       "Copy of the Certificate of State Registration (OGRN)",
+                       "Copy of the Certificate of Tax Registration (INN/KPP)",
+                       "Copy of the document confirming the powers of the head (protocol/decision, order)",
+                       "Company details card (bank details, legal and actual address, contacts)",
+                       "Premises documents (certificate of ownership or lease agreement)"
+                    ]
+                },
+                entrepreneur: {
+                    title: "For Individual Entrepreneurs",
+                    list: [
+                       "Copy of the Certificate of State Registration of an Individual as an IE (OGRNIP)",
+                       "Copy of the Certificate of Tax Registration (INN)",
+                       "Copy of passport (spread with photo and residence permit)",
+                       "Bank details (card)",
+                       "Premises documents (certificate of ownership or lease agreement)"
+                    ]
+                }
+            },
+            stepsTitle: "How to Conclude a Contract",
+            download: {
+                title: "Download Documents",
+                appForm: "Application Form",
+                template: "Standard Contract",
+                button: "Download"
+            },
+            contacts: {
+                title: "Contract Department Contacts",
+                address: "Office Address:",
+                addressValue: "57 Lenin St., Nalchik, KBR, 360000",
+                phone: "Phone:",
+                email: "Email for applications:"
+            },
+            form: {
+                title: "Service Contract Application",
+                button: "Contract Application",
+                subButton: "Supplementary Agreement Application",
+                submit: "Submit Application",
+                submitSub: "Submit Supp. Agreement Application",
+                successTitle: "Thank you for your application!",
+                successMsg: "Our specialists will review it and contact you shortly.",
+                submitAnother: "Submit Another Application",
+                personalCons: "By clicking the button, I seek consent to the processing of my personal data",
+                fillWarning: "Please fill in all required fields",
+                fileWarning: "Attach required files",
+                upload: "Choose files",
+                placeholders: {
+                    fullName: "Full Name",
+                    orgName: "Organization Name",
+                    ipName: "IE Name",
+                    dogNo: "Contract Number",
+                    okved: "Activity Code (OKVED)",
+                    inn: "INN",
+                    kpp: "KPP",
+                    ogrn: "OGRN",
+                    ogrnip: "OGRNIP",
+                    bank: "Bank",
+                    rs: "Payment Account",
+                    ks: "Correspondent Account",
+                    bik: "BIC",
+                    jurAddr: "Legal Address",
+                    postAddr: "Postal Address",
+                    factAddr: "Actual Address for Waste Collection",
+                    pasp: "Passport Series and Number",
+                    wasteType: "Waste Type",
+                    serviceType: "Service Type",
+                    rep: "Representative (Name, Position)",
+                    phone: "Phone: +7 (999) 000-00-00",
+                    email: "Email",
+                    comment: "Comment",
+                    changes: "What changes do you want to make?",
+                    count: "Container Count",
+                    volume: "Volume (m3)",
+                    orgIs: "Organization Type",
+                    normValue: "Select Organization Type"
+                },
+                labels: {
+                    jur: "For Legal Entities",
+                    ip: "For IE",
+                    fiz: "For Individuals",
+                    jurIp: "For Legal Entities / IE",
+                    calcMethod: "Calculation Method",
+                    norm: "Payment by Norms",
+                    container: "Payment by Containers",
+                    uploadFiz: "Attach passport details, INN, property documents",
+                    uploadJur: "Attach organization card, INN/OGRN copies, premises documents"
+                }
             }
         }
     }
