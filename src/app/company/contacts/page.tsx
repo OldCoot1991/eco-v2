@@ -1,4 +1,4 @@
-import Contacts from "@/components/contacts/Contacts";
+import Contacts from "@/widgets/contacts/Contacts";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

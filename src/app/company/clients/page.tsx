@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
-import { partners } from "@/components/home/TrustedBy/trustedByData";
-import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
+import { partners } from "@/widgets/trusted-by/trustedByData";
+import { SectionTitle } from "@/shared/ui/SectionTitle/SectionTitle";
 
 export default function CompanyClientsPage() {
     return (

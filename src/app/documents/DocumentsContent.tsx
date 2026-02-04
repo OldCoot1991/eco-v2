@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
-import { useTranslation } from "@/lib/hooks/useTranslation";
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import { useTranslation } from "@/shared/lib/hooks/useTranslation";
+import { SectionTitle } from "@/shared/ui/SectionTitle";
 import styles from "../page.module.css";
 
 export default function DocumentsContent() {

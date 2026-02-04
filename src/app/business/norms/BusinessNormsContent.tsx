@@ -2,9 +2,9 @@
 
 import React, { useRef } from 'react';
 import styles from './BusinessNormsContent.module.css';
-import { useTranslation } from '@/lib/hooks/useTranslation';
-import { SectionTitle } from '@/components/ui/SectionTitle';
-import { CustomScrollbar } from '@/components/ui/CustomScrollbar/CustomScrollbar';
+import { useTranslation } from '@/shared/lib/hooks/useTranslation';
+import { SectionTitle } from '@/shared/ui/SectionTitle';
+import { CustomScrollbar } from '@/shared/ui/CustomScrollbar/CustomScrollbar';
 
 interface CategoryItemProps {
     category: {

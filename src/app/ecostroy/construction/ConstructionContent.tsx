@@ -2,9 +2,9 @@
 
 import React from 'react';
 import styles from './ConstructionContent.module.css';
-import { useTranslation } from "@/lib/hooks/useTranslation";
+import { useTranslation } from "@/shared/lib/hooks/useTranslation";
 import { Icons, serviceCategories } from './constructionData';
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import { SectionTitle } from "@/shared/ui/SectionTitle";
 
 export default function ConstructionContent() {
     const { t } = useTranslation();

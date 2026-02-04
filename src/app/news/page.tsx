@@ -1,5 +1,5 @@
 import NewsContent from "./NewsContent";
-import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";
+import BreadcrumbsLd from "@/shared/seo/BreadcrumbsLd";
 
 
 export const metadata = {

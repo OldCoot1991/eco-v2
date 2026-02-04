@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import ManagementContent from "./ManagementContent";
-import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";
+import BreadcrumbsLd from "@/shared/seo/BreadcrumbsLd";
 
 export const metadata: Metadata = {
     title: "Руководство ООО «Экологистика» | Генеральный директор и топ-менеджмент",

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import NormativeActs from "@/components/documents/NormativeActs";
+import NormativeActs from "@/entities/document/ui/NormativeActs";
 
 export const metadata: Metadata = {
   title: "Нормативные правовые акты по обращению с ТКО | Экологистика",

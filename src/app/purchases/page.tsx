@@ -1,5 +1,5 @@
-import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";
-import PurchasesDocs from "@/components/documents/PurchasesDocs";
+import BreadcrumbsLd from "@/shared/seo/BreadcrumbsLd";
+import PurchasesDocs from "@/entities/document/ui/PurchasesDocs";
 
 export const metadata = {
     title: "Закупки | Экологистика КБР",

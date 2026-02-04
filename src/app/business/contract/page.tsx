@@ -1,4 +1,4 @@
-import { BusinessContractPageContent } from "@/components/business/BusinessContractPageContent";
+import { BusinessContractPageContent } from "@/widgets/business-page/BusinessContractPageContent";
 
 export const metadata = {
     title: "Договор на вывоз ТКО | Экологистика КБР",

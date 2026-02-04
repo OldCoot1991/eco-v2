@@ -4,8 +4,8 @@ import React from 'react';
 import styles from './MaterialsContent.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslation } from '@/lib/hooks/useTranslation';
-import { SectionTitle } from '@/components/ui/SectionTitle';
+import { useTranslation } from '@/shared/lib/hooks/useTranslation';
+import { SectionTitle } from '@/shared/ui/SectionTitle';
 import { getMaterialsData } from './materialsData';
 
 export default function MaterialsContent() {

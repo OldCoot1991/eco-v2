@@ -1,4 +1,4 @@
-import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";
+import BreadcrumbsLd from "@/shared/seo/BreadcrumbsLd";
 import ConstructionContent from "./ConstructionContent";
 
 export const metadata = {

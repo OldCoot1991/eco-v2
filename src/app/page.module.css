@@ -103,6 +103,19 @@
   height: 100%;
 }
 
+.cardBox {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .cardBox {
+    padding: 1.25rem;
+  }
+}
+
 .listItem {
     margin-bottom: 0.5rem;
 }
@@ -133,4 +146,74 @@
 .link:hover {
   border-bottom-color: #10b981;
   opacity: 0.8;
+}
+
+/* Added Styles */
+.warningBox {
+  background: rgba(16, 185, 129, 0.1);
+  padding: 1.5rem;
+  border-radius: 4px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.warningText {
+  margin: 0;
+  color: #065f46;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+:global(.dark) .warningText {
+  color: #34d399;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 0 0.75rem 3rem;
+  }
+
+  .section {
+    margin-bottom: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .pageText {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .warningBox {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .warningText {
+    font-size: 1rem;
+  }
+
+  .combinedSection {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .combinedGrid {
+    gap: 2rem;
+  }
+
+  .contactsCard {
+    padding: 1.25rem;
+  }
+
+  .list {
+    font-size: 1rem;
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+  }
 }

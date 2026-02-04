@@ -1,4 +1,4 @@
-import { FizFaqPageContent } from "@/components/fiz/FizFaqPageContent";
+import { FizFaqPageContent } from "@/widgets/fiz-page/FizFaqPageContent";
 
 export const metadata = {
     title: "Вопросы и ответы | Экологистика КБР",

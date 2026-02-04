@@ -1,9 +1,9 @@
 "use client";
 
 import styles from "./page.module.css";
-import { SectionTitle } from "@/components/ui/SectionTitle/SectionTitle";
+import { SectionTitle } from "@/shared/ui/SectionTitle/SectionTitle";
 import { autoparkData } from "./data";
-import { useTranslation } from "@/lib/hooks/useTranslation";
+import { useTranslation } from "@/shared/lib/hooks/useTranslation";
 
 export default function CompanyFleetPage() {
     const { t } = useTranslation();

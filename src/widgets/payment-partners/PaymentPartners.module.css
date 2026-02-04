@@ -1,0 +1,8 @@
+/* PaymentPartners Component Styles - Compact with Fluid Calc */
+
+.partnersGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Fluid gap: 8px to 20px */
+    gap: calc(8px + (20 - 8) * ((100vw - 320px) / (1920 - 320)));
+}

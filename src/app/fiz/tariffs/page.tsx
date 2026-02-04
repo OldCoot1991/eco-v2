@@ -1,4 +1,4 @@
-import TariffsFiz from "@/components/tariffs/TariffsFiz";
+import TariffsFiz from "@/entities/tariff/ui/TariffsFiz";
 import styles from "../../page.module.css";
 import { Metadata } from "next";
 

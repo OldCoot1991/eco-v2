@@ -1,0 +1,150 @@
+/* MobileApp Component Styles - Compact with Fluid Calc */
+
+.mobileAppSection {
+    background: #18181b;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* Fluid margin-top: 32px to 64px */
+    margin-top: calc(32px + (64 - 32) * ((100vw - 320px) / (1920 - 320)));
+    /* Fluid padding: 24px to 48px (vertical) */
+    padding: calc(24px + (48 - 24) * ((100vw - 320px) / (1920 - 320))) 0;
+    /* Fluid margin-bottom: 32px to 48px */
+    margin-bottom: calc(32px + (48 - 32) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.mobileAppContainer {
+    max-width: 1280px;
+    margin: 0 auto;
+    /* Fluid padding-x: 16px to 64px */
+    padding-left: calc(16px + (64 - 16) * ((100vw - 320px) / (1920 - 320)));
+    padding-right: calc(16px + (64 - 16) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.bgGradient {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(16, 185, 129, 0.2), transparent);
+    pointer-events: none;
+}
+
+.appGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Fluid gap: 32px to 48px */
+    gap: calc(32px + (48 - 32) * ((100vw - 320px) / (1920 - 320)));
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 1024px) {
+    .appGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+}
+
+.appContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .appContent {
+        align-items: flex-start;
+    }
+}
+
+.appBadge {
+
+    display: inline-block;
+    /* Fluid padding: 6px to 8px (vertical), 14px to 16px (horizontal) */
+    padding: calc(6px + (8 - 6) * ((100vw - 320px) / (1920 - 320))) calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+    border-radius: 4px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+    font-weight: 500;
+    /* Fluid font-size: 12px to 14px */
+    font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1920 - 320)));
+    /* Fluid margin-bottom: 16px to 24px */
+    margin-bottom: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.appHeading {
+    /* Fluid font-size: 28px to 48px */
+    font-size: calc(28px + (48 - 28) * ((100vw - 320px) / (1920 - 320)));
+    font-weight: 700;
+    /* Fluid margin-bottom: 16px to 24px */
+    margin-bottom: calc(16px + (24 - 16) * ((100vw - 320px) / (1920 - 320)));
+    color: #ffffff;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .appHeading {
+        text-align: left;
+    }
+}
+
+.appDescription {
+    /* Fluid font-size: 14px to 16px */
+    font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+    color: #a1a1aa;
+    /* Fluid margin-bottom: 24px to 32px */
+    margin-bottom: calc(24px + (32 - 24) * ((100vw - 320px) / (1920 - 320)));
+    max-width: 28rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .appDescription {
+        text-align: left;
+    }
+}
+
+.appButtons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    /* Fluid gap: 10px to 12px */
+    gap: calc(10px + (12 - 10) * ((100vw - 320px) / (1920 - 320)));
+}
+
+@media (min-width: 1024px) {
+    .appButtons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
+.appMockup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phoneMockup {
+    /* Fluid width: 140px to 256px */
+    width: calc(140px + (256 - 140) * ((100vw - 320px) / (1920 - 320)));
+    /* Fluid height: 280px to 500px */
+    height: calc(280px + (500 - 280) * ((100vw - 320px) / (1920 - 320)));
+    background: #3f3f46;
+    border-radius: 4px;
+    /* Fluid border: 4px to 8px */
+    border: calc(4px + (8 - 4) * ((100vw - 320px) / (1920 - 320))) solid #52525b;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #71717a;
+    font-weight: 500;
+    overflow: hidden;
+}

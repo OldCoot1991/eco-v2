@@ -1,8 +1,8 @@
 "use client";
 import React from 'react';
-import { useTranslation } from "@/lib/hooks/useTranslation";
+import { useTranslation } from "@/shared/lib/hooks/useTranslation";
 import styles from "../page.module.css";
-import { SectionTitle } from '@/components/ui/SectionTitle/SectionTitle';
+import { SectionTitle } from '@/shared/ui/SectionTitle/SectionTitle';
 
 export default function PurchasesContent() {
     const { t } = useTranslation();

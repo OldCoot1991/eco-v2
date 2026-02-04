@@ -2,9 +2,9 @@
 
 import React from 'react';
 import styles from './ManagementContent.module.css';
-import { useTranslation } from '@/lib/hooks/useTranslation';
+import { useTranslation } from '@/shared/lib/hooks/useTranslation';
 import { FaUserTie } from 'react-icons/fa';
-import { SectionTitle } from '@/components/ui/SectionTitle';
+import { SectionTitle } from '@/shared/ui/SectionTitle';
 
 export default function ManagementContent() {
     const { t } = useTranslation();

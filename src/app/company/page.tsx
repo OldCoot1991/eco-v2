@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { CompanyPageContent } from "@/components/company/CompanyPageContent";
+import { CompanyPageContent } from "@/widgets/company-content/CompanyPageContent";
 
 export const metadata: Metadata = {
     title: "О компании | Экологистика КБР",

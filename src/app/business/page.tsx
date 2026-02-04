@@ -1,4 +1,4 @@
-import { BusinessPageContent } from "@/components/business/BusinessPageContent";
+import { BusinessPageContent } from "@/widgets/business-page/BusinessPageContent";
 
 export const metadata = {
     title: "Юридическим лицам | Экологистика КБР",

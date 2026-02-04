@@ -1,5 +1,5 @@
 import styles from "../../page.module.css";
-import BreadcrumbsLd from "@/components/seo/BreadcrumbsLd";
+import BreadcrumbsLd from "@/shared/seo/BreadcrumbsLd";
 import MaterialsContent from "./MaterialsContent";
 
 export const metadata = {

@@ -2,11 +2,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Raleway, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
-import StoreProvider from "@/components/StoreProvider";
-import ThemeSync from "@/components/ThemeSync";
+import StoreProvider from "@/shared/providers/StoreProvider";
+import ThemeSync from "@/shared/providers/ThemeSync";
 import styles from "./page.module.css";
-import Header from "@/components/header/Header";
-import { Footer } from "@/components/footer/Footer";
+import Header from "@/widgets/header/Header";
+import { Footer } from "@/widgets/footer/Footer";
 
 
 const geistSans = Geist({

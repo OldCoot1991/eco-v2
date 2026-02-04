@@ -1,5 +1,5 @@
 import Link from "next/link";
-import TariffsJur from "@/components/tariffs/TariffsJur";
+import TariffsJur from "@/entities/tariff/ui/TariffsJur";
 import styles from "../../page.module.css";
 import { Metadata } from "next";
 
