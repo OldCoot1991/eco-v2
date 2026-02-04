@@ -14,7 +14,6 @@ export default function ConstructionContent() {
             <SectionTitle
                 title={t.nav.construction.title}
                 subtitle={t.nav.construction.subtitle}
-                size="small"
             />
 
             <div className={styles.grid}>

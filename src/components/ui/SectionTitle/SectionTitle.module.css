@@ -4,9 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Fluid margin-top: 28px to 44px (reduced by 20px) */
     margin-top: calc(28px + (44 - 28) * ((100vw - 320px) / (1920 - 320)));
-    /* Fluid margin-bottom: 32px to 48px - matches Contacts margin-bottom */
     margin-bottom: calc(32px + (48 - 32) * ((100vw - 320px) / (1920 - 320)));
     text-align: center;
 }
@@ -15,7 +13,6 @@
     font-size: 2.25rem;
     font-weight: 900;
     margin: 0 0 1.5rem 0;
-    /* Dark Metallic Gradient for Light Mode */
     background-image: linear-gradient(to right, #374151, #111827, #374151);
     -webkit-background-clip: text;
     background-clip: text;
@@ -26,7 +23,6 @@
 }
 
 :global(.dark) .title {
-    /* Silver Metallic Gradient for Dark Mode */
     background-image: linear-gradient(to right, #9ca3af, #f3f4f6, #9ca3af);
     color: transparent;
 }
@@ -39,46 +35,31 @@
 
 .accent {
     color: #059669;
-    /* emerald-600 */
     margin-left: 0.25em;
-    /* small space if needed, or rely on whitespace in props */
 }
 
 :global(.dark) .accent {
     color: #34d399;
-    /* emerald-400 */
 }
 
 .subtitle {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #52525b;
-    /* zinc-600 */
-    max-width: 42rem;
+    font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
     line-height: 1.6;
-    text-transform: uppercase;
-    letter-spacing: 0.025em;
+    color: #52525b;
+    max-width: 48rem;
+    font-weight: 500;
     margin: 0;
+    opacity: 0.9;
 }
 
 :global(.dark) .subtitle {
     color: #a1a1aa;
-    /* zinc-400 */
 }
 
-@media (min-width: 768px) {
-    .subtitle {
-        font-size: 1.25rem;
-    }
-}
-
-/* Small Variant (Fluid) */
 .titleSmall {
-    /* 28px to 45px */
     font-size: calc(28px + (45 - 28) * ((100vw - 320px) / (1920 - 320))) !important;
 }
 
 .subtitleSmall {
-    /* 11px to 13px */
     font-size: calc(11px + (13 - 11) * ((100vw - 320px) / (1920 - 320))) !important;
 }
