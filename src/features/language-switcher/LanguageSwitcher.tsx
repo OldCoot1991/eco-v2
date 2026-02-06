@@ -17,7 +17,11 @@ export default function LanguageSwitcher() {
             aria-label="Toggle language"
         >
             <HiLanguage className={styles.icon} />
-            <span className={`${styles.separator} ${theme === 'dark' ? styles.separatorDark : styles.separatorLight}`}>/</span>
+            <span
+                className={`${styles.separator} ${theme === "dark" ? styles.separatorDark : styles.separatorLight}`}
+            >
+                /
+            </span>
             <span className={styles.language}>{language}</span>
         </button>
     );

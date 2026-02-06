@@ -62,7 +62,6 @@
 }
 
 .appBadge {
-
     display: inline-block;
     /* Fluid padding: 6px to 8px (vertical), 14px to 16px (horizontal) */
     padding: calc(6px + (8 - 6) * ((100vw - 320px) / (1920 - 320))) calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));

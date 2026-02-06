@@ -759,6 +759,33 @@ export const translations = {
                     uploadJur: "Прикрепите карточку организации, копии ИНН, ОГРН, документы на помещение"
                 }
             }
+        },
+        businessFeedback: {
+            title: "Обратная связь",
+            subtitle: "Если у вас возникли вопросы, заполните форму ниже",
+            form: {
+                title: "Задать вопрос",
+                subtitle: "Заполните форму и мы свяжемся с вами в ближайшее время",
+                fullName: "Полное имя",
+                email: "Email",
+                organization: "Название организации",
+                phone: "Телефон",
+                message: "Сообщение",
+                attachFiles: "Прикрепите фото (видео)",
+                addFile: "Добавить файл",
+                consent: "Нажимая кнопку «ОТПРАВИТЬ», я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и для целей, определенных в Согласии на обработку персональных данных",
+                submit: "Отправить",
+                sending: "Отправка...",
+                success: "Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.",
+                error: "Произошла ошибка при отправке. Пожалуйста, попробуйте позже."
+            },
+            hotline: {
+                intro: "Уважаемые абоненты и жители республики, для вашего удобства, в компании «Экологистика» работает горячая линия, которая создана для оперативного приема Ваших жалоб и заявлений.",
+                hotlineTitle: "Горячая линия",
+                appointmentTitle: "Запись на прием",
+                statusTitle: "Статус заявления",
+                whatsappTitle: "WhatsApp"
+            }
         }
     },
     en: {
@@ -1520,6 +1547,33 @@ export const translations = {
                 vehicle11: "KAMAZ garbage truck with side loading KO-415M, 13t",
                 vehicle12: "Side-loading garbage truck MK-4454-08 on KAMAZ 65115, 11t",
                 vehicle13: "GAZ 53 garbage truck, 3t"
+            }
+        },
+        businessFeedback: {
+            title: "Feedback",
+            subtitle: "If you have any questions, fill out the form below",
+            form: {
+                title: "Ask a Question",
+                subtitle: "Fill out the form and we will contact you shortly",
+                fullName: "Full Name",
+                email: "Email",
+                organization: "Organization Name",
+                phone: "Phone",
+                message: "Message",
+                attachFiles: "Attach photos (videos)",
+                addFile: "Add file",
+                consent: "By clicking the 'SUBMIT' button, I give my consent to the processing of my personal data, in accordance with Federal Law No. 152-FZ of July 27, 2006 'On Personal Data', under the terms and for the purposes defined in the Consent to the Processing of Personal Data",
+                submit: "Submit",
+                sending: "Sending...",
+                success: "Your message has been successfully sent! We will contact you shortly.",
+                error: "An error occurred while sending. Please try again later."
+            },
+            hotline: {
+                intro: "Dear subscribers and residents of the republic, for your convenience, Ecologistika operates a hotline created for prompt reception of your complaints and applications.",
+                hotlineTitle: "Hotline",
+                appointmentTitle: "Appointment",
+                statusTitle: "Application Status",
+                whatsappTitle: "WhatsApp"
             }
         }
     }

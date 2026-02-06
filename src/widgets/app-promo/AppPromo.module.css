@@ -4,7 +4,7 @@
     width: 100%;
     /* Fluid padding: 48px to 96px */
     padding: calc(48px + (96 - 48) * ((100vw - 320px) / (1920 - 320))) 0;
-    background: #FAFAF9;
+    background: #fafaf9;
 }
 
 :global(.dark) .appPromo {

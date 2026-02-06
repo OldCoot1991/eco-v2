@@ -15,15 +15,9 @@ export const MobileApp = () => {
             <div className={styles.mobileAppContainer}>
                 <div className={styles.appGrid}>
                     <div className={styles.appContent}>
-                        <div className={styles.appBadge}>
-                            {t.mobileApp.badge}
-                        </div>
-                        <h2 className={styles.appHeading}>
-                            {t.mobileApp.title}
-                        </h2>
-                        <p className={styles.appDescription}>
-                            {t.mobileApp.desc}
-                        </p>
+                        <div className={styles.appBadge}>{t.mobileApp.badge}</div>
+                        <h2 className={styles.appHeading}>{t.mobileApp.title}</h2>
+                        <p className={styles.appDescription}>{t.mobileApp.desc}</p>
 
                         <div className={styles.appButtons}>
                             <StoreButton
@@ -44,9 +38,7 @@ export const MobileApp = () => {
                     </div>
 
                     <div className={styles.appMockup}>
-                        <div className={styles.phoneMockup}>
-                            App Screenshot
-                        </div>
+                        <div className={styles.phoneMockup}>App Screenshot</div>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,409 @@
+.container {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), #10b981);
+}
+
+:global(.dark) .container {
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--foreground);
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--foreground);
+    opacity: 0.7;
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+@media (max-width: 767px) {
+    .form {
+        gap: 1rem;
+    }
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.required {
+    color: #ef4444;
+    font-size: 1.1rem;
+}
+
+.input,
+.textarea {
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.03);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    width: 100%;
+    color: var(--foreground);
+    outline: none;
+}
+
+:global(.dark) .input,
+:global(.dark) .textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.input:focus,
+.textarea:focus {
+    border-color: var(--primary);
+    background: var(--background);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+:global(.dark) .input:focus,
+:global(.dark) .textarea:focus {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: var(--foreground);
+    opacity: 0.5;
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 150px;
+    font-family: inherit;
+}
+
+.error {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: -0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* File Upload Section */
+.filesSection {
+    margin: 1rem 0;
+    grid-column: 1 / -1;
+}
+
+.uploadLabel {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.uploadArea {
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.02);
+    transition: all 0.2s;
+    min-height: 120px;
+    width: 100%;
+}
+
+:global(.dark) .uploadArea {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.uploadArea:hover {
+    border-color: var(--primary);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.uploadText {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.fileList {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.fileItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+:global(.dark) .fileItem {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.fileName {
+    font-weight: 500;
+}
+
+.fileSize {
+    opacity: 0.6;
+}
+
+/* Form Footer */
+.formFooter {
+    margin-top: 1rem;
+    grid-column: 1 / -1;
+}
+
+.checkbox {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: var(--foreground);
+    line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+    .checkbox {
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+}
+
+.checkbox input {
+    margin-top: 0.25rem;
+    accent-color: var(--primary);
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.submitButton {
+    background: linear-gradient(135deg, var(--primary) 0%, #10b981 100%);
+    color: white;
+    padding: 1.25rem 3rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.submitButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    transition: left 0.5s;
+}
+
+.submitButton:hover::before {
+    left: 100%;
+}
+
+.submitButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.4);
+}
+
+.submitButton:active {
+    transform: translateY(0);
+}
+
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    background: #9ca3af;
+}
+
+.submitButton:disabled::before {
+    display: none;
+}
+
+/* Desktop Grid Layout */
+@media (min-width: 768px) {
+    .form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+        row-gap: 1.75rem;
+    }
+
+    .field:nth-child(5) {
+        /* Message field */
+        grid-column: 1 / -1;
+    }
+
+    .submitButton {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* Tablet Adjustments */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .container {
+        padding: 2.5rem;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 767px) {
+    .container {
+        padding: 1.5rem 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .subtitle {
+        font-size: 0.875rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .field {
+        gap: 0.35rem;
+    }
+
+    .label {
+        font-size: 0.875rem;
+    }
+
+    .input,
+    .textarea {
+        padding: 0.75rem 0.875rem;
+        font-size: 0.9rem;
+    }
+
+    .textarea {
+        min-height: 110px;
+    }
+
+    .uploadArea {
+        padding: 1rem;
+        min-height: 90px;
+    }
+
+    .uploadText {
+        font-size: 0.95rem;
+    }
+
+    .submitButton {
+        width: 100%;
+        max-width: none;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.25rem 0.875rem;
+    }
+
+    .title {
+        font-size: 1.35rem;
+    }
+
+    .subtitle {
+        font-size: 0.825rem;
+    }
+
+    .label {
+        font-size: 0.85rem;
+    }
+
+    .input,
+    .textarea {
+        font-size: 0.875rem;
+        padding: 0.7rem 0.8rem;
+    }
+
+    .uploadArea {
+        padding: 0.875rem;
+        min-height: 80px;
+    }
+
+    .uploadText {
+        font-size: 0.9rem;
+    }
+}
