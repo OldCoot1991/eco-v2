@@ -1,0 +1,194 @@
+.card {
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    background: var(--card, white);
+    padding: 1.25rem;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    flex-direction: row;
+    gap: 1.25rem;
+    align-items: center;
+    min-height: 110px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+:global(.dark) .card {
+    background: #18181b;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: #10b981;
+}
+
+.cardIconCircle {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+}
+
+.cardContent {
+    flex-grow: 1;
+}
+
+.cardTitle {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--foreground);
+    margin-bottom: 0.25rem;
+    font-family: var(--font-raleway), sans-serif;
+    line-height: 1.2;
+}
+
+.cardText {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--foreground);
+    opacity: 0.6;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+}
+
+.cardAction {
+    color: #10b981;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Color Variants for Glass Icons */
+.card[data-service="emerald"] .cardIconCircle {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+.card[data-service="blue"] .cardIconCircle {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+}
+
+.card[data-service="green"] .cardIconCircle {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.card[data-service="amber"] .cardIconCircle {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+}
+
+.card[data-service="purple"] .cardIconCircle {
+    background: rgba(168, 85, 247, 0.1);
+    color: #9333ea;
+}
+
+.card[data-service="teal"] .cardIconCircle {
+    background: rgba(20, 184, 166, 0.1);
+    color: #0d9488;
+}
+
+:global(.dark) .card[data-service="emerald"] .cardIconCircle {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+}
+
+:global(.dark) .card[data-service="blue"] .cardIconCircle {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+}
+
+:global(.dark) .card[data-service="green"] .cardIconCircle {
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+}
+
+:global(.dark) .card[data-service="amber"] .cardIconCircle {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+}
+
+:global(.dark) .card[data-service="purple"] .cardIconCircle {
+    background: rgba(168, 85, 247, 0.2);
+    color: #c084fc;
+}
+
+:global(.dark) .card[data-service="teal"] .cardIconCircle {
+    background: rgba(20, 184, 166, 0.2);
+    color: #2dd4bf;
+}
+
+/* Mobile Accordion for Glass Variant */
+@media (max-width: 900px) {
+    .card {
+        min-height: auto;
+        padding: 0.75rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.75rem;
+        align-items: start;
+    }
+
+    .cardContent {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+
+    .cardTitle {
+        margin-bottom: 0;
+    }
+
+    .cardText,
+    .cardAction {
+        display: none;
+    }
+
+    .card.expanded .cardText {
+        display: block;
+        margin-top: 0.25rem;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .card.expanded .cardAction {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .cardText {
+        margin-bottom: 0.25rem;
+    }
+
+    .cardIconCircle {
+        margin-top: 0;
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

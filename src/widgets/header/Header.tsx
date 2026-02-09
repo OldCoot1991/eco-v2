@@ -1,10 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
-import { useAppSelector } from "@/shared/lib/hooks";
-import { useTranslation } from "@/shared/lib/hooks/useTranslation";
 import styles from "./Header.module.css";
 import { FaCog } from "react-icons/fa";
 import Logo from "@/shared/ui/Logo/Logo";
@@ -12,19 +8,20 @@ import UserProfileButton from "@/shared/ui/UserProfileButton/UserProfileButton";
 import { Navbar } from "@/widgets/navbar/Navbar";
 import SettingsModal from "@/features/settings-modal/SettingsModal";
 import ContactsModal from "@/features/contacts-modal/ContactsModal";
+import { useHeaderLogic } from "./model/useHeaderLogic";
 
 export default function Header() {
-  const currentPath = usePathname();
-  const { t } = useTranslation();
-  const theme = useAppSelector((state) => state.theme.mode);
-  const language = useAppSelector((state) => state.language.current);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isContactsOpen, setIsContactsOpen] = useState(false);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-
-  const handleNavigation = (path: string) => {
-  };
+  const {
+    currentPath,
+    t,
+    isMobileMenuOpen,
+    setIsMobileMenuOpen,
+    isContactsOpen,
+    setIsContactsOpen,
+    isSettingsOpen,
+    setIsSettingsOpen,
+    handleNavigation
+  } = useHeaderLogic();
 
   return (
     <>

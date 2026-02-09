@@ -9,12 +9,13 @@
   justify-content: center;
   opacity: 0;
   animation: fadeIn 0.2s forwards;
-  padding: 1rem; /* Prevent touching edges on mobile */
+  padding: 1rem;
+  /* Prevent touching edges on mobile */
 }
 
 .modal {
   /* Use theme variables for background */
-  background: var(--background); 
+  background: var(--background);
   /* Add slight transparency if desired, but site theme seems to be gradients or solid colors mainly */
   /* If background is gradient, we might want a solid fallback or just use it. */
   /* Actually, to ensure readability, a solid card-like background is better? */
@@ -43,8 +44,9 @@
 
 /* Specific dark mode overrides if var(--background) isn't sufficient or handles transparency differently */
 :global(.dark) .modal {
-   background: #0f0f0f; /* Match global dark background explicitly if var isn't enough */
-   border-color: rgba(255, 255, 255, 0.1);
+  background: #0f0f0f;
+  /* Match global dark background explicitly if var isn't enough */
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .header {
@@ -57,7 +59,8 @@
 .title {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--foreground); /* Use var */
+  color: var(--foreground);
+  /* Use var */
   margin: 0;
 }
 
@@ -68,7 +71,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  background: var(--card-bg); /* Use theme var */
+  background: var(--card-bg);
+  /* Use theme var */
   border: 1px solid var(--border);
   color: var(--foreground);
   cursor: pointer;
@@ -82,12 +86,75 @@
 }
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes popIn {
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* Mobile full-width modal */
+@media (max-width: 1024px) {
+  .overlay {
+    padding: 0;
+    background: rgba(0, 0, 0, 0.7);
+    /* Darker overlay for better contrast */
+  }
+
+  .modal {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    /* Changed from dvh to 100% */
+    border-radius: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+    border: none;
+    overflow-x: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    /* Push close button to the right */
+    align-items: center;
+    padding: 0.75rem 1rem;
+    margin: 0;
+    border-bottom: none;
+    background: var(--background);
+    z-index: 10;
+  }
+
+  .title {
+    display: none;
+    /* Modal title hidden on mobile as it's inside the form */
+  }
+
+  .closeButton {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 1.25rem;
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .closeButton:hover {
+    color: var(--primary);
+    border-color: var(--primary);
   }
 }

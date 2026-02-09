@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './BusinessFeedbackForm.module.css';
 import { FaPlus, FaFileAlt } from 'react-icons/fa';
+import { useTranslation } from "@/shared/lib/hooks/useTranslation";
 
 interface FeedbackFormData {
     fullName: string;
@@ -14,6 +15,7 @@ interface FeedbackFormData {
 }
 
 export const BusinessFeedbackForm = () => {
+    const { t } = useTranslation();
     const {
         register,
         handleSubmit,
@@ -33,41 +35,42 @@ export const BusinessFeedbackForm = () => {
 
     const onSubmit = async (data: FeedbackFormData) => {
         if (!consent) {
-            alert('Необходимо дать согласие на обработку персональных данных');
+            alert(t.businessFeedback.form.consent); // Using consent text as warning for now, or add specific warning key
             return;
         }
 
         try {
             // Simulate API call
             await new Promise((resolve) => setTimeout(resolve, 1000));
-            console.log('Form data:', data, 'Files:', files);
-            alert('Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.');
+            // Removed console.log for production
+            alert(t.businessFeedback.form.success);
             reset();
             setFiles([]);
             setConsent(false);
         } catch (error) {
+            // Error handling remains for development debugging if needed
             console.error('Error sending feedback:', error);
-            alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
+            alert(t.businessFeedback.form.error);
         }
     };
 
     return (
         <div className={styles.container}>
-            <h2 className={styles.title}>Задать вопрос</h2>
-            <p className={styles.subtitle}>Заполните форму ниже, и мы свяжемся с вами в ближайшее время</p>
+            <h2 className={styles.title}>{t.businessFeedback.form.title}</h2>
+            <p className={styles.subtitle}>{t.businessFeedback.form.subtitle}</p>
 
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
 
                 {/* Full Name */}
                 <div className={styles.field}>
                     <label className={styles.label} htmlFor="fullName">
-                        Ф. И. О <span className={styles.required}>*</span>
+                        {t.businessFeedback.form.fullName} <span className={styles.required}>*</span>
                     </label>
                     <input
                         id="fullName"
                         className={styles.input}
-                        placeholder="Иванов Иван Иванович"
-                        {...register('fullName', { required: 'Введите ФИО' })}
+                        placeholder={t.businessFeedback.form.fullName}
+                        {...register('fullName', { required: t.businessFeedback.form.fullName + ' is required' })}
                     />
                     {errors.fullName && (
                         <span className={styles.error}>
@@ -79,7 +82,7 @@ export const BusinessFeedbackForm = () => {
                 {/* Email */}
                 <div className={styles.field}>
                     <label className={styles.label} htmlFor="email">
-                        Email <span className={styles.required}>*</span>
+                        {t.businessFeedback.form.email} <span className={styles.required}>*</span>
                     </label>
                     <input
                         id="email"
@@ -87,10 +90,10 @@ export const BusinessFeedbackForm = () => {
                         className={styles.input}
                         placeholder="example@company.com"
                         {...register('email', {
-                            required: 'Введите Email',
+                            required: t.businessFeedback.form.email + ' is required',
                             pattern: {
                                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message: 'Некорректный Email адрес'
+                                message: 'Invalid email address'
                             }
                         })}
                     />
@@ -104,13 +107,13 @@ export const BusinessFeedbackForm = () => {
                 {/* Organization Name */}
                 <div className={styles.field}>
                     <label className={styles.label} htmlFor="organizationName">
-                        Наименование организации <span className={styles.required}>*</span>
+                        {t.businessFeedback.form.organization} <span className={styles.required}>*</span>
                     </label>
                     <input
                         id="organizationName"
                         className={styles.input}
-                        placeholder="ООО «Ромашка»"
-                        {...register('organizationName', { required: 'Введите название организации' })}
+                        placeholder={t.businessFeedback.form.organization}
+                        {...register('organizationName', { required: t.businessFeedback.form.organization + ' is required' })}
                     />
                     {errors.organizationName && (
                         <span className={styles.error}>
@@ -122,7 +125,7 @@ export const BusinessFeedbackForm = () => {
                 {/* Phone */}
                 <div className={styles.field}>
                     <label className={styles.label} htmlFor="phone">
-                        Телефон <span className={styles.required}>*</span>
+                        {t.businessFeedback.form.phone} <span className={styles.required}>*</span>
                     </label>
                     <input
                         id="phone"
@@ -130,8 +133,8 @@ export const BusinessFeedbackForm = () => {
                         className={styles.input}
                         placeholder="+7 (999) 000-00-00"
                         {...register('phone', {
-                            required: 'Введите номер телефона',
-                            minLength: { value: 10, message: 'Минимум 10 цифр' }
+                            required: t.businessFeedback.form.phone + ' is required',
+                            minLength: { value: 10, message: 'Minimum 10 digits' }
                         })}
                     />
                     {errors.phone && (
@@ -144,13 +147,13 @@ export const BusinessFeedbackForm = () => {
                 {/* Message */}
                 <div className={styles.field}>
                     <label className={styles.label} htmlFor="message">
-                        Сообщение <span className={styles.required}>*</span>
+                        {t.businessFeedback.form.message} <span className={styles.required}>*</span>
                     </label>
                     <textarea
                         id="message"
                         className={styles.textarea}
-                        placeholder="Опишите ваш вопрос или предложение..."
-                        {...register('message', { required: 'Введите сообщение' })}
+                        placeholder={t.businessFeedback.form.message}
+                        {...register('message', { required: t.businessFeedback.form.message + ' is required' })}
                     />
                     {errors.message && (
                         <span className={styles.error}>
@@ -162,23 +165,25 @@ export const BusinessFeedbackForm = () => {
                 {/* File Upload Section */}
                 <div className={styles.filesSection}>
                     <label className={styles.uploadLabel}>
-                        Прикрепите фото (видео)
+                        {t.businessFeedback.form.attachFiles}
                     </label>
                     <label className={styles.uploadArea}>
-                        <input type="file" multiple onChange={handleUpload} style={{ display: 'none' }} />
-                        <span className={styles.uploadText}><FaPlus /> Добавить файл</span>
+                        <input type="file" multiple onChange={handleUpload} className={styles.fileInput} />
+                        <span className={styles.uploadText}><FaPlus /> {t.businessFeedback.form.addFile}</span>
                     </label>
-                    <div className={styles.fileList}>
-                        {files.map((file, i) => (
-                            <div key={i} className={styles.fileItem}>
-                                <FaFileAlt />
-                                <div>
-                                    <div className={styles.fileName}>{file.name}</div>
-                                    <div className={styles.fileSize}>{Math.round(file.size / 1024)} KB</div>
+                    {files.length > 0 && (
+                        <div className={styles.fileList}>
+                            {files.map((file, i) => (
+                                <div key={i} className={styles.fileItem}>
+                                    <FaFileAlt />
+                                    <div>
+                                        <div className={styles.fileName}>{file.name}</div>
+                                        <div className={styles.fileSize}>{Math.round(file.size / 1024)} KB</div>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 {/* Consent Checkbox */}
@@ -190,12 +195,12 @@ export const BusinessFeedbackForm = () => {
                             onChange={() => setConsent(!consent)}
                         />
                         <span>
-                            Нажимая кнопку «ОТПРАВИТЬ», я даю свое согласие на обработку моих персональных данных на условиях и для целей, определенных в политике обработки персональных данных
+                            {t.businessFeedback.form.consent}
                         </span>
                     </label>
 
                     <button type="submit" className={styles.submitButton} disabled={isSubmitting || !consent}>
-                        {isSubmitting ? 'Отправка...' : 'Отправить'}
+                        {isSubmitting ? t.businessFeedback.form.sending : t.businessFeedback.form.submit}
                     </button>
                 </div>
             </form>

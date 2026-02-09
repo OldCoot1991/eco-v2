@@ -1,7 +1,5 @@
 import { Metadata } from "next";
-import { SectionTitle } from "@/shared/ui/SectionTitle/SectionTitle";
-import { BusinessFeedbackForm } from "@/widgets/business-feedback/BusinessFeedbackForm";
-import { HotlineInfo } from "@/widgets/hotline-info/HotlineInfo";
+import { BusinessFeedbackPageContent } from "@/widgets/business-feedback/BusinessFeedbackPageContent";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -14,17 +12,8 @@ export default function BusinessFeedbackPage() {
     return (
         <>
             <main className={styles.main}>
-                <div className="container">
-                    <div className={styles.content}>
-                        <SectionTitle
-                            title="Обратная связь"
-                            subtitle="Если у вас возникли вопросы, заполните форму ниже"
-                        />
-                        <BusinessFeedbackForm />
-                    </div>
-                </div>
+                <BusinessFeedbackPageContent />
             </main>
-            <HotlineInfo />
         </>
     );
 }

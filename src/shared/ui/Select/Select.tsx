@@ -3,18 +3,28 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './Select.module.css';
 import { FaChevronDown } from 'react-icons/fa';
+import clsx from 'clsx';
 
-interface SelectProps {
+// Generic type for options: can be a string or a tuple [label, value]
+export type SelectOption = string | [string, string];
+
+interface SelectProps<T extends SelectOption> {
     value: string;
     onChange: (value: string) => void;
-    // Allow simple string array, OR array of tuples/arrays (like orgs data)
-    options: string[] | any[][];
+    options: T[];
     placeholder?: string;
     disabled?: boolean;
     className?: string;
 }
 
-export const Select = ({ value, onChange, options, placeholder = "Выберите значение", disabled = false, className = '' }: SelectProps) => {
+export const Select = <T extends SelectOption>({
+    value,
+    onChange,
+    options,
+    placeholder = "Выберите значение",
+    disabled = false,
+    className = ''
+}: SelectProps<T>) => {
     const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -35,16 +45,21 @@ export const Select = ({ value, onChange, options, placeholder = "Выберит
         setIsOpen(false);
     };
 
-    // Helper to get display label whether it's simple string or tuple/array
-    const getOptionLabel = (opt: string | any[]) => {
-        return Array.isArray(opt) ? opt[0] : opt;
+    // Helper to get display label
+    const getOptionLabel = (opt: T): string => {
+        return Array.isArray(opt) ? opt[0] : (opt as string);
     };
 
-    // Helper to check if option is disabled (for orgs grouping logic)
-    const isOptionDisabled = (opt: string | any[]) => {
+    // Helper to get option value
+    const getOptionValue = (opt: T): string => {
+        return Array.isArray(opt) ? opt[0] : (opt as string);
+    }
+
+    // Helper to check if option is disabled (header)
+    const isOptionDisabled = (opt: T): boolean => {
         if (Array.isArray(opt)) {
-            // Logic specific to orgs structure: [name, value]
-            // If value is falsy or missing (length 1), it's a category header
+            // [label, value]
+            // If value is empty, treat as header
             return !opt[1];
         }
         return false;
@@ -52,11 +67,11 @@ export const Select = ({ value, onChange, options, placeholder = "Выберит
 
     return (
         <div
-            className={`${styles.container} ${isOpen ? styles.open : ''} ${className}`}
+            className={clsx(styles.container, isOpen && styles.open, className)}
             ref={containerRef}
         >
             <div
-                className={`${styles.trigger} ${disabled ? styles.disabled : ''}`}
+                className={clsx(styles.trigger, disabled && styles.disabled)}
                 onClick={() => !disabled && setIsOpen(!isOpen)}
             >
                 {value ? (
@@ -76,16 +91,13 @@ export const Select = ({ value, onChange, options, placeholder = "Выберит
                         const isDisabled = isOptionDisabled(opt);
                         const isSelected = label === value;
 
-                        // Different styling for disabled headers (like "OOO", "AO" or Categories)
                         if (isDisabled) {
                             return (
                                 <div
                                     key={i}
-                                    className={`${styles.option}`}
-                                    style={{ fontWeight: 'bold', background: 'var(--background)', opacity: 0.8, cursor: 'default' }}
+                                    className={clsx(styles.option, styles.optionHeader)}
                                 >
                                     {label}
-                                    {/* Optional: Add a subtle divider if it's a category header */}
                                 </div>
                             );
                         }
@@ -93,7 +105,7 @@ export const Select = ({ value, onChange, options, placeholder = "Выберит
                         return (
                             <div
                                 key={i}
-                                className={`${styles.option} ${isSelected ? styles.selected : ''}`}
+                                className={clsx(styles.option, isSelected && styles.selected)}
                                 onClick={() => handleSelect(label)}
                             >
                                 {label}

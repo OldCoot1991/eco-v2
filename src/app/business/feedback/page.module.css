@@ -1,10 +1,21 @@
 .main {
-    padding: 4rem 0;
+    padding: 0;
     min-height: 80vh;
     background-color: var(--color-background-primary);
 }
 
+.pageContainer {
+    max-width: 1280px;
+    margin: 0 auto;
+    /* Fluid padding-x: 16px to 16px (consistent base) + bottom spacing */
+    /* Fluid padding-bottom: 64px to 96px */
+    padding: 0 1rem calc(64px + (96 - 64) * ((100vw - 320px) / (1920 - 320)));
+}
+
 .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -12,20 +23,12 @@
 
 /* Mobile Adjustments */
 @media (max-width: 767px) {
-    .main {
-        padding: 2rem 0;
-    }
-
     .content {
         gap: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .main {
-        padding: 1.5rem 0;
-    }
-
     .content {
         gap: 1.25rem;
     }

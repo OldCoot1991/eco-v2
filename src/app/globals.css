@@ -1,28 +1,50 @@
 /* CSS Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 * {
   font-family: var(--font-raleway);
 }
-body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
   margin: 0;
   padding: 0;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
@@ -32,7 +54,8 @@ input, button, textarea, select {
   --font-heading: var(--font-raleway);
   --font-title: var(--font-source-serif);
 
-  --background: linear-gradient(180deg, #e4e4e7 0%, #f4f4f5 50%, #ffffff 100%); /* Brighter silver gradient */
+  --background: linear-gradient(180deg, #e4e4e7 0%, #f4f4f5 50%, #ffffff 100%);
+  /* Brighter silver gradient */
   --foreground: #1F2937;
   --primary: #059669;
   --primary-hover: #047857;
@@ -170,14 +193,4 @@ h6 {
 
 .animate-spin-slow {
   animation: rotate 4s linear infinite;
-}
-
-/* Touch-friendly tap targets for mobile */
-@media (max-width: 768px) {
-
-  button,
-  a {
-    min-height: 44px;
-    min-width: 44px;
-  }
 }
