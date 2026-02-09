@@ -1,8 +1,8 @@
 .silverButton {
   width: 100%;
-  max-width: 400px;
   display: block;
-  margin: 0 auto 1rem auto;
+  margin: 0 0 1rem 0;
+  /* Left aligned, no auto margin */
   padding: 1rem 1.5rem;
   border-radius: 4px;
   font-weight: 700;
@@ -14,9 +14,11 @@
   /* Silver Metallic Gradient */
   background-image: linear-gradient(to right, #9ca3af, #f3f4f6, #9ca3af);
   background-size: 200% auto;
-  color: #111827; /* Dark text for contrast */
+  color: #111827;
+  /* Dark text for contrast */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   text-align: center;
+  /* Keep text centered in the button */
 }
 
 .silverButton:hover {

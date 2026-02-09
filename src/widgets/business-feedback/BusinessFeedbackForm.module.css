@@ -296,6 +296,8 @@
     /* Keep gradient only in dark mode if desired, but here we let Modal handle it */
     :global(.dark) .container {
         background: transparent;
+        border: none;
+        box-shadow: none;
     }
 
     .title {
