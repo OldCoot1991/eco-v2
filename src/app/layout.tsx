@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Raleway, Source_Serif_4 } from "next/font/google";
+import { Geist, Geist_Mono, Raleway, Source_Serif_4, Montserrat } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/shared/providers/StoreProvider";
 import ThemeSync from "@/shared/providers/ThemeSync";
@@ -27,6 +27,11 @@ const raleway = Raleway({
 
 const sourceSerif = Source_Serif_4({
   variable: "--font-source-serif",
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700", "800", "900"],
 });
@@ -97,12 +102,12 @@ export default function RootLayout({
       "https://ecologistika.com/logo.png"
     ],
     "description": "Региональный оператор по обращению с твердыми коммунальными отходами (ТКО) в Кабардино-Балкарской Республике.",
-    "telephone": "+7-8662-22-91-10",
+    "telephone": "+7-989-640-05-23",
     "email": "info@eco07.ru",
     "contactPoint": [
       {
         "@type": "ContactPoint",
-        "telephone": "+7-8662-22-91-10",
+        "telephone": "+7-989-640-05-23",
         "contactType": "customer service",
         "contactOption": "TollFree",
         "areaServed": "RU",
@@ -157,7 +162,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} ${sourceSerif.variable} ${styles.layoutBody} `}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} ${sourceSerif.variable} ${montserrat.variable} ${styles.layoutBody} `}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

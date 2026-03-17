@@ -48,7 +48,7 @@ export const BusinessContractPageContent = () => {
                 <div className={styles.combinedGrid}>
                     {/* For Legal Entities */}
                     <div className={styles.cardBox}>
-                        <h4 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem', color: 'var(--foreground)' }}>{bc.documents.legal.title}</h4>
+                        <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--foreground)', fontFamily: 'var(--font-raleway), sans-serif' }}>{bc.documents.legal.title}</h4>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                             {bc.documents.legal.list.map((item: string, i: number) => (
                                 <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: 'var(--foreground)' }}>
@@ -61,7 +61,7 @@ export const BusinessContractPageContent = () => {
 
                     {/* For Entrepreneurs */}
                     <div className={styles.cardBox}>
-                        <h4 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1.5rem', color: 'var(--foreground)' }}>{bc.documents.entrepreneur.title}</h4>
+                        <h4 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--foreground)', fontFamily: 'var(--font-raleway), sans-serif' }}>{bc.documents.entrepreneur.title}</h4>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                             {bc.documents.entrepreneur.list.map((item: string, i: number) => (
                                 <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: 'var(--foreground)' }}>

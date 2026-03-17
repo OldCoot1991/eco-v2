@@ -28,7 +28,7 @@ export const requisites = {
         postalAddr: "Почтовый адрес",
         postalAddrValue: "360051, КБР, г. Нальчик, ул. Пушкина, д.33 «А»/72, кабинет 335",
         phone: "Телефон:",
-        phoneValue: "8 (8662) 22-91-10",
+        phoneValue: "8 (989) 640-05-23",
         director: "Генеральный директор",
         directorValue: "Кочесоков Рустам Галиевич"
     },
@@ -61,7 +61,7 @@ export const requisites = {
         postalAddr: "Postal address",
         postalAddrValue: "360051, Nalchik, Pushkin St., 33 \"A\"/72, office 335",
         phone: "Phone:",
-        phoneValue: "8 (8662) 22-91-10",
+        phoneValue: "8 (989) 640-05-23",
         director: "General Director",
         directorValue: "Kochesokov Rustam Galievich"
     }

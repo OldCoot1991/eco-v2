@@ -1,0 +1,235 @@
+.wrapper {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 0.75rem 1.75rem;
+    border-radius: 4px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    color: var(--foreground);
+    font-family: var(--font-raleway);
+    font-size: 0.9375rem;
+}
+
+.tab:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.tabActive {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+}
+
+.tabActive:hover {
+    color: white;
+    box-shadow: 0 6px 16px rgba(5, 150, 105, 0.3);
+}
+
+.content {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3rem;
+    box-shadow: var(--shadow-lg);
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@media (max-width: 640px) {
+    .content {
+        padding: 1.5rem;
+        border-radius: 4px;
+    }
+}
+
+.header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--foreground);
+    margin-bottom: 1.25rem;
+    font-family: var(--font-raleway);
+}
+
+.description {
+    color: var(--foreground);
+    opacity: 0.8;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.125rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-raleway);
+}
+
+.tableContainer {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.tableRow {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr 1.5fr;
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.2s ease;
+}
+
+@media (max-width: 640px) {
+    .tableRow {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+}
+
+.tableRow:last-child {
+    border-bottom: none;
+}
+
+.tableHeader {
+    background: var(--background);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    color: var(--foreground);
+    opacity: 0.6;
+}
+
+.tableCell {
+    display: flex;
+    align-items: center;
+    font-size: 0.9375rem;
+    color: var(--foreground);
+}
+
+.tableCellStrong {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.prepSection {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--border);
+}
+
+.prepGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .prepGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .prepGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.prepCard {
+    text-align: center;
+    padding: 2rem;
+    background: var(--background);
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.prepCard:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+}
+
+.prepNumber {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+}
+
+.prepText {
+    font-size: 1rem;
+    color: var(--foreground);
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.acceptIcon {
+    color: #10b981;
+    font-size: 1.75rem;
+}
+
+.rejectIcon {
+    color: #ef4444;
+    font-size: 1.75rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

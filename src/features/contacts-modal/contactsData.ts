@@ -14,8 +14,8 @@ export const contactItems: ContactItem[] = [
     {
         icon: FaPhone,
         label: { en: 'Customer Service', ru: 'Абонентская служба' },
-        value: '8 (8662) 22-91-10',
-        href: 'tel:+78662229110',
+        value: "8 (989) 640-05-23",
+        href: 'tel:+79896400523',
         type: 'link',
         color: '#10b981' // Green
     },

@@ -17,6 +17,7 @@ import { mobileApp } from './mobile_app';
 import { paymentPartners } from './payment_partners';
 import { faq } from './faq';
 import { header } from './header';
+import { news } from './news';
 
 export const translationsConfig = {
     ru: {
@@ -41,7 +42,8 @@ export const translationsConfig = {
         mobileApp: mobileApp.ru,
         paymentPartners: paymentPartners.ru,
         faq: faq.ru,
-        header: header.ru
+        header: header.ru,
+        news: news.ru
     },
     en: {
         common: common.en,
@@ -65,6 +67,7 @@ export const translationsConfig = {
         mobileApp: mobileApp.en,
         paymentPartners: paymentPartners.en,
         faq: faq.en,
-        header: header.en
+        header: header.en,
+        news: news.en
     }
 };

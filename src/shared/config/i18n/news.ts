@@ -1,0 +1,40 @@
+export const news = {
+    ru: {
+        allNews: "Все новости",
+        readMore: "Подробнее",
+        backToList: "Вернуться к списку",
+        loading: "Загрузка новостей...",
+        notFound: "Новость не найдена",
+        error: "Ошибка при загрузке данных",
+        searchPlaceholder: "Поиск по заголовку...",
+        noResults: "Новости не найдены",
+        filterDay: "Число",
+        filterMonth: "Месяц",
+        filterYear: "Год",
+        filterReset: "Сбросить",
+        allMonths: "Все месяцы",
+        allYears: "Все годы",
+        tryChangingFilters: "Попробуйте изменить параметры поиска или фильтры",
+        translating: "Перевод...",
+        translatedByAI: "Переведено ИИ"
+    },
+    en: {
+        allNews: "All News",
+        readMore: "Read More",
+        backToList: "Back to List",
+        loading: "Loading news...",
+        notFound: "News not found",
+        error: "Error loading data",
+        searchPlaceholder: "Search by title...",
+        noResults: "No news found",
+        filterDay: "Day",
+        filterMonth: "Month",
+        filterYear: "Year",
+        filterReset: "Reset",
+        allMonths: "All Months",
+        allYears: "All Years",
+        tryChangingFilters: "Try changing your search parameters or filters",
+        translating: "Translating...",
+        translatedByAI: "AI Translated"
+    }
+};

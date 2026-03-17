@@ -27,7 +27,7 @@ export default function CompanyManagementPage() {
             },
             "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+7-8662-22-91-10",
+                "telephone": "+7-989-640-05-23",
                 "contactType": "customer service",
                 "areaServed": "RU",
                 "availableLanguage": "Russian"

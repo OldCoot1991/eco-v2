@@ -52,7 +52,7 @@ export default function ContactsPage() {
         "url": "https://ecologistika.ru",
         "logo": "https://ecologistika.ru/logo.png",
         "description": "Региональный оператор по обращению с твердыми коммунальными отходами в Кабардино-Балкарской Республике",
-        "telephone": "+7-8662-22-91-10",
+        "telephone": "+7-989-640-05-23",
         "email": "info@ecologistika.ru",
         "address": {
             "@type": "PostalAddress",
@@ -74,7 +74,7 @@ export default function ContactsPage() {
         "contactPoint": [
             {
                 "@type": "ContactPoint",
-                "telephone": "+7-8662-22-91-10",
+                "telephone": "+7-989-640-05-23",
                 "contactType": "customer service",
                 "areaServed": "RU",
                 "availableLanguage": ["Russian"],
@@ -87,7 +87,7 @@ export default function ContactsPage() {
             },
             {
                 "@type": "ContactPoint",
-                "telephone": "+7-8662-22-91-10",
+                "telephone": "+7-989-640-05-23",
                 "contactType": "customer support",
                 "areaServed": "RU",
                 "availableLanguage": ["Russian"]

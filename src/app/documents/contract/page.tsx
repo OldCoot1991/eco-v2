@@ -53,7 +53,7 @@ export default function ContractPage() {
       "@type": "Organization",
       "name": "ООО «Экологистика»",
       "url": "https://ecologistika.ru",
-      "telephone": "+7-8662-22-91-10",
+      "telephone": "+7-989-640-05-23",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "ул. Пушкина, д. 33А/72",

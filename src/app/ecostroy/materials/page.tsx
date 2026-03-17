@@ -1,4 +1,3 @@
-import styles from "../../page.module.css";
 import BreadcrumbsLd from "@/shared/seo/BreadcrumbsLd";
 import MaterialsContent from "./MaterialsContent";
 
@@ -14,7 +13,7 @@ export default function EcostroyMaterialsPage() {
         "name": "Продажа стройматериалов Экологистика",
         "description": "Продажа арматуры и полипропиленовых труб от ведущих производителей в Нальчике и КБР.",
         "image": "https://ecologistika.ru/images/materials/armatura_riflenaya_a3_a500s_12_mm.webp",
-        "telephone": "+7-8662-22-91-10",
+        "telephone": "+7-989-640-05-23",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "ул. Пушкина, д. 33А/72",

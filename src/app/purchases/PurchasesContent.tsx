@@ -45,7 +45,7 @@ export default function PurchasesContent() {
                 <p className={styles.pageText}>
                     По вопросам участия в закупках и коммерческим предложениям:<br />
                     Email: <a href="mailto:info@ecologistika.com" style={{ color: 'var(--primary)' }}>info@ecologistika.com</a><br />
-                    Телефон: +7 (8662) 22-91-10 (доб. отдел закупок)
+                    Телефон: 8 (989) 640-05-23 (доб. отдел закупок)
                 </p>
             </div>
         </div>
